@@ -38,25 +38,21 @@ La base est reconstruite à partir des fichiers de données du projet web :
 node outils/extraire.js <chemin-du-projet-web>/web/ outils/brut.json
 python3 outils/nettoie_en.py        # lexique anglais : filtre + doubles formes
 python3 outils/dedupe.py            # aucun doublon, toutes langues
-python3 outils/filtre_webster.py webster1913.json  # EN : Webster 1913
-# PT : Novo Diccionario da Lingua Portugueza (Figueiredo 1913, OCR Internet Archive)
-#   https://archive.org/download/DicionrioDeL.P1913/DicionrioDeL.P1913_djvu.txt
-python3 outils/parse_figueiredo.py figueiredo.txt figueiredo_verbes.json
-python3 outils/filtre_figueiredo.py outils/brut.json figueiredo_verbes.json outils/brut.json
-# IT : Petrocchi 1887 + Crusca 1819 (OCR Internet Archive)
-#   Petrocchi vol. 1 : https://archive.org/download/novodizionarioun01petruoft/novodizionarioun01petruoft_djvu.txt
-#   Petrocchi vol. 2 : https://archive.org/download/novodizionarioun02petruoft/novodizionarioun02petruoft_djvu.txt
-#   Crusca 1819, éd. Costa-Cardinali, vol. 1 : https://archive.org/download/dizionariodellal01cost/dizionariodellal01cost_djvu.txt
-#   ... et de même dizionariodellal02cost ... 07cost ..._djvu.txt
-python3 outils/parse_petrocchi.py petr1.txt petr2.txt petrocchi_verbes.json
-python3 outils/parse_crusca.py crusca1.txt crusca02.txt crusca03.txt crusca04.txt crusca05.txt crusca06.txt crusca07.txt crusca_verbes.json
-python3 outils/filtre_italien.py outils/brut.json petrocchi_verbes.json crusca_verbes.json outils/brut.json
 python3 outils/construire_bdd.py
 ```
 
 `extraire.js` charge les scripts de données de `index.html` et vide toutes
 les constantes ; `construire_bdd.py` décode chaque format (routes, contours,
-points, chaînes de conjugaison) et écrit `assets/lestang_outils.db` (~22 Mo).
+points, chaînes de conjugaison) et écrit `assets/lestang_outils.db` (~23 Mo).
+
+Les filtres par dictionnaire du domaine public (Webster pour l'anglais,
+Figueiredo pour le portugais, Petrocchi et Crusca pour l'italien) ont été
+essayés, appliqués, puis **abandonnés** : tous les verbes du Wiktionary sont
+désormais conservés (voir « Détail du procédé »). Les scripts
+`outils/filtre_webster.py`, `parse_figueiredo.py`, `filtre_figueiredo.py`,
+`parse_petrocchi.py`, `parse_crusca.py` et `filtre_italien.py` restent dans
+le dépôt pour référence, avec les URLs des OCR des dictionnaires listées
+plus bas.
 
 Les langues polonaise (pl) et tchèque (cs) n'existent pas dans le moteur
 web : leurs chaînes sont construites par `python3 outils/construire_pl_cs.py`
@@ -87,21 +83,19 @@ qu'avant enrichissement** dans `outils/brut_orig.json`, puis lancer
 
 ## Contenu de la base
 
-- Conjugaison : en 8 339, it 6 818, pl 9 102, fr 8 535, es 8 966,
-  pt 4 792, de 4 220, cs 4 151 ; aucun doublon ; chaque verbe a une
-  définition ; définitions 100 % dans la langue de chaque carte
-  (glossaires anglais pour pl/cs comme pour de ; anglais :
-  Webster 1913, portugais : Figueiredo 1913, italien : Petrocchi 1887
-  et Crusca 1819).
+- Conjugaison : en 19 075, it 12 429, pl 9 102, fr 8 535, es 8 966,
+  pt 6 084, de 4 220, cs 4 151 ; aucun doublon ; tous les verbes du
+  Wiktionary sont conservés ; seuls de rares verbes n'ont pas de
+  définition (fr 4, en 7, es 19, pl 356, cs 53). Définitions : français
+  : Académie 8e éd. + Littré ; anglais : Webster 1913 où il définit,
+  sinon glossaire anglais du Wiktionary ; espagnol : Real Academia
+  1913 ; de/it/pt/pl/cs : glossaires anglais du Wiktionary (CC BY-SA).
 - Le lexique anglais est épuré : pas de verbe composé à trait d union
-  ( air-condition, birdy-sit ) ni de terme très spécialisé ;
-  un verbe n est conservé que si le Webster's Revised Unabridged
-  Dictionary ( 1913, texte du domaine public ; numérisation
-  lunixbochs/webster, code MIT ) le définit, et sa définition vient
-  alors de ce dictionnaire (`outils/filtre_webster.py`). Le lexique
-  portugais suit la même règle avec le Figueiredo 1913 ; le lexique
-  italien avec le Nòvo dizionàrio universale ( Petrocchi, 1887 ) et,
-  à défaut, le Dizionario della Crusca ( éd. Costa-Cardinali, 1819 ).
+  ( air-condition, birdy-sit ) ni de terme très spécialisé
+  (`outils/nettoie_en.py`) ; les verbes définis par le Webster's
+  Revised Unabridged Dictionary ( 1913, texte du domaine public ;
+  numérisation lunixbochs/webster, code MIT ) reçoivent sa définition
+  (`outils/filtre_webster.py`).
 - France : 160 départements, 2 461 autoroutes, 2 884 nationales,
   50 984 départementales, 54 fleuves, LGV, 178 villes des transports,
   103 tronçons parisiens.
@@ -120,11 +114,11 @@ MIT (`LICENSE`).
 | Langue | Verbes | dont Wiktionary | Procédé | Définitions |
 | --- | ---: | ---: | --- | --- |
 | fr | 8 535 | 1 574 | Moteur maison ; verbes enrichis depuis le Wiktionnaire (kaikki), chaque forme vérifiée, source stockée par verbe | Académie 8e éd. + Littré, domaine public |
-| en | 8 339 | 6 696 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme, puis limité aux verbes définis par le Webster 1913 (double formes -ed/-t conservées) | Webster 1913, domaine public (numérisation lunixbochs/webster, MIT) |
+| en | 19 075 | 17 432 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme (doubles formes -ed/-t conservées) | Webster 1913 où il définit (domaine public, numérisation lunixbochs/webster, MIT), sinon glossaires anglais du Wiktionary, CC BY-SA 4.0 |
 | es | 8 966 | 3 755 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Real Academia 1913, domaine public |
 | de | 4 220 | 3 940 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
-| it | 6 818 | 6 339 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme, puis limité aux verbes définis par Petrocchi 1887 ou la Crusca 1819 | Nòvo dizionàrio universale (Pietro Petrocchi, 1887) + Dizionario degli Accademici della Crusca (éd. Costa-Cardinali, 1819), domaine public (OCR Internet Archive) |
-| pt | 4 792 | 4 308 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme, puis limité aux verbes définis par le Figueiredo 1913 | Novo Diccionario da Lingua Portugueza (Cândido de Figueiredo, 1913), domaine public (OCR Internet Archive) |
+| it | 12 429 | 11 950 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme, tous les verbes du Wiktionary conservés | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
+| pt | 6 084 | 5 600 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme, tous les verbes du Wiktionary conservés | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
 | pl | 9 102 | 9 102 | Moteur `Pl` ; extraction du Wiktionary polonais via kaikki, verbe accepté seulement si toutes les formes prédites correspondent ; 125 verbes fréquents réintégrés verbatim | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
 | cs | 4 151 | 4 151 | Moteur `Cs` ; même procédé ; 21 verbes fréquents réintégrés verbatim | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
 
@@ -150,32 +144,27 @@ Détail du procédé :
   (conforme aux formes du Wiktionary) et, pour les rares passés
   incomplets (wziąć), les 1re/2e personnes dérivées des 3es par les
   suffixes réguliers.
-- **Pt, définitions portugaises ( Figueiredo 1913 )** : chaque verbe
-  entré du Wiktionary reçoit, en remplacement de son glossaire
-  anglais ( CC BY-SA ), les sens du Novo Diccionario da Lingua
-  Portugueza de Cândido de Figueiredo ( 1913, domaine public, OCR
-  Internet Archive ) via `outils/parse_figueiredo.py` et
-  `outils/filtre_figueiredo.py` ( mise en correspondance tolérante à
-  l'orthographe de 1913 : accents, consonnes doublées, c épicène ).
-  Les 1 292 verbes absents de ce dictionnaire, emprunts ou sens
-  postérieurs à 1913 ( controlar, vetar, detectar, dinamitar… ),
-  sont retirés. Les verbes du générateur maison et leurs
-  définitions sont conservés.
-- **It, définitions italiennes ( Petrocchi 1887, Crusca 1819 )** :
-  même principe pour l'italien. Le Nòvo dizionàrio universale de
-  Pietro Petrocchi ( 1887, domaine public, OCR Internet Archive,
-  tomes 1-2 ; tomaseobellini.it et l'édition isolée de 1912 ont été
-  écartés, OCR inexploitables ou lemmes manquants ) est dépouillé par
-  `outils/parse_petrocchi.py` ; à défaut ( 313 verbes ), le
-  Dizionario degli Accademici della Crusca ( édition Costa-Cardinali,
-  1819, domaine public, 7 volumes ) l'est par `outils/parse_crusca.py`.
-  Les définitions remplacent les glossaires anglais ( CC BY-SA ) ;
-  les 5 611 verbes définis par aucun des deux dictionnaires
-  ( filmare, idrogenare, cristianizzare… ) sont retirés ; les
-  verbes du générateur maison ( ex. cuocere, cullare ) restent avec
-  leurs définitions. Résultat : it 12 429 -> 6 818, dont 6 026
-  Petrocchi + 313 Crusca ; plus aucun glossaire anglais CC BY-SA
-  pour l'italien.
+- **Essais de filtrage par dictionnaire du domaine public (abandonnés)** :
+  pour que chaque verbe ait une définition ancienne et libre de droits,
+  plusieurs filtres ont été successivement appliqués puis retirés :
+  - *EN (abandonné)* : limite au Webster 1913 des verbes qu'il définit
+    ( `outils/filtre_webster.py` ) - la limitation a été abandonnée, le
+    Webster ne fournit plus que des définitions là où il définit ;
+  - *PT (abandonné)* : remplacement des glossaires par le Novo Diccionario
+    da Lingua Portugueza ( Cândido de Figueiredo, 1913 ) via
+    `outils/parse_figueiredo.py` et `outils/filtre_figueiredo.py`, retrait
+    des 1 292 verbes absents ( controlar, vetar, detectar, financiar… ) ;
+  - *IT (abandonné)* : remplacement des glossaires par le Nòvo dizionàrio
+    universale ( Pietro Petrocchi, 1887 ) puis, à défaut, le Dizionario
+    della Crusca ( éd. Costa-Cardinali, 1819 ) via
+    `outils/parse_petrocchi.py`, `outils/parse_crusca.py` et
+    `outils/filtre_italien.py`, retrait des 5 611 verbes absents
+    ( filmare, idrogenare, cristianizzare… ). L'OCR de l'édition
+    tomaseobellini.it et celui, isolé et incomplet, de 1912 avaient été
+    écartés.
+  Décision finale : conserver **tous** les verbes du Wiktionary ; les
+  définitions de/it/pt restent les glossaires anglais (CC BY-SA 4.0) ;
+  les six scripts restent dans `outils/` pour référence.
 - **Listes de fréquence OpenSubtitles** : utilisées uniquement pour
   sélectionner les verbes rejetés à réintégrer ; aucune donnée de ces
   listes n'est embarquée dans l'app ni dans la base.
@@ -185,31 +174,32 @@ Licences des données de conjugaison et définitions :
 - Wiktionary/Wiktionnaire (conjugaisons enrichies, glossaires anglais de
   de/it/pt/pl/cs) : CC BY-SA 4.0, attribution « Wiktionary contributors »,
   via l'extraction https://kaikki.org (wiktextract).
-- Novo Diccionario da Lingua Portugueza ( Cândido de Figueiredo,
-  1913 ) : domaine public ; OCR Internet Archive,
-  https://archive.org/details/DicionrioDeL.P1913
-  ( texte : https://archive.org/download/DicionrioDeL.P1913/DicionrioDeL.P1913_djvu.txt ).
-- Nòvo dizionàrio universale della lingua italiana ( Pietro
-  Petrocchi, 1887, tomes 1-2 ) : domaine public ; OCR Internet
-  Archive, https://archive.org/details/novodizionarioun01petruoft
-  et https://archive.org/details/novodizionarioun02petruoft
-  ( textes : ..._djvu.txt ).
-- Dizionario degli Accademici della Crusca ( édition
-  Costa-Cardinali, 1819, 7 volumes ) : domaine public ; OCR
-  Internet Archive :
-  https://archive.org/details/dizionariodellal01cost ,
-  https://archive.org/details/dizionariodellal02cost ,
-  https://archive.org/details/dizionariodellal03cost ,
-  https://archive.org/details/dizionariodellal04cost ,
-  https://archive.org/details/dizionariodellal05cost ,
-  https://archive.org/details/dizionariodellal06cost ,
-  https://archive.org/details/dizionariodellal07cost .
+- Dictionnaire de l'Académie française 8e éd. (1932-1935) et Littré
+  (1872-1877), définitions françaises : domaine public.
 - Webster's Revised Unabridged Dictionary ( 1913, texte du domaine
   public ) : numérisation https://github.com/lunixbochs/webster
   ( code MIT, les définitions restent domaine public ).
-- Dictionnaire de l'Académie française 8e éd. (1932-1935), Littré
-  (1872-1877), Webster 1913 (texte du domaine public ; numérisation
-  lunixbochs/webster, code MIT), Real Academia 1913 : domaine public.
+- Real Academia Española, diccionario 1913-1914 : domaine public.
+- Sources essayées puis abandonnées, non utilisées dans la base actuelle,
+  URLs des OCR pour référence :
+  - Novo Diccionario da Lingua Portugueza ( Cândido de Figueiredo,
+    1913 ) : https://archive.org/details/DicionrioDeL.P1913
+    ( texte : https://archive.org/download/DicionrioDeL.P1913/DicionrioDeL.P1913_djvu.txt ).
+  - Nòvo dizionàrio universale della lingua italiana ( Pietro
+    Petrocchi, 1887, tomes 1-2 ) :
+    https://archive.org/details/novodizionarioun01petruoft et
+    https://archive.org/details/novodizionarioun02petruoft
+    ( textes : ..._djvu.txt ).
+  - Dizionario degli Accademici della Crusca ( édition
+    Costa-Cardinali, 1819, 7 volumes ) :
+    https://archive.org/details/dizionariodellal01cost ,
+    https://archive.org/details/dizionariodellal02cost ,
+    https://archive.org/details/dizionariodellal03cost ,
+    https://archive.org/details/dizionariodellal04cost ,
+    https://archive.org/details/dizionariodellal05cost ,
+    https://archive.org/details/dizionariodellal06cost ,
+    https://archive.org/details/dizionariodellal07cost .
+  Tous : domaine public, OCR Internet Archive.
 
 
 ### Écrans et fonctions : sources et licences
