@@ -16,11 +16,14 @@ class EcranInfos extends StatelessWidget {
           style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600)),
       const SizedBox(height: 8),
       const Text(
-          'Conjugaison : anglais 19 075, italien 12 429, polonais 9 102, '
-          'français 8 535, espagnol 8 966, '
-          'portugais 6 084, allemand 4 220, tchèque 4 151 ; '
+          'Conjugaison : anglais 19 070, italien 12 429, polonais 9 064, '
+          'français 8 535, espagnol 8 957, '
+          'portugais 6 084, allemand 4 220, tchèque 4 143 ; '
           'enrichis et vérifiés depuis le Wiktionary via kaikki.org '
-          '(CC BY-SA 4.0), verbes du Wiktionary intégralement conservés ; '
+          '(CC BY-SA 4.0), verbes du Wiktionary intégralement conservés, '
+          'chaque verbe a une définition (les verbes sans définition '
+          'ont été comblés depuis les Wiktionary monolingues, '
+          'CC BY-SA 4.0) ; '
           'définitions françaises du Dictionnaire de l Académie française '
           '( 8e éd., 1932-1935 ) et du Littré, anglaises du Webster 1913 '
           '(domaine public, numérisation lunixbochs/webster) et espagnoles '
