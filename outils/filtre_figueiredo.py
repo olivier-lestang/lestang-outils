@@ -1,1 +1,90 @@
-IyEvdXNyL2Jpbi9lbnYgcHl0aG9uMwoiIiJSZW1wbGFjZSBsZXMgZMOpZmluaXRpb25zIFdpa3Rpb25hcnkgKENDIEJZLVNBKSBkdSBwb3J0dWdhaXMgcGFyIGxlcyBzZW5zCmR1IMKrIE5vdm8gRGljY2lvbmFyaW8gZGEgTGluZ3VhIFBvcnR1Z3VlemEgwrsgZGUgQ8OibmRpZG8gZGUgRmlndWVpcmVkbwooMTkxMywgZG9tYWluZSBwdWJsaWMpIGV0IHJldGlyZSBsZXMgdmVyYmVzIHNhbnMgZMOpZmluaXRpb24uCgpVc2FnZSA6IHB5dGhvbjMgZmlsdHJlX2ZpZ3VlaXJlZG8ucHkgYnJ1dC5qc29uIGZpZ3VlaXJlZG9fdmVyYmVzLmpzb24gYnJ1dDIuanNvbgoiIiIKaW1wb3J0IGpzb24KaW1wb3J0IHJlCmltcG9ydCBzeXMKaW1wb3J0IHVuaWNvZGVkYXRhCgpOQVRVUkUgPSAnRmlndWVpcmVkbyAxOTEzJwpNQVhfU0VOUyA9IDQgICAgICAgICAgIyBzZW5zIGNvbnNlcnbDqXMgcGFyIHZlcmJlCk1BWF9DQVIgPSAzMDAgICAgICAgICAjIGNhcmFjdMOocmVzIHBhciBzZW5zCgoKZGVmIGNhbm9uKHY6IHN0cikgLT4gc3RyOgogICAgdiA9IHVuaWNvZGVkYXRhLm5vcm1hbGl6ZSgnTkZEJywgdi5yZXBsYWNlKCfDpycsICdjJykpCiAgICB2ID0gJycuam9pbihjIGZvciBjIGluIHYgaWYgdW5pY29kZWRhdGEuY2F0ZWdvcnkoYykgIT0gJ01uJykKICAgIHYgPSB2LnJlcGxhY2UoJ3BoJywgJ2YnKS5yZXBsYWNlKCd0aCcsICd0JykucmVwbGFjZSgneScsICdpJykKICAgICMgb3J0aG9ncmFwaGUgZGUgMTkxMyA6IMKrIGMgwrsgw6lwaWPDqG5lIChvYmplY3Rhci9vYmplY3RhciwgYWPDp8Ojby9hw6fDo28pCiAgICB2ID0gdi5yZXBsYWNlKCdjdCcsICd0JykKICAgIHYgPSByZS5zdWIocicoW2JjZGZnaGprbG1ucHFyc3R2d3pdKVwxKycsIHInXDEnLCB2KQogICAgcmV0dXJuIHYKCgpkZWYgbWFpbigpOgogICAgc3JjLCBmaWdfc3JjLCBkc3QgPSBzeXMuYXJndlsxXSwgc3lzLmFyZ3ZbMl0sIHN5cy5hcmd2WzNdCiAgICBicnV0ID0ganNvbi5sb2FkKG9wZW4oc3JjLCBlbmNvZGluZz0ndXRmLTgnKSkKICAgIGZpZyA9IGpzb24ubG9hZChvcGVuKGZpZ19zcmMsIGVuY29kaW5nPSd1dGYtOCcpKQoKICAgICMgaW5kZXggY2Fub24gLT4gc2VucwogICAgZmlnYzogZGljdCA9IHt9CiAgICBmb3Igaywgc2VucyBpbiBmaWcuaXRlbXMoKToKICAgICAgICBmaWdjLnNldGRlZmF1bHQoY2Fub24oayksIFtdKS5leHRlbmQoc2VucykKCiAgICAjIMOpdGF0IGFjdHVlbAogICAgdG9rZW5zID0gW3QgZm9yIHQgaW4gcmUuc3BsaXQocidbLFxuXScsIGJydXRbJ1BUX1ZFUkJTX1NUUiddKSBpZiB0XQogICAgZGVmcyA9IFtlIGZvciBlIGluIGJydXRbJ1BUX0RFRlNfU1RSJ10uc3BsaXQoJ1x4MDInKSBpZiBlXQogICAgd2lrdCA9IHNldChicnV0WydQVF9WU1JDX1NUUiddLnNwbGl0KCdcbicpKSAtIHsnJ30KCiAgICByZW1wbCwgcmV0aXJlcyA9IDAsIDAKICAgIG52X3Rva2VucywgbnZfZGVmcyA9IFtdLCBbXQogICAgZm9yIHQgaW4gdG9rZW5zOgogICAgICAgIHYgPSB0LnNwbGl0KCc6JylbMF0KICAgICAgICBpZiB2IG5vdCBpbiB3aWt0OgogICAgICAgICAgICBudl90b2tlbnMuYXBwZW5kKHQpICAjIHZlcmJlcyBtYWlzb24gOiBpbnRvdWNoYWJsZXMKICAgICAgICBlbGlmIGNhbm9uKHYpIGluIGZpZ2M6CiAgICAgICAgICAgIHNlbnMgPSBbc1s6TUFYX0NBUl0uc3RyaXAoJyA7LiwnKSBmb3IgcyBpbiBmaWdjW2Nhbm9uKHYpXV0KICAgICAgICAgICAgc2VucyA9IFtzIGZvciBzIGluIHNlbnMgaWYgbGVuKHMpID4gM11bOk1BWF9TRU5TXQogICAgICAgICAgICBpZiBzZW5zOgogICAgICAgICAgICAgICAgbnZfZXQgPSB2ICsgJ1x4MDEnICsgJ1x4MDMnLmpvaW4oCiAgICAgICAgICAgICAgICAgICAgTkFUVVJFICsgJ1x4MDQnICsgcyBmb3IgcyBpbiBzZW5zKQogICAgICAgICAgICAgICAgbnZfZGVmcy5hcHBlbmQobnZfZXQpCiAgICAgICAgICAgICAgICBudl90b2tlbnMuYXBwZW5kKHQpCiAgICAgICAgICAgICAgICByZW1wbCArPSAxCiAgICAgICAgICAgICAgICBjb250aW51ZQogICAgICAgICAgICByZXRpcmVzICs9IDEKICAgICAgICBlbHNlOgogICAgICAgICAgICByZXRpcmVzICs9IDEKICAgICMgZMOpZmluaXRpb25zIDogcmVtcGxhY8OpZXMgZMOpasOgIGFqb3V0w6llcyA7IG9uIG5lIGNvbnNlcnZlIHF1ZSBjZWxsZXMKICAgICMgZGVzIHZlcmJlcyBtYWlzb24gKG5vbiB3aWt0KSBlbmNvcmUgcHLDqXNlbnRzCiAgICBnYXJkZSA9IHNldCh0LnNwbGl0KCc6JylbMF0gZm9yIHQgaW4gbnZfdG9rZW5zKQogICAgZm9yIGUgaW4gZGVmczoKICAgICAgICB2ID0gZS5zcGxpdCgnXHgwMScsIDEpWzBdCiAgICAgICAgaWYgdiBpbiBnYXJkZSBhbmQgdiBub3QgaW4gd2lrdDoKICAgICAgICAgICAgbnZfZGVmcy5hcHBlbmQoZSkKCiAgICAjIHJlY29uc3RydWN0aW9uCiAgICB0b3RhbCA9IGxlbihudl90b2tlbnMpCiAgICBicnV0ZSA9IHtrOiB2IGZvciBrLCB2IGluIGJydXQuaXRlbXMoKX0KICAgIGJydXRlWydQVF9WRVJCU19TVFInXSA9ICdcbicuam9pbihudl90b2tlbnMpCiAgICBicnV0ZVsnUFRfREVGU19TVFInXSA9ICdceDAyJy5qb2luKG52X2RlZnMpCiAgICBicnV0ZVsnUFRfVlNSQ19TVFInXSA9ICdcbicuam9pbigKICAgICAgICB2IGZvciB2IGluIGJydXRbJ1BUX1ZTUkNfU1RSJ10uc3BsaXQoJ1xuJykKICAgICAgICBpZiB2IGFuZCB2IGluIGdhcmRlKQogICAganNvbi5kdW1wKGJydXRlLCBvcGVuKGRzdCwgJ3cnLCBlbmNvZGluZz0ndXRmLTgnKSwgZW5zdXJlX2FzY2lpPUZhbHNlKQoKICAgIHByaW50KCd2ZXJiZXMgUFQgOicsIHRvdGFsKQogICAgcHJpbnQoJ2TDqWZpbml0aW9ucyByZW1wbGFjw6llcyA6JywgcmVtcGwpCiAgICBwcmludCgndmVyYmVzIHJldGlyw6lzIChhYnNlbnRzIGR1IEZpZ3VlaXJlZG8pIDonLCByZXRpcmVzKQogICAgZGQgPSBzZXQoZS5zcGxpdCgnXHgwMScsIDEpWzBdIGZvciBlIGluIG52X2RlZnMpCiAgICB2diA9IHNldCh0LnNwbGl0KCc6JylbMF0gZm9yIHQgaW4gbnZfdG9rZW5zKQogICAgcHJpbnQoJ3NhbnMgZMOpZmluaXRpb24gOicsIGxlbih2diAtIGRkKSkKICAgIHByaW50KCdPSycpCgoKaWYgX19uYW1lX18gPT0gJ19fbWFpbl9fJzoKICAgIG1haW4oKQo=
+#!/usr/bin/env python3
+"""Remplace les définitions Wiktionary (CC BY-SA) du portugais par les sens
+du « Novo Diccionario da Lingua Portugueza » de Cândido de Figueiredo
+(1913, domaine public) et retire les verbes sans définition.
+
+Usage : python3 filtre_figueiredo.py brut.json figueiredo_verbes.json brut2.json
+"""
+import json
+import re
+import sys
+import unicodedata
+
+NATURE = 'Figueiredo 1913'
+MAX_SENS = 4          # sens conservés par verbe
+MAX_CAR = 300         # caractères par sens
+
+
+def canon(v: str) -> str:
+    v = unicodedata.normalize('NFD', v.replace('ç', 'c'))
+    v = ''.join(c for c in v if unicodedata.category(c) != 'Mn')
+    v = v.replace('ph', 'f').replace('th', 't').replace('y', 'i')
+    # orthographe de 1913 : « c » épicène (objectar/objectar, acção/ação)
+    v = v.replace('ct', 't')
+    v = re.sub(r'([bcdfghjklmnpqrstvwz])\1+', r'\1', v)
+    return v
+
+
+def main():
+    src, fig_src, dst = sys.argv[1], sys.argv[2], sys.argv[3]
+    brut = json.load(open(src, encoding='utf-8'))
+    fig = json.load(open(fig_src, encoding='utf-8'))
+
+    # index canon -> sens
+    figc: dict = {}
+    for k, sens in fig.items():
+        figc.setdefault(canon(k), []).extend(sens)
+
+    # état actuel
+    tokens = [t for t in re.split(r'[,\n]', brut['PT_VERBS_STR']) if t]
+    defs = [e for e in brut['PT_DEFS_STR'].split('\x02') if e]
+    wikt = set(brut['PT_VSRC_STR'].split('\n')) - {''}
+
+    rempl, retires = 0, 0
+    nv_tokens, nv_defs = [], []
+    for t in tokens:
+        v = t.split(':')[0]
+        if v not in wikt:
+            nv_tokens.append(t)  # verbes maison : intouchables
+        elif canon(v) in figc:
+            sens = [s[:MAX_CAR].strip(' ;.,') for s in figc[canon(v)]]
+            sens = [s for s in sens if len(s) > 3][:MAX_SENS]
+            if sens:
+                nv_et = v + '\x01' + '\x03'.join(
+                    NATURE + '\x04' + s for s in sens)
+                nv_defs.append(nv_et)
+                nv_tokens.append(t)
+                rempl += 1
+                continue
+            retires += 1
+        else:
+            retires += 1
+    # définitions : remplacées déjà ajoutées ; on ne conserve que celles
+    # des verbes maison (non wikt) encore présents
+    garde = set(t.split(':')[0] for t in nv_tokens)
+    for e in defs:
+        v = e.split('\x01', 1)[0]
+        if v in garde and v not in wikt:
+            nv_defs.append(e)
+
+    # reconstruction
+    total = len(nv_tokens)
+    brute = {k: v for k, v in brut.items()}
+    brute['PT_VERBS_STR'] = '\n'.join(nv_tokens)
+    brute['PT_DEFS_STR'] = '\x02'.join(nv_defs)
+    brute['PT_VSRC_STR'] = '\n'.join(
+        v for v in brut['PT_VSRC_STR'].split('\n')
+        if v and v in garde)
+    json.dump(brute, open(dst, 'w', encoding='utf-8'), ensure_ascii=False)
+
+    print('verbes PT :', total)
+    print('définitions remplacées :', rempl)
+    print('verbes retirés (absents du Figueiredo) :', retires)
+    dd = set(e.split('\x01', 1)[0] for e in nv_defs)
+    vv = set(t.split(':')[0] for t in nv_tokens)
+    print('sans définition :', len(vv - dd))
+    print('OK')
+
+
+if __name__ == '__main__':
+    main()
