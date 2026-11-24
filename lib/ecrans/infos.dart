@@ -1,1 +1,61 @@
-LyogSW5mb3JtYXRpb25zIDogbGljZW5jZXMgZXQgaGVyaXRhZ2UgZHUgcHJvamV0LgogICBTUERYLUxpY2Vuc2UtSWRlbnRpZmllciA6IE1JVC4gKi8KaW1wb3J0ICdwYWNrYWdlOmZsdXR0ZXIvbWF0ZXJpYWwuZGFydCc7CgppbXBvcnQgJy4uL2wxMG4uZGFydCc7CgpjbGFzcyBFY3JhbkluZm9zIGV4dGVuZHMgU3RhdGVsZXNzV2lkZ2V0IHsKICBmaW5hbCBUcmFkdWN0ZXVyIHRyYWQ7CiAgY29uc3QgRWNyYW5JbmZvcyh0aGlzLnRyYWQsIHtzdXBlci5rZXl9KTsKCiAgQG92ZXJyaWRlCiAgV2lkZ2V0IGJ1aWxkKEJ1aWxkQ29udGV4dCBjb250ZXh0KSB7CiAgICBmaW5hbCBzdHlsZSA9IGNvbnN0IFRleHRTdHlsZShmb250U2l6ZTogMTMpOwogICAgcmV0dXJuIENvbHVtbihjcm9zc0F4aXNBbGlnbm1lbnQ6IENyb3NzQXhpc0FsaWdubWVudC5zdGFydCwgY2hpbGRyZW46IFsKICAgICAgY29uc3QgVGV4dCgnTGVzdGFuZyBPdXRpbHMnLAogICAgICAgICAgc3R5bGU6IFRleHRTdHlsZShmb250U2l6ZTogMjIsIGZvbnRXZWlnaHQ6IEZvbnRXZWlnaHQudzYwMCkpLAogICAgICBjb25zdCBTaXplZEJveChoZWlnaHQ6IDgpLAogICAgICBjb25zdCBUZXh0KAogICAgICAgICAgJ0Nvbmp1Z2Fpc29uIDogYW5nbGFpcyA4IDMzOSwgaXRhbGllbiAxMiA0MjksIHBvbG9uYWlzIDkgMTAyLCAnCiAgICAgICAgICAnZnJhbsOnYWlzIDggNTM1LCBlc3BhZ25vbCA4IDk2NiwgJwogICAgICAgICAgJ3BvcnR1Z2FpcyA0IDc5MiwgYWxsZW1hbmQgNCAyMjAsIHRjaMOocXVlIDQgMTUxIDsgJwogICAgICAgICAgJ2VucmljaGlzIGV0IHbDqXJpZmnDqXMgZGVwdWlzIGxlIFdpa3Rpb25hcnkgdmlhIGthaWtraS5vcmcgJwogICAgICAgICAgJyhDQyBCWS1TQSA0LjApIDsgZMOpZmluaXRpb25zIGFuZ2xhaXNlcyBkdSBXZWJzdGVyIDE5MTMgJwogICAgICAgICAgJyhkb21haW5lIHB1YmxpYywgbnVtw6lyaXNhdGlvbiBsdW5peGJvY2hzL3dlYnN0ZXIpIGV0IHBvcnR1Z2Fpc2VzIGR1ICcKICAgICAgICAgICdGaWd1ZWlyZWRvIDE5MTMgKGRvbWFpbmUgcHVibGljLCBPQ1IgSW50ZXJuZXQgQXJjaGl2ZSkgOyAnCiAgICAgICAgICAnY2hhcXVlIGZpY2hlIGluZGlxdWUgbGEgc291cmNlIGR1IHZlcmJlIDsgJwogICAgICAgICAgJ3RlbXBzIGNvbXBvc8OpcyBjYWxjdWzDqXMgJwogICAgICAgICAgJ3N1ciB2b3RyZSBhcHBhcmVpbCA7IGTDqWZpbml0aW9ucyBkYW5zIGxhIGxhbmd1ZSBkZSBjaGFxdWUgY2FydGUuJywKICAgICAgICAgIHN0eWxlOiBUZXh0U3R5bGUoZm9udFNpemU6IDEzKSksCiAgICAgIGNvbnN0IFNpemVkQm94KGhlaWdodDogOCksCiAgICAgIFRleHQoCiAgICAgICAgICAnQ2FydGVzIGfDqW9ncmFwaGlxdWVzIDogZMOpcGFydGVtZW50cywgcm91dGVzICggMiA0NjEgYXV0b3JvdXRlcywgJwogICAgICAgICAgJzIgODg0IG5hdGlvbmFsZXMsIDUwIDk4NCBkw6lwYXJ0ZW1lbnRhbGVzICksIGZsZXV2ZXMsIFpFRSBldCBsaWduZXMgJwogICAgICAgICAgJ8OgIGdyYW5kZSB2aXRlc3NlIGRlIEZyYW5jZSA7IG1lbWJyZXMgZXQgdm9pc2lucyBkZSBsIFVuaW9uICcKICAgICAgICAgICdldXJvcMOpZW5uZSwgcm91dGVzIGV1cm9ww6llbm5lcyA7IGZyb250acOocmVzIGR1IG1vbmRlLicsCiAgICAgICAgICBzdHlsZTogc3R5bGUpLAogICAgICBjb25zdCBTaXplZEJveChoZWlnaHQ6IDgpLAogICAgICBUZXh0KAogICAgICAgICAgJ0xpY2VuY2VzIDogbGUgY29kZSBlc3Qgc291cyBsaWNlbmNlIE1JVC4gTGVzIGNvbmp1Z2Fpc29ucyBldCBsZXMgJwogICAgICAgICAgJ2TDqWZpbml0aW9ucyBhbGxlbWFuZGVzIGV0IGl0YWxpZW5uZXMsIGV0IHBvcnR1Z2Fpc2VzIGhvcnMgRmlndWVpcmVkbywgdmllbm5lbnQgZHUgJwogICAgICAgICAgJ2dsb3NzYWlyZSBkdSBnw6luw6lyYXRldXIgZHUgcHJvamV0ICggU1BEWC1MaWNlbnNlLUlkZW50aWZpZXIgOiBNSVQgKS4gJwogICAgICAgICAgJ0xlcyBkw6lmaW5pdGlvbnMgZnJhbsOnYWlzZXMgdmllbm5lbnQgZHUgRGljdGlvbm5haXJlIGRlIGwgQWNhZMOpbWllICcKICAgICAgICAgICdmcmFuw6dhaXNlICggOGUgw6lkaXRpb24sIDE5MzItMTkzNSApIGV0IGR1IExpdHRyw6kgKCAxODcyLTE4NzcgKSwgJwogICAgICAgICAgJ2xlcyBhbmdsYWlzZXMgZHUgV2Vic3RlciAxOTEzICggbnVtw6lyaXNhdGlvbgogICAgICAgICAgJ2x1bml4Ym9jaHMvd2Vic3RlciwgY29kZSBNSVQgKSwgbGVzIHBvcnR1Z2Fpc2VzIGR1IE5vdm8gRGljY2lvbmFyaW8gZGEgJwogICAgICAgICAgJ0xpbmd1YSBQb3J0dWd1ZXphICggQ8OibmRpZG8gZGUgRmlndWVpcmVkbywgMTkxMywgT0NSIEludGVybmV0ICcKICAgICAgICAgICdBcmNoaXZlICksIGxlcyBlc3BhZ25vbGVzIGRlIGxhIFJlYWwgJwogICAgICAgICAgJ0FjYWRlbWlhICggMTkxMy0xOTE0ICkgOiBkb21haW5lIHB1YmxpYywgY29tcGzDqXTDqWVzIHBhciBkZXMgJwogICAgICAgICAgJ3LDqWRhY3Rpb25zIGR1IHByb2pldC4gTGEgY29tcHJlc3Npb24gUERGIHJhc3TDqXJpc2UgcGFnZSBwYXIgcGFnZSAnCiAgICAgICAgICAndmlhIHBkZml1bSAoIHBhY2thZ2UgcHJpbnRpbmcgKSwgSlBFRyB2aWEgcGFja2FnZSBpbWFnZSwgJwogICAgICAgICAgJ3JlY29uc3RydWN0aW9uIHZpYSBwYWNrYWdlIHBkZiA7IGNlcyBiaWJsaW90aGVxdWVzLCBhaW5zaSBxdWUgJwogICAgICAgICAgJ3NoYXJlX3BsdXMgKCBmZXVpbGxlIGRlIHBhcnRhZ2Ugc291cyBBbmRyb2lkICksIHNvbnQgc291cyAnCiAgICAgICAgICAnbGljZW5jZSBNSVQgb3UgYXBwYXJlbnRlZSBBcGFjaGUuJywKICAgICAgICAgIHN0eWxlOiBzdHlsZSksCiAgICAgIGNvbnN0IFNpemVkQm94KGhlaWdodDogOCksCiAgICAgIFRleHQoCiAgICAgICAgICAnTcOpdMOpbyA6IE3DqXTDqW8tRnJhbmNlLCBNRVQgTm9ydsOoZ2UsIElQTUEgUG9ydHVnYWwsIEpNQSBKYXBvbiwgTldTIMOJdGF0cy1VbmlzLCBCT00gQXVzdHJhbGllLCBIS08gSG9uZyBLb25nLCBPcGVuLU1ldGVvIGV0IHd0dHIuaW4gOyBzb3VyY2UgbmF0aW9uYWxlIHBhciBwYXlzLCBzYW5zIGNsw6kuJywKICAgICAgICAgIHN0eWxlOiBzdHlsZSksCiAgICBdKTsKICB9Cn0K
+/* Informations : licences et heritage du projet.
+   SPDX-License-Identifier : MIT. */
+import 'package:flutter/material.dart';
+
+import '../l10n.dart';
+
+class EcranInfos extends StatelessWidget {
+  final Traducteur trad;
+  const EcranInfos(this.trad, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final style = const TextStyle(fontSize: 13);
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      const Text('Lestang Outils',
+          style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600)),
+      const SizedBox(height: 8),
+      const Text(
+          'Conjugaison : anglais 8 339, italien 12 429, polonais 9 102, '
+          'français 8 535, espagnol 8 966, '
+          'portugais 4 792, allemand 4 220, tchèque 4 151 ; '
+          'enrichis et vérifiés depuis le Wiktionary via kaikki.org '
+          '(CC BY-SA 4.0) ; définitions anglaises du Webster 1913 '
+          '(domaine public, numérisation lunixbochs/webster) et portugaises du '
+          'Figueiredo 1913 (domaine public, OCR Internet Archive) ; '
+          'chaque fiche indique la source du verbe ; '
+          'temps composés calculés '
+          'sur votre appareil ; définitions dans la langue de chaque carte.',
+          style: TextStyle(fontSize: 13)),
+      const SizedBox(height: 8),
+      Text(
+          'Cartes géographiques : départements, routes ( 2 461 autoroutes, '
+          '2 884 nationales, 50 984 départementales ), fleuves, ZEE et lignes '
+          'à grande vitesse de France ; membres et voisins de l Union '
+          'européenne, routes européennes ; frontières du monde.',
+          style: style),
+      const SizedBox(height: 8),
+      Text(
+          'Licences : le code est sous licence MIT. Les conjugaisons et les '
+          'définitions allemandes et italiennes, et portugaises hors Figueiredo, viennent du '
+          'glossaire du générateur du projet ( SPDX-License-Identifier : MIT ). '
+          'Les définitions françaises viennent du Dictionnaire de l Académie '
+          'française ( 8e édition, 1932-1935 ) et du Littré ( 1872-1877 ), '
+          'les anglaises du Webster 1913 ( numérisation
+          'lunixbochs/webster, code MIT ), les portugaises du Novo Diccionario da '
+          'Lingua Portugueza ( Cândido de Figueiredo, 1913, OCR Internet '
+          'Archive ), les espagnoles de la Real '
+          'Academia ( 1913-1914 ) : domaine public, complétées par des '
+          'rédactions du projet. La compression PDF rastérise page par page '
+          'via pdfium ( package printing ), JPEG via package image, '
+          'reconstruction via package pdf ; ces bibliotheques, ainsi que '
+          'share_plus ( feuille de partage sous Android ), sont sous '
+          'licence MIT ou apparentee Apache.',
+          style: style),
+      const SizedBox(height: 8),
+      Text(
+          'Météo : Météo-France, MET Norvège, IPMA Portugal, JMA Japon, NWS États-Unis, BOM Australie, HKO Hong Kong, Open-Meteo et wttr.in ; source nationale par pays, sans clé.',
+          style: style),
+    ]);
+  }
+}
