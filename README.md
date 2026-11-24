@@ -38,6 +38,7 @@ La base est reconstruite à partir des fichiers de données du projet web :
 node outils/extraire.js <chemin-du-projet-web>/web/ outils/brut.json
 python3 outils/nettoie_en.py        # lexique anglais : filtre + doubles formes
 python3 outils/dedupe.py            # aucun doublon, toutes langues
+python3 outils/filtre_webster.py webster1913.json  # EN : Webster 1913
 python3 outils/construire_bdd.py
 ```
 
@@ -74,16 +75,17 @@ qu'avant enrichissement** dans `outils/brut_orig.json`, puis lancer
 
 ## Contenu de la base
 
-- Conjugaison : en 19 075, it 12 429, pl 9 102, fr 8 535, es 8 966,
-  pt 6 084, de 4 220, cs 4 151 ; aucun doublon ; définitions 100 % dans
-  la langue de chaque carte (glossaires anglais pour pl/cs comme pour
-  it/pt/de).
+- Conjugaison : en 8 339, it 12 429, pl 9 102, fr 8 535, es 8 966,
+  pt 6 084, de 4 220, cs 4 151 ; aucun doublon ; chaque verbe a une
+  définition ; définitions 100 % dans la langue de chaque carte
+  (glossaires anglais pour pl/cs comme pour it/pt/de ; anglais :
+  Webster 1913).
 - Le lexique anglais est épuré : pas de verbe composé à trait d union
   ( air-condition, birdy-sit ) ni de terme très spécialisé ;
-  un verbe Wiktionary n est conservé que si lui-même ou l une de ses
-  formes fléchies usuelles figure dans la liste de frequence
-  OpenSubtitles complète ( hermitdave/FrequencyWords en_full.txt,
-  utilisée uniquement pour ce tri, aucune donnée embarquée ).
+  un verbe n est conservé que si le Webster's Revised Unabridged
+  Dictionary ( 1913, texte du domaine public ; numérisation
+  lunixbochs/webster, code MIT ) le définit, et sa définition vient
+  alors de ce dictionnaire (`outils/filtre_webster.py`).
 - France : 160 départements, 2 461 autoroutes, 2 884 nationales,
   50 984 départementales, 54 fleuves, LGV, 178 villes des transports,
   103 tronçons parisiens.
@@ -102,7 +104,7 @@ MIT (`LICENSE`).
 | Langue | Verbes | dont Wiktionary | Procédé | Définitions |
 | --- | ---: | ---: | --- | --- |
 | fr | 8 535 | 1 574 | Moteur maison ; verbes enrichis depuis le Wiktionnaire (kaikki), chaque forme vérifiée, source stockée par verbe | Académie 8e éd. + Littré, domaine public |
-| en | 19 075 | 17 432 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme, puis épuré (composés à trait d union et termes très spécialisés retirés) et complété des doubles formes -ed/-t | Webster 1913 (GCIDE), domaine public |
+| en | 8 339 | 6 696 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme, puis limité aux verbes définis par le Webster 1913 (double formes -ed/-t conservées) | Webster 1913, domaine public (numérisation lunixbochs/webster, MIT) |
 | es | 8 966 | 3 755 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Real Academia 1913, domaine public |
 | de | 4 220 | 3 940 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
 | it | 12 429 | 11 950 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
@@ -150,7 +152,8 @@ Licences des données de conjugaison et définitions :
   de/it/pt/pl/cs) : CC BY-SA 4.0, attribution « Wiktionary contributors »,
   via l'extraction https://kaikki.org (wiktextract).
 - Dictionnaire de l'Académie française 8e éd. (1932-1935), Littré
-  (1872-1877), Webster 1913 (GCIDE), Real Academia 1913 : domaine public.
+  (1872-1877), Webster 1913 (texte du domaine public ; numérisation
+  lunixbochs/webster, code MIT), Real Academia 1913 : domaine public.
 
 
 ### Écrans et fonctions : sources et licences
