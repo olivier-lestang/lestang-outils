@@ -18,7 +18,7 @@ class EcranInfos extends StatelessWidget {
       const Text(
           'Conjugaison : anglais 19 075, italien 12 429, polonais 9 102, '
           'français 8 535, espagnol 8 966, '
-          'portugais 6 085, allemand 4 220, tchèque 4 151 ; '
+          'portugais 6 084, allemand 4 220, tchèque 4 151 ; '
           'enrichis et vérifiés depuis le Wiktionary via kaikki.org '
           '(CC BY-SA 4.0) ; chaque fiche indique la source du verbe ; '
           'temps composés calculés '
