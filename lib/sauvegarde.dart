@@ -40,7 +40,7 @@ Future<bool> enregistrerOctets(String nom, List<int> octets) async {
     final lieu = await getSaveLocation(
       suggestedName: nom,
       acceptedTypeGroups: ext.isEmpty
-          ? null
+          ? const <XTypeGroup>[]
           : [
               XTypeGroup(label: ext.toUpperCase(), extensions: [ext]),
             ],
