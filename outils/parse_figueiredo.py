@@ -1,1 +1,105 @@
-IyEvdXNyL2Jpbi9lbnYgcHl0aG9uMwoiIiJFeHRyYWl0IGxlcyBkw6lmaW5pdGlvbnMgdmVyYmFsZXMgZHUgwqsgTm92byBEaWNjaW9uYXJpbyBkYSBMaW5ndWEgUG9ydHVndWV6YSDCuwpkZSBDw6JuZGlkbyBkZSBGaWd1ZWlyZWRvICgxOTEzLCBkb21haW5lIHB1YmxpYyksIE9DUiBJbnRlcm5ldCBBcmNoaXZlCihpdGVtIERpY2lvbnJpb0RlTC5QMTkxMywgZmljaGllciDCqyBEaWNpb27DoXJpbyBkZSBMLlAgMTkxM19kanZ1LnR4dCDCuykuCgpVc2FnZSA6IHB5dGhvbjMgcGFyc2VfZmlndWVpcmVkby5weSBmaWd1ZWlyZWRvLnR4dCBmaWd1ZWlyZWRvX3ZlcmJlcy5qc29uClNvcnRpZSA6IHt2ZWRldHRlOiBbc2VuczEsIHNlbnMyLCAuLi5dfQoiIiIKaW1wb3J0IGpzb24KaW1wb3J0IHJlCmltcG9ydCBzeXMKaW1wb3J0IHVuaWNvZGVkYXRhCgpOQVRVUkUgPSAoCiAgICByJyg/OnZ8cnxzfGFkanxhZHZ8bXxmfHByZXB8cHJvbnxpbnRlcmp8bnVtfHBhcnQpXC4nICAjIMKrIHIuIMK7ID0gT0NSIGRlIMKrIHYuIMK7CiAgICByJyg/OlxzKig/OnR8aXxufG18ZnxwbHxtY3RvcnM/XGJ8ZmVtfFthLXpdKykpKicKKQojIHZlZGV0dGUgOiBsZXR0cmVzIG1pbnVzY3VsZXMgKGFwcsOocyBORkMpLCDDqXZlbnR1ZWxsZW1lbnQgYXZlYyB0cmFpdCBkJ3VuaW9uLAojIGhvbW9ncmFwaGUgwqsgLDEgwrssIG91IHByb25vbSDCqyAsIChzaSkgwrssIGV0IGFzdMOpcmlzcXVlIGRlIHJlZ2lzdHJlCkFSVElDTEUgPSByZS5jb21waWxlKAogICAgcicoPzpefFsuOzohP8K7KV1ccyt8XG5ccyopJwogICAgcicoW15cV1xkX10rKD86LVteXFdcZF9dKykqKSg/Oiw/XHM/XGQpPyg/Oiw/XHMqXChbXildezAsMTV9XCkpPycKICAgIHInXHMqXCoqXHMrKCcgKyBOQVRVUkUgKyByJyknLAogICAgcmUuSUdOT1JFQ0FTRSB8IHJlLlVOSUNPREUsCikKVkVSQkFMID0gcmUuY29tcGlsZShyJ15bdnJdXGInLCByZS5JR05PUkVDQVNFKQpFVFlNT0xPR0lFID0gcmUuY29tcGlsZSgKICAgIHInXHMqXCgoPzpMYXRcLj98RG8gbGF0XC4/fERlIGxhdFwuP3xEW2VvXVxifERlIHxEZXJpdnxGb3JtYXxHclwuPycKICAgIHInQXJhYnxHZXJtfEluZ2x8RnJcLj98UHJvdnxHYWx8Q2FzdHxoaXNwfG9yaWd8UHJvdmVuw6dhbHxkbyBncnxkbyBhcmFifCcKICAgIHInZG8gY2FzdHxkbyBmcnxkbyBpbmdsfGRvIGdlcm18ZG8gbGF0W14pXSopW14pXSpcKVxzKiQnCikKU0VOU19TRVAgPSByZS5jb21waWxlKAogICAgIyBPQ1IgwqsgVi4gaS4gbi4gwrsg4oaSIMKrIFZpbi4gwrsgOyBzw6lwYXJhdGV1cnMgZGUgc2VucyBldCDDqXRvaWxlcyBkZSByZWdpc3RyZQogICAgcicoPzpccyg/OlZ8dilcLlxzKD86dHxpKVwuXHMpfCg/OlwuXHMoPzpWfHYpXC5ccyg/OnR8aXxufHApXC5ccyknCiAgICByJ3woPzpcbj9ccz8oPzpWfHYpaW5cLlxzKXwoPzpcKlwqP1xzKScKKQoKCkVUWV9TRU5TID0gcmUuY29tcGlsZSgKICAgIHInXHMqXCgoPzpMYXRcLj98RG8gbGF0XC4/fERlIGxhdFwuP3xEW2VvXVxifERvIGdyfERvIGFyYWJ8RG8gY2FzdHxEbyBmcnwnCiAgICByJ0RvIGluZ2x8RG8gZ2VybXxEZSB8RGVyaXZ8Rm9ybWF8R3JcLj98QXJhYnxHZXJtfEluZ2x8RnJcLj98UHJvdnxHYWx8JwogICAgcidDYXN0fG9yaWcpW14pXSpcKT9ccyokJywgcmUuSUdOT1JFQ0FTRSwKKQoKCmRlZiBfbmV0dG9pZV9zZW5zKHM6IHN0cikgLT4gc3RyOgogICAgcyA9IHJlLnN1YihyJ1xzKycsICcgJywgcykuc3RyaXAoJyA7LiwnKQogICAgcyA9IEVUWV9TRU5TLnN1YignJywgcykKICAgIHJldHVybiBzLnN0cmlwKCcgOy4sJykKCgpkZWYgbmV0dG9pZSh0eHQ6IHN0cikgLT4gc3RyOgogICAgdHh0ID0gdW5pY29kZWRhdGEubm9ybWFsaXplKCdORkMnLCB0eHQpCiAgICB0eHQgPSB0eHQucmVwbGFjZSgnwqwgXG4nLCAnJykucmVwbGFjZSgnwqxcbicsICcnKQogICAgIyB0cmFpdCBkJ3VuaW9uIGRlIGZpbiBkZSBsaWduZQogICAgdHh0ID0gcmUuc3ViKHInKFteXFdcZF9dKS1ccypcblxzKihbXlxXXGRfXSknLCByJ1wxXDInLCB0eHQsIGZsYWdzPXJlLlVOSUNPREUpCiAgICB0eHQgPSByZS5zdWIocidbIFx0XSsnLCAnICcsIHR4dCkKICAgIHR4dCA9IHJlLnN1YihyJ1xuezIsfScsICdcbicsIHR4dCkKICAgIHJldHVybiB0eHQKCgpkZWYgY291cGVfZXR5bShhcnRpY2xlOiBzdHIpIC0+IHN0cjoKICAgICIiIlJldGlyZSBsJ8OpdHltb2xvZ2llIGZpbmFsZSBlbnRyZSBwYXJlbnRow6hzZXMuIiIiCiAgICBtID0gRVRZTU9MT0dJRS5zZWFyY2goYXJ0aWNsZS5yc3RyaXAoKSkKICAgIGlmIG0gYW5kICcoJyBub3QgaW4gbS5ncm91cCgwKS5zdHJpcCgpWzE6XToKICAgICAgICByZXR1cm4gYXJ0aWNsZVs6IG0uc3RhcnQoKV0ucnN0cmlwKCkKICAgIHJldHVybiBhcnRpY2xlLnJzdHJpcCgpCgoKZGVmIHBhcnNlKHR4dDogc3RyKToKICAgIGFydGljbGVzOiBkaWN0W3N0ciwgbGlzdF0gPSB7fQogICAgbWFycXVldXJzID0gbGlzdChBUlRJQ0xFLmZpbmRpdGVyKHR4dCkpCiAgICBmb3IgaSwgbSBpbiBlbnVtZXJhdGUobWFycXVldXJzKToKICAgICAgICBpZiBub3QgVkVSQkFMLm1hdGNoKG0uZ3JvdXAoMikpOgogICAgICAgICAgICBjb250aW51ZQogICAgICAgIHZlZGV0dGUgPSBtLmdyb3VwKDEpCiAgICAgICAgZmluID0gbWFycXVldXJzW2kgKyAxXS5zdGFydCgpIGlmIGkgKyAxIDwgbGVuKG1hcnF1ZXVycykgZWxzZSBsZW4odHh0KQogICAgICAgIGNvcnBzID0gdHh0W20uZW5kKCk6ZmluXQogICAgICAgICMgY291cGUgZMOocyBxdSd1bmUgbm91dmVsbGUgdmVkZXR0ZSBOT04gdmVyYmFsZSBhcHBhcmHDrnQgZW4gZmluIGQnYXJ0aWNsZQogICAgICAgIGNvcnBzID0gY291cGVfZXR5bShjb3JwcykKICAgICAgICAjIHPDqXBhcmUgbGVzIHNlbnMKICAgICAgICBzZW5zID0gW19uZXR0b2llX3NlbnMocykgZm9yIHMgaW4gU0VOU19TRVAuc3BsaXQoY29ycHMpXQogICAgICAgIHNlbnMgPSBbcyBmb3IgcyBpbiBzZW5zIGlmIGxlbihzKSA+IDNdCiAgICAgICAgaWYgbm90IHNlbnM6CiAgICAgICAgICAgIGNvbnRpbnVlCiAgICAgICAgYXJ0aWNsZXMuc2V0ZGVmYXVsdCh2ZWRldHRlLCBbXSkKICAgICAgICBhcnRpY2xlc1t2ZWRldHRlXS5hcHBlbmQoc2VucykKICAgICMgYXBsYXRpciBsZXMgYXJ0aWNsZXMgbXVsdGlwbGVzIGVuIHVuZSBzZXVsZSBsaXN0ZSBkZSBzZW5zCiAgICByZXR1cm4ge3Y6IFtzIGZvciBhcnQgaW4gbHN0IGZvciBzIGluIGFydF0gZm9yIHYsIGxzdCBpbiBhcnRpY2xlcy5pdGVtcygpfSwgXAogICAgICAgIHt2OiBbcyBmb3IgYXJ0IGluIGxzdCBmb3IgcyBpbiBhcnQgZm9yIHMgaW4gW3NdXSBhbmQgbGVuKGxzdCkgZm9yIHYsIGxzdCBpbiBhcnRpY2xlcy5pdGVtcygpfQoKCmRlZiBtYWluKCk6CiAgICBzcmMsIGRzdCA9IHN5cy5hcmd2WzFdLCBzeXMuYXJndlsyXQogICAgdHh0ID0gbmV0dG9pZShvcGVuKHNyYywgZW5jb2Rpbmc9J3V0Zi04JykucmVhZCgpKQogICAgZGljbywgXyA9IHBhcnNlKHR4dCkKICAgIGpzb24uZHVtcChkaWNvLCBvcGVuKGRzdCwgJ3cnLCBlbmNvZGluZz0ndXRmLTgnKSwgZW5zdXJlX2FzY2lpPUZhbHNlKQogICAgcHJpbnQoJ3ZlZGV0dGVzIHZlcmJhbGVzIDonLCBsZW4oZGljbykpCiAgICBmb3IgdiBpbiAoJ2ZhbGFyJywgJ2N1c3RvZGlhcicsICdhZ2lyJywgJ2FiYWZhcicpOgogICAgICAgIHByaW50KHYsICctPicsIGRpY28uZ2V0KHYsIFtdKVs6M10pCiAgICBwcmludCgnT0snKQoKCmlmIF9fbmFtZV9fID09ICdfX21haW5fXyc6CiAgICBtYWluKCkK
+#!/usr/bin/env python3
+"""Extrait les définitions verbales du « Novo Diccionario da Lingua Portugueza »
+de Cândido de Figueiredo (1913, domaine public), OCR Internet Archive
+(item DicionrioDeL.P1913, fichier « Dicionário de L.P 1913_djvu.txt »).
+
+Usage : python3 parse_figueiredo.py figueiredo.txt figueiredo_verbes.json
+Sortie : {vedette: [sens1, sens2, ...]}
+"""
+import json
+import re
+import sys
+import unicodedata
+
+NATURE = (
+    r'(?:v|r|s|adj|adv|m|f|prep|pron|interj|num|part)\.'  # « r. » = OCR de « v. »
+    r'(?:\s*(?:t|i|n|m|f|pl|mctors?\b|fem|[a-z]+))*'
+)
+# vedette : lettres minuscules (après NFC), éventuellement avec trait d'union,
+# homographe « ,1 », ou pronom « , (si) », et astérisque de registre
+ARTICLE = re.compile(
+    r'(?:^|[.;:!?»)]\s+|\n\s*)'
+    r'([^\W\d_]+(?:-[^\W\d_]+)*)(?:,?\s?\d)?(?:,?\s*\([^)]{0,15}\))?'
+    r'\s*\**\s+(' + NATURE + r')',
+    re.IGNORECASE | re.UNICODE,
+)
+VERBAL = re.compile(r'^[vr]\b', re.IGNORECASE)
+ETYMOLOGIE = re.compile(
+    r'\s*\((?:Lat\.?|Do lat\.?|De lat\.?|D[eo]\b|De |Deriv|Forma|Gr\.?'
+    r'Arab|Germ|Ingl|Fr\.?|Prov|Gal|Cast|hisp|orig|Provençal|do gr|do arab|'
+    r'do cast|do fr|do ingl|do germ|do lat[^)]*)[^)]*\)\s*$'
+)
+SENS_SEP = re.compile(
+    # OCR « V. i. n. » → « Vin. » ; séparateurs de sens et étoiles de registre
+    r'(?:\s(?:V|v)\.\s(?:t|i)\.\s)|(?:\.\s(?:V|v)\.\s(?:t|i|n|p)\.\s)'
+    r'|(?:\n?\s?(?:V|v)in\.\s)|(?:\*\*?\s)'
+)
+
+
+ETY_SENS = re.compile(
+    r'\s*\((?:Lat\.?|Do lat\.?|De lat\.?|D[eo]\b|Do gr|Do arab|Do cast|Do fr|'
+    r'Do ingl|Do germ|De |Deriv|Forma|Gr\.?|Arab|Germ|Ingl|Fr\.?|Prov|Gal|'
+    r'Cast|orig)[^)]*\)?\s*$', re.IGNORECASE,
+)
+
+
+def _nettoie_sens(s: str) -> str:
+    s = re.sub(r'\s+', ' ', s).strip(' ;.,')
+    s = ETY_SENS.sub('', s)
+    return s.strip(' ;.,')
+
+
+def nettoie(txt: str) -> str:
+    txt = unicodedata.normalize('NFC', txt)
+    txt = txt.replace('¬ \n', '').replace('¬\n', '')
+    # trait d'union de fin de ligne
+    txt = re.sub(r'([^\W\d_])-\s*\n\s*([^\W\d_])', r'\1\2', txt, flags=re.UNICODE)
+    txt = re.sub(r'[ \t]+', ' ', txt)
+    txt = re.sub(r'\n{2,}', '\n', txt)
+    return txt
+
+
+def coupe_etym(article: str) -> str:
+    """Retire l'étymologie finale entre parenthèses."""
+    m = ETYMOLOGIE.search(article.rstrip())
+    if m and '(' not in m.group(0).strip()[1:]:
+        return article[: m.start()].rstrip()
+    return article.rstrip()
+
+
+def parse(txt: str):
+    articles: dict[str, list] = {}
+    marqueurs = list(ARTICLE.finditer(txt))
+    for i, m in enumerate(marqueurs):
+        if not VERBAL.match(m.group(2)):
+            continue
+        vedette = m.group(1)
+        fin = marqueurs[i + 1].start() if i + 1 < len(marqueurs) else len(txt)
+        corps = txt[m.end():fin]
+        # coupe dès qu'une nouvelle vedette NON verbale apparaît en fin d'article
+        corps = coupe_etym(corps)
+        # sépare les sens
+        sens = [_nettoie_sens(s) for s in SENS_SEP.split(corps)]
+        sens = [s for s in sens if len(s) > 3]
+        if not sens:
+            continue
+        articles.setdefault(vedette, [])
+        articles[vedette].append(sens)
+    # aplatir les articles multiples en une seule liste de sens
+    return {v: [s for art in lst for s in art] for v, lst in articles.items()}, \
+        {v: [s for art in lst for s in art for s in [s]] and len(lst) for v, lst in articles.items()}
+
+
+def main():
+    src, dst = sys.argv[1], sys.argv[2]
+    txt = nettoie(open(src, encoding='utf-8').read())
+    dico, _ = parse(txt)
+    json.dump(dico, open(dst, 'w', encoding='utf-8'), ensure_ascii=False)
+    print('vedettes verbales :', len(dico))
+    for v in ('falar', 'custodiar', 'agir', 'abafar'):
+        print(v, '->', dico.get(v, [])[:3])
+    print('OK')
+
+
+if __name__ == '__main__':
+    main()
