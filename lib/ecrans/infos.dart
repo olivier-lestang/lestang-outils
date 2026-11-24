@@ -40,7 +40,11 @@ class EcranInfos extends StatelessWidget {
           'française ( 8e édition, 1932-1935 ) et du Littré ( 1872-1877 ), '
           'les anglaises du Webster 1913 ( GCIDE ), les espagnoles de la Real '
           'Academia ( 1913-1914 ) : domaine public, complétées par des '
-          'rédactions du projet. La compression PDF rastérise page par page via pdfium ( package printing ), JPEG via package image, reconstruction via package pdf ; ces bibliotheques sont sous licence MIT ou Apache 2.0.',
+          'rédactions du projet. La compression PDF rastérise page par page '
+          'via pdfium ( package printing ), JPEG via package image, '
+          'reconstruction via package pdf ; ces bibliotheques, ainsi que '
+          'share_plus ( feuille de partage sous Android ), sont sous '
+          'licence MIT ou apparentee Apache.',
           style: style),
       const SizedBox(height: 8),
       Text(
