@@ -111,13 +111,13 @@ void _verifier() {
   // comptes
   final comptes = {
     'fr': 8535,
-    'en': 19075,
-    'es': 8966,
+    'en': 19070,
+    'es': 8957,
     'de': 4220,
     'it': 12429,
     'pt': 6084,
-    'pl': 9102,
-    'cs': 4151
+    'pl': 9064,
+    'cs': 4143
   };
   for (final e in comptes.entries) {
     attendu(jeux[e.key]!.jeu.verbes.length == e.value,
@@ -170,7 +170,7 @@ void _verifier() {
       'cs muset');
   attendu(jeux['pl']!.definition('pracować').isNotEmpty, 'pl def pracować');
   attendu(jeux['cs']!.definition('dělat').isNotEmpty, 'cs def dělat');
-  for (final e in {'fr': 1574, 'en': 17432, 'es': 3755, 'de': 3940,
+  for (final e in {'fr': 1574, 'en': 17427, 'es': 3746, 'de': 3940,
       'it': 11950, 'pt': 5600}.entries) {
     final w = jeux[e.key]!
         .jeu
@@ -179,12 +179,14 @@ void _verifier() {
         .length;
     attendu(w == e.value, '$e.key: $w verbes Wiktionary (attendu ${e.value})');
   }
-  // definitions manquantes : les filtres par dictionnaire ( Webster,
-  // Figueiredo, Petrocchi, Crusca ) ont ete abandonnes ; tous les
-  // verbes du Wiktionary sont conserves, il reste donc 7 verbes
-  // anglais sans definition ( indigest, hygiene, turbate, twilly,
-  // datagram, spoil, kneel ) ; italien et portugais : 0.
-  for (final e in {'en': 7, 'de': 0, 'it': 0, 'pt': 0}.entries) {
+  // 0 definition manquante dans toutes les langues : les verbes sans
+  // definition ont ete combles depuis les Wiktionary monolingues
+  // ( fr, en, es, pl, cs ) ou, a defaut, le glossaire anglais du
+  // Wiktionary anglophone ; les 60 mots qu aucun Wiktionary ne
+  // definit comme verbe ( hygiene, datagram, turbate, twilly,
+  // indigest en anglais... ) ont ete retires.
+  for (final e in {'fr': 0, 'en': 0, 'es': 0, 'de': 0, 'it': 0,
+      'pt': 0, 'pl': 0, 'cs': 0}.entries) {
     final manq = jeux[e.key]!
         .jeu
         .verbes
