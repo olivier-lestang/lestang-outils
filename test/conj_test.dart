@@ -179,7 +179,8 @@ void _verifier() {
         .length;
     attendu(w == e.value, '$e.key: $w verbes Wiktionary (attendu ${e.value})');
   }
-  // 0 definition manquante : les 7 verbes it/pt depuis le Webster 1913 ( domaine public ) : le lexique anglais est
+  // 0 definition manquante ; lexique anglais limite aux verbes
+  // definis par le Webster 1913 ( domaine public )
   // desormais limite aux verbes qu il definit, y compris les formes
   // doubles ( burn/spell/kneel ) ; le fantome « lambar » a ete retire.
   for (final e in {'en': 0, 'de': 0, 'it': 0, 'pt': 0}.entries) {
