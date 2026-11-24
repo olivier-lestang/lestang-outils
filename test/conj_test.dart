@@ -111,7 +111,7 @@ void _verifier() {
   // comptes
   final comptes = {
     'fr': 8535,
-    'en': 19075,
+    'en': 8339,
     'es': 8966,
     'de': 4220,
     'it': 12429,
@@ -170,7 +170,7 @@ void _verifier() {
       'cs muset');
   attendu(jeux['pl']!.definition('pracować').isNotEmpty, 'pl def pracować');
   attendu(jeux['cs']!.definition('dělat').isNotEmpty, 'cs def dělat');
-  for (final e in {'fr': 1574, 'en': 17432, 'es': 3755, 'de': 3940,
+  for (final e in {'fr': 1574, 'en': 6696, 'es': 3755, 'de': 3940,
       'it': 11950, 'pt': 5600}.entries) {
     final w = jeux[e.key]!
         .jeu
@@ -179,10 +179,10 @@ void _verifier() {
         .length;
     attendu(w == e.value, '$e.key: $w verbes Wiktionary (attendu ${e.value})');
   }
-  // 0 definition manquante : les 7 verbes it/pt sans glossaire ont recu
-  // une definition ( pt.wiktionary verbatim ou redaction maison ),
-  // le fantome « lambar » ( nom anglais ) a ete retire.
-  for (final e in {'de': 0, 'it': 0, 'pt': 0}.entries) {
+  // 0 definition manquante : les 7 verbes it/pt depuis le Webster 1913 ( domaine public ) : le lexique anglais est
+  // desormais limite aux verbes qu il definit, y compris les formes
+  // doubles ( burn/spell/kneel ) ; le fantome « lambar » a ete retire.
+  for (final e in {'en': 0, 'de': 0, 'it': 0, 'pt': 0}.entries) {
     final manq = jeux[e.key]!
         .jeu
         .verbes
