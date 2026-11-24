@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../l10n.dart';
+import '../sauvegarde.dart';
 
 enum ModeTheme { systeme, clair, sombre }
 
@@ -57,16 +58,10 @@ class _EcranReglagesState extends State<EcranReglages> {
         sortie[cle] = v;
       }
     }
-    final lieu = await getSaveLocation(
-        suggestedName: 'lestang-outils-preferences.json',
-        acceptedTypeGroups: const [
-          XTypeGroup(label: 'JSON', extensions: ['json'])
-        ]);
-    if (lieu == null) return;
     try {
-      await File(lieu.path)
-          .writeAsString(const JsonEncoder.withIndent('  ').convert(sortie));
-      setState(() => _message = 'OK');
+      final ok = await enregistrerTexte('lestang-outils-preferences.json',
+          const JsonEncoder.withIndent('  ').convert(sortie));
+      if (ok) setState(() => _message = 'OK');
     } catch (e) {
       setState(() => _message = '$e');
     }

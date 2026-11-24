@@ -57,6 +57,27 @@ void _verifier() {
   final ligne = g.firstWhere((x) => x['verbe'] == 'understand');
   attendu(ligne['preterit'] == 'understood' && ligne['pp'] == 'understood',
       'en understand (obtenu: ${ligne['preterit']}/${ligne['pp']})');
+  // doubles formes -ed (US) / -t (GB) et lexique nettoye
+  final gb = jeux['en']!.grilleEn('burn')
+      .firstWhere((x) => x['verbe'] == 'burn', orElse: () => {});
+  attendu(gb['preterit'] == 'burned (US) · burnt (GB)' &&
+      gb['pp'] == 'burned (US) · burnt (GB)',
+      'en burn (obtenu: ${gb['preterit']}/${gb['pp']})');
+  final sp = jeux['en']!.grilleEn('spell')
+      .firstWhere((x) => x['verbe'] == 'spell', orElse: () => {});
+  attendu(sp['pp'] == 'spelled (US) · spelt (GB)',
+      'en spell (obtenu: ${sp['pp']})');
+  final kn = jeux['en']!.grilleEn('kneel')
+      .firstWhere((x) => x['verbe'] == 'kneel', orElse: () => {});
+  attendu(kn['pp'] == 'kneeled (US) · knelt (GB)',
+      'en kneel (obtenu: ${kn['pp']})');
+  attendu(!jeux['en']!.jeu.verbes.any((v) => v.contains('-')),
+      'en aucun verbe a trait d union');
+  attendu(jeux['en']!.jeu.verbes.toSet().length == jeux['en']!.jeu.verbes.length,
+      'en aucun doublon');
+  final fleuv = jeux['en']!.jeu.verbes
+      .firstWhere((v) => v.length > 20, orElse: () => '.');
+  attendu(fleuv == '.', 'en aucun verbe de plus de 20 lettres ($fleuv)');
 
   // ES
   attendu(cell('es', 'amar', 'Indicatif', 'présent', 0) == 'amo', 'es amo');
@@ -89,9 +110,9 @@ void _verifier() {
 
   // comptes
   final comptes = {
-    'fr': 8539,
-    'en': 40327,
-    'es': 8981,
+    'fr': 8535,
+    'en': 19075,
+    'es': 8966,
     'de': 4220,
     'it': 12429,
     'pt': 6085,
@@ -149,7 +170,7 @@ void _verifier() {
       'cs muset');
   attendu(jeux['pl']!.definition('pracować').isNotEmpty, 'pl def pracować');
   attendu(jeux['cs']!.definition('dělat').isNotEmpty, 'cs def dělat');
-  for (final e in {'fr': 1578, 'en': 38684, 'es': 3770, 'de': 3940,
+  for (final e in {'fr': 1574, 'en': 17432, 'es': 3755, 'de': 3940,
       'it': 11950, 'pt': 5601}.entries) {
     final w = jeux[e.key]!
         .jeu

@@ -13,6 +13,7 @@ import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
 
 import '../l10n.dart';
+import '../sauvegarde.dart';
 
 String _tailleHumaine(int octets) {
   if (octets < 1024) return '$octets o';
@@ -138,18 +139,9 @@ class _EcranPdfState extends State<EcranPdf> {
         pages++;
       }
       if (pages == 0) throw Exception(t('pdf-erreur'));
-      final sortie = await getSaveLocation(
-          suggestedName: 'compressé.pdf',
-          acceptedTypeGroups: const [
-            XTypeGroup(label: 'PDF', extensions: ['pdf'])
-          ]);
-      if (sortie == null) {
-        if (mounted) setState(() => _occupe = false);
-        return;
-      }
       final octetsSortie = await doc.save();
-      await File(sortie.path).writeAsBytes(octetsSortie, flush: true);
-      if (mounted) {
+      final sauve = await enregistrerOctets('compressé.pdf', octetsSortie);
+      if (sauve && mounted) {
         setState(() {
           _resultat = '$pages ${t('pdf-pages')}\n'
               '${t('pdf-avant')} : ${_tailleHumaine(octetsEntree.length)} → '

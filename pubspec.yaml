@@ -1,7 +1,7 @@
 name: lestang_outils
 description: Lestang Outils, multiplateformes, conjugaisons et cartes au quotidien. MIT.
 publish_to: 'none'
-version: 1.0.0+1
+version: 1.0.0+2
 
 environment:
   sdk: '>=3.3.0 <4.0.0'
@@ -20,6 +20,7 @@ dependencies:
   printing: ^5.13.0
   image: ^4.2.0
   file_selector: ^1.0.3
+  share_plus: ^10.0.0
 
 dev_dependencies:
   flutter_test:
