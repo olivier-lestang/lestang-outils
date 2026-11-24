@@ -24,6 +24,12 @@ Les tests (moteurs de conjugaison, 30 contrôles sur les données réelles) :
 flutter test
 ```
 
+Sur Android, les boîtes de dialogue « enregistrer sous » ne sont pas
+existantes : le PDF compressé et l'export des préférences passent par la
+feuille de partage du système (Enregistrer dans Téléchargements, Drive,
+e-mail… via `share_plus`). Sur bureau, la boîte de dialogue native est
+utilisée (`file_selector`).
+
 ## Regénérer la base
 
 La base est reconstruite à partir des fichiers de données du projet web :
