@@ -114,8 +114,8 @@ void _verifier() {
     'en': 19075,
     'es': 8966,
     'de': 4220,
-    'it': 12428,
-    'pt': 6077,
+    'it': 12429,
+    'pt': 6085,
     'pl': 9102,
     'cs': 4151
   };
@@ -171,7 +171,7 @@ void _verifier() {
   attendu(jeux['pl']!.definition('pracować').isNotEmpty, 'pl def pracować');
   attendu(jeux['cs']!.definition('dělat').isNotEmpty, 'cs def dělat');
   for (final e in {'fr': 1574, 'en': 17432, 'es': 3755, 'de': 3940,
-      'it': 11949, 'pt': 5593}.entries) {
+      'it': 11950, 'pt': 5601}.entries) {
     final w = jeux[e.key]!
         .jeu
         .verbes
@@ -179,13 +179,16 @@ void _verifier() {
         .length;
     attendu(w == e.value, '$e.key: $w verbes Wiktionary (attendu ${e.value})');
   }
-  for (final l in ['de', 'it', 'pt']) {
-    final manq = jeux[l]!
+  // 1 verbe italien et 8 portugais entres du Wiktionary sans
+  // glossaire anglais : conserves, fiches sans definition.
+  for (final e in {'de': 0, 'it': 1, 'pt': 8}.entries) {
+    final manq = jeux[e.key]!
         .jeu
         .verbes
-        .where((v) => !jeux[l]!.jeu.defs.containsKey(v))
+        .where((v) => !jeux[e.key]!.jeu.defs.containsKey(v))
         .length;
-    attendu(manq == 0, '$l defs manquantes: $manq');
+    attendu(manq == e.value,
+        '${e.key}: $manq defs manquantes (attendu ${e.value})');
   }
 
   // suggestions
