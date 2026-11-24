@@ -1040,6 +1040,18 @@ class PlanchesConjug {
     return const [];
   }
 
+  /// Double forme -ed (US) / -t (GB) : « burned (US) · burnt (GB) ».
+  static String marqueAnglais(String f) {
+    if (!f.contains('/')) return f;
+    final p = f.split('/');
+    if (p.length != 2) return f;
+    final a = p[0], b = p[1];
+    final us = a.endsWith('ed') && b.endsWith('t') ? a : (b.endsWith('ed') && a.endsWith('t') ? b : null);
+    if (us == null) return f;
+    final gb = us == a ? b : a;
+    return '$us (US) · $gb (GB)';
+  }
+
   /// La grille anglaise : infinitif, preterit, participe, sept voisines.
   List<Map<String, String>> grilleEn(String v) {
     final out = <Map<String, String>>[];
@@ -1047,8 +1059,8 @@ class PlanchesConjug {
       final f = en.formes(w);
       out.add({
         'verbe': w,
-        'preterit': en.preteriteDe(f['past'] as List<String>),
-        'pp': f['pp'] as String
+        'preterit': marqueAnglais(en.preteriteDe(f['past'] as List<String>)),
+        'pp': marqueAnglais(f['pp'] as String)
       });
     }
     return out;
