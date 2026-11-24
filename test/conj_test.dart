@@ -114,8 +114,8 @@ void _verifier() {
     'en': 19075,
     'es': 8966,
     'de': 4220,
-    'it': 12429,
-    'pt': 6085,
+    'it': 12428,
+    'pt': 6077,
     'pl': 9102,
     'cs': 4151
   };
@@ -147,8 +147,8 @@ void _verifier() {
       cell('pl', 'pracować', 'Impératif', 'présent', 2) == 'pracujcie',
       'pl impératif pracować');
   attendu(cell('pl', 'być', 'Indicatif', 'présent', 5) == 'są', 'pl są');
-  attendu(cell('pl', 'iść', 'Indicatif', 'passé', 5) == 'szedł' &&
-      cell('pl', 'iść', 'Indicatif', 'passé', 6) == 'szła', 'pl passé iść');
+  attendu(cell('pl', 'iść', 'Indicatif', 'passé', 4) == 'szedł' &&
+      cell('pl', 'iść', 'Indicatif', 'passé', 5) == 'szła', 'pl passé iść');
   attendu(cell('cs', 'dělat', 'Indicatif', 'présent', 1) == 'děláš',
       'cs děláš');
   attendu(cell('cs', 'dělat', 'Indicatif', 'passé', 0) == 'dělal jsem',
@@ -171,7 +171,7 @@ void _verifier() {
   attendu(jeux['pl']!.definition('pracować').isNotEmpty, 'pl def pracować');
   attendu(jeux['cs']!.definition('dělat').isNotEmpty, 'cs def dělat');
   for (final e in {'fr': 1574, 'en': 17432, 'es': 3755, 'de': 3940,
-      'it': 11950, 'pt': 5601}.entries) {
+      'it': 11949, 'pt': 5593}.entries) {
     final w = jeux[e.key]!
         .jeu
         .verbes
