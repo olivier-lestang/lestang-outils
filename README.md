@@ -74,10 +74,11 @@ qu'avant enrichissement** dans `outils/brut_orig.json`, puis lancer
 
 ## Contenu de la base
 
-- Conjugaison : en 19 075, it 12 428, pl 9 102, fr 8 535, es 8 966,
-  pt 6 077, de 4 220, cs 4 151 ; aucun doublon ; définitions 100 % dans
-  la langue de chaque carte (glossaires anglais pour pl/cs comme pour
-  it/pt/de).
+- Conjugaison : en 19 075, it 12 429, pl 9 102, fr 8 535, es 8 966,
+  pt 6 085, de 4 220, cs 4 151 ; aucun doublon ; définitions dans la
+  langue de chaque carte (glossaires anglais pour pl/cs comme pour
+  it/pt/de) sauf 9 verbes ( 1 italien, 8 portugais ) entrés du
+  Wiktionary sans glossaire, conservés sans définition.
 - Le lexique anglais est épuré : pas de verbe composé à trait d union
   ( air-condition, birdy-sit ) ni de terme très spécialisé ;
   un verbe Wiktionary n est conservé que si lui-même ou l une de ses
@@ -105,8 +106,8 @@ MIT (`LICENSE`).
 | en | 19 075 | 17 432 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme, puis épuré (composés à trait d union et termes très spécialisés retirés) et complété des doubles formes -ed/-t | Webster 1913 (GCIDE), domaine public |
 | es | 8 966 | 3 755 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Real Academia 1913, domaine public |
 | de | 4 220 | 3 940 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
-| it | 12 428 | 11 949 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
-| pt | 6 077 | 5 593 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
+| it | 12 429 | 11 950 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
+| pt | 6 085 | 5 601 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
 | pl | 9 102 | 9 102 | Moteur `Pl` ; extraction du Wiktionary polonais via kaikki, verbe accepté seulement si toutes les formes prédites correspondent ; 125 verbes fréquents réintégrés verbatim | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
 | cs | 4 151 | 4 151 | Moteur `Cs` ; même procédé ; 21 verbes fréquents réintégrés verbatim | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
 
@@ -132,6 +133,11 @@ Détail du procédé :
   (conforme aux formes du Wiktionary) et, pour les rares passés
   incomplets (wziąć), les 1re/2e personnes dérivées des 3es par les
   suffixes réguliers.
+- **It/Pt** : 9 verbes ( sbiascicarsi ; custodiar, lambar, bojar,
+  abobar, tragediar, afigurar, bilhardar, percutir ) sont entrés du
+  Wiktionary sans glossaire anglais : ils sont conservés
+  ( usage non commercial prévu, attribution Wiktionary maintenue ),
+  leur fiche n'affiche pas de définition.
 - **Listes de fréquence OpenSubtitles** : utilisées uniquement pour
   sélectionner les verbes rejetés à réintégrer ; aucune donnée de ces
   listes n'est embarquée dans l'app ni dans la base.
