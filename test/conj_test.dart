@@ -115,7 +115,7 @@ void _verifier() {
     'es': 8966,
     'de': 4220,
     'it': 12429,
-    'pt': 6085,
+    'pt': 6084,
     'pl': 9102,
     'cs': 4151
   };
@@ -171,7 +171,7 @@ void _verifier() {
   attendu(jeux['pl']!.definition('pracować').isNotEmpty, 'pl def pracować');
   attendu(jeux['cs']!.definition('dělat').isNotEmpty, 'cs def dělat');
   for (final e in {'fr': 1574, 'en': 17432, 'es': 3755, 'de': 3940,
-      'it': 11950, 'pt': 5601}.entries) {
+      'it': 11950, 'pt': 5600}.entries) {
     final w = jeux[e.key]!
         .jeu
         .verbes
@@ -179,9 +179,10 @@ void _verifier() {
         .length;
     attendu(w == e.value, '$e.key: $w verbes Wiktionary (attendu ${e.value})');
   }
-  // 1 verbe italien et 8 portugais entres du Wiktionary sans
-  // glossaire anglais : conserves, fiches sans definition.
-  for (final e in {'de': 0, 'it': 1, 'pt': 8}.entries) {
+  // 0 definition manquante : les 7 verbes it/pt sans glossaire ont recu
+  // une definition ( pt.wiktionary verbatim ou redaction maison ),
+  // le fantome « lambar » ( nom anglais ) a ete retire.
+  for (final e in {'de': 0, 'it': 0, 'pt': 0}.entries) {
     final manq = jeux[e.key]!
         .jeu
         .verbes
