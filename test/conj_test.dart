@@ -114,7 +114,7 @@ void _verifier() {
     'en': 8339,
     'es': 8966,
     'de': 4220,
-    'it': 12429,
+    'it': 6818,
     'pt': 4792,
     'pl': 9102,
     'cs': 4151
@@ -171,7 +171,7 @@ void _verifier() {
   attendu(jeux['pl']!.definition('pracować').isNotEmpty, 'pl def pracować');
   attendu(jeux['cs']!.definition('dělat').isNotEmpty, 'cs def dělat');
   for (final e in {'fr': 1574, 'en': 6696, 'es': 3755, 'de': 3940,
-      'it': 11950, 'pt': 4308}.entries) {
+      'it': 6339, 'pt': 4308}.entries) {
     final w = jeux[e.key]!
         .jeu
         .verbes
@@ -181,7 +181,9 @@ void _verifier() {
   }
   // 0 definition manquante ; lexique anglais limite aux verbes
   // definis par le Webster 1913 ( domaine public ) ; lexique
-  // portugais limite aux verbes definis par le Figueiredo 1913
+  // portugais limite aux verbes definis par le Figueiredo 1913 ;
+  // lexique italien limite aux verbes definis par le Petrocchi 1887
+  // ou la Crusca 1819 ( domaine public )
   // desormais limite aux verbes qu il definit, y compris les formes
   // doubles ( burn/spell/kneel ) ; le fantome « lambar » a ete retire.
   for (final e in {'en': 0, 'de': 0, 'it': 0, 'pt': 0}.entries) {
