@@ -38,6 +38,10 @@ La base est reconstruite à partir des fichiers de données du projet web :
 node outils/extraire.js <chemin-du-projet-web>/web/ outils/brut.json
 python3 outils/nettoie_en.py        # lexique anglais : filtre + doubles formes
 python3 outils/dedupe.py            # aucun doublon, toutes langues
+# comblement des verbes sans définition depuis les Wiktionary
+# monolingues ( la collecte a déjà été faite, voir le bullet
+# « Comblement des définitions manquantes » ) :
+python3 outils/combler_defs.py outils/brut.json outils/wikt_defs.json outils/retires_wikt.json outils/brut.json
 python3 outils/construire_bdd.py
 ```
 
@@ -83,13 +87,17 @@ qu'avant enrichissement** dans `outils/brut_orig.json`, puis lancer
 
 ## Contenu de la base
 
-- Conjugaison : en 19 075, it 12 429, pl 9 102, fr 8 535, es 8 966,
-  pt 6 084, de 4 220, cs 4 151 ; aucun doublon ; tous les verbes du
-  Wiktionary sont conservés ; seuls de rares verbes n'ont pas de
-  définition (fr 4, en 7, es 19, pl 356, cs 53). Définitions : français
+- Conjugaison : en 19 070, it 12 429, pl 9 064, fr 8 535, es 8 957,
+  pt 6 084, de 4 220, cs 4 143 ; aucun doublon ; tous les verbes du
+  Wiktionary sont conservés ; chaque verbe a une définition (379
+  verbes restés sans définition ont été comblés depuis les Wiktionary
+  monolingues et 60 mots que le Wiktionary ne définit pas comme
+  verbes ont été retirés). Définitions : français
   : Académie 8e éd. + Littré ; anglais : Webster 1913 où il définit,
   sinon glossaire anglais du Wiktionary ; espagnol : Real Academia
-  1913 ; de/it/pt/pl/cs : glossaires anglais du Wiktionary (CC BY-SA).
+  1913 ; de/it/pt/pl/cs : glossaires anglais du Wiktionary (CC BY-SA),
+  sauf les comblements récents (définitions natives du Wiktionary de
+  la langue, CC BY-SA).
 - Le lexique anglais est épuré : pas de verbe composé à trait d union
   ( air-condition, birdy-sit ) ni de terme très spécialisé
   (`outils/nettoie_en.py`) ; les verbes définis par le Webster's
@@ -114,13 +122,13 @@ MIT (`LICENSE`).
 | Langue | Verbes | dont Wiktionary | Procédé | Définitions |
 | --- | ---: | ---: | --- | --- |
 | fr | 8 535 | 1 574 | Moteur maison ; verbes enrichis depuis le Wiktionnaire (kaikki), chaque forme vérifiée, source stockée par verbe | Académie 8e éd. + Littré, domaine public |
-| en | 19 075 | 17 432 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme (doubles formes -ed/-t conservées) | Webster 1913 où il définit (domaine public, numérisation lunixbochs/webster, MIT), sinon glossaires anglais du Wiktionary, CC BY-SA 4.0 |
-| es | 8 966 | 3 755 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Real Academia 1913, domaine public |
+| en | 19 070 | 17 427 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme (doubles formes -ed/-t conservées) | Webster 1913 où il définit (domaine public, numérisation lunixbochs/webster, MIT), sinon glossaires anglais du Wiktionary, CC BY-SA 4.0 |
+| es | 8 957 | 3 746 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Real Academia 1913, domaine public |
 | de | 4 220 | 3 940 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
 | it | 12 429 | 11 950 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme, tous les verbes du Wiktionary conservés | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
 | pt | 6 084 | 5 600 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme, tous les verbes du Wiktionary conservés | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
-| pl | 9 102 | 9 102 | Moteur `Pl` ; extraction du Wiktionary polonais via kaikki, verbe accepté seulement si toutes les formes prédites correspondent ; 125 verbes fréquents réintégrés verbatim | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
-| cs | 4 151 | 4 151 | Moteur `Cs` ; même procédé ; 21 verbes fréquents réintégrés verbatim | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
+| pl | 9 064 | 9 064 | Moteur `Pl` ; extraction du Wiktionary polonais via kaikki, verbe accepté seulement si toutes les formes prédites correspondent ; 125 verbes fréquents réintégrés verbatim | Glossaires anglais du Wiktionary, CC BY-SA 4.0 ; 318 définitions polonaises ajoutées du pl.wiktionary (CC BY-SA 4.0) |
+| cs | 4 143 | 4 143 | Moteur `Cs` ; même procédé ; 21 verbes fréquents réintégrés verbatim | Glossaires anglais du Wiktionary, CC BY-SA 4.0 ; 45 définitions tchèques ajoutées du cs.wiktionary (CC BY-SA 4.0) |
 
 Détail du procédé :
 
@@ -165,6 +173,24 @@ Détail du procédé :
   Décision finale : conserver **tous** les verbes du Wiktionary ; les
   définitions de/it/pt restent les glossaires anglais (CC BY-SA 4.0) ;
   les six scripts restent dans `outils/` pour référence.
+- **Comblement des définitions manquantes ( Wiktionary, CC BY-SA 4.0 )** :
+  avec les filtres abandonnés, 439 verbes restaient sans définition
+  ( fr 4, en 7, es 19, pl 356, cs 53 ). Ils ont été traités depuis
+  les Wiktionary monolingues via l'API MediaWiki ( requêtes par
+  lots `action=query` sur fr/en/es/pl/cs.wiktionary.org, extraction
+  des sections « verbe » du wikitext ) : **379 comblés** ( fr 4,
+  en 2, es 10, pl 318, cs 45 ) avec la définition native de la
+  langue, ou à défaut le glossaire anglais de la section
+  correspondante du Wiktionary anglophone ; **60 retirés** ( en 5 :
+  hygiene, datagram, turbate, twilly, indigest ; es 9 ; pl 38 ;
+  cs 8 ), mots qu'aucun Wiktionary ne définit comme verbe -
+  artefacts d'extraction, selon la règle « sans définition =>
+  retiré ». Scripts : collecte ad hoc ( lots `action=query`,
+  nettoyage du wikitext : liens, modèles, références ), puis
+  `outils/combler_defs.py` ( remplacement des définitions vides et
+  retrait des mots non définis ) ; données :
+  `outils/wikt_defs.json` et `outils/retires_wikt.json`. Après
+  comblement : 0 verbe sans définition dans les huit langues.
 - **Listes de fréquence OpenSubtitles** : utilisées uniquement pour
   sélectionner les verbes rejetés à réintégrer ; aucune donnée de ces
   listes n'est embarquée dans l'app ni dans la base.
