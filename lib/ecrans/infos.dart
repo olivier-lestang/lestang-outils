@@ -42,7 +42,7 @@ class EcranInfos extends StatelessWidget {
           'glossaire du générateur du projet ( SPDX-License-Identifier : MIT ). '
           'Les définitions françaises viennent du Dictionnaire de l Académie '
           'française ( 8e édition, 1932-1935 ) et du Littré ( 1872-1877 ), '
-          'les anglaises du Webster 1913 ( numérisation
+          'les anglaises du Webster 1913 ( numérisation '
           'lunixbochs/webster, code MIT ), les portugaises du Novo Diccionario da '
           'Lingua Portugueza ( Cândido de Figueiredo, 1913, OCR Internet '
           'Archive ), les italiennes du Nòvo dizionàrio universale ( Petrocchi, '
