@@ -75,10 +75,9 @@ qu'avant enrichissement** dans `outils/brut_orig.json`, puis lancer
 ## Contenu de la base
 
 - Conjugaison : en 19 075, it 12 429, pl 9 102, fr 8 535, es 8 966,
-  pt 6 085, de 4 220, cs 4 151 ; aucun doublon ; définitions dans la
-  langue de chaque carte (glossaires anglais pour pl/cs comme pour
-  it/pt/de) sauf 9 verbes ( 1 italien, 8 portugais ) entrés du
-  Wiktionary sans glossaire, conservés sans définition.
+  pt 6 084, de 4 220, cs 4 151 ; aucun doublon ; définitions 100 % dans
+  la langue de chaque carte (glossaires anglais pour pl/cs comme pour
+  it/pt/de).
 - Le lexique anglais est épuré : pas de verbe composé à trait d union
   ( air-condition, birdy-sit ) ni de terme très spécialisé ;
   un verbe Wiktionary n est conservé que si lui-même ou l une de ses
@@ -107,7 +106,7 @@ MIT (`LICENSE`).
 | es | 8 966 | 3 755 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Real Academia 1913, domaine public |
 | de | 4 220 | 3 940 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
 | it | 12 429 | 11 950 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
-| pt | 6 085 | 5 601 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
+| pt | 6 084 | 5 600 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
 | pl | 9 102 | 9 102 | Moteur `Pl` ; extraction du Wiktionary polonais via kaikki, verbe accepté seulement si toutes les formes prédites correspondent ; 125 verbes fréquents réintégrés verbatim | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
 | cs | 4 151 | 4 151 | Moteur `Cs` ; même procédé ; 21 verbes fréquents réintégrés verbatim | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
 
@@ -133,11 +132,14 @@ Détail du procédé :
   (conforme aux formes du Wiktionary) et, pour les rares passés
   incomplets (wziąć), les 1re/2e personnes dérivées des 3es par les
   suffixes réguliers.
-- **It/Pt** : 9 verbes ( sbiascicarsi ; custodiar, lambar, bojar,
-  abobar, tragediar, afigurar, bilhardar, percutir ) sont entrés du
-  Wiktionary sans glossaire anglais : ils sont conservés
-  ( usage non commercial prévu, attribution Wiktionary maintenue ),
-  leur fiche n'affiche pas de définition.
+- **It/Pt, définitions complétées** : 7 verbes entrés du Wiktionary
+  sans glossaire ont reçu une définition. Six en portugais
+  ( custodiar, bojar, abobar, afigurar, bilhardar, percutir ) copiés
+  verbatim du Wiktionnaire portugais ( CC BY-SA 4.0 ) ; tragediar
+  ( portugais ) et sbiascicarsi ( italien, usage régional ) : rédaction
+  du projet calquée sur les usages attestés. Le neuvième, « lambar »,
+  n'est pas un verbe portugais mais un nom anglais entré par erreur
+  lors de l'extraction : il est retiré.
 - **Listes de fréquence OpenSubtitles** : utilisées uniquement pour
   sélectionner les verbes rejetés à réintégrer ; aucune donnée de ces
   listes n'est embarquée dans l'app ni dans la base.
