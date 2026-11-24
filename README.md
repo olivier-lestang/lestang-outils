@@ -39,14 +39,15 @@ node outils/extraire.js <chemin-du-projet-web>/web/ outils/brut.json
 python3 outils/nettoie_en.py        # lexique anglais : filtre + doubles formes
 python3 outils/dedupe.py            # aucun doublon, toutes langues
 python3 outils/filtre_webster.py webster1913.json  # EN : Webster 1913
-# PT : Novo Diccionario da Lingua Portugueza (Figueiredo 1913, OCR
-# archive.org/download/DicionrioDeL.P1913, « Dicionário de L.P 1913_djvu.txt »)
+# PT : Novo Diccionario da Lingua Portugueza (Figueiredo 1913, OCR Internet Archive)
+#   https://archive.org/download/DicionrioDeL.P1913/DicionrioDeL.P1913_djvu.txt
 python3 outils/parse_figueiredo.py figueiredo.txt figueiredo_verbes.json
 python3 outils/filtre_figueiredo.py outils/brut.json figueiredo_verbes.json outils/brut.json
 # IT : Petrocchi 1887 + Crusca 1819 (OCR Internet Archive)
-#   vol. 1 : https://archive.org/download/nvodizionarioun01petr/nvodizionarioun01petr_djvu.txt
-#   vol. 2 : https://archive.org/download/nvodizionarioun02petr/nvodizionarioun02petr_djvu.txt
-#   Crusca ed. 1819 : dizionariodellal01cost ... 07cost ..._djvu.txt
+#   Petrocchi vol. 1 : https://archive.org/download/novodizionarioun01petruoft/novodizionarioun01petruoft_djvu.txt
+#   Petrocchi vol. 2 : https://archive.org/download/novodizionarioun02petruoft/novodizionarioun02petruoft_djvu.txt
+#   Crusca 1819, éd. Costa-Cardinali, vol. 1 : https://archive.org/download/dizionariodellal01cost/dizionariodellal01cost_djvu.txt
+#   ... et de même dizionariodellal02cost ... 07cost ..._djvu.txt
 python3 outils/parse_petrocchi.py petr1.txt petr2.txt petrocchi_verbes.json
 python3 outils/parse_crusca.py crusca1.txt crusca02.txt crusca03.txt crusca04.txt crusca05.txt crusca06.txt crusca07.txt crusca_verbes.json
 python3 outils/filtre_italien.py outils/brut.json petrocchi_verbes.json crusca_verbes.json outils/brut.json
@@ -186,12 +187,26 @@ Licences des données de conjugaison et définitions :
   via l'extraction https://kaikki.org (wiktextract).
 - Novo Diccionario da Lingua Portugueza ( Cândido de Figueiredo,
   1913 ) : domaine public ; OCR Internet Archive,
-  item DicionrioDeL.P1913.
-- Nòvo dizionàrio universale ( Pietro Petrocchi, 1887, tomes 1-2 )
-  et Dizionario degli Accademici della Crusca ( édition
+  https://archive.org/details/DicionrioDeL.P1913
+  ( texte : https://archive.org/download/DicionrioDeL.P1913/DicionrioDeL.P1913_djvu.txt ).
+- Nòvo dizionàrio universale della lingua italiana ( Pietro
+  Petrocchi, 1887, tomes 1-2 ) : domaine public ; OCR Internet
+  Archive, https://archive.org/details/novodizionarioun01petruoft
+  et https://archive.org/details/novodizionarioun02petruoft
+  ( textes : ..._djvu.txt ).
+- Dizionario degli Accademici della Crusca ( édition
   Costa-Cardinali, 1819, 7 volumes ) : domaine public ; OCR
-  Internet Archive ( nvodizionarioun01petr / 02petr ;
-  dizionariodellal01cost à 07cost ).
+  Internet Archive :
+  https://archive.org/details/dizionariodellal01cost ,
+  https://archive.org/details/dizionariodellal02cost ,
+  https://archive.org/details/dizionariodellal03cost ,
+  https://archive.org/details/dizionariodellal04cost ,
+  https://archive.org/details/dizionariodellal05cost ,
+  https://archive.org/details/dizionariodellal06cost ,
+  https://archive.org/details/dizionariodellal07cost .
+- Webster's Revised Unabridged Dictionary ( 1913, texte du domaine
+  public ) : numérisation https://github.com/lunixbochs/webster
+  ( code MIT, les définitions restent domaine public ).
 - Dictionnaire de l'Académie française 8e éd. (1932-1935), Littré
   (1872-1877), Webster 1913 (texte du domaine public ; numérisation
   lunixbochs/webster, code MIT), Real Academia 1913 : domaine public.
