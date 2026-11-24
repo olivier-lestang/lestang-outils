@@ -74,8 +74,8 @@ qu'avant enrichissement** dans `outils/brut_orig.json`, puis lancer
 
 ## Contenu de la base
 
-- Conjugaison : en 19 075, it 12 429, pl 9 102, fr 8 535, es 8 966,
-  pt 6 085, de 4 220, cs 4 151 ; aucun doublon ; définitions 100 % dans
+- Conjugaison : en 19 075, it 12 428, pl 9 102, fr 8 535, es 8 966,
+  pt 6 077, de 4 220, cs 4 151 ; aucun doublon ; définitions 100 % dans
   la langue de chaque carte (glossaires anglais pour pl/cs comme pour
   it/pt/de).
 - Le lexique anglais est épuré : pas de verbe composé à trait d union
@@ -105,8 +105,8 @@ MIT (`LICENSE`).
 | en | 19 075 | 17 432 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme, puis épuré (composés à trait d union et termes très spécialisés retirés) et complété des doubles formes -ed/-t | Webster 1913 (GCIDE), domaine public |
 | es | 8 966 | 3 755 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Real Academia 1913, domaine public |
 | de | 4 220 | 3 940 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
-| it | 12 429 | 11 950 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
-| pt | 6 085 | 5 601 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
+| it | 12 428 | 11 949 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
+| pt | 6 077 | 5 593 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
 | pl | 9 102 | 9 102 | Moteur `Pl` ; extraction du Wiktionary polonais via kaikki, verbe accepté seulement si toutes les formes prédites correspondent ; 125 verbes fréquents réintégrés verbatim | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
 | cs | 4 151 | 4 151 | Moteur `Cs` ; même procédé ; 21 verbes fréquents réintégrés verbatim | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
 
