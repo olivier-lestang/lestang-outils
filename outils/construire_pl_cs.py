@@ -64,12 +64,14 @@ def main():
     b['PL_TPL_STR'] = ''
     b['PL_VERBS_STR'] = (str_verbes(pl, False) + ',być::::::,iść::::::,'
                          + toks_exceptions(plex, False))
-    b['PL_DEFS_STR'] = defs(pl) + defs_exceptions(plex)
+    b['PL_DEFS_STR'] = '\u0002'.join(
+        x for x in (defs(pl), defs_exceptions(plex)) if x)
     b['PL_VSRC_STR'] = '\n'.join(sorted(pl)) + '\nbyć\niść\n' + '\n'.join(sorted(plex))
     b['CS_TPL_STR'] = ''
     b['CS_VERBS_STR'] = (str_verbes(cs, True) + ',být:::::::,'
                          + toks_exceptions(csex, True))
-    b['CS_DEFS_STR'] = defs(cs) + defs_exceptions(csex)
+    b['CS_DEFS_STR'] = '\u0002'.join(
+        x for x in (defs(cs), defs_exceptions(csex)) if x)
     b['CS_VSRC_STR'] = '\n'.join(sorted(cs)) + '\nbýt\n' + '\n'.join(sorted(csex))
     with open(chemin, 'w', encoding='utf-8') as f:
         json.dump(b, f, ensure_ascii=False, separators=(',', ':'))
