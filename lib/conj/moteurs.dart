@@ -231,7 +231,7 @@ class Fr {
   }
 
   Map<String, List<String>> _auxiliaire(String nom) {
-    final v = nom == 'être' ? 'être' : 'avoir';
+    final v = nom == ':être' ? 'être' : 'avoir';
     Tpl? tp;
     for (final t in jeu.tpls) {
       if (t['nom'] == nom) {
@@ -359,7 +359,7 @@ class Fr {
   List<Mode> rend(String v, bool clit) {
     final f = _formes(v);
     final usesEtre = clit || familleEtre(v);
-    final A = _auxiliaire(usesEtre ? 'être' : ':avoir');
+    final A = _auxiliaire(usesEtre ? ':être' : ':avoir');
     final per1 = _PERS_FR, per2 = _PERS_SUB_FR;
     final impPer = ['(tu)', '(nous)', '(vous)'];
     const P4 = [
