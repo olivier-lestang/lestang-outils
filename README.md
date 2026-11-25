@@ -63,6 +63,9 @@ python3 outils/construire_bdd.py
 #                                     # ( de 1901, it accents, pt AO90 )
 #   python3 outils/coquilles_ocr.py   # dic. PD : coquilles OCR certaines
 #                                     # ( fich->sich, superfice, ob jeto )
+#   python3 outils/ajouter_wikt.py    # it/pt/de : glosses anglais du
+#                                     # Wiktionary ranges AVANT les dic.
+#                                     # PD ( restauration 1.2.2 + API )
 #   ... editions SQL dans atelier.db ...
 #   python3 outils/atelier.py export   # atelier.db -> brut.json
 #   python3 outils/atelier.py verifier  # controle de concordance fina
@@ -252,6 +255,14 @@ Détail du procédé :
   ( version 1.4.2 ) corrige en outre les coquilles OCR certaines
   ( fich->sich, dur<->durch, superfice->superficie, ob jeto->objeto,
   prospector rétabli ), revues une par une en contexte ;
+- **Double affichage Wiktionary + domaine public ( version 1.4.3 )** :
+  pour it/pt/de, les verbes couverts par Petrocchi/Figueiredo/Sanders
+  retrouvent leurs glosses anglais du Wiktionary en tête ( 8 914 sens :
+  5 743 verbes restaurés depuis la brute 1.2.2, 1 238 verbes centraux
+  relevés via l'API MediaWiki du Wiktionary anglais par
+  `outils/ajouter_wikt.py` ; 13 verbes niche sans glose Wikt restent
+  en PD seul ), la définition native du dictionnaire du domaine public
+  venant ensuite ; aucune définition n'est supprimée ;
   les six scripts de filtrage restent dans `outils/` pour référence.
 - **Comblement des définitions manquantes ( Wiktionary, CC BY-SA 4.0 )** :
   avec les filtres abandonnés, 439 verbes restaient sans définition
