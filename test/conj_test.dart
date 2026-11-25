@@ -171,6 +171,16 @@ void _verifier() {
       'cs muset');
   attendu(jeux['pl']!.definition('pracować').isNotEmpty, 'pl def pracować');
   attendu(jeux['cs']!.definition('dělat').isNotEmpty, 'cs def dělat');
+  // definitions natives des Wiktionary monolingues : etiquette par defaut
+  attendu(
+      jeux['pl']!.definition('pracować').first.etiquette == 'pl. Wiktionary',
+      'pl def pracowany native');
+  attendu(
+      jeux['cs']!.definition('dělat').first.etiquette == 'cs. Wiktionary',
+      'cs def dělat native');
+  attendu(
+      jeux['ro']!.definition('lucra').first.etiquette == 'ro. Wiktionary',
+      'ro def lucra native');
 
   // roumain : formes verbatim du Wiktionary, composes calcules
   attendu(cell('ro', 'lucra', 'Indicativ', 'prezent', 0) == 'lucrez',

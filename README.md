@@ -44,6 +44,7 @@ python3 outils/dedupe.py            # aucun doublon, toutes langues
 python3 outils/combler_defs.py outils/brut.json outils/wikt_defs.json outils/retires_wikt.json outils/brut.json
 python3 outils/construire_pl_cs.py
 python3 outils/construire_ro.py
+python3 outils/completer_natifs.py outils/brut.json
 python3 outils/construire_bdd.py
 ```
 
@@ -100,9 +101,17 @@ qu'avant enrichissement** dans `outils/brut_orig.json`, puis lancer
   verbes ont été retirés). Définitions : français
   : Académie 8e éd. + Littré ; anglais : Webster 1913 où il définit,
   sinon glossaire anglais du Wiktionary ; espagnol : Real Academia
-  1913 ; de/it/pt/pl/cs/ro : glossaires anglais du Wiktionary (CC BY-SA),
-  sauf les comblements récents (définitions natives du Wiktionary de
-  la langue, CC BY-SA).
+  1913 ; de/it/pt : glossaires anglais du Wiktionary (CC BY-SA) ;
+  pl/cs/ro : définitions natives du Wiktionary de la langue
+  ( 4 164 / 1 823 / 4 949 verbes, dumps pl/cs/ro.wiktionary, CC BY-SA ),
+  sinon glossaire anglais du Wiktionary ; les définitions traduites de
+  l'anglais sont étiquetées « angl. Wiktionary, trad. ». Aucune
+  numérisation de dictionnaire du domaine public ( fin 19e, début 20e )
+  n'a pu être intégrée à ce jour : l'OCR du Słownik warszawski est
+  illisible, le dump officiel de dexonline ( pour le roumain ) était
+  tronqué au moment de la collecte et son site interdit le scraping ;
+  le comblement « dictionnaire ancien » reste à faire si une
+  numérisation libre devient disponible.
 - Le lexique anglais est épuré : pas de verbe composé à trait d union
   ( air-condition, birdy-sit ) ni de terme très spécialisé
   (`outils/nettoie_en.py`) ; les verbes définis par le Webster's
@@ -129,12 +138,12 @@ MIT (`LICENSE`).
 | fr | 8 535 | 1 574 | Moteur maison ; verbes enrichis depuis le Wiktionnaire (kaikki), chaque forme vérifiée, source stockée par verbe | Académie 8e éd. + Littré, domaine public |
 | en | 19 070 | 17 427 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme (doubles formes -ed/-t conservées) | Webster 1913 où il définit (domaine public, numérisation lunixbochs/webster, MIT), sinon glossaires anglais du Wiktionary, CC BY-SA 4.0 |
 | es | 8 957 | 3 746 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Real Academia 1913, domaine public |
-| de | 4 220 | 3 940 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
-| it | 12 429 | 11 950 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme, tous les verbes du Wiktionary conservés | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
-| pt | 6 084 | 5 600 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme, tous les verbes du Wiktionary conservés | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
-| pl | 9 064 | 9 064 | Moteur `Pl` ; extraction du Wiktionary polonais via kaikki, verbe accepté seulement si toutes les formes prédites correspondent ; 125 verbes fréquents réintégrés verbatim | Glossaires anglais du Wiktionary, CC BY-SA 4.0 ; 318 définitions polonaises ajoutées du pl.wiktionary (CC BY-SA 4.0) |
-| cs | 4 143 | 4 143 | Moteur `Cs` ; même procédé ; 21 verbes fréquents réintégrés verbatim | Glossaires anglais du Wiktionary, CC BY-SA 4.0 ; 45 définitions tchèques ajoutées du cs.wiktionary (CC BY-SA 4.0) |
-| ro | 6 970 | 6 970 | Moteur `Ro` ; extraction du Wiktionary via tous les wiktionary (kaikki), table de conjugaison ro-conj complète requise, toutes les formes copiées verbatim ; futur, conditionnel et parfait composé assemblés sur l'appareil depuis les auxiliaires réguliers (a vrea, a avea) | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
+| de | 4 220 | 3 940 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Définitions natives du ro.wiktionary pour 4 949 verbes (dumps Wikimedia, CC BY-SA 4.0), sinon glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
+| it | 12 429 | 11 950 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme, tous les verbes du Wiktionary conservés | Définitions natives du ro.wiktionary pour 4 949 verbes (dumps Wikimedia, CC BY-SA 4.0), sinon glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
+| pt | 6 084 | 5 600 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme, tous les verbes du Wiktionary conservés | Définitions natives du ro.wiktionary pour 4 949 verbes (dumps Wikimedia, CC BY-SA 4.0), sinon glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
+| pl | 9 064 | 9 064 | Moteur `Pl` ; extraction du Wiktionary polonais via kaikki, verbe accepté seulement si toutes les formes prédites correspondent ; 125 verbes fréquents réintégrés verbatim | Définitions natives du pl.wiktionary pour 4 164 verbes (dumps Wikimedia, CC BY-SA 4.0), sinon glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
+| cs | 4 143 | 4 143 | Moteur `Cs` ; même procédé ; 21 verbes fréquents réintégrés verbatim | Définitions natives du cs.wiktionary pour 1 823 verbes (dumps Wikimedia, CC BY-SA 4.0), sinon glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
+| ro | 6 970 | 6 970 | Moteur `Ro` ; extraction du Wiktionary via tous les wiktionary (kaikki), table de conjugaison ro-conj complète requise, toutes les formes copiées verbatim ; futur, conditionnel et parfait composé assemblés sur l'appareil depuis les auxiliaires réguliers (a vrea, a avea) | Définitions natives du ro.wiktionary pour 4 949 verbes (dumps Wikimedia, CC BY-SA 4.0), sinon glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
 
 Détail du procédé :
 
@@ -211,6 +220,20 @@ Détail du procédé :
   retrait des mots non définis ) ; données :
   `outils/wikt_defs.json` et `outils/retires_wikt.json`. Après
   comblement : 0 verbe sans définition dans les huit langues.
+- **Définitions natives pl/cs/ro ( Wiktionary monolingues, CC BY-SA 4.0 )** :
+  les verbes polonais, tchèques et roumains reçoivent en priorité la
+  définition rédigée dans leur langue par le Wiktionary correspondant,
+  extraite des dumps Wikimedia ( `outils/parse_wikt.py` ) vers
+  `outils/natifs_{pl,cs,ro}.json` ; les verbes restants gardent le
+  glossaire anglais ( étiquette « angl. Wiktionary » ), à remplacer par
+  des traductions ( étiquette « angl. Wiktionary, trad. » ) via
+  `outils/completer_natifs.py` ( support natifs + traduits ).
+  Un dépassement par un dictionnaire du domaine public ( fin 19e,
+  début 20e ) n'a pas abouti à ce jour : Słownik warszawski ( OCR
+  gothique illisible ), dexonline ( dump officiel tronqué au moment
+  de la collecte, scraping interdit ), Săineanu ( pas d'OCR libre ),
+  Ottův slovník ( encyclopédie ) ; revu si une numérisation libre
+  apparaît.
 - **Listes de fréquence OpenSubtitles** : utilisées uniquement pour
   sélectionner les verbes rejetés à réintégrer ; aucune donnée de ces
   listes n'est embarquée dans l'app ni dans la base.
@@ -218,8 +241,11 @@ Détail du procédé :
 Licences des données de conjugaison et définitions :
 
 - Wiktionary/Wiktionnaire (conjugaisons enrichies, glossaires anglais de
-  de/it/pt/pl/cs) : CC BY-SA 4.0, attribution « Wiktionary contributors »,
-  via l'extraction https://kaikki.org (wiktextract).
+  de/it/pt, définitions natives de pl/cs/ro) : CC BY-SA 4.0, attribution
+  « Wiktionary contributors », via l'extraction https://kaikki.org
+  (wiktextract) pour les glossaires anglais et les dumps Wikimedia
+  (dumps.wikimedia.org, backup.wikimedia.org) pour les définitions
+  natives du Wiktionary polonais, tchèque et roumain.
 - Dictionnaire de l'Académie française 8e éd. (1932-1935) et Littré
   (1872-1877), définitions françaises : domaine public.
 - Webster's Revised Unabridged Dictionary ( 1913, texte du domaine

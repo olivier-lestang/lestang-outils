@@ -36,9 +36,15 @@ const _sources = <String, String>{
   'it': 'Glossaire du projet et Wiktionary via kaikki.org (CC BY-SA 4.0)',
   'pt': 'Glossaire du projet et Wiktionary via kaikki.org (CC BY-SA 4.0)',
   'de': 'Glossaire du projet et Wiktionary via kaikki.org (CC BY-SA 4.0)',
-  'pl': 'Glossaire du projet et Wiktionary via kaikki.org (CC BY-SA 4.0)',
-  'cs': 'Glossaire du projet et Wiktionary via kaikki.org (CC BY-SA 4.0)',
-  'ro': 'Glossaire du projet et Wiktionary via kaikki.org (CC BY-SA 4.0)',
+  'pl': 'Définitions du Wiktionary polonais (dumps pl.wiktionary) pour '
+      '4 164 verbes, glossaires anglais du Wiktionary via kaikki.org pour '
+      'les autres (CC BY-SA 4.0)',
+  'cs': 'Définitions du Wiktionary tchèque (dumps cs.wiktionary) pour '
+      '1 823 verbes, glossaires anglais du Wiktionary via tous les '
+      'wiktionary pour les autres (CC BY-SA 4.0)',
+  'ro': 'Définitions du Wiktionary roumain (dumps ro.wiktionary) pour '
+      '4 949 verbes, glossaires anglais du Wiktionary via tous les '
+      'wiktionary pour les autres (CC BY-SA 4.0)',
 };
 
 class EcranConjugaison extends StatefulWidget {
