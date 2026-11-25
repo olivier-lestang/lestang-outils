@@ -74,6 +74,11 @@ python3 outils/construire_bdd.py
 #   python3 outils/natifs_wikt.py    # sens natifs EN TETE de chaque fiche ;
 #                                     # angl. Wiktionary ne reste qu'en
 #                                     # secours ( verbes sans article natif )
+#   python3 outils/traduire_wikt.py  # traduit dans la langue les gloses
+#                                     # anglaises de secours : lot manuel
+#                                     # outils/traduits_de.json + renvois
+#                                     # ( etiquette « angl. Wiktionary,
+#                                     # trad. » ; lots suivants it/pt )
 #   ... editions SQL dans atelier.db ...
 #   python3 outils/atelier.py export   # atelier.db -> brut.json
 #   python3 outils/atelier.py verifier  # controle de concordance fina
@@ -292,6 +297,15 @@ Détail du procédé :
   avant le dictionnaire du domaine public en attendant leur traduction
   ( etiquette prevue « angl. Wiktionary, trad. » ) ; les dictionnaires
   du domaine public suivent ensuite.
+- **Lot 1 de traduction des gloses anglaises de secours
+  ( version 1.5.1 )** : `outils/traduire_wikt.py` applique le lot
+  manuel `outils/traduits_de.json` et traduit aussi les renvois
+  (« alternative form of X », « obsolete spelling of X »...) par
+  motifs revus ; etiquette et source « angl. Wiktionary, trad. ».
+  1 517 sens traduits : allemand COMPLET ( 431 verbes : 316 gloses
+  traduites a la main, 115 renvois ), it 827 et pt 259 renvois ;
+  restent en anglais it 5 826 et pt 2 117 verbes a vraie glose
+  ( lots suivants ).
 - **Comblement des définitions manquantes ( Wiktionary, CC BY-SA 4.0 )** :
   avec les filtres abandonnés, 439 verbes restaient sans définition
   ( fr 4, en 7, es 19, pl 356, cs 53 ). Ils ont été traités depuis
