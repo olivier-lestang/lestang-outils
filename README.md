@@ -58,6 +58,7 @@ python3 outils/construire_bdd.py
 #   python3 outils/nettoyer_textes.py # typo des defs ( ",." , fins pendantes )
 #   python3 outils/dictionnaires_pd.py # defs it/pt : Petrocchi 1887
 #                                     # et Figueiredo 1913 ( OCR archive.org )
+#   python3 outils/sanders_extract.py  # defs de : Sanders 1876 ( OCR maison )
 #   ... editions SQL dans atelier.db ...
 #   python3 outils/atelier.py export   # atelier.db -> brut.json
 #   python3 outils/atelier.py verifier  # controle de concordance fina
@@ -119,7 +120,10 @@ qu'avant enrichissement** dans `outils/brut_orig.json`, puis lancer
   verbes ont été retirés). Définitions : français
   : Académie 8e éd. + Littré ; anglais : Webster 1913 où il définit,
   sinon glossaire anglais du Wiktionary ; espagnol : Real Academia
-  1913 ; de : glossaires anglais du Wiktionary (CC BY-SA) ; it : Petrocchi
+  1913 ; de : Sanders, Wörterbuch der deutschen Sprache ( 1876, 205
+  verbes, domaine public, OCR maison Tesseract modele frk 400 dpi,
+  texte conservé tel quel ) sinon glossaires anglais du Wiktionary
+  (CC BY-SA) ; it : Petrocchi
   1887 ( 2 397 verbes ) et pt : Figueiredo 1913 ( 3 423 verbes ), domaine
   public, OCR archive.org conservé tel quel, sinon glossaire anglais du
   Wiktionary ;
@@ -159,7 +163,7 @@ MIT (`LICENSE`).
 | fr | 8 535 | 1 574 | Moteur maison ; verbes enrichis depuis le Wiktionnaire (kaikki), chaque forme vérifiée, source stockée par verbe | Académie 8e éd. + Littré, domaine public |
 | en | 19 070 | 17 427 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme (doubles formes -ed/-t conservées) | Webster 1913 où il définit (domaine public, numérisation lunixbochs/webster, MIT), sinon glossaires anglais du Wiktionary, CC BY-SA 4.0 |
 | es | 8 957 | 3 746 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Real Academia 1913, domaine public |
-| de | 4 220 | 3 940 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
+| de | 4 220 | 3 940 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Sanders 1876 pour 205 verbes (domaine public, OCR maison Tesseract frk 400 dpi sur les PDF images archive.org ; releve revu à la main, defauts OCR conservés), sinon glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
 | it | 12 429 | 11 950 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme, tous les verbes du Wiktionary conservés | Petrocchi 1887 pour 2 397 verbes (domaine public, OCR archive.org), sinon glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
 | pt | 6 084 | 5 600 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme, tous les verbes du Wiktionary conservés | Figueiredo 1913 pour 3 423 verbes (domaine public, OCR archive.org), sinon glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
 | pl | 9 064 | 9 064 | Moteur `Pl` ; extraction du Wiktionary polonais via kaikki, verbe accepté seulement si toutes les formes prédites correspondent ; 125 verbes fréquents réintégrés verbatim | Définitions natives du pl.wiktionary pour 4 378 verbes (dumps Wikimedia, CC BY-SA 4.0), sinon glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
@@ -224,6 +228,14 @@ Détail du procédé :
   définitions de restent les glossaires anglais (CC BY-SA 4.0) ; les
   définitions it/pt sont depuis remplacées par Petrocchi 1887 et
   Figueiredo 1913 via `outils/dictionnaires_pd.py` (version 1.3.0) ;
+  en allemand, l'OCR Fraktur d'archive.org étant inutilisable, un OCR
+  maison ( Tesseract modele frk, tessdata_best, 400 dpi, 1 908 pages,
+  sorties modulables TXT / CSV pages / CSV mots / hOCR / TSV ) a été
+  produit sur les PDF images, et `outils/sanders_extract.py` (version
+  1.4.0) remplace les définitions de 205 verbes par celles du Sanders
+  1876 ( releve revu à la main : les têtes d'entrées perdues par l'OCR
+  laissent des verbes fréquents non couverts ; la liste noire des
+  gloses écartées est dans le script ) ;
   les six scripts de filtrage restent dans `outils/` pour référence.
 - **Comblement des définitions manquantes ( Wiktionary, CC BY-SA 4.0 )** :
   avec les filtres abandonnés, 439 verbes restaient sans définition
