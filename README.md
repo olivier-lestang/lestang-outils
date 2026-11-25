@@ -65,7 +65,7 @@ web : leurs chaînes sont construites par `python3 outils/construire_pl_cs.py`
 depuis les listes déjà vérifiées `outils/pl_ok.json` / `outils/cs_ok.json`
 (extraction kaiki/Wiktionary vérifiée forme par forme). Le roumain (ro) est
 construit de la même manière par `python3 outils/construire_ro.py` depuis
-`outils/ro_ok.json` (table ro-conj complète du Wiktionary, formes copiées
+`outils/ro_ok_*.json` (table ro-conj complète du Wiktionary, formes copiées
 verbatim).
 
 La source de chaque verbe est stockée dans la base (ligne `vsrc` par langue :
