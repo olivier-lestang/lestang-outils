@@ -55,6 +55,7 @@ python3 outils/construire_bdd.py
 #                                     # ( Littré, Académie, Webster 1913,
 #                                     # RAE 1913-1914, Wiktionary... )
 #   python3 outils/classes.py         # groupe/particularite des verbes
+#   python3 outils/nettoyer_textes.py # typo des defs ( ",." , fins pendantes )
 #   ... editions SQL dans atelier.db ...
 #   python3 outils/atelier.py export   # atelier.db -> brut.json
 #   python3 outils/atelier.py verifier  # controle de concordance fina
