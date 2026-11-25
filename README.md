@@ -269,11 +269,14 @@ Détail du procédé :
   domaine : `sources_defs.py` rattache tous les sens ( 118 270 ) a une
   source : fr par comparaison du texte avec le Littré ( 14 700, XML
   oeuvres/littre ) puis par elimination Académie 8e ( 6 691 ) ;
-  en par article verbal du Webster 1913 ( 14 047, lunixbochs/webster )
-  sinon glossaire du Wiktionary anglais ; renvois fr. Wiktionary ;
-  es verbatim du Diccionario de la RAE 1913-1914 ; les redactions
-  condensees de de/it/pt issues du generateur du projet sont
-  etiquetees « Glossaire du générateur du projet » ( MIT ). NB :
+  en Webster 1913 ( 5 778, lunixbochs/webster ) uniquement si le texte
+  du sens apparait mot a mot dans l article verbal du mot, sinon
+  glossaire du Wiktionary anglais ; renvois fr. Wiktionary ;
+  es verbatim du Diccionario de la RAE 1913-1914 ( 7 038 ), les
+  glosses anglais « to ... » de ce lot herite ( 3 660 ) sont etiquetes
+  angl. Wiktionary ; les redactions condensees de de/it/pt issues du
+  generateur du projet sont etiquetees « Glossaire du générateur du
+  projet » ( MIT ). NB :
   brut.json ne transporte ni `id_source` ni les colonnes
   `groupe`/`particularite` : apres un import, relancer
   `sources_defs.py` puis `classes.py`. Les dates d'ajout marquent les

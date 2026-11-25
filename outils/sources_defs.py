@@ -10,11 +10,14 @@
 #        sinon -> Académie 8e, PAR ELIMINATION ( les definitions fr
 #        historiques viennent de l Académie ou du Littré ; un sens
 #        concis absent du Littré est donc attribue a l Académie ).
-#   en : article verbal dans le Webster 1913 ( dict.json.bz2 de
-#        lunixbochs/webster ) -> Webster 1913 ; sinon angl. Wiktionary.
-#   es : Real Academia 1913-1914 ( marque de registre issues du texte
-#        RAE ).   de : glossaire du générateur du projet ( MIT ).
-#   it, pt : glossaires anglais du Wiktionary.
+#   en : Webster 1913 ( dict.json.bz2 de lunixbochs/webster ) UNIQUEMENT
+#        si le texte du sens apparait mot a mot dans l article verbal
+#        du mot ; sinon angl. Wiktionary.
+#   es : verbatim Real Academia 1913-1914 ; le lot heritait aussi des
+#        glosses anglais du Wiktionary ( 'to ...' ), desormais triees.
+#   de, it, pt : glossaires anglais du Wiktionary ou redactions
+#        condensees du glossaire du generateur du projet ( MIT ),
+#        tris par le texte ( lexique anglais etendu ).
 #   pl, cs, ro : deja rattaches a l import ( natifs + glossaires ).
 #
 # Dates ( lots historiques du projet ) :
@@ -51,7 +54,8 @@ NOUVELLES_SOURCES = [
     ('Webster 1913',
      "Webster's Revised Unabridged Dictionary, 1913 ( GCIDE ), texte du "
      "domaine public ; numérisation lunixbochs/webster ( code MIT ) ; "
-     "attribué par présence d un article verbal"),
+     "attribué si le texte du sens apparait mot a mot dans "
+    "l'article verbal du mot"),
     ('Real Academia 1913-1914',
      'Diccionario de la lengua castellana ( Real Academia Española, '
      '14e édition, 1913-1914 ), texte du domaine public'),
@@ -61,10 +65,16 @@ NOUVELLES_SOURCES = [
 ]
 
 ANGLAIS = re.compile(
-    r'^(to |To |alternative form|archaic|dated|post-\d{4}|obsolete|'
-    r'superseded|synonym of|reflexive of|mainly|idiomatic|informal|'
-    r'ditransitive|transitive |intransitive |now |rare |chiefly |'
-    r'used |of a |to give|to make)', re.I)
+    r'^(to |To |alternative (form|spelling)|archaic( form| spelling)?|'
+    r'dated|post-\d{4}|pre-reform|obsolete( spelling)?|'
+    r'Formerly standard|superseded|synonym of|reflexive of|mainly|'
+    r'idiomatic|informal|ditransitive|transitive |intransitive |'
+    r'now |rare |chiefly |used |of a |to give|to make|verb |bite |'
+    r'piss off|The process|regional form)', re.I)
+# mots temoins anglais : distinguent les glosses anglaises des
+# redactions en it/pt/de meme sans accents
+EN_MOTS = re.compile(r'\b(the|someone|something|somebody|form of|'
+                     r'spelling of)\b')
 FR_WIKT = re.compile(
     r'\b(alternative form|archaic spelling|dated form|post-\d{4} spelling|'
     r'superseded|obsolete spelling|synonym of|inflected form)\b', re.I)
@@ -83,23 +93,30 @@ def est_anglais(tx):
         r'[àâçéèêëîïôùûüœ]', tx)
 
 
+def est_anglais_glossaire(tx):
+    """Glossaire anglais de famine..."""
+    return bool(ANGLAIS.search(tx) or EN_MOTS.search(tx))
+
+
 def webster_verbes(dict_path):
-    """{mot} defini comme verbe par le Webster 1913."""
+    """({mots verbaux}, {mot: texte normalise de l article})."""
     webster = json.loads(bz2.open(dict_path, 'rt', encoding='utf-8').read())
-    out = set()
+    verbes, arts = set(), {}
     for cle, article in webster.items():
         if '<div class="pos">' not in article:
             continue
-        for m in re.finditer(r'<div class="pos">([^<]*)</div>', article):
-            if re.search(r'\bv\.', m.group(1)):
-                mot = cle.strip().lower()
-                mots = [mot] + [m2.strip().lower() for m2 in
-                                re.findall(r'<h2 class="hw">([^<]*)</h2>',
-                                           article.split('<div class="pos">')[0])]
-                out.add(mot)
-                if mots:
-                    out.update(mots)
-    return out
+        verbal = any(re.search(r'\bv\.', m.group(1)) for m in
+                     re.finditer(r'<div class="pos">([^<]*)</div>',
+                                 article))
+        if not verbal:
+            continue
+        mot = cle.strip().lower()
+        verbes.add(mot)
+        tete = article.split('<div class="pos">')[0]
+        arts[mot] = norme(re.sub(r'<[^>]+>', ' ', article))
+        for m2 in re.findall(r'<h2 class="hw">([^<]*)</h2>', tete):
+            verbes.add(m2.strip().lower())
+    return verbes, arts
 
 
 def main():
@@ -107,7 +124,7 @@ def main():
     littre_p = sys.argv[2] if len(sys.argv) > 2 else os.path.join(ICI, '..', 'littre_idx.json')
     webster_p = sys.argv[3] if len(sys.argv) > 3 else os.path.join(ICI, '..', 'dict.json.bz2')
     littre = json.load(open(littre_p, encoding='utf-8'))[0]
-    webster = webster_verbes(webster_p)
+    webster, webster_arts = webster_verbes(webster_p)
     wikt_defs = json.load(open(os.path.join(ICI, 'wikt_defs.json'),
                                encoding='utf-8'))
     natifs = {lg: set(json.load(open(p, encoding='utf-8')))
@@ -143,8 +160,9 @@ def main():
             db.execute('UPDATE defs SET date_ajout=? WHERE langue=? AND '
                        'verbe=?', (D_INIT, lg, mot))
 
-    # reattribution complete de it/pt/de ( id herites suspects )
-    db.execute("UPDATE defs SET id_source=NULL WHERE langue IN ('it','pt','de')")
+    # reattribution complete de es/it/pt/de ( lots herites melanges )
+    db.execute("UPDATE defs SET id_source=NULL WHERE langue IN "
+               "('es','it','pt','de')")
     # attribution des sources
     bilans = {}
     for langue, etiquette, texte, verbe, pos, rang in db.execute(
@@ -161,15 +179,24 @@ def main():
             else:
                 src = 'Académie 8e (1932-1935)'
         elif langue == 'en':
-            src = 'Webster 1913' if verbe.lower() in webster \
+            # Webster PAR DEFINITION : le texte du sens doit apparaitre
+            # mot a mot dans l article verbal ( sinon le sens vient du
+            # glossaire angl. Wiktionary, meme si le verbe a un article )
+            art = webster_arts.get(verbe.lower(), '')
+            src = 'Webster 1913' if art and norme(texte) in art \
                 else 'angl. Wiktionary'
         elif langue == 'es':
-            src = 'Real Academia 1913-1914'
-        elif langue in ('it', 'pt', 'de'):
-            # melange herite : glossaires anglais du Wiktionary ET redactions
-            # condensees dans la langue issues du glossaire du generateur
-            # du projet ( meme style que les glossaires allemands, v. tr. )
+            # lot herite melange : verbatim RAE ET glosses anglais du
+            # Wiktionary ( 3 660 'to ...' ) ; RAE par elimination
             src = 'angl. Wiktionary' if ANGLAIS.search(texte) \
+                or re.match(r'^(to |To )', texte) \
+                else 'Real Academia 1913-1914'
+        elif langue in ('it', 'pt', 'de'):
+            # melange herite : glossaires anglais du Wiktionary ET
+            # redactions condensees dans la langue issues du glossaire
+            # du generateur du projet ; le test anglais etend au
+            # lexique typique ( someone, the, pre-reform spelling... )
+            src = 'angl. Wiktionary' if est_anglais_glossaire(texte) \
                 else 'Glossaire du générateur du projet'
         db.execute('UPDATE defs SET id_source=? WHERE langue=? AND pos=? '
                    'AND rang=?', (id_s[src], langue, pos, rang))
