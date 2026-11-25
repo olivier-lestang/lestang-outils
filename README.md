@@ -59,6 +59,8 @@ python3 outils/construire_bdd.py
 #   python3 outils/dictionnaires_pd.py # defs it/pt : Petrocchi 1887
 #                                     # et Figueiredo 1913 ( OCR archive.org )
 #   python3 outils/sanders_extract.py  # defs de : Sanders 1876 ( OCR maison )
+#   python3 outils/orthographe.py     # dic. PD : orthographe actuelle
+#                                     # ( de 1901, it accents, pt AO90 )
 #   ... editions SQL dans atelier.db ...
 #   python3 outils/atelier.py export   # atelier.db -> brut.json
 #   python3 outils/atelier.py verifier  # controle de concordance fina
@@ -236,6 +238,13 @@ Détail du procédé :
   1876 ( releve revu à la main : les têtes d'entrées perdues par l'OCR
   laissent des verbes fréquents non couverts ; la liste noire des
   gloses écartées est dans le script ) ;
+  orthographe modernisée ( version 1.4.1 ) : l'app étant destinée à
+  de jeunes utilisateurs, `outils/orthographe.py` passe les
+  définitions des trois dictionnaires PD à l'orthographe actuelle
+  ( allemand : réforme de 1901 ; italien : accents de syllabe
+  interne, mejjo->meglio ; portugais : norme européenne,
+  graphies pre-AO90 + accents abolis en 1945/1971 ), 2 244 sens
+  sur 6 937, sans toucher aux autres lots ;
   les six scripts de filtrage restent dans `outils/` pour référence.
 - **Comblement des définitions manquantes ( Wiktionary, CC BY-SA 4.0 )** :
   avec les filtres abandonnés, 439 verbes restaient sans définition
