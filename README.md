@@ -56,6 +56,8 @@ python3 outils/construire_bdd.py
 #                                     # RAE 1913-1914, Wiktionary... )
 #   python3 outils/classes.py         # groupe/particularite des verbes
 #   python3 outils/nettoyer_textes.py # typo des defs ( ",." , fins pendantes )
+#   python3 outils/dictionnaires_pd.py # defs it/pt : Petrocchi 1887
+#                                     # et Figueiredo 1913 ( OCR archive.org )
 #   ... editions SQL dans atelier.db ...
 #   python3 outils/atelier.py export   # atelier.db -> brut.json
 #   python3 outils/atelier.py verifier  # controle de concordance fina
@@ -67,8 +69,11 @@ points, chaînes de conjugaison) et écrit `assets/lestang_outils.db` (~23 Mo).
 
 Les filtres par dictionnaire du domaine public (Webster pour l'anglais,
 Figueiredo pour le portugais, Petrocchi et Crusca pour l'italien) ont été
-essayés, appliqués, puis **abandonnés** : tous les verbes du Wiktionary sont
-désormais conservés (voir « Détail du procédé »). Les scripts
+essayés, appliqués, puis **abandonnés comme filtres** : tous les verbes du
+Wiktionary sont désormais conservés (voir « Détail du procédé »). Depuis la
+version 1.3.0, Petrocchi et Figueiredo sont en revanche réutilisés comme
+**source des définitions** it/pt (sans filtrer la base) via
+`outils/dictionnaires_pd.py`. Les scripts
 `outils/filtre_webster.py`, `parse_figueiredo.py`, `filtre_figueiredo.py`,
 `parse_petrocchi.py`, `parse_crusca.py` et `filtre_italien.py` restent dans
 le dépôt pour référence, avec les URLs des OCR des dictionnaires listées
@@ -114,7 +119,10 @@ qu'avant enrichissement** dans `outils/brut_orig.json`, puis lancer
   verbes ont été retirés). Définitions : français
   : Académie 8e éd. + Littré ; anglais : Webster 1913 où il définit,
   sinon glossaire anglais du Wiktionary ; espagnol : Real Academia
-  1913 ; de/it/pt : glossaires anglais du Wiktionary (CC BY-SA) ;
+  1913 ; de : glossaires anglais du Wiktionary (CC BY-SA) ; it : Petrocchi
+  1887 ( 2 397 verbes ) et pt : Figueiredo 1913 ( 3 423 verbes ), domaine
+  public, OCR archive.org conservé tel quel, sinon glossaire anglais du
+  Wiktionary ;
   pl/cs/ro : définitions natives du Wiktionary de la langue
   ( 4 378 / 1 931 / 5 437 verbes, dumps pl/cs/ro.wiktionary, CC BY-SA ),
   sinon glossaire anglais du Wiktionary ; les définitions traduites de
@@ -152,8 +160,8 @@ MIT (`LICENSE`).
 | en | 19 070 | 17 427 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme (doubles formes -ed/-t conservées) | Webster 1913 où il définit (domaine public, numérisation lunixbochs/webster, MIT), sinon glossaires anglais du Wiktionary, CC BY-SA 4.0 |
 | es | 8 957 | 3 746 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Real Academia 1913, domaine public |
 | de | 4 220 | 3 940 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
-| it | 12 429 | 11 950 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme, tous les verbes du Wiktionary conservés | Glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
-| pt | 6 084 | 5 600 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme, tous les verbes du Wiktionary conservés | Glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
+| it | 12 429 | 11 950 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme, tous les verbes du Wiktionary conservés | Petrocchi 1887 pour 2 397 verbes (domaine public, OCR archive.org), sinon glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
+| pt | 6 084 | 5 600 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme, tous les verbes du Wiktionary conservés | Figueiredo 1913 pour 3 423 verbes (domaine public, OCR archive.org), sinon glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
 | pl | 9 064 | 9 064 | Moteur `Pl` ; extraction du Wiktionary polonais via kaikki, verbe accepté seulement si toutes les formes prédites correspondent ; 125 verbes fréquents réintégrés verbatim | Définitions natives du pl.wiktionary pour 4 378 verbes (dumps Wikimedia, CC BY-SA 4.0), sinon glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
 | cs | 4 143 | 4 143 | Moteur `Cs` ; même procédé ; 21 verbes fréquents réintégrés verbatim | Définitions natives du cs.wiktionary pour 1 931 verbes (dumps Wikimedia, CC BY-SA 4.0), sinon glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
 | ro | 6 970 | 6 970 | Moteur `Ro` ; extraction du Wiktionary via tous les wiktionary (kaikki), table de conjugaison ro-conj complète requise, toutes les formes copiées verbatim ; futur, conditionnel et parfait composé assemblés sur l'appareil depuis les auxiliaires réguliers (a vrea, a avea) | Définitions natives du ro.wiktionary pour 5 437 verbes (dumps Wikimedia, CC BY-SA 4.0), sinon glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
@@ -213,8 +221,10 @@ Détail du procédé :
     tomaseobellini.it et celui, isolé et incomplet, de 1912 avaient été
     écartés.
   Décision finale : conserver **tous** les verbes du Wiktionary ; les
-  définitions de/it/pt restent les glossaires anglais (CC BY-SA 4.0) ;
-  les six scripts restent dans `outils/` pour référence.
+  définitions de restent les glossaires anglais (CC BY-SA 4.0) ; les
+  définitions it/pt sont depuis remplacées par Petrocchi 1887 et
+  Figueiredo 1913 via `outils/dictionnaires_pd.py` (version 1.3.0) ;
+  les six scripts de filtrage restent dans `outils/` pour référence.
 - **Comblement des définitions manquantes ( Wiktionary, CC BY-SA 4.0 )** :
   avec les filtres abandonnés, 439 verbes restaient sans définition
   ( fr 4, en 7, es 19, pl 356, cs 53 ). Ils ont été traités depuis
@@ -276,7 +286,13 @@ Détail du procédé :
   glosses anglais « to ... » de ce lot herite ( 3 660 ) sont etiquetes
   angl. Wiktionary ; les redactions condensees de de/it/pt issues du
   generateur du projet sont etiquetees « Glossaire du générateur du
-  projet » ( MIT ). NB :
+  projet » ( MIT ). Depuis la version 1.3 de l atelier,
+  `outils/dictionnaires_pd.py` remplace en it/pt les sens des verbes
+  couverts par Petrocchi 1887 ( 2 397 verbes, 3 300 sens ) et Figueiredo
+  1913 ( 3 423 verbes, 3 427 sens ), etiquette et source = nom du
+  dictionnaire, date 2026-11-25, OCR archive.org conserve tel quel ;
+  l allemand attend un vrai OCR du Sanders 1876 ( Fraktur illisible ) ;
+  NB :
   brut.json ne transporte ni `id_source` ni les colonnes
   `groupe`/`particularite` : apres un import, relancer
   `sources_defs.py` puis `classes.py`. Les dates d'ajout marquent les
@@ -300,8 +316,10 @@ Licences des données de conjugaison et définitions :
   public ) : numérisation https://github.com/lunixbochs/webster
   ( code MIT, les définitions restent domaine public ).
 - Real Academia Española, diccionario 1913-1914 : domaine public.
-- Sources essayées puis abandonnées, non utilisées dans la base actuelle,
-  URLs des OCR pour référence :
+- Dictionnaires du domaine public intégrés depuis la version 1.3.0
+  ( définitions it/pt, `outils/dictionnaires_pd.py` ) ; la Crusca reste
+  essayée puis abandonnée. URLs des OCR ( Petrocchi et Figueiredo sont
+  ceux utilisés ) :
   - Novo Diccionario da Lingua Portugueza ( Cândido de Figueiredo,
     1913 ) : https://archive.org/details/DicionrioDeL.P1913
     ( texte : https://archive.org/download/DicionrioDeL.P1913/DicionrioDeL.P1913_djvu.txt ).
