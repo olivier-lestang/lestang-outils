@@ -46,6 +46,14 @@ python3 outils/construire_pl_cs.py
 python3 outils/construire_ro.py
 python3 outils/completer_natifs.py outils/brut.json
 python3 outils/construire_bdd.py
+
+# atelier SQL (optionnel) : tables normalisees editables dans un GUI
+# SQLite ; l'atelier devient la source de verite des donnees de
+# conjugaison, brut.json se regenere ensuite :
+#   python3 outils/atelier.py import   # brut.json -> atelier.db
+#   ... editions SQL dans atelier.db ...
+#   python3 outils/atelier.py export   # atelier.db -> brut.json
+#   python3 outils/atelier.py verifier  # controle de concordance fina
 ```
 
 `extraire.js` charge les scripts de données de `index.html` et vide toutes
@@ -234,6 +242,22 @@ Détail du procédé :
   de la collecte, scraping interdit ), Săineanu ( pas d'OCR libre ),
   Ottův slovník ( encyclopédie ) ; revu si une numérisation libre
   apparaît.
+- **Atelier SQL ( `outils/atelier.py` )** : stockage normalise optionnel
+  des donnees de conjugaison dans `outils/atelier.db` : table `sources`
+  ( index, nom, caracteristiques ), table `defs` ( langue, verbe, rang
+  du sens, etiquette affichee, texte, cle etrangere `id_source`,
+  `date_ajout` ), `verbes` ( langue, verbe, segment brut avec les
+  formes ), `modeles`, `vsrc`, `verbes_lignes`. `atelier.py import`
+  remplissage depuis `brut.json` ; `atelier.py export` regenere
+  `brut.json` apres edition ( l'export ne reecrit une definition que
+  si son texte a change, et l'aller-retour sans edition est verifie
+  octet pour octet ) ; `atelier.py verifier` compare sans ecrire.
+  L'app continue de charger `conj_raw` dans la base embarquee :
+  apres une edition dans l'atelier, relancer export puis
+  `construire_bdd.py`. Les etiquettes de pl/cs/ro et des glossaires
+  anglais servent a la fois d'etiquette affichee et de nom de source ;
+  pour fr/en/es les etiquettes sont des marques de registre ou de
+  domaine, `id_source` y reste a remplir a la main.
 - **Listes de fréquence OpenSubtitles** : utilisées uniquement pour
   sélectionner les verbes rejetés à réintégrer ; aucune donnée de ces
   listes n'est embarquée dans l'app ni dans la base.
