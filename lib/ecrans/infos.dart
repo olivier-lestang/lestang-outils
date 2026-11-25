@@ -17,6 +17,7 @@ class EcranInfos extends StatelessWidget {
       const SizedBox(height: 8),
       const Text(
           'Conjugaison : anglais 19 070, italien 12 429, polonais 9 064, '
+          'roumain 6 970, '
           'français 8 535, espagnol 8 957, '
           'portugais 6 084, allemand 4 220, tchèque 4 143 ; '
           'enrichis et vérifiés depuis le Wiktionary via kaikki.org '

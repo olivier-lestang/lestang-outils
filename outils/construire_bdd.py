@@ -162,7 +162,7 @@ CREATE INDEX points_cch ON points(carte, couche);
 
     joint = cordes(brut)
 
-    # ---------------------------------------------- conjugaison, six langues
+    # ----------------------------------------------- conjugaison, neuf langues
     def dezippe(cle):
         return gzip.decompress(base64.b64decode(brut[cle])).decode('utf-8')
 
@@ -175,6 +175,7 @@ CREATE INDEX points_cch ON points(carte, couche);
         ('pt', 'PT_TPL_STR', 'PT_VERBS_STR', None),
         ('pl', 'PL_TPL_STR', 'PL_VERBS_STR', None),
         ('cs', 'CS_TPL_STR', 'CS_VERBS_STR', None),
+        ('ro', 'RO_TPL_STR', 'RO_VERBS_STR', None),
     ]
     for lg, tpl, verbs, defs_b64 in langues:
         db.execute('INSERT INTO conj_raw VALUES(?,?,?)', (lg, 'tpl', brut[tpl]))

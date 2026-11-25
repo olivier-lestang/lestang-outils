@@ -5,14 +5,14 @@ import 'dart:io';
 import 'package:lestang_outils/conj/moteurs.dart';
 
 void main() {
-  test('les six moteurs de conjugaison', _verifier);
+  test('les moteurs de conjugaison', _verifier);
 }
 
 void _verifier() {
   final data = jsonDecode(File('test/data.json').readAsStringSync())
       as Map<String, dynamic>;
   final jeux = <String, PlanchesConjug>{};
-  for (final l in ['fr', 'en', 'es', 'de', 'it', 'pt', 'pl', 'cs']) {
+  for (final l in ['fr', 'en', 'es', 'de', 'it', 'pt', 'pl', 'cs', 'ro']) {
     final d = data[l] as Map<String, dynamic>;
     jeux[l] = PlanchesConjug.depuis(l, d['tpl'] as String,
         d['verbs'] as String, d['defs'] as String, d['vsrc'] as String);
@@ -117,7 +117,8 @@ void _verifier() {
     'it': 12429,
     'pt': 6084,
     'pl': 9064,
-    'cs': 4143
+    'cs': 4143,
+    'ro': 6970
   };
   for (final e in comptes.entries) {
     attendu(jeux[e.key]!.jeu.verbes.length == e.value,
@@ -170,6 +171,23 @@ void _verifier() {
       'cs muset');
   attendu(jeux['pl']!.definition('pracować').isNotEmpty, 'pl def pracować');
   attendu(jeux['cs']!.definition('dělat').isNotEmpty, 'cs def dělat');
+
+  // roumain : formes verbatim du Wiktionary, composes calcules
+  attendu(cell('ro', 'lucra', 'Indicativ', 'prezent', 0) == 'lucrez',
+      'ro lucrez');
+  attendu(cell('ro', 'lucra', 'Indicativ', 'perfect compus', 0) == 'am lucrat',
+      'ro am lucrat');
+  attendu(cell('ro', 'lucra', 'Indicativ', 'viitor simplu', 0) == 'voi lucra',
+      'ro voi lucra');
+  attendu(
+      cell('ro', 'lucra', 'Condițional prezent', '—', 0) == 'aș lucra',
+      'ro aș lucra');
+  attendu(cell('ro', 'fi', 'Indicativ', 'prezent', 0) == 'sunt',
+      'ro fi sunt');
+  attendu(
+      jeux['ro']!.jeu.defs.containsKey('lucra') &&
+          jeux['ro']!.definition('lucra').isNotEmpty,
+      'ro def lucra');
   for (final e in {'fr': 1574, 'en': 17427, 'es': 3746, 'de': 3940,
       'it': 11950, 'pt': 5600}.entries) {
     final w = jeux[e.key]!
@@ -186,7 +204,7 @@ void _verifier() {
   // definit comme verbe ( hygiene, datagram, turbate, twilly,
   // indigest en anglais... ) ont ete retires.
   for (final e in {'fr': 0, 'en': 0, 'es': 0, 'de': 0, 'it': 0,
-      'pt': 0, 'pl': 0, 'cs': 0}.entries) {
+      'pt': 0, 'pl': 0, 'cs': 0, 'ro': 0}.entries) {
     final manq = jeux[e.key]!
         .jeu
         .verbes

@@ -40,6 +40,7 @@ class _AppLestangOutilsState extends State<AppLestangOutils> {
     'conj-pt': Icons.translate,
     'conj-pl': Icons.translate,
     'conj-cs': Icons.translate,
+    'conj-ro': Icons.translate,
     'france': Icons.map,
     'union': Icons.public,
     'monde': Icons.terrain,
@@ -124,6 +125,7 @@ class _AppLestangOutilsState extends State<AppLestangOutils> {
       case 'conj-pt':
       case 'conj-pl':
       case 'conj-cs':
+      case 'conj-ro':
         final langue = cle.substring(5);
         return EcranConjugaison(langue, trad);
       case 'france':

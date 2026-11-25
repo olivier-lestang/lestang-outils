@@ -38,6 +38,7 @@ const _sources = <String, String>{
   'de': 'Glossaire du projet et Wiktionary via kaikki.org (CC BY-SA 4.0)',
   'pl': 'Glossaire du projet et Wiktionary via kaikki.org (CC BY-SA 4.0)',
   'cs': 'Glossaire du projet et Wiktionary via kaikki.org (CC BY-SA 4.0)',
+  'ro': 'Glossaire du projet et Wiktionary via kaikki.org (CC BY-SA 4.0)',
 };
 
 class EcranConjugaison extends StatefulWidget {

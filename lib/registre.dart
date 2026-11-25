@@ -12,6 +12,7 @@ const clesCartes = <String>[
   'conj-pt',
   'conj-pl',
   'conj-cs',
+  'conj-ro',
   'france',
   'union',
   'monde',

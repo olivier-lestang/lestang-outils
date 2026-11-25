@@ -1,7 +1,7 @@
 # Lestang Outils
 
 Application multiplateformes (Windows, macOS, Linux, iOS, Android) issue du
-projet web Vibetab : conjugaisons (8 langues), cartes géographiques (France,
+projet web Vibetab : conjugaisons (9 langues), cartes géographiques (France,
 Union européenne, Monde, avec jour/nuit et cadrages outre-mer), météo
 multi-sources (open-meteo, Météo-France, wttr, met.no, IPMA, JMA, NWS, BOM,
 HKO), compresseur de PDF (pdfium via `printing`, réencodage JPEG `image`),
@@ -42,6 +42,8 @@ python3 outils/dedupe.py            # aucun doublon, toutes langues
 # monolingues ( la collecte a déjà été faite, voir le bullet
 # « Comblement des définitions manquantes » ) :
 python3 outils/combler_defs.py outils/brut.json outils/wikt_defs.json outils/retires_wikt.json outils/brut.json
+python3 outils/construire_pl_cs.py
+python3 outils/construire_ro.py
 python3 outils/construire_bdd.py
 ```
 
@@ -61,7 +63,10 @@ plus bas.
 Les langues polonaise (pl) et tchèque (cs) n'existent pas dans le moteur
 web : leurs chaînes sont construites par `python3 outils/construire_pl_cs.py`
 depuis les listes déjà vérifiées `outils/pl_ok.json` / `outils/cs_ok.json`
-(extraction kaiki/Wiktionary vérifiée forme par forme).
+(extraction kaiki/Wiktionary vérifiée forme par forme). Le roumain (ro) est
+construit de la même manière par `python3 outils/construire_ro.py` depuis
+`outils/ro_ok.json` (table ro-conj complète du Wiktionary, formes copiées
+verbatim).
 
 La source de chaque verbe est stockée dans la base (ligne `vsrc` par langue :
 la liste des verbes venus du Wiktionary, les autres venant du générateur
@@ -74,7 +79,7 @@ qu'avant enrichissement** dans `outils/brut_orig.json`, puis lancer
 
 - `lib/conj/` : le portage Dart fidèle des moteurs de conjugaison
   (`socle.js`, `conjugaison-{fr,en,es,de,it,pt}.js` du web, plus les moteurs
-  polonais `Pl` et tchèques `Cs` écrits pour l'app) ; la base ne stocke que
+  polonais `Pl`, tchèque `Cs` et roumain `Ro` écrits pour l'app) ; la base ne stocke que
   les chaînes brutes, toutes les formes sont calculées sur l'appareil. `ecran_conjugaison.dart` est l'écran (recherche, planche de
   temps, définitions).
 - `lib/bdd.dart` : ouverture de la SQLite embarquée (copiée depuis les
@@ -87,15 +92,15 @@ qu'avant enrichissement** dans `outils/brut_orig.json`, puis lancer
 
 ## Contenu de la base
 
-- Conjugaison : en 19 070, it 12 429, pl 9 064, fr 8 535, es 8 957,
-  pt 6 084, de 4 220, cs 4 143 ; aucun doublon ; tous les verbes du
+- Conjugaison : en 19 070, it 12 429, pl 9 064, ro 6 970, fr 8 535,
+  es 8 957, pt 6 084, de 4 220, cs 4 143 ; aucun doublon ; tous les verbes du
   Wiktionary sont conservés ; chaque verbe a une définition (379
   verbes restés sans définition ont été comblés depuis les Wiktionary
   monolingues et 60 mots que le Wiktionary ne définit pas comme
   verbes ont été retirés). Définitions : français
   : Académie 8e éd. + Littré ; anglais : Webster 1913 où il définit,
   sinon glossaire anglais du Wiktionary ; espagnol : Real Academia
-  1913 ; de/it/pt/pl/cs : glossaires anglais du Wiktionary (CC BY-SA),
+  1913 ; de/it/pt/pl/cs/ro : glossaires anglais du Wiktionary (CC BY-SA),
   sauf les comblements récents (définitions natives du Wiktionary de
   la langue, CC BY-SA).
 - Le lexique anglais est épuré : pas de verbe composé à trait d union
@@ -129,6 +134,7 @@ MIT (`LICENSE`).
 | pt | 6 084 | 5 600 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme, tous les verbes du Wiktionary conservés | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
 | pl | 9 064 | 9 064 | Moteur `Pl` ; extraction du Wiktionary polonais via kaikki, verbe accepté seulement si toutes les formes prédites correspondent ; 125 verbes fréquents réintégrés verbatim | Glossaires anglais du Wiktionary, CC BY-SA 4.0 ; 318 définitions polonaises ajoutées du pl.wiktionary (CC BY-SA 4.0) |
 | cs | 4 143 | 4 143 | Moteur `Cs` ; même procédé ; 21 verbes fréquents réintégrés verbatim | Glossaires anglais du Wiktionary, CC BY-SA 4.0 ; 45 définitions tchèques ajoutées du cs.wiktionary (CC BY-SA 4.0) |
+| ro | 6 970 | 6 970 | Moteur `Ro` ; extraction du Wiktionary via tous les wiktionary (kaikki), table de conjugaison ro-conj complète requise, toutes les formes copiées verbatim ; futur, conditionnel et parfait composé assemblés sur l'appareil depuis les auxiliaires réguliers (a vrea, a avea) | Glossaires anglais du Wiktionary, CC BY-SA 4.0 |
 
 Détail du procédé :
 
@@ -152,6 +158,20 @@ Détail du procédé :
   (conforme aux formes du Wiktionary) et, pour les rares passés
   incomplets (wziąć), les 1re/2e personnes dérivées des 3es par les
   suffixes réguliers.
+- **ro** : moteur écrit pour l'app. Extraction du Wiktionary via
+  l'extraction anglaise kaikki.org (wiktextract) ; un verbe n'entre
+  dans la base que si sa table de conjugaison ro-conj est complète
+  (présent, imparfait, parfait simple, plus-que-parfait, subjonctif,
+  impératif 2e personne, participe passé, gérondif) ; toutes les formes
+  sont copiées verbatim (l'impératif négatif et les formes marquées
+  régionales, colloquiales ou archaïques sont écartées). Le futur
+  (voi/vei/va/vom/veți/vor), le conditionnel (aș/ai/ar/am/ați/ar) et
+  le parfait composé (am/ai/a/am/ați/au) sont assemblés sur l'appareil
+  avec les auxiliaires réguliers (a vrea, a avea), l'infinitif porte
+  la préposition « a » (a lucra) et l'infinitif passé « a fi » +
+  participe. Chaque verbe retenu doit avoir un glossaire anglais ;
+  les mots sans conjugaison complète ou sans définition sont écartés
+  (règle « sans définition ⇒ retiré »).
 - **Essais de filtrage par dictionnaire du domaine public (abandonnés)** :
   pour que chaque verbe ait une définition ancienne et libre de droits,
   plusieurs filtres ont été successivement appliqués puis retirés :
