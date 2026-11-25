@@ -103,7 +103,7 @@ qu'avant enrichissement** dans `outils/brut_orig.json`, puis lancer
   sinon glossaire anglais du Wiktionary ; espagnol : Real Academia
   1913 ; de/it/pt : glossaires anglais du Wiktionary (CC BY-SA) ;
   pl/cs/ro : définitions natives du Wiktionary de la langue
-  ( 4 164 / 1 823 / 4 949 verbes, dumps pl/cs/ro.wiktionary, CC BY-SA ),
+  ( 4 378 / 1 931 / 5 437 verbes, dumps pl/cs/ro.wiktionary, CC BY-SA ),
   sinon glossaire anglais du Wiktionary ; les définitions traduites de
   l'anglais sont étiquetées « angl. Wiktionary, trad. ». Aucune
   numérisation de dictionnaire du domaine public ( fin 19e, début 20e )
@@ -138,12 +138,12 @@ MIT (`LICENSE`).
 | fr | 8 535 | 1 574 | Moteur maison ; verbes enrichis depuis le Wiktionnaire (kaikki), chaque forme vérifiée, source stockée par verbe | Académie 8e éd. + Littré, domaine public |
 | en | 19 070 | 17 427 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme (doubles formes -ed/-t conservées) | Webster 1913 où il définit (domaine public, numérisation lunixbochs/webster, MIT), sinon glossaires anglais du Wiktionary, CC BY-SA 4.0 |
 | es | 8 957 | 3 746 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Real Academia 1913, domaine public |
-| de | 4 220 | 3 940 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Définitions natives du ro.wiktionary pour 4 949 verbes (dumps Wikimedia, CC BY-SA 4.0), sinon glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
-| it | 12 429 | 11 950 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme, tous les verbes du Wiktionary conservés | Définitions natives du ro.wiktionary pour 4 949 verbes (dumps Wikimedia, CC BY-SA 4.0), sinon glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
-| pt | 6 084 | 5 600 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme, tous les verbes du Wiktionary conservés | Définitions natives du ro.wiktionary pour 4 949 verbes (dumps Wikimedia, CC BY-SA 4.0), sinon glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
-| pl | 9 064 | 9 064 | Moteur `Pl` ; extraction du Wiktionary polonais via kaikki, verbe accepté seulement si toutes les formes prédites correspondent ; 125 verbes fréquents réintégrés verbatim | Définitions natives du pl.wiktionary pour 4 164 verbes (dumps Wikimedia, CC BY-SA 4.0), sinon glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
-| cs | 4 143 | 4 143 | Moteur `Cs` ; même procédé ; 21 verbes fréquents réintégrés verbatim | Définitions natives du cs.wiktionary pour 1 823 verbes (dumps Wikimedia, CC BY-SA 4.0), sinon glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
-| ro | 6 970 | 6 970 | Moteur `Ro` ; extraction du Wiktionary via tous les wiktionary (kaikki), table de conjugaison ro-conj complète requise, toutes les formes copiées verbatim ; futur, conditionnel et parfait composé assemblés sur l'appareil depuis les auxiliaires réguliers (a vrea, a avea) | Définitions natives du ro.wiktionary pour 4 949 verbes (dumps Wikimedia, CC BY-SA 4.0), sinon glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
+| de | 4 220 | 3 940 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
+| it | 12 429 | 11 950 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme, tous les verbes du Wiktionary conservés | Glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
+| pt | 6 084 | 5 600 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme, tous les verbes du Wiktionary conservés | Glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
+| pl | 9 064 | 9 064 | Moteur `Pl` ; extraction du Wiktionary polonais via kaikki, verbe accepté seulement si toutes les formes prédites correspondent ; 125 verbes fréquents réintégrés verbatim | Définitions natives du pl.wiktionary pour 4 378 verbes (dumps Wikimedia, CC BY-SA 4.0), sinon glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
+| cs | 4 143 | 4 143 | Moteur `Cs` ; même procédé ; 21 verbes fréquents réintégrés verbatim | Définitions natives du cs.wiktionary pour 1 931 verbes (dumps Wikimedia, CC BY-SA 4.0), sinon glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
+| ro | 6 970 | 6 970 | Moteur `Ro` ; extraction du Wiktionary via tous les wiktionary (kaikki), table de conjugaison ro-conj complète requise, toutes les formes copiées verbatim ; futur, conditionnel et parfait composé assemblés sur l'appareil depuis les auxiliaires réguliers (a vrea, a avea) | Définitions natives du ro.wiktionary pour 5 437 verbes (dumps Wikimedia, CC BY-SA 4.0), sinon glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
 
 Détail du procédé :
 
