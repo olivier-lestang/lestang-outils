@@ -231,7 +231,7 @@ class Fr {
   }
 
   Map<String, List<String>> _auxiliaire(String nom) {
-    final v = nom == ':être' ? 'être' : 'avoir';
+    final v = nom == 'être' ? 'être' : 'avoir';
     Tpl? tp;
     for (final t in jeu.tpls) {
       if (t['nom'] == nom) {
@@ -359,7 +359,7 @@ class Fr {
   List<Mode> rend(String v, bool clit) {
     final f = _formes(v);
     final usesEtre = clit || familleEtre(v);
-    final A = _auxiliaire(usesEtre ? ':être' : ':avoir');
+    final A = _auxiliaire(usesEtre ? 'être' : ':avoir');
     final per1 = _PERS_FR, per2 = _PERS_SUB_FR;
     final impPer = ['(tu)', '(nous)', '(vous)'];
     const P4 = [
@@ -930,7 +930,6 @@ class _FicheDe {
 }
 
 /* ------------------------------------------------ facade par langue ----- */
-
 class PlanchesConjug {
   final String langue;
   final JeuConj jeu;
@@ -943,6 +942,7 @@ class PlanchesConjug {
   final De de;
   final Pl? pl;
   final Cs? cs;
+  final Ro? ro;
 
   PlanchesConjug(this.langue, this.jeu, this.duWiktionary,
       [Map<String, SlTok>? toks])
@@ -953,13 +953,14 @@ class PlanchesConjug {
         pt = Pt(jeu),
         de = De(jeu),
         pl = langue == 'pl' ? Pl(jeu, toks ?? {}) : null,
-        cs = langue == 'cs' ? Cs(jeu, toks ?? {}) : null;
+        cs = langue == 'cs' ? Cs(jeu, toks ?? {}) : null,
+        ro = langue == 'ro' ? Ro(jeu, toks ?? {}) : null;
 
   static const _radicaux = {'de': true, 'it': true, 'pt': true};
 
   factory PlanchesConjug.depuis(String langue, String tplStr,
       String verbsStr, String defsStr, String vsrcStr) {
-    if (langue == 'pl' || langue == 'cs') {
+    if (langue == 'pl' || langue == 'cs' || langue == 'ro') {
       final noms = <String>[], toks = <String, SlTok>{};
       for (final grp in verbsStr.split('\n')) {
         for (final tok in grp.split(',')) {
@@ -1036,6 +1037,8 @@ class PlanchesConjug {
         return pl?.rend(v) ?? const [];
       case 'cs':
         return cs?.rend(v) ?? const [];
+      case 'ro':
+        return ro?.rend(v) ?? const [];
     }
     return const [];
   }
@@ -1070,19 +1073,82 @@ class PlanchesConjug {
 }
 
 
-/* ------------------------------------------------------------------pl, cs */
-
-/* Polonais et tcheque : moteurs dedies, donnees verifiees depuis le
-   Wiktionary (kaikki.org, CC BY-SA 4.0) ; phrases calculees sur l appareil.
-   Token : nom:s1[:s3]:p3:W:V:imp2:aspect ; formes additionnelles calculees.
+/* Le moteur roumain : verbes copiés verbatim du Wiktionary roumain via
+   tous les wiktionary (kaikki.org, CC BY-SA 4.0) ; temps composés et futur calculés sur
+   l'appareil depuis des auxiliaires réguliers.
+   Token RO : nom:présent(6):imparfait(6):parfait(6):plus-que-parfait(6):
+   subjonctif(6):impératif(2):participe:gérondif, champs ';'.
    SPDX-License-Identifier : MIT. */
 
+const _PERS_RO = ['eu', 'tu', 'el·ea', 'noi', 'voi', 'ei·ele'];
+const _PERS_IMP_RO = ['(tu)', '(voi)'];
+const _VIITOR_RO = ['voi', 'vei', 'va', 'vom', 'veți', 'vor'];
+const _COND_RO = ['aș', 'ai', 'ar', 'am', 'ați', 'ar'];
+const _PC_RO = ['am', 'ai', 'a', 'am', 'ați', 'au'];
+
+class Ro {
+  final JeuConj jeu;
+  final Map<String, SlTok> toks;
+  Ro(this.jeu, this.toks);
+
+  List<String> _g(SlTok t, int i) => t.c[i].split(';');
+
+  List<Mode> rend(String v) {
+    final t = toks[v];
+    if (t == null) return const [];
+    final P = _g(t, 1), I = _g(t, 2), R = _g(t, 3), PQ = _g(t, 4);
+    final S = _g(t, 5), IMP = _g(t, 6);
+    final pp = t.c[7], ger = t.c[8];
+    List<String> compose(List<String> aux) =>
+        aux.map((a) => '$a $pp').toList();
+    List<String> infini(List<String> aux) =>
+        aux.map((a) => '$a $v').toList();
+    final modes = <Mode>[];
+    modes.add(Mode('Infinitiv', [
+      Temps('prezent', ['—'], ['a $v']),
+      Temps('perfect', ['—'], ['a fi $pp']),
+    ]));
+    modes.add(Mode('Indicativ', [
+      Temps('prezent', _PERS_RO, P),
+      Temps('imperfect', _PERS_RO, I),
+      Temps('perfect simplu', _PERS_RO, R),
+      Temps('mai mult ca perfect', _PERS_RO, PQ),
+      Temps('perfect compus', _PERS_RO, compose(_PC_RO)),
+      Temps('viitor simplu', _PERS_RO, infini(_VIITOR_RO)),
+    ]));
+    modes.add(Mode('Condițional prezent', [
+      Temps('—', _PERS_RO, infini(_COND_RO)),
+    ]));
+    modes.add(Mode('Conjunctiv', [
+      Temps('prezent', _PERS_RO, S),
+    ]));
+    modes.add(Mode('Imperativ', [
+      Temps('prezent', _PERS_IMP_RO, IMP),
+    ]));
+    modes.add(Mode('Participiu', [
+      Temps('trecut', ['—'], [pp]),
+    ]));
+    modes.add(Mode('Gerunziu', [
+      Temps('prezent', ['—'], [ger]),
+    ]));
+    return modes;
+  }
+}
+
+/* ------------------------------------------------------------------pl, cs */
+
+/* Polonais, roumain et tcheque : moteurs dedies, donnees verifiees depuis le
+   Wiktionary (kaikki.org, CC BY-SA 4.0) ; phrases calculees sur l appareil.
+   Roumain : toutes les formes du Wiktionary roumain, copiees verbatim ;
+   futur, conditionnel et parfait compose assembles avec les auxiliaires
+   reguliers (a vrea, a avea).
+   Token : nom:s1[:s3]:p3:W:V:imp2:aspect ; formes additionnelles calculees.
+   SPDX-License-Identifier : MIT. */
 class SlTok {
   final List<String> c;
   SlTok(this.c);
   String get nom => c[0];
 }
-
 class Pl {
   final JeuConj jeu;
   final Map<String, SlTok> toks;
