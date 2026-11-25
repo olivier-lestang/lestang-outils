@@ -61,6 +61,8 @@ python3 outils/construire_bdd.py
 #   python3 outils/sanders_extract.py  # defs de : Sanders 1876 ( OCR maison )
 #   python3 outils/orthographe.py     # dic. PD : orthographe actuelle
 #                                     # ( de 1901, it accents, pt AO90 )
+#   python3 outils/coquilles_ocr.py   # dic. PD : coquilles OCR certaines
+#                                     # ( fich->sich, superfice, ob jeto )
 #   ... editions SQL dans atelier.db ...
 #   python3 outils/atelier.py export   # atelier.db -> brut.json
 #   python3 outils/atelier.py verifier  # controle de concordance fina
@@ -244,7 +246,12 @@ Détail du procédé :
   ( allemand : réforme de 1901 ; italien : accents de syllabe
   interne, mejjo->meglio ; portugais : norme européenne,
   graphies pre-AO90 + accents abolis en 1945/1971 ), 2 244 sens
-  sur 6 937, sans toucher aux autres lots ;
+  sur 6 937, sans toucher aux autres lots ; corrections vérifiées
+  hors ligne contre LanguageTool ( de : aucune erreur ; it/pt : seuls
+  des mots rares mais valides ) ; `outils/coquilles_ocr.py`
+  ( version 1.4.2 ) corrige en outre les coquilles OCR certaines
+  ( fich->sich, dur<->durch, superfice->superficie, ob jeto->objeto,
+  prospector rétabli ), revues une par une en contexte ;
   les six scripts de filtrage restent dans `outils/` pour référence.
 - **Comblement des définitions manquantes ( Wiktionary, CC BY-SA 4.0 )** :
   avec les filtres abandonnés, 439 verbes restaient sans définition

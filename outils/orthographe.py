@@ -79,7 +79,7 @@ PT = {
     'hydróphobo': 'hidrófobo', 'indirectamente': 'indiretamente',
     'inscripcão': 'inscrição', 'inscripção': 'inscrição',
     'inscripções': 'inscrições', 'insectos': 'insetos',
-    'intellectuaes': 'intelectuais', 'jecto': 'jeto',
+    'intellectuaes': 'intelectuais',
     'larynge': 'laringe', 'olfacto': 'olfato', 'photographia': 'fotografia',
     'physica': 'física', 'physicas': 'físicas', 'productos': 'produtos',
     'reproductores': 'reprodutores',
@@ -90,7 +90,6 @@ PT = {
     'eléctricas': 'elétricas', 'Electrizar': 'Eletrizar',
     'deminuír': 'deminuir', 'polluír': 'poluir', 'Annuír': 'Anuir',
     'sufíiciente': 'suficiente', 'metállicos': 'metálicos',
-    'prospector': 'prospecto',
     # -cção / doubles divers
     'acção': 'ação', 'acções': 'ações', 'affinação': 'afinação',
     'affeição': 'afeição', 'afflicção': 'aflição', 'aflicção': 'aflição',
