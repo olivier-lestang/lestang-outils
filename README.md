@@ -66,6 +66,14 @@ python3 outils/construire_bdd.py
 #   python3 outils/ajouter_wikt.py    # it/pt/de : glosses anglais du
 #                                     # Wiktionary ranges AVANT les dic.
 #                                     # PD ( restauration 1.2.2 + API )
+#   python3 outils/dump_natif.py fr frwiktionary-latest-pages-articles.xml.bz2
+#                                     # fr/es/it/pt/de : definition native
+#                                     # du Wiktionary de la langue, extraite
+#                                     # des dumps Wikimedia ( cache durable
+#                                     # wikt_natif_fetch.json, CC BY-SA 4.0 )
+#   python3 outils/natifs_wikt.py    # sens natifs EN TETE de chaque fiche ;
+#                                     # angl. Wiktionary ne reste qu'en
+#                                     # secours ( verbes sans article natif )
 #   ... editions SQL dans atelier.db ...
 #   python3 outils/atelier.py export   # atelier.db -> brut.json
 #   python3 outils/atelier.py verifier  # controle de concordance fina
@@ -134,6 +142,14 @@ qu'avant enrichissement** dans `outils/brut_orig.json`, puis lancer
   1887 ( 2 397 verbes ) et pt : Figueiredo 1913 ( 3 423 verbes ), domaine
   public, OCR archive.org conservé tel quel, sinon glossaire anglais du
   Wiktionary ;
+  depuis la version 1.5, chaque fiche affiche en premier la
+  définition native du Wiktionary de la langue ( fr/es/it/pt/de :
+  8 389 / 5 374 / 5 775 / 3 703 / 3 788 verbes, dumps Wikimedia,
+  CC BY-SA 4.0 ), puis le dictionnaire du domaine public
+  ( académies et Littré, RAE, Petrocchi, Figueiredo, Sanders ) ; le
+  glossaire anglais du Wiktionary ne reste qu'en secours, pour les
+  verbes sans article natif ( it 6 653, pt 2 376, de 431 ; sa
+  traduction, étiquette « angl. Wiktionary, trad. », reste à faire ) ;
   pl/cs/ro : définitions natives du Wiktionary de la langue
   ( 4 378 / 1 931 / 5 437 verbes, dumps pl/cs/ro.wiktionary, CC BY-SA ),
   sinon glossaire anglais du Wiktionary ; les définitions traduites de
@@ -167,12 +183,12 @@ MIT (`LICENSE`).
 
 | Langue | Verbes | dont Wiktionary | Procédé | Définitions |
 | --- | ---: | ---: | --- | --- |
-| fr | 8 535 | 1 574 | Moteur maison ; verbes enrichis depuis le Wiktionnaire (kaikki), chaque forme vérifiée, source stockée par verbe | Académie 8e éd. + Littré, domaine public |
+| fr | 8 535 | 1 574 | Moteur maison ; verbes enrichis depuis le Wiktionnaire (kaikki), chaque forme vérifiée, source stockée par verbe | fr. Wiktionnaire en tête (8 389 verbes, dump Wikimedia, CC BY-SA) ; Académie 8e éd. + Littré, domaine public |
 | en | 19 070 | 17 427 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme (doubles formes -ed/-t conservées) | Webster 1913 où il définit (domaine public, numérisation lunixbochs/webster, MIT), sinon glossaires anglais du Wiktionary, CC BY-SA 4.0 |
-| es | 8 957 | 3 746 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Real Academia 1913, domaine public |
-| de | 4 220 | 3 940 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Sanders 1876 pour 205 verbes (domaine public, OCR maison Tesseract frk 400 dpi sur les PDF images archive.org ; releve revu à la main, defauts OCR conservés), sinon glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
-| it | 12 429 | 11 950 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme, tous les verbes du Wiktionary conservés | Petrocchi 1887 pour 2 397 verbes (domaine public, OCR archive.org), sinon glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
-| pt | 6 084 | 5 600 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme, tous les verbes du Wiktionary conservés | Figueiredo 1913 pour 3 423 verbes (domaine public, OCR archive.org), sinon glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
+| es | 8 957 | 3 746 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | es. Wiktionary en tête (5 374 verbes, dump Wikimedia, CC BY-SA) ; Real Academia 1913, domaine public |
+| de | 4 220 | 3 940 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme | Sanders 1876 pour 205 verbes (domaine public, OCR maison Tesseract frk 400 dpi sur les PDF images archive.org ; releve revu à la main, defauts OCR conservés) ; de. Wiktionary en tête (3 788 verbes, dump Wikimedia, CC BY-SA) ; angl. Wiktionary en secours (431 verbes sans article natif) |
+| it | 12 429 | 11 950 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme, tous les verbes du Wiktionary conservés | it. Wiktionary en tête (5 775 verbes, dump Wikimedia, CC BY-SA) ; Petrocchi 1887 pour 2 397 verbes (domaine public, OCR archive.org) ; angl. Wiktionary en secours (6 653 verbes sans article natif) |
+| pt | 6 084 | 5 600 | Moteur maison ; enrichissement Wiktionary vérifié forme par forme, tous les verbes du Wiktionary conservés | pt. Wiktionary en tête (3 703 verbes, dump Wikimedia, CC BY-SA) ; Figueiredo 1913 pour 3 423 verbes (domaine public, OCR archive.org) ; angl. Wiktionary en secours (2 376 verbes sans article natif) |
 | pl | 9 064 | 9 064 | Moteur `Pl` ; extraction du Wiktionary polonais via kaikki, verbe accepté seulement si toutes les formes prédites correspondent ; 125 verbes fréquents réintégrés verbatim | Définitions natives du pl.wiktionary pour 4 378 verbes (dumps Wikimedia, CC BY-SA 4.0), sinon glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
 | cs | 4 143 | 4 143 | Moteur `Cs` ; même procédé ; 21 verbes fréquents réintégrés verbatim | Définitions natives du cs.wiktionary pour 1 931 verbes (dumps Wikimedia, CC BY-SA 4.0), sinon glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
 | ro | 6 970 | 6 970 | Moteur `Ro` ; extraction du Wiktionary via tous les wiktionary (kaikki), table de conjugaison ro-conj complète requise, toutes les formes copiées verbatim ; futur, conditionnel et parfait composé assemblés sur l'appareil depuis les auxiliaires réguliers (a vrea, a avea) | Définitions natives du ro.wiktionary pour 5 437 verbes (dumps Wikimedia, CC BY-SA 4.0), sinon glossaires anglais du Wiktionary (kaikki.org), CC BY-SA 4.0 |
@@ -264,6 +280,18 @@ Détail du procédé :
   en PD seul ), la définition native du dictionnaire du domaine public
   venant ensuite ; aucune définition n'est supprimée ;
   les six scripts de filtrage restent dans `outils/` pour référence.
+- **Affichage « Wiktionary de la langue d'abord » ( version 1.5.0 )** :
+  pour fr/es/it/pt/de, chaque verbe ayant un article VERBE dans le
+  Wiktionary de sa langue ( dump Wikimedia, section Verbe uniquement )
+  reçoit en TETE de fiche ses sens natifs, étiquetés
+  « fr. Wiktionnaire » / « es. » / « it. » / « pt. » / « de. Wiktionary »
+  ( `outils/dump_natif.py` + `outils/natifs_wikt.py` ; 64 035 sens :
+  fr 18 898, es 11 603, it 9 769, pt 9 063, de 14 702 ). Ces verbes
+  perdent leur glose anglaise ; elle ne subsiste que pour les verbes
+  sans article natif ( it 6 653, pt 2 376, de 431 verbes ), rangée
+  avant le dictionnaire du domaine public en attendant leur traduction
+  ( etiquette prevue « angl. Wiktionary, trad. » ) ; les dictionnaires
+  du domaine public suivent ensuite.
 - **Comblement des définitions manquantes ( Wiktionary, CC BY-SA 4.0 )** :
   avec les filtres abandonnés, 439 verbes restaient sans définition
   ( fr 4, en 7, es 19, pl 356, cs 53 ). Ils ont été traités depuis

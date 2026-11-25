@@ -52,6 +52,21 @@ SOURCES_CONNUES = {
         'ro. Wiktionary',
         'Definition native du Wiktionary roumain, dumps Wikimedia '
         '(rowiktionary), CC BY-SA 4.0'),
+    'fr. Wiktionnaire': ('fr. Wiktionnaire',
+        'Definition native du Wiktionnaire francophone, dump Wikimedia '
+        'frwiktionary, CC BY-SA 4.0'),
+    'es. Wiktionary': ('es. Wiktionary',
+        'Definicion nativa del Wikcionario espanol, dump Wikimedia '
+        'eswiktionary, CC BY-SA 4.0'),
+    'it. Wiktionary': ('it. Wiktionary',
+        'Definizione nativa del Wikizionario italiano, dump Wikimedia '
+        'itwiktionary, CC BY-SA 4.0'),
+    'pt. Wiktionary': ('pt. Wiktionary',
+        'Definicao nativa do Wikcionario portugues, dump Wikimedia '
+        'ptwiktionary, CC BY-SA 4.0'),
+    'de. Wiktionary': ('de. Wiktionary',
+        'Deutsche Definition des deutschsprachigen Wiktionarys, dump '
+        'Wikimedia dewiktionary, CC BY-SA 4.0'),
     'projet': ('projet', 'Redaction du projet'),
     'Académie 8e (1932-1935)': (
         "Académie 8e (1932-1935)",
