@@ -19,12 +19,9 @@ void _verifier() {
   }
   int ok = 0;
   void attendu(bool cond, String label) {
-    if (!cond) {
-      stderr.writeln('ECHEC: $label');
-      exitCode = 1;
-    } else {
-      ok++;
-    }
+    // fail() fait echouer la suite : un ECHEC ne doit jamais passer inapercu.
+    if (!cond) fail(label);
+    ok++;
   }
 
   String? cell(String l, String v, String modeNom, String tempsNom, int i,
