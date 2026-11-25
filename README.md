@@ -51,6 +51,10 @@ python3 outils/construire_bdd.py
 # SQLite ; l'atelier devient la source de verite des donnees de
 # conjugaison, brut.json se regenere ensuite :
 #   python3 outils/atelier.py import   # brut.json -> atelier.db
+#   python3 outils/sources_defs.py    # rattache chaque sens a sa source
+#                                     # ( Littré, Académie, Webster 1913,
+#                                     # RAE 1913-1914, Wiktionary... )
+#   python3 outils/classes.py         # groupe/particularite des verbes
 #   ... editions SQL dans atelier.db ...
 #   python3 outils/atelier.py export   # atelier.db -> brut.json
 #   python3 outils/atelier.py verifier  # controle de concordance fina
@@ -247,8 +251,12 @@ Détail du procédé :
   ( index, nom, caracteristiques ), table `defs` ( langue, verbe, rang
   du sens, etiquette affichee, texte, cle etrangere `id_source`,
   `date_ajout` ), `verbes` ( langue, verbe, segment brut avec les
-  formes ), `modeles`, `vsrc`, `verbes_lignes`. `atelier.py import`
-  remplissage depuis `brut.json` ; `atelier.py export` regenere
+  formes ), `modeles`, `vsrc`, `verbes_lignes` ; `verbes.groupe`
+  ( fr 1er/2e/3e, es/it/pt 1..3, ro I..IV ) et
+  `verbes.particularite` ( en regulier/irregulier/double forme
+  US/GB, de faible/forte, pl/cs terminaison de l infinitif,
+  familles irregulieres et auxiliaires marquees ).
+  `atelier.py import` remplissage depuis `brut.json` ; `atelier.py export` regenere
   `brut.json` apres edition ( l'export ne reecrit une definition que
   si son texte a change, et l'aller-retour sans edition est verifie
   octet pour octet ) ; `atelier.py verifier` compare sans ecrire.
@@ -257,7 +265,19 @@ Détail du procédé :
   `construire_bdd.py`. Les etiquettes de pl/cs/ro et des glossaires
   anglais servent a la fois d'etiquette affichee et de nom de source ;
   pour fr/en/es les etiquettes sont des marques de registre ou de
-  domaine, `id_source` y reste a remplir a la main.
+  domaine : `sources_defs.py` rattache tous les sens ( 118 270 ) a une
+  source : fr par comparaison du texte avec le Littré ( 14 700, XML
+  oeuvres/littre ) puis par elimination Académie 8e ( 6 691 ) ;
+  en par article verbal du Webster 1913 ( 14 047, lunixbochs/webster )
+  sinon glossaire du Wiktionary anglais ; renvois fr. Wiktionary ;
+  es verbatim du Diccionario de la RAE 1913-1914 ; les redactions
+  condensees de de/it/pt issues du generateur du projet sont
+  etiquetees « Glossaire du générateur du projet » ( MIT ). NB :
+  brut.json ne transporte ni `id_source` ni les colonnes
+  `groupe`/`particularite` : apres un import, relancer
+  `sources_defs.py` puis `classes.py`. Les dates d'ajout marquent les
+  lots d'origine ( 2026-11-24 lot initial, 2026-11-25 roumain et
+  definitions natives pl/cs/ro ).
 - **Listes de fréquence OpenSubtitles** : utilisées uniquement pour
   sélectionner les verbes rejetés à réintégrer ; aucune donnée de ces
   listes n'est embarquée dans l'app ni dans la base.

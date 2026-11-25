@@ -13,9 +13,12 @@
 # ATTENTION : la colonne defs.etiquette est ETIQUETTE AFFICHEE ; pour
 # pl/cs/ro et les glossaires anglais elle sert aussi de nom de source
 # (sources.nom). Une edition d'etiquette change donc l'affichage dans l'app.
-# id_source est rempli pour les sources connues (pl./cs./ro. Wiktionary,
-# angl. Wiktionary, angl. Wiktionary, trad.) et NULL ailleurs (fr/es :
-# etiquettes de registre) : a enrichir a la main si besoin.
+# id_source est rempli pour les etiquettes correspondant a une source
+# connue de SOURCES_CONNUES (y compris Academie, Littré, Webster 1913,
+# Real Academia 1913-1914...). IMPORTANT : un import recree l'atelier a
+# partir de brut.json, qui ne transporte pas les attributions calculees
+# ( fr par comparaison Littré, en par article Webster... ) ni le
+# classement des verbes : relancer sources_defs.py puis classes.py.
 # SPDX-License-Identifier : MIT
 import gzip, base64, json, os, sqlite3, sys
 from datetime import date
@@ -49,6 +52,35 @@ SOURCES_CONNUES = {
         'ro. Wiktionary',
         'Definition native du Wiktionary roumain, dumps Wikimedia '
         '(rowiktionary), CC BY-SA 4.0'),
+    'projet': ('projet', 'Redaction du projet'),
+    'Académie 8e (1932-1935)': (
+        "Académie 8e (1932-1935)",
+        "Dictionnaire de l'Académie française, 8e édition, 1932-1935, "
+        'domaine public ; attribué par élimination : sens non retrouvé '
+        'dans le Littré ( les définitions françaises historiques viennent '
+        "de l'Académie ou du Littré )"),
+    'Littré (1872-1877)': (
+        'Littré (1872-1877)',
+        'Émile Littré, Dictionnaire de la langue française ( 1872-1877 ), '
+        'texte du domaine public, numérisation XML oeuvres/littre ; '
+        'attribué par comparaison du texte du sens avec l article'),
+    'fr. Wiktionary': (
+        'fr. Wiktionary',
+        'Wiktionnaire fr.wiktionary ( CC BY-SA 4.0 ) ; renvois et formes '
+        'alternatives ( alternative form of, archaic spelling... )'),
+    'Webster 1913': (
+        "Webster 1913",
+        "Webster's Revised Unabridged Dictionary, 1913 ( GCIDE ), texte du "
+        'domaine public ; numérisation lunixbochs/webster ( code MIT ) ; '
+        'attribué par présence d un article verbal'),
+    'Real Academia 1913-1914': (
+        'Real Academia 1913-1914',
+        'Diccionario de la lengua castellana ( Real Academia Española, '
+        '14e édition, 1913-1914 ), texte du domaine public'),
+    'Glossaire du générateur du projet': (
+        'Glossaire du générateur du projet',
+        'Glossaires anglais et allemands du générateur du projet web '
+        '( SPDX-License-Identifier : MIT )'),
 }
 
 SCHEMA = """
@@ -76,6 +108,9 @@ CREATE TABLE verbes (
     verbe       TEXT NOT NULL,
     segment     TEXT NOT NULL,      -- morceau brut (formes inclues)
     date_ajout  TEXT NOT NULL,
+    groupe      INTEGER,            -- fr/es/it/pt 1..3, ro I..IV (1..4)
+    particularite TEXT,             -- en: regulier/irregulier/double ;
+                                     -- de: faible/forte ; pl/cs: -terminaison
     PRIMARY KEY (langue, ligne, col)
 );
 CREATE INDEX verbes_verbe ON verbes(langue, verbe);
@@ -134,8 +169,9 @@ def importer(chemin_brut, chemin_db):
             db.execute('INSERT INTO verbes_lignes VALUES(?,?)', (lg, i))
             for j, seg in enumerate(grp.split(',')):
                 if seg:
-                    db.execute('INSERT INTO verbes VALUES(?,?,?,?,?,?)',
-                                (lg, i, j, seg.split(':')[0], seg, aujourdhui))
+                    db.execute('INSERT INTO verbes VALUES(?,?,?,?,?,?,?,?)',
+                                (lg, i, j, seg.split(':')[0], seg,
+                                 aujourdhui, None, None))
         # vsrc
         for i, v in enumerate(b[cle(p, 'VSRC_STR')].split('\n')):
             if v:
