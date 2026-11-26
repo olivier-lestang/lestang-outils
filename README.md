@@ -681,6 +681,12 @@ Détail du procédé :
   ce lot ; restent 394 gloses roumaines ( derniere langue ).
   Etiquette et source « angl. Wiktionary, trad. » ; total inchange :
   176 941 sens, 0 sans source.
+- **Lot 32 de traduction, roumain ( version 1.5.52 )** :
+  clôture : 394 gloses roumaines suivantes ( `outils/traduits_ro.json`,
+  894 entrees cumulees ). 394 sens traduits ce lot ;
+  ROUMAIN EPUISE. TOUTES LES LANGUES SONT EPUISEES.
+  Etiquette et source « angl. Wiktionary, trad. » ; total inchange :
+  176 941 sens, 0 sans source.
 - **Comblement des définitions manquantes ( Wiktionary, CC BY-SA 4.0 )** :
   avec les filtres abandonnés, 439 verbes restaient sans définition
   ( fr 4, en 7, es 19, pl 356, cs 53 ). Ils ont été traités depuis

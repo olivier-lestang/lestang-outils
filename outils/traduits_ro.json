@@ -2,11 +2,17 @@
  "acultura": [
   "asimila cultural"
  ],
+ "adevăsi": [
+  "risipi"
+ ],
  "admonia": [
   "mustra"
  ],
  "adultera": [
   "falsifica ( un produs )"
+ ],
+ "afecționa": [
+  "arăta afecțiune"
  ],
  "alcaliza": [
   "face alcalin"
@@ -20,23 +26,56 @@
  "alenzui": [
   "contrazice"
  ],
+ "alipui": [
+  "așeza"
+ ],
  "amanetari": [
   "amaneta"
+ ],
+ "amistui": [
+  "consuma ( despre foc )"
  ],
  "amnări": [
   "se îmbăta"
  ],
+ "anatema": [
+  "anatemiza"
+ ],
+ "anatematiza": [
+  "anatemiza"
+ ],
+ "andăli": [
+  "porni"
+ ],
+ "arboriza": [
+  "cultiva ( arbori )"
+ ],
  "arestălui": [
   "aresta"
+ ],
+ "argosi": [
+  "suspenda ( un preot )"
  ],
  "arhaiciza": [
   "arhaiza"
  ],
+ "aristocratiza": [
+  "face aristocratic"
+ ],
  "arpegia": [
   "interpreta în arpegii"
  ],
+ "arăduce": [
+  "însemna ; se asemui"
+ ],
+ "arădui": [
+  "porni ; începe"
+ ],
  "asigna": [
   "atribui"
+ ],
+ "astrânge": [
+  "aduna"
  ],
  "astăvi": [
   "zăbovi"
@@ -50,17 +89,83 @@
  "audita": [
   "controla ( conturi )"
  ],
+ "augura": [
+  "prevesti"
+ ],
+ "aulma": [
+  "adulmeca"
+ ],
+ "autoadmira": [
+  "se admira"
+ ],
+ "autoamăgi": [
+  "se amăgi"
+ ],
+ "autoapăra": [
+  "se apăra"
+ ],
+ "autocenzura": [
+  "se autocenzura"
+ ],
+ "autocita": [
+  "se cita ( pe sine )"
+ ],
+ "autocontrola": [
+  "se controla"
+ ],
+ "autocritica": [
+  "se critica"
+ ],
  "autodenumi": [
   "se numi ( singur )"
  ],
+ "autodescrie": [
+  "se descrie"
+ ],
+ "autodocumenta": [
+  "se documenta"
+ ],
+ "autoechilibra": [
+  "se echilibra"
+ ],
+ "autoexamina": [
+  "se examina"
+ ],
+ "autoexcita": [
+  "se excita"
+ ],
+ "autofecunda": [
+  "se fecunda"
+ ],
  "autografia": [
   "semna ( autograf )"
+ ],
+ "autoimita": [
+  "se imita"
+ ],
+ "autoizola": [
+  "se izola"
+ ],
+ "autojustifica": [
+  "se justifica"
+ ],
+ "autoliniști": [
+  "se liniști"
+ ],
+ "autoproclama": [
+  "se proclama"
+ ],
+ "autosesiza": [
+  "sesiza ( din oficiu )"
  ],
  "autoînsămânța": [
   "se însămânța"
  ],
  "avizălui": [
   "aproba"
+ ],
+ "azura": [
+  "albastri ( rufele )"
  ],
  "aținta": [
   "ținti"
@@ -73,6 +178,9 @@
  ],
  "balsamui": [
   "îmbălsăma"
+ ],
+ "bancheta": [
+  "participa ( la un banchet )"
  ],
  "barbariza": [
   "face barbar"
@@ -89,6 +197,21 @@
  "bestializa": [
   "face bestial"
  ],
+ "bezaconui": [
+  "săvârși ( fărădelegi )"
+ ],
+ "bețivi": [
+  "petrece ( cu băutură )"
+ ],
+ "bineface": [
+  "face ( un bine )"
+ ],
+ "binevesti": [
+  "propovădui"
+ ],
+ "binocla": [
+  "privi ( prin binoclu )"
+ ],
  "bintătui": [
   "pedepsi"
  ],
@@ -104,6 +227,12 @@
  "blasfema": [
   "huli"
  ],
+ "bleorcoti": [
+  "stropi ( cu mâinile în apă )"
+ ],
+ "blăni": [
+  "acoperi ( cu scânduri )"
+ ],
  "bogdaprosti": [
   "mulțumi"
  ],
@@ -113,11 +242,17 @@
  "bolșeviza": [
   "instala regim bolșevic"
  ],
+ "bonăi": [
+  "bolborosi"
+ ],
  "botaniza": [
   "studia plantele"
  ],
  "bricola": [
   "repara ca amator"
+ ],
+ "broda": [
+  "născoci ( o poveste ) ; decora ( cu broderie )"
  ],
  "brăni": [
   "opri"
@@ -131,14 +266,47 @@
  "buduli": [
   "cotrobăia"
  ],
+ "bulgariza": [
+  "imprima caracter bulgăresc"
+ ],
+ "buli": [
+  "fute ( vulgar ) ; se strica"
+ ],
+ "bulibăși": [
+  "confunda"
+ ],
+ "butnări": [
+  "lucra ( ca dogar )"
+ ],
+ "butona": [
+  "apăsa ( butoanele ) ; schimba ( canalele )"
+ ],
  "buzoia": [
   "se supăra"
+ ],
+ "bâcsi": [
+  "îndopa"
+ ],
+ "băia": [
+  "îngriji ( un sugar )"
+ ],
+ "bălega": [
+  "defeca ( despre animale )"
+ ],
+ "bălăi": [
+  "belea"
+ ],
+ "băsmui": [
+  "plăsmui ( o poveste )"
  ],
  "calamita": [
   "devasta"
  ],
  "caricatura": [
   "caricaturiza"
+ ],
+ "carota": [
+  "escroca"
  ],
  "catalogiza": [
   "cataloga"
@@ -149,11 +317,20 @@
  "cauționa": [
   "avertiza"
  ],
+ "cavalcada": [
+  "călări ( în grup )"
+ ],
+ "cerebraliza": [
+  "face cerebral"
+ ],
  "chelșugui": [
   "cheltui"
  ],
  "cheta": [
   "strânge fonduri"
+ ],
+ "chineji": [
+  "conduce ( ca primar )"
  ],
  "chiohăi": [
   "tuși"
@@ -161,11 +338,17 @@
  "cicni": [
   "muri"
  ],
+ "cimurui": [
+  "tencui ( un perete )"
+ ],
  "cincădi": [
   "ezita"
  ],
  "ciosvârți": [
   "toca"
+ ],
+ "circăli": [
+  "urma ( urmele mistreților )"
  ],
  "ciunta": [
   "amputa"
@@ -173,14 +356,32 @@
  "ciupărca": [
   "bate ( măr )"
  ],
+ "ciura": [
+  "cerne ( prin sită )"
+ ],
  "clepșui": [
   "pălmui"
  ],
  "clicăi": [
   "face clic"
  ],
+ "cloroforma": [
+  "anestezia ( cu cloroform )"
+ ],
+ "cnezi": [
+  "numi ( cnez )"
+ ],
+ "codălbi": [
+  "nu izbuti"
+ ],
  "cofinanța": [
   "finanța împreună"
+ ],
+ "colibi": [
+  "adăposti ( în colibă )"
+ ],
+ "colida": [
+  "se ciocni"
  ],
  "coloti": [
   "speria găinile"
@@ -194,8 +395,17 @@
  "completui": [
   "completa"
  ],
+ "comândui": [
+  "comanda ( o armată )"
+ ],
  "comândălui": [
   "comanda"
+ ],
+ "comânji": [
+  "murdări"
+ ],
+ "concatena": [
+  "înlănțui ( elemente )"
  ],
  "conceda": [
   "ceda"
@@ -209,8 +419,17 @@
  "confiscarisi": [
   "confisca"
  ],
+ "conota": [
+  "avea ( o conotație )"
+ ],
+ "constela": [
+  "grupa în constelații"
+ ],
  "contacta": [
   "lua legătura"
+ ],
+ "contextualiza": [
+  "pune în context"
  ],
  "contina": [
   "înceta"
@@ -233,11 +452,32 @@
  "corăbieri": [
   "naviga"
  ],
+ "cosmetiza": [
+  "machia ; masca ( defectele )"
+ ],
  "costălui": [
   "costa"
  ],
+ "criminaliza": [
+  "incrimina"
+ ],
+ "criptografia": [
+  "cripta ( mesaje )"
+ ],
+ "crăciuni": [
+  "junghia ( porcii de crăciun )"
+ ],
+ "cucurigui": [
+  "cânta ( ca cocoșul )"
+ ],
+ "cufrânge": [
+  "frânge"
+ ],
  "cuhuci": [
   "tuși"
+ ],
+ "cure": [
+  "curge ; scurge"
  ],
  "cutăi": [
   "cotrobăia"
@@ -245,11 +485,20 @@
  "cuviința": [
   "aproba"
  ],
+ "cvartirui": [
+  "încartirui ( soldați )"
+ ],
  "cămătui": [
   "da cu camătă"
  ],
  "căpăra": [
   "zgâria"
+ ],
+ "cărăzui": [
+  "alini ( țăpii în vie )"
+ ],
+ "cășăi": [
+  "hâșâi ( variantă )"
  ],
  "dagasti": [
   "frământa"
@@ -257,14 +506,32 @@
  "debranșa": [
   "deconecta"
  ],
+ "decalota": [
+  "dezgoli ( glandul )"
+ ],
+ "decapitaliza": [
+  "reduce ( capitalul )"
+ ],
  "decaptiva": [
   "elibera"
+ ],
+ "decarboxila": [
+  "scoate ( carboxilii )"
  ],
  "decarta": [
   "arunca"
  ],
+ "decerebra": [
+  "scoate ( encefalul )"
+ ],
+ "declorura": [
+  "scoate clorul"
+ ],
  "decofeiniza": [
   "scoate cofeina"
+ ],
+ "decomuniza": [
+  "îndepărta comunismul"
  ],
  "decorna": [
   "scoate coarnele"
@@ -272,11 +539,17 @@
  "dedicălui": [
   "dedica"
  ],
+ "defamiliariza": [
+  "face nefamiliar"
+ ],
  "defenda": [
   "apăra"
  ],
  "degelifica": [
   "degela"
+ ],
+ "dehoca": [
+  "junghia ( un animal ) ; sfâșia"
  ],
  "deioniza": [
   "scoate ionii"
@@ -287,14 +560,41 @@
  "demoniza": [
   "transforma în demon"
  ],
+ "denaturaliza": [
+  "denatura"
+ ],
+ "denaționaliza": [
+  "scoate caracterul național"
+ ],
+ "denisipa": [
+  "scoate nisipul"
+ ],
  "denitrifica": [
   "scoate azotul"
+ ],
+ "depinge": [
+  "picta"
  ],
  "depoetiza": [
   "scoate caracterul poetic"
  ],
  "depozitarisi": [
   "depozita"
+ ],
+ "deprofesionaliza": [
+  "scoate caracterul profesional"
+ ],
+ "deproteiniza": [
+  "scoate proteinele"
+ ],
+ "dermeli": [
+  "instrui ; îmblânzi"
+ ],
+ "derusifica": [
+  "scoate ( caracterul rusesc )"
+ ],
+ "descarboniza": [
+  "scoate carbonul"
  ],
  "descruci": [
   "desface ( din cruce )"
@@ -305,6 +605,9 @@
  "descutropi": [
   "descoperi"
  ],
+ "descăiera": [
+  "desface ( o bătaie )"
+ ],
  "descăuna": [
   "detrona"
  ],
@@ -314,8 +617,17 @@
  "desflori": [
   "scoate florile"
  ],
+ "desfăca": [
+  "coji"
+ ],
+ "deshalogena": [
+  "scoate halogenii"
+ ],
  "desica": [
   "usca ( complet )"
+ ],
+ "desovietiza": [
+  "îndepărta regimul sovietic"
  ],
  "despopi": [
   "îndepărta din cler"
@@ -329,14 +641,26 @@
  "despreoți": [
   "îndepărta din cler"
  ],
+ "despune": [
+  "conduce"
+ ],
+ "destaliniza": [
+  "îndepărta stalinismul"
+ ],
  "devina": [
   "ghici"
  ],
  "deviriliza": [
   "demasculiniza"
  ],
+ "devirusa": [
+  "curăța ( de viruși )"
+ ],
  "devitrifica": [
   "cristaliza ( sticla )"
+ ],
+ "devizaja": [
+  "se uita ( fix la cineva )"
  ],
  "dextriniza": [
   "transforma în dextrină"
@@ -347,17 +671,41 @@
  "dezaharifica": [
   "scoate zahărul"
  ],
+ "dezalcooliza": [
+  "scoate alcoolul"
+ ],
  "dezaliena": [
   "pune capăt înstrăinării"
+ ],
+ "dezambiguiza": [
+  "clarifica ( sensul )"
  ],
  "dezamina": [
   "scoate aminele"
  ],
+ "dezanalfabetiza": [
+  "alfabetiza ( pe cineva )"
+ ],
+ "dezancola": [
+  "dezlipi"
+ ],
+ "dezancora": [
+  "ridica ( ancora )"
+ ],
  "dezarginta": [
   "scoate argintul"
  ],
+ "dezarămi": [
+  "scoate ( placa de aramă )"
+ ],
  "dezasfalta": [
   "scoate asfaltul"
+ ],
+ "dezbarca": [
+  "debarca"
+ ],
+ "dezbenzina": [
+  "scoate benzina"
  ],
  "dezbărbăta": [
   "descuraja"
@@ -368,6 +716,12 @@
  "dezdăuna": [
   "despăgubi"
  ],
+ "dezetatiza": [
+  "scoate caracterul de stat"
+ ],
+ "dezideologiza": [
+  "scoate ideologia"
+ ],
  "dezidera": [
   "dori"
  ],
@@ -377,8 +731,14 @@
  "dezizola": [
   "scoate din izolare"
  ],
+ "dezleșina": [
+  "se trezi ( din leșin )"
+ ],
  "dezmormânta": [
   "dezgropa ( un mort )"
+ ],
+ "dezmânta": [
+  "face ( pe cineva să se răzgândească )"
  ],
  "dezmădula": [
   "desmembră ( în bucăți )"
@@ -392,20 +752,62 @@
  "dezordona": [
   "dezorganiza"
  ],
+ "dezoxigena": [
+  "scoate oxigenul"
+ ],
  "deșertifica": [
   "transforma în deșert"
+ ],
+ "deșidera": [
+  "dori"
+ ],
+ "diamanta": [
+  "împodobi ( cu diamante )"
+ ],
+ "dictatoriza": [
+  "face dictatorial"
  ],
  "difama": [
   "defăima"
  ],
+ "digna": [
+  "binevoi"
+ ],
+ "dijmăli": [
+  "strânge ( dijma )"
+ ],
  "dimeriza": [
   "forma dimeri"
+ ],
+ "diminutiviza": [
+  "face ( la diminutiv )"
+ ],
+ "diploma": [
+  "absolvi"
+ ],
+ "directiva": [
+  "dirija"
+ ],
+ "dirigăli": [
+  "da ordine"
+ ],
+ "dispera": [
+  "se dispera"
+ ],
+ "disponibiliza": [
+  "concedia ( economic )"
+ ],
+ "disproporționa": [
+  "face disproporționat"
  ],
  "diuguli": [
   "trândăvi"
  ],
  "diverti": [
   "distrage"
+ ],
+ "divăni": [
+  "conversa ; se sfătui"
  ],
  "dobitoci": [
   "abrutiza"
@@ -415,6 +817,9 @@
  ],
  "dolariza": [
   "adopta dolarul"
+ ],
+ "dolii": [
+  "frâna ( o plută )"
  ],
  "dosădi": [
   "se supăra"
@@ -434,8 +839,14 @@
  "duhovnici": [
   "spoveda"
  ],
+ "duhui": [
+  "alunga ( un duh )"
+ ],
  "dujui": [
   "fluiera"
+ ],
+ "dumiri": [
+  "înțelege"
  ],
  "dumnezei": [
   "diviniza"
@@ -445,6 +856,12 @@
  ],
  "dănui": [
   "dona"
+ ],
+ "dărâna": [
+  "istovi"
+ ],
+ "ecloza": [
+  "ieși ( din ou )"
  ],
  "economiza": [
   "economisi"
@@ -457,6 +874,12 @@
  ],
  "ejecta": [
   "ejecța"
+ ],
+ "electrocauteriza": [
+  "cauteriza ( electric )"
+ ],
+ "electroliza": [
+  "descompune ( prin electroliză )"
  ],
  "elefterosi": [
   "elibera"
@@ -478,6 +901,9 @@
  ],
  "emetiza": [
   "provoca voma"
+ ],
+ "eminescianiza": [
+  "aduce ( în stilul lui eminescu )"
  ],
  "emula": [
   "imita"
@@ -512,11 +938,23 @@
  "erotiza": [
   "face erotic"
  ],
+ "esențializa": [
+  "reduce la esențial"
+ ],
+ "estetiza": [
+  "face estetic"
+ ],
+ "etanșeiza": [
+  "face etanș"
+ ],
  "eterifica": [
   "converti în eter"
  ],
  "eticiza": [
   "trata etic"
+ ],
+ "etimologiza": [
+  "explica etimologic"
  ],
  "etniciza": [
   "face etnic"
@@ -529,6 +967,9 @@
  ],
  "evghenisi": [
   "înnobila"
+ ],
+ "excogita": [
+  "născoci"
  ],
  "executarisi": [
   "executa"
@@ -560,6 +1001,9 @@
  "facsimila": [
   "reproduce ( în copie )"
  ],
+ "falimenta": [
+  "da faliment"
+ ],
  "fanatiza": [
   "fanaticiza"
  ],
@@ -569,14 +1013,29 @@
  "feleșui": [
   "contrazice"
  ],
+ "felia": [
+  "tăia ( felii )"
+ ],
  "ferica": [
   "face fericit"
  ],
  "fești": [
   "picta"
  ],
+ "fierbânta": [
+  "încălzi mai tare"
+ ],
+ "filosofa": [
+  "medita ( filosofic )"
+ ],
+ "firitisi": [
+  "hiritisi ( variantă )"
+ ],
  "fiscaliza": [
   "taxa"
+ ],
+ "fonda": [
+  "întemeia"
  ],
  "formata": [
   "forma"
@@ -589,6 +1048,9 @@
  ],
  "fotocopia": [
   "face fotocopie"
+ ],
+ "fraieri": [
+  "păcăli"
  ],
  "franciza": [
   "galiciza"
@@ -604,6 +1066,12 @@
  ],
  "frumuseța": [
   "înfrumuseța"
+ ],
+ "frunzi": [
+  "înfrunzi"
+ ],
+ "fuga": [
+  "alunga"
  ],
  "fulgura": [
   "fulgera"
@@ -623,6 +1091,9 @@
  "fărâmături": [
   "fărâma"
  ],
+ "fărălegi": [
+  "săvârși ( o fărădelege )"
+ ],
  "fășura": [
   "înfășura"
  ],
@@ -632,11 +1103,35 @@
  "gelăpi": [
   "înghiți lacom"
  ],
+ "gheboși": [
+  "gheboșa ( variantă )"
+ ],
  "ghera": [
   "zgâria"
  ],
+ "gheura": [
+  "descoca ( porumbul )"
+ ],
+ "ghiemăli": [
+  "ridica ( cu pârghia )"
+ ],
+ "ghiloșa": [
+  "ghioșa ( variantă )"
+ ],
+ "ghiontui": [
+  "împinge ( cu cotul )"
+ ],
+ "ghiorăi": [
+  "chiorăi ( variantă )"
+ ],
  "gilălui": [
   "uri"
+ ],
+ "giulgiui": [
+  "înfășura ( în giulgiu )"
+ ],
+ "globaliza": [
+  "face global"
  ],
  "glănțui": [
   "luci"
@@ -644,26 +1139,107 @@
  "gotovi": [
   "pregăti"
  ],
+ "gradua": [
+  "schimba ( treptat )"
+ ],
+ "grizona": [
+  "încărunți"
+ ],
  "grumura": [
   "încărca"
+ ],
+ "gugiuli": [
+  "giugiuli ( variantă )"
+ ],
+ "gunguni": [
+  "gânguri ( variantă )"
+ ],
+ "gunguri": [
+  "gânguri ( variantă )"
  ],
  "gâdeli": [
   "confrunta"
  ],
+ "gâmfa": [
+  "umfla"
+ ],
+ "găinița": [
+  "găinăța ( variantă )"
+ ],
+ "gălbini": [
+  "gălbeni ( variantă )"
+ ],
  "gălăgi": [
   "face gălăgie"
+ ],
+ "hecela": [
+  "pieptăna ( lâna )"
+ ],
+ "heretisi": [
+  "hiritisi ( variantă )"
+ ],
+ "hingheri": [
+  "prinde ( câini fără stăpân )"
+ ],
+ "hirotonosi": [
+  "hirotonisi ( variantă )"
+ ],
+ "hoheri": [
+  "ucide ( cu cruzime )"
+ ],
+ "horcăni": [
+  "horcăi ( variantă )"
  ],
  "hraconi": [
   "scuipe"
  ],
+ "huhureza": [
+  "ugi ( ca huhurezul )"
+ ],
+ "hârcăi": [
+  "hârcâi ( variantă )"
+ ],
+ "hârșni": [
+  "hărșni ( variantă )"
+ ],
+ "hâtcâi": [
+  "hătcăi ( variantă )"
+ ],
+ "hăini": [
+  "haini ( variantă )"
+ ],
+ "hălăcăi": [
+  "face ( gălăgie mare )"
+ ],
+ "hărcăti": [
+  "hărhăti ( variantă )"
+ ],
+ "hărăci": [
+  "arăci ( variantă )"
+ ],
  "hărăcsi": [
   "extrage sânge"
+ ],
+ "hărăgi": [
+  "arăci ( variantă )"
+ ],
+ "hărști": [
+  "hărșni ( variantă )"
+ ],
+ "hăui": [
+  "ugi"
  ],
  "idioți": [
   "idiotiza"
  ],
  "idolatra": [
   "adora ( ca pe un idol )"
+ ],
+ "imacula": [
+  "face imaculat"
+ ],
+ "imola": [
+  "jertfi ; ucide"
  ],
  "impacta": [
   "produce impact"
@@ -674,6 +1250,12 @@
  "inițializa": [
   "iniția"
  ],
+ "inocenta": [
+  "achita"
+ ],
+ "inscripționa": [
+  "înscrie ( pe un obiect )"
+ ],
  "insemina": [
   "fecunda ( artificial )"
  ],
@@ -683,8 +1265,17 @@
  "insultarisi": [
   "insulta"
  ],
+ "intelectualiza": [
+  "trata intelectual"
+ ],
  "intervia": [
   "lua un interviu"
+ ],
+ "inutiliza": [
+  "face inutilizabil"
+ ],
+ "invetera": [
+  "se înrădăcina ( ca obicei )"
  ],
  "ipsosi": [
   "lipi cu ipsos"
@@ -701,6 +1292,9 @@
  "iudi": [
   "instiga"
  ],
+ "izvrăti": [
+  "denatura ( spusele )"
+ ],
  "jertfui": [
   "jertfi"
  ],
@@ -710,8 +1304,17 @@
  "knockouta": [
   "face knock out"
  ],
+ "labora": [
+  "lucra ( pământul )"
+ ],
  "lahtarisi": [
   "dori"
+ ],
+ "lamatisi": [
+  "vărui"
+ ],
+ "lambicarisi": [
+  "distila ; complica"
  ],
  "langui": [
   "lâncezi"
@@ -721,6 +1324,9 @@
  ],
  "legatui": [
   "lăsa moștenire"
+ ],
+ "legionariza": [
+  "deveni ( legionar )"
  ],
  "legitimiza": [
   "legitima"
@@ -734,6 +1340,12 @@
  "lifera": [
   "furniza"
  ],
+ "lista": [
+  "trece ( pe o listă ) ; tipări"
+ ],
+ "lotri": [
+  "tâlhări"
+ ],
  "lăbădui": [
   "trăi"
  ],
@@ -746,6 +1358,9 @@
  "lăptuci": [
   "pălmui"
  ],
+ "lăsti": [
+  "păcăli"
+ ],
  "machi": [
   "se îmbăta"
  ],
@@ -755,14 +1370,35 @@
  "mașina": [
   "unelti"
  ],
+ "merinda": [
+  "prânzi"
+ ],
+ "meriza": [
+  "se odihni ( la umbră )"
+ ],
+ "mermeli": [
+  "pregăti ( în grabă )"
+ ],
+ "metastaza": [
+  "face metastaze"
+ ],
  "metisa": [
   "încrucișa ( rase )"
  ],
  "meșterui": [
   "meșteri"
  ],
+ "minia": [
+  "picta ( în miniatură )"
+ ],
+ "miniatura": [
+  "picta ( în miniatură )"
+ ],
  "minisi": [
   "informa"
+ ],
+ "mitroși": [
+  "încurca"
  ],
  "mișcălui": [
   "mișca"
@@ -770,11 +1406,20 @@
  "mocirli": [
   "tulbura ( cu noroi )"
  ],
+ "molări": [
+  "vopsi ( o casă ) ; fotografia"
+ ],
+ "momița": [
+  "batjocori ( imitând )"
+ ],
  "monarhi": [
   "domni"
  ],
  "motiogli": [
   "bolborosi"
+ ],
+ "mucenici": [
+  "martiriza"
  ],
  "mula": [
   "turna ( în tipar )"
@@ -782,8 +1427,29 @@
  "murmurisi": [
   "murmura"
  ],
+ "muzgăti": [
+  "mișca ( puțin )"
+ ],
+ "mâlci": [
+  "amuti"
+ ],
+ "mânzi": [
+  "fecunda ( iepele )"
+ ],
+ "mâți": [
+  "se purta ( ca o pisică )"
+ ],
+ "mărunțeli": [
+  "tăia ( mărunt )"
+ ],
  "mărăcina": [
   "înțepa"
+ ],
+ "nasoli": [
+  "distruge ; lovi"
+ ],
+ "navigabiliza": [
+  "face ( navigabil )"
  ],
  "neantiza": [
   "anihila"
@@ -821,11 +1487,20 @@
  "nobilita": [
   "înnobila"
  ],
+ "nominativiza": [
+  "pune ( la nominativ )"
+ ],
  "nomotemisi": [
   "legifera"
  ],
+ "nopta": [
+  "întuneca ; înnopta"
+ ],
  "nostimivisi": [
   "găsi pe plac"
+ ],
+ "nostrifica": [
+  "însuși ( ca al nostru )"
  ],
  "nulifica": [
   "anula"
@@ -833,11 +1508,17 @@
  "numeriza": [
   "număra"
  ],
+ "năduri": [
+  "halucina"
+ ],
  "nădăi": [
   "nădăjdui"
  ],
  "năslui": [
   "năvăli"
+ ],
+ "obicni": [
+  "se obișnui"
  ],
  "obiectifica": [
   "obiectiva"
@@ -845,11 +1526,20 @@
  "obrezui": [
   "circumcida"
  ],
+ "obrăci": [
+  "se logodi"
+ ],
  "observarisi": [
   "observa"
  ],
  "ocina": [
   "moșteni"
+ ],
+ "ocni": [
+  "munci ( în mină )"
+ ],
+ "ocropi": [
+  "uda"
  ],
  "octroia": [
   "acorda ( un privilegiu )"
@@ -862,6 +1552,9 @@
  ],
  "ocăcăi": [
   "croăi"
+ ],
+ "odgoni": [
+  "lega ( nava la chei )"
  ],
  "odora": [
   "mirosi"
@@ -884,14 +1577,26 @@
  "orientaliza": [
   "face oriental"
  ],
+ "ortografia": [
+  "scrie ( ortografic )"
+ ],
  "osfeștui": [
   "consecra"
+ ],
+ "osfinti": [
+  "proteja ; binecuvânta"
+ ],
+ "ostâmpi": [
+  "părăsi ; se îndepărta"
  ],
  "osveti": [
   "sfinți"
  ],
  "osâmbri": [
   "remunera"
+ ],
+ "osârdnici": [
+  "se strădui"
  ],
  "ozonifica": [
   "trata cu ozon"
@@ -911,8 +1616,20 @@
  "parachinisi": [
   "încuraja"
  ],
+ "paravlepsi": [
+  "face ( pe nevăzutul )"
+ ],
+ "paretisi": [
+  "abandona ; demisiona"
+ ],
+ "parizianiza": [
+  "face parizian"
+ ],
  "parodiza": [
   "parodia"
+ ],
+ "parșivi": [
+  "deveni ( pungaș )"
  ],
  "patriotiza": [
   "face patriotic"
@@ -923,11 +1640,23 @@
  "peceti": [
   "pecetlui"
  ],
+ "perchiziționa": [
+  "efectua ( o percheziție )"
+ ],
  "percola": [
   "filtra"
  ],
+ "periclisi": [
+  "închide ( în scrisoare )"
+ ],
  "perigrapsi": [
   "descrie"
+ ],
+ "periorisi": [
+  "limita"
+ ],
+ "perivodi": [
+  "numi ; transfera"
  ],
  "perpetra": [
   "săvârși ( o infracțiune )"
@@ -935,20 +1664,38 @@
  "peticări": [
   "petici"
  ],
+ "pianota": [
+  "cânta ( slab la pian )"
+ ],
  "pietrifica": [
   "transforma în piatră"
  ],
  "pilări": [
   "comerța"
  ],
+ "pirata": [
+  "pirața ; sparge ( informatic )"
+ ],
  "piti": [
   "ascunde"
+ ],
+ "pizdui": [
+  "certa ; înjura"
+ ],
+ "pizmălui": [
+  "pizmui"
  ],
  "pițmacări": [
   "trișa"
  ],
  "plastrona": [
   "se fuduli"
+ ],
+ "pleși": [
+  "cheli"
+ ],
+ "plicui": [
+  "pune ( în plic )"
  ],
  "pliurzi": [
   "asurzi"
@@ -971,6 +1718,9 @@
  "pohodi": [
   "merge"
  ],
+ "pojivăi": [
+  "risipi ( bani )"
+ ],
  "poliorchisi": [
   "asedia"
  ],
@@ -983,8 +1733,14 @@
  "pomanagi": [
   "cerși"
  ],
+ "pomăzui": [
+  "unge ( un domnitor )"
+ ],
  "ponoslui": [
   "denunța"
+ ],
+ "pontifica": [
+  "predica ( cu aroganță )"
  ],
  "porci": [
   "insulta"
@@ -995,20 +1751,44 @@
  "posesui": [
   "poseda"
  ],
+ "posledui": [
+  "urma ( întocmai )"
+ ],
+ "potențializa": [
+  "potența"
+ ],
  "potrebi": [
   "distruge"
  ],
  "potrivăda": [
   "răsplăti"
  ],
+ "potârnogi": [
+  "lovi ( cu pumnii )"
+ ],
  "povestui": [
   "arăta"
+ ],
+ "povăți": [
+  "sfătui"
  ],
  "pozuni": [
   "recunoaște"
  ],
+ "poștări": [
+  "trimite ( prin poștă )"
+ ],
  "prabali": [
   "încerca"
+ ],
+ "preacurvi": [
+  "săvârși ( adulter )"
+ ],
+ "preaiubi": [
+  "iubi nespus"
+ ],
+ "prealăuda": [
+  "preamări"
  ],
  "precede": [
   "preceda"
@@ -1019,8 +1799,20 @@
  "precomanda": [
   "comanda dinainte"
  ],
+ "precugeta": [
+  "premedita"
+ ],
+ "predstavlisi": [
+  "prezenta ( un raport )"
+ ],
  "prejmui": [
   "înconjura"
+ ],
+ "prejudeca": [
+  "judeca înainte"
+ ],
+ "preobrăzi": [
+  "transforma"
  ],
  "prerecui": [
   "protesta"
@@ -1031,14 +1823,23 @@
  "pretendui": [
   "pretinde"
  ],
+ "prevești": [
+  "depăși ; se veșteji"
+ ],
  "previziona": [
   "prevedea"
  ],
  "prezentui": [
   "prezenta"
  ],
+ "prezidenți": [
+  "numi ( un președinte )"
+ ],
  "președea": [
   "prezida"
+ ],
+ "pricestui": [
+  "primi ( împărtășania )"
  ],
  "pricini": [
   "pricinui"
@@ -1046,8 +1847,17 @@
  "prihăni": [
   "acuza"
  ],
+ "prilesti": [
+  "amăgi"
+ ],
+ "prima": [
+  "avea ( prioritate )"
+ ],
  "primejdii": [
   "primejdui"
+ ],
+ "primări": [
+  "conduce ( ca primar )"
  ],
  "pristăpi": [
   "păcătui"
@@ -1055,17 +1865,38 @@
  "priviti": [
   "saluta"
  ],
+ "probrăzui": [
+  "certa"
+ ],
+ "probăi": [
+  "încerca"
+ ],
+ "procrastina": [
+  "amâna"
+ ],
  "producălui": [
   "produce"
  ],
+ "proferisi": [
+  "rosti ( amenințări )"
+ ],
  "profilaxi": [
   "asigura ( preventiv )"
+ ],
+ "propagandiza": [
+  "face propagandă"
+ ],
+ "propovedi": [
+  "propovădui"
  ],
  "propozui": [
   "propune"
  ],
  "prospicia": [
   "anticipa"
+ ],
+ "prospăta": [
+  "reînnoi"
  ],
  "protecta": [
   "proteja"
@@ -1079,8 +1910,20 @@
  "protimisi": [
   "acorda prioritate"
  ],
+ "prâsni": [
+  "disprețui"
+ ],
+ "prămândi": [
+  "locui ( la un loc )"
+ ],
  "prăpădui": [
   "distruge"
+ ],
+ "prăznici": [
+  "sărbători ( o sărbătoare religioasă )"
+ ],
+ "psifisi": [
+  "alege ( prin vot )"
  ],
  "publicarisi": [
   "publica"
@@ -1091,17 +1934,38 @@
  "publicălui": [
   "publica"
  ],
+ "pulbera": [
+  "acoperi ( cu praf )"
+ ],
+ "pumnala": [
+  "înjunghia ( cu pumnalul )"
+ ],
  "pumni": [
   "lovi ( cu pumnii )"
+ ],
+ "pumnui": [
+  "lovi ( cu pumnul )"
  ],
  "puțina": [
   "micșora"
  ],
+ "puțului": [
+  "lustrui ( pantofii )"
+ ],
  "pânzi": [
   "țese"
  ],
+ "pânzui": [
+  "înfășura ( în giulgiu )"
+ ],
  "pâsâi": [
   "miorlăi"
+ ],
+ "păcătoși": [
+  "deveni ( păcătos )"
+ ],
+ "păduri": [
+  "tăia ( lemne din pădure )"
  ],
  "pălăvăcăi": [
   "trăncăni"
@@ -1112,6 +1976,12 @@
  "părechea": [
   "uni în perechi"
  ],
+ "păstrămi": [
+  "face pastramă"
+ ],
+ "păuza": [
+  "se odihni"
+ ],
  "raconta": [
   "povesti"
  ],
@@ -1121,11 +1991,26 @@
  "raportui": [
   "raporta"
  ],
+ "reacumula": [
+  "acumula din nou"
+ ],
+ "reajunge": [
+  "ajunge din nou"
+ ],
+ "realța": [
+  "ridica din nou"
+ ],
  "reambarca": [
   "reîmbarca"
  ],
  "reapuca": [
   "relua"
+ ],
+ "rearenda": [
+  "arendui din nou"
+ ],
+ "rearma": [
+  "reînarma"
  ],
  "reasculta": [
   "asculta din nou"
@@ -1136,8 +2021,20 @@
  "reațâța": [
   "reaprinde"
  ],
+ "recalota": [
+  "acoperi ( glandul )"
+ ],
+ "recategorisi": [
+  "reclasifica"
+ ],
  "receda": [
   "se retrage"
+ ],
+ "recepe": [
+  "primi ( înapoi )"
+ ],
+ "recidiva": [
+  "săvârși ( din nou o infracțiune )"
  ],
  "recoborî": [
   "coborî din nou"
@@ -1178,11 +2075,17 @@
  "rejuca": [
   "juca din nou"
  ],
+ "remineraliza": [
+  "mineraliza din nou"
+ ],
  "remodela": [
   "modela din nou"
  ],
  "remăsura": [
   "măsura din nou"
+ ],
+ "renegocia": [
+  "negocia din nou"
  ],
  "renivela": [
   "nivela din nou"
@@ -1208,11 +2111,23 @@
  "reseta": [
   "reinițializa"
  ],
+ "resfira": [
+  "răsfira ( variantă )"
+ ],
+ "resofta": [
+  "sparge ( protecția unui aparat )"
+ ],
  "respectui": [
   "respecta"
  ],
  "respectălui": [
   "respecta"
+ ],
+ "responsabiliza": [
+  "face responsabil"
+ ],
+ "retarda": [
+  "frâna"
  ],
  "retăia": [
   "tăia din nou"
@@ -1220,17 +2135,32 @@
  "reumfla": [
   "umfla din nou"
  ],
+ "reutiliza": [
+  "refolosi"
+ ],
+ "rezice": [
+  "repeta"
+ ],
  "rezolvirui": [
   "rezolva"
  ],
+ "rezâmbi": [
+  "zâmbi din nou"
+ ],
  "reîmpreuna": [
   "aduna din nou"
+ ],
+ "reîmprieteni": [
+  "face ( prietenie din nou )"
  ],
  "reîmprumuta": [
   "împrumuta din nou"
  ],
  "reîmpăca": [
   "împăca din nou"
+ ],
+ "reîncărca": [
+  "încărca din nou"
  ],
  "reîndoi": [
   "îndoi din nou"
@@ -1244,6 +2174,9 @@
  "reînsămânța": [
   "însămânța din nou"
  ],
+ "reîntemeia": [
+  "întemeia din nou"
+ ],
  "reîntrona": [
   "pune din nou pe tron"
  ],
@@ -1256,8 +2189,17 @@
  "reîntări": [
   "întări din nou"
  ],
+ "reședea": [
+  "rezida"
+ ],
  "rimbomba": [
   "răsuna"
+ ],
+ "rinoceriza": [
+  "deveni ( fascist )"
+ ],
+ "ritorisi": [
+  "ține ( un discurs )"
  ],
  "ritualiza": [
   "face ritual"
@@ -1274,8 +2216,23 @@
  "râsui": [
   "viola"
  ],
+ "răpega": [
+  "aluneca"
+ ],
+ "răschi": [
+  "se prăbuși"
+ ],
  "răsvări": [
   "amesteca"
+ ],
+ "răsăjdui": [
+  "medita"
+ ],
+ "răutăți": [
+  "corupe"
+ ],
+ "răza": [
+  "radia ( lumină )"
  ],
  "războteza": [
   "boteza din nou"
@@ -1289,6 +2246,9 @@
  "sanifica": [
   "vindeca"
  ],
+ "sateliza": [
+  "pune ( pe orbită )"
+ ],
  "satira": [
   "satiriza"
  ],
@@ -1297,6 +2257,15 @@
  ],
  "schivernisi": [
   "conduce"
+ ],
+ "scornoci": [
+  "plăsmui"
+ ],
+ "scrumi": [
+  "preface ( în cenușă )"
+ ],
+ "scrumui": [
+  "preface ( în cenușă )"
  ],
  "scrâșca": [
   "scrâșni"
@@ -1307,11 +2276,35 @@
  "scura": [
   "curăța"
  ],
+ "secretiza": [
+  "face ( secret )"
+ ],
  "secunda": [
   "asista"
  ],
+ "senina": [
+  "se însenina"
+ ],
+ "seta": [
+  "configura"
+ ],
  "sexualiza": [
   "face sexual"
+ ],
+ "sfecli": [
+  "se încurca"
+ ],
+ "sfârteca": [
+  "sfâșia"
+ ],
+ "sidefa": [
+  "face ( asemănător cu sideful )"
+ ],
+ "simetriza": [
+  "face simetric"
+ ],
+ "simultaneiza": [
+  "sincroniza"
  ],
  "sindica": [
   "sindicaliza"
@@ -1322,11 +2315,23 @@
  "smicura": [
   "fărâma"
  ],
+ "snovi": [
+  "plăsmui ( povești )"
+ ],
+ "sociologiza": [
+  "trata sociologic"
+ ],
  "socăci": [
   "găti"
  ],
+ "soglăsui": [
+  "potrivi"
+ ],
  "solemniza": [
   "face solemn"
+ ],
+ "soliloca": [
+  "vorbi ( cu sine )"
  ],
  "sovietiza": [
   "instala regim sovietic"
@@ -1358,8 +2363,32 @@
  "subdimensiona": [
   "dimensiona prea mic"
  ],
+ "subexpune": [
+  "expune insuficient"
+ ],
+ "subiectiviza": [
+  "face subiectiv"
+ ],
+ "substantiva": [
+  "substantiviza"
+ ],
+ "subveni": [
+  "contribui ( cu o sumă )"
+ ],
+ "sulfona": [
+  "trata cu sulf"
+ ],
+ "superciviliza": [
+  "civiliza ( peste măsură )"
+ ],
+ "superficializa": [
+  "trata superficial"
+ ],
  "suplanta": [
   "submina"
+ ],
+ "suplicia": [
+  "tortura"
  ],
  "supraabunda": [
   "abunda"
@@ -1367,8 +2396,17 @@
  "supraintitula": [
   "dubla"
  ],
+ "supraoxida": [
+  "oxida excesiv"
+ ],
+ "supraoxigena": [
+  "oxigena excesiv"
+ ],
  "supraprețui": [
   "prețui excesiv"
+ ],
+ "suprasatura": [
+  "satura excesiv"
  ],
  "supraveni": [
   "surveni"
@@ -1382,11 +2420,29 @@
  "suspiciona": [
   "bănui"
  ],
+ "sâneca": [
+  "se trezi ( dimineața )"
+ ],
+ "sălui": [
+  "petrece ( noaptea )"
+ ],
  "sălășui": [
   "locui"
  ],
+ "sămânța": [
+  "semăna"
+ ],
+ "sămășlui": [
+  "medita"
+ ],
+ "sărcina": [
+  "însărcina"
+ ],
  "tapița": [
   "tapeta"
+ ],
+ "tasta": [
+  "scrie ( pe tastatură )"
  ],
  "temnița": [
   "întemnița"
@@ -1403,17 +2459,50 @@
  "tiranisi": [
   "tiraniza"
  ],
+ "toaleta": [
+  "taia ( ramurile )"
+ ],
+ "tojera": [
+  "taia ( vârful unui copac )"
+ ],
  "tranchiliza": [
   "calma"
+ ],
+ "transhuma": [
+  "muta ( turmele sezonier )"
+ ],
+ "transige": [
+  "ajunge ( la un compromis )"
  ],
  "translata": [
   "traduce"
  ],
+ "transmigra": [
+  "migra ( dincolo )"
+ ],
  "transportui": [
   "transporta"
  ],
+ "transsubstanția": [
+  "preschimba ( substanța )"
+ ],
+ "trifurca": [
+  "se împărți în trei"
+ ],
+ "tripota": [
+  "falsifica"
+ ],
  "tudumăni": [
   "protesta"
+ ],
+ "tuli": [
+  "coborî ( din munte ) ; fura ; se ascunde"
+ ],
+ "tumăni": [
+  "confunda ; păcăli"
+ ],
+ "tutora": [
+  "sprijini ( o plantă )"
  ],
  "tâlhui": [
   "jefui"
@@ -1421,11 +2510,17 @@
  "tâmpina": [
   "saluta"
  ],
+ "tălășmăni": [
+  "ridiculiza ; pedepsi"
+ ],
  "uniciza": [
   "face unic"
  ],
  "upovăi": [
   "nădăjdui"
+ ],
+ "ura": [
+  "felicita ; colinda ( de anul nou )"
  ],
  "urmui": [
   "urma"
@@ -1454,14 +2549,29 @@
  "veșnici": [
   "eterniza"
  ],
+ "vilegiatura": [
+  "călători ( în vilegiatură )"
+ ],
  "vinovăți": [
   "acuza"
  ],
  "vinui": [
   "acuza"
  ],
+ "virtualiza": [
+  "face virtual"
+ ],
+ "viteji": [
+  "lupta ( eroic )"
+ ],
+ "vitrioliza": [
+  "ataca ( cu vitriol )"
+ ],
  "vivifica": [
   "înviora"
+ ],
+ "viști": [
+  "crăpa ( de uscăciune )"
  ],
  "vlădui": [
   "domni"
@@ -1469,11 +2579,38 @@
  "vodi": [
   "călăuzi"
  ],
+ "voi": [
+  "vrea"
+ ],
+ "volba": [
+  "se rostogoli ( năvalnic )"
+ ],
+ "văji": [
+  "echilibra ( un obiect )"
+ ],
+ "xerocopia": [
+  "face ( o xerocopie )"
+ ],
+ "xerografia": [
+  "face xerografie"
+ ],
+ "zacusi": [
+  "gusta ( o gustare )"
+ ],
  "zamislui": [
   "plăsmui"
  ],
+ "zapa": [
+  "schimba ( canalele )"
+ ],
  "zbea": [
   "bea"
+ ],
+ "zgâncili": [
+  "zgâria ( crusta )"
+ ],
+ "zgăura": [
+  "se zgâi ( la cineva )"
  ],
  "zigzaga": [
   "merge în zigzag"
@@ -1484,8 +2621,29 @@
  "zorobi": [
   "câștiga"
  ],
+ "zulufa": [
+  "creți ( părul )"
+ ],
+ "îmbăgiua": [
+  "păcăli"
+ ],
+ "împrinde": [
+  "prinde ; rămâne ( prins )"
+ ],
  "împământa": [
   "lega la pământ"
+ ],
+ "împătra": [
+  "se întâmpla ( ceva neplăcut ) ; se descumpăni"
+ ],
+ "încina": [
+  "pășuna ( seara )"
+ ],
+ "încăla": [
+  "îngrășa"
+ ],
+ "încări": [
+  "încălzi"
  ],
  "îndosaria": [
   "arhiva"
@@ -1493,10 +2651,34 @@
  "înfăina": [
   "tăvăli prin făină"
  ],
+ "înfărma": [
+  "îmbrăca ; apuca"
+ ],
+ "îngreca": [
+  "îngreuia ; fi însărcinată"
+ ],
  "întunereca": [
   "întuneca"
  ],
+ "întâia": [
+  "acorda ( prioritate )"
+ ],
+ "învagona": [
+  "încărca ( în vagon )"
+ ],
+ "înveghea": [
+  "se sili ; veni ( la minte )"
+ ],
+ "învita": [
+  "instiga ; aduna"
+ ],
  "înțugui": [
   "denunța"
+ ],
+ "ăui": [
+  "ugi"
+ ],
+ "șambra": [
+  "aduce ( vinul la temperatura camerei )"
  ]
 }
