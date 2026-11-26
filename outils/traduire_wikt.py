@@ -127,7 +127,7 @@ def main():
     rapport = {}
     tidy = []      # (lg, pos, verbe, rang, etiquette, texte, id)
     n_man = n_ren = 0
-    for lg in ('fr', 'es', 'it', 'pt', 'de'):
+    for lg in ('fr', 'es', 'it', 'pt', 'de', 'pl'):
         for pos, v in db.execute(
                 "SELECT DISTINCT pos, verbe FROM defs WHERE langue=? "
                 "AND etiquette='angl. Wiktionary'", (lg,)):

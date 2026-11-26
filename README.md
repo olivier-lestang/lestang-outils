@@ -471,6 +471,18 @@ Détail du procédé :
   restent 2 441 verbes polonais a glose anglaise.
   Etiquette et source « angl. Wiktionary, trad. » ;
   total inchange : 176 941 sens, 0 sans source.
+- **Lot 1 de traduction, polonais ( version 1.5.21 )** :
+  suite de l'italien et du portugais ( tous deux EPUISES ) :
+  200 gloses polonaises, uniques et d'au plus
+  95 caracteres, traduites en polonais ( nouveau
+  `outils/traduits_pl.json` ; le lot manuel couvre desormais
+  le polonais dans `outils/traduire_wikt.py` ). En rattrapage,
+  4 gloses italiennes ressiduelles d'une autre source ont
+  ete traduites le meme lot ( traduits_it.json ).
+  204 sens traduits ce lot ; restent 2 241 verbes polonais a
+  glose anglaise. Etiquette et source
+  « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
+  0 sans source.
 - **Comblement des définitions manquantes ( Wiktionary, CC BY-SA 4.0 )** :
   avec les filtres abandonnés, 439 verbes restaient sans définition
   ( fr 4, en 7, es 19, pl 356, cs 53 ). Ils ont été traités depuis
