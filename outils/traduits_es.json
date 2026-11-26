@@ -1,0 +1,902 @@
+{
+ "abajar": [
+  "abajar, bajar, descender"
+ ],
+ "abalear": [
+  "abalear, disparar, tirotear"
+ ],
+ "abejonear": [
+  "abejonear, zumbar"
+ ],
+ "abejorrear": [
+  "abejorrear, zumbar, molestar"
+ ],
+ "acezar": [
+  "acezar, jadear, resollar"
+ ],
+ "acremar": [
+  "acremar, batir la nata, enriquecer con nata"
+ ],
+ "acuclillar": [
+  "acuclillar, ponerse en cuclillas"
+ ],
+ "adurir": [
+  "adurir, quemar, abrasar"
+ ],
+ "afijar": [
+  "afijar, fijar, añadir como afijo"
+ ],
+ "afinojar": [
+  "afinojar, arrodillarse"
+ ],
+ "aherrumbrar": [
+  "aherrumbrar, oxidar, cubrir de orín"
+ ],
+ "ahincar": [
+  "ahincar, urgir, apremiar"
+ ],
+ "ahinojar": [
+  "ahinojar, arrodillarse, humillar"
+ ],
+ "ahusar": [
+  "ahusar, dar forma de huso, estrechar"
+ ],
+ "ajuarar": [
+  "ajuarar, proveer de ajuar, dotar"
+ ],
+ "alcoholar": [
+  "alcoholar, calafatear con estopa y brea"
+ ],
+ "almohadillar": [
+  "almohadillar, acolchar, rellenar"
+ ],
+ "amaitinar": [
+  "amaitinar, aguardar la madrugada, vigilar"
+ ],
+ "ambular": [
+  "ambular, andar, caminar"
+ ],
+ "amochar": [
+  "amochar, golpear"
+ ],
+ "apachurrar": [
+  "apachurrar, aplastar, apretar"
+ ],
+ "apucuyar": [
+  "apucuyar, ponerse en cuclillas"
+ ],
+ "arcillar": [
+  "arcillar, cubrir de arcilla"
+ ],
+ "aromar": [
+  "aromar, perfumar, dar aroma"
+ ],
+ "arreconchumar": [
+  "arreconchumar, apretujar, arrimar"
+ ],
+ "arremedar": [
+  "arremedar, imitar, remedar"
+ ],
+ "arriscar": [
+  "arriscar, arriesgar, exponer a riesgo"
+ ],
+ "arruar": [
+  "arruar, gruñir, refunfuñar"
+ ],
+ "atarantar": [
+  "atarantar, aturdir, turbar"
+ ],
+ "atarazar": [
+  "atarazar, morder"
+ ],
+ "aterecer": [
+  "aterecer, entumecer, aterir"
+ ],
+ "atezar": [
+  "atezar, broncear la piel"
+ ],
+ "atoar": [
+  "atoar, remolcar, llevar a remolque"
+ ],
+ "atorrar": [
+  "atorrar, dormir"
+ ],
+ "atraillar": [
+  "atraillar, atar con traílla, poner correa"
+ ],
+ "atrincar": [
+  "atrincar, atar, sujetar"
+ ],
+ "aureolar": [
+  "aureolar, rodear de un halo"
+ ],
+ "avinagrar": [
+  "avinagrar, agriar"
+ ],
+ "azadonar": [
+  "azadonar, labrar con azadón"
+ ],
+ "bachillerear": [
+  "bachillerear, parlotar, hablar sin sustancia"
+ ],
+ "baitear": [
+  "baitear, poner cebo, tentar con cebo"
+ ],
+ "balear": [
+  "balear, disparar, tirotear"
+ ],
+ "baquiar": [
+  "baquiar, adiestrar, amaestrar"
+ ],
+ "baraustar": [
+  "baraustar, apuntar, dirigir el tiro"
+ ],
+ "bastir": [
+  "bastir, construir, edificar"
+ ],
+ "billetear": [
+  "billetear, sobornar con dinero"
+ ],
+ "blofear": [
+  "blofear, farolear, engañar con farol"
+ ],
+ "bochar": [
+  "bochar, reprobar ( examen )"
+ ],
+ "bofar": [
+  "bofar, inflar, hinchar"
+ ],
+ "bofetear": [
+  "bofetear, abofetear"
+ ],
+ "boyar": [
+  "boyar, flotar"
+ ],
+ "bretear": [
+  "bretear, trabajar"
+ ],
+ "buitrear": [
+  "buitrear, vomitar"
+ ],
+ "bulear": [
+  "bulear, intimidar, acosar"
+ ],
+ "buzar": [
+  "buzar, sumergir, zambullir"
+ ],
+ "cabildear": [
+  "cabildear, hacer cabildeo, presionar"
+ ],
+ "cablegrafiar": [
+  "cablegrafiar, telegrafiar por cable"
+ ],
+ "calcetar": [
+  "calcetar, tejer calcetines"
+ ],
+ "cantaletear": [
+  "cantaletear, dar la lata, importunar"
+ ],
+ "capsular": [
+  "capsular, poner casquete o tapa"
+ ],
+ "carminar": [
+  "carminar, expulsar, lanzar"
+ ],
+ "carrerear": [
+  "carrerear, apresurar, acelerar"
+ ],
+ "carrilear": [
+  "carrilear, llevar, transportar"
+ ],
+ "cashquear": [
+  "cashquear, pagar"
+ ],
+ "castear": [
+  "castear, repartir papeles ( cine )"
+ ],
+ "ceñar": [
+  "ceñar, parpadear"
+ ],
+ "chambear": [
+  "chambear, trabajar"
+ ],
+ "chancar": [
+  "chancar, machacar, aplastar"
+ ],
+ "chantar": [
+  "chantar, plantar, detener"
+ ],
+ "chequear": [
+  "chequear, comprobar, revisar"
+ ],
+ "chonguenguear": [
+  "chonguenguear, festejar, juerguear"
+ ],
+ "choquear": [
+  "choquear, causar choque, desazonar"
+ ],
+ "chorear": [
+  "chorear, robar, hurtar"
+ ],
+ "chotear": [
+  "chotear, burlarse"
+ ],
+ "chuzar": [
+  "chuzar, pinchar, punzar"
+ ],
+ "cicatear": [
+  "cicatear, escatimar, negar con tacañería"
+ ],
+ "cinematografiar": [
+  "cinematografiar, filmar"
+ ],
+ "cinglar": [
+  "cinglar, remar a cingla"
+ ],
+ "clamorear": [
+  "clamorear, tañer las campanas"
+ ],
+ "clarecer": [
+  "clarecer, amanecer, despejar"
+ ],
+ "clavetear": [
+  "clavetear, clavar puntillas"
+ ],
+ "clipear": [
+  "clipear, sujetar con clip, recortar"
+ ],
+ "clocar": [
+  "clocar, cloquear"
+ ],
+ "coimear": [
+  "coimear, sobornar, cohechar"
+ ],
+ "compurgar": [
+  "compurgar, purgar, purificarse"
+ ],
+ "concuasar": [
+  "concuasar, encajar, ajustar"
+ ],
+ "copelar": [
+  "copelar, ensayar con copela"
+ ],
+ "corcovar": [
+  "corcovar, encorvar, hacer corcovo"
+ ],
+ "cosificar": [
+  "cosificar, reificar, convertir en cosa"
+ ],
+ "coñocer": [
+  "coñocer, conocer, saber"
+ ],
+ "crackear": [
+  "crackear, descifrar, piratear"
+ ],
+ "craftear": [
+  "craftear, elaborar ( videojuego )"
+ ],
+ "crashear": [
+  "crashear, chocar, averiarse"
+ ],
+ "crespar": [
+  "crespar, rizar"
+ ],
+ "crinar": [
+  "crinar, peinar, acicalar la crin"
+ ],
+ "crocitar": [
+  "crocitar, graznar"
+ ],
+ "croscitar": [
+  "croscitar, graznar"
+ ],
+ "currar": [
+  "currar, trabajar"
+ ],
+ "currelar": [
+  "currelar, trabajar"
+ ],
+ "darlusar": [
+  "darlusar, saludar"
+ ],
+ "decentar": [
+  "decentar, empezar, comenzar"
+ ],
+ "derromper": [
+  "derromper, romper, quebrar"
+ ],
+ "desagotar": [
+  "desagotar, desaguar, drenar"
+ ],
+ "desalabar": [
+  "desalabar, reprender, regañar"
+ ],
+ "desaliñar": [
+  "desaliñar, despeinar, ensuciar"
+ ],
+ "desamarrar": [
+  "desamarrar, desatar, soltar"
+ ],
+ "desbanear": [
+  "desbanear, retirar el veto, readmitir"
+ ],
+ "descapullar": [
+  "descapullar, quitar las yemas o brotes"
+ ],
+ "descasar": [
+  "descasar, anular, rescindir"
+ ],
+ "desemborrachar": [
+  "desemborrachar, despejar de la borrachera"
+ ],
+ "deslembar": [
+  "deslembar, aturdir, pasmar"
+ ],
+ "desmorir": [
+  "desmorir, desvestir, quitar la ropa"
+ ],
+ "despampanar": [
+  "despampanar, deshojar, quitar pámpanos"
+ ],
+ "despavorir": [
+  "despavorir, espantar, aterrar"
+ ],
+ "despender": [
+  "despender, gastar, desembolsar"
+ ],
+ "despepitar": [
+  "despepitar, desgranar, quitar las pepitas"
+ ],
+ "destupir": [
+  "destupir, destapar, limpiar la obstrucción"
+ ],
+ "digitar": [
+  "digitar, teclear"
+ ],
+ "dimear": [
+  "dimear, atenuar la luz"
+ ],
+ "discar": [
+  "discar, marcar ( teléfono )"
+ ],
+ "diñársela": [
+  "diñársela, engañar, timar ( vulgar )"
+ ],
+ "dompear": [
+  "dompear, tirar, dejar plantado"
+ ],
+ "doxear": [
+  "doxear, revelar datos personales de"
+ ],
+ "draftear": [
+  "draftear, reclutar en draft ( deporte )"
+ ],
+ "drapear": [
+  "drapear, cubrir con tela"
+ ],
+ "eluir": [
+  "eluir, lavar, separar ( química )"
+ ],
+ "embaldosinar": [
+  "embaldosinar, embaldosar"
+ ],
+ "embarbecer": [
+  "embarbecer, cubrir de barbas, enbarbar"
+ ],
+ "embaír": [
+  "embaír, engañar, embaucar"
+ ],
+ "embovedar": [
+  "embovedar, abovedar, cubrir con bóveda"
+ ],
+ "emburriar": [
+  "emburriar, empujar"
+ ],
+ "embutar": [
+  "embutar, empujar, meter con fuerza"
+ ],
+ "embutiar": [
+  "embutiar, empujar"
+ ],
+ "emparchar": [
+  "emparchar, remendar con parche"
+ ],
+ "emparrillar": [
+  "emparrillar, asar en parrilla"
+ ],
+ "empavar": [
+  "empavar, gafar, traer mala suerte"
+ ],
+ "empeller": [
+  "empeller, empujar, impeler"
+ ],
+ "empodrecer": [
+  "empodrecer, pudrir, corromper"
+ ],
+ "emprestar": [
+  "emprestar, prestar"
+ ],
+ "empurrar": [
+  "empurrar, enojar, irritar"
+ ],
+ "enactuar": [
+  "enactuar, promulgar, sancionar"
+ ],
+ "enanizar": [
+  "enanizar, empequeñecer, achicar"
+ ],
+ "enceguecer": [
+  "enceguecer, cegar"
+ ],
+ "encentar": [
+  "encentar, empezar, iniciar"
+ ],
+ "enchapopotar": [
+  "enchapopotar, pavimentar con chapopote"
+ ],
+ "encubertar": [
+  "encubertar, cubrir"
+ ],
+ "enfogonar": [
+  "enfogonar, encolerizar, encender"
+ ],
+ "enforcar": [
+  "enforcar, colgar"
+ ],
+ "enfullar": [
+  "enfullar, engañar, embaucar"
+ ],
+ "engajar": [
+  "engajar, atragantar"
+ ],
+ "engalgar": [
+  "engalgar, calzar con galga, acuñar"
+ ],
+ "engarruchar": [
+  "engarruchar, encastrar, trabar"
+ ],
+ "engasgar": [
+  "engasgar, atragantar"
+ ],
+ "engreír": [
+  "engreír, malcriar, consentir"
+ ],
+ "engrilletar": [
+  "engrilletar, esposar, poner grilletes"
+ ],
+ "enjambrar": [
+  "enjambrar, poblarse de abejas, enjambrar las abejas"
+ ],
+ "enjaquimar": [
+  "enjaquimar, poner la jaquima, arreglar"
+ ],
+ "enjutar": [
+  "enjutar, secar"
+ ],
+ "enlechar": [
+  "enlechar, aplicar lechada, rejuntar"
+ ],
+ "enlistar": [
+  "enlistar, alistar, inscribir"
+ ],
+ "enmugrar": [
+  "enmugrar, ensuciar"
+ ],
+ "ennavajar": [
+  "ennavajar, herir con navaja"
+ ],
+ "ensecar": [
+  "ensecar, secar"
+ ],
+ "enteipar": [
+  "enteipar, pegar con cinta adhesiva"
+ ],
+ "entripar": [
+  "entripar, empapar de agua"
+ ],
+ "entullecer": [
+  "entullecer, paralizarse, atullirse"
+ ],
+ "entumir": [
+  "entumir, entumecer"
+ ],
+ "esbarar": [
+  "esbarar, resbalar"
+ ],
+ "escamondar": [
+  "escamondar, podar, mondar"
+ ],
+ "escamujar": [
+  "escamujar, podar, recortar"
+ ],
+ "escariar": [
+  "escariar, ensanchar con escariador"
+ ],
+ "escavar": [
+  "escavar, cavar"
+ ],
+ "escusar": [
+  "escusar, esconder, ocultar"
+ ],
+ "esfollar": [
+  "esfollar, desollar"
+ ],
+ "esfuminar": [
+  "esfuminar, desvanecer, esfumarse"
+ ],
+ "esguilar": [
+  "esguilar, trepar, subir"
+ ],
+ "eslabonar": [
+  "eslabonar, enlazar, unir eslabones"
+ ],
+ "esmachar": [
+  "esmachar, machacar, desmenuzar"
+ ],
+ "esmochar": [
+  "esmochar, chocar, estrellar"
+ ],
+ "espamear": [
+  "espamear, enviar spam"
+ ],
+ "espelear": [
+  "espelear, deletrear"
+ ],
+ "espolonear": [
+  "espolonear, espolear, aguijonear"
+ ],
+ "espumear": [
+  "espumear, hacer espuma, espumar"
+ ],
+ "estanear": [
+  "estanear, ser fan incondicional de"
+ ],
+ "estripar": [
+  "estripar, apretar, prensar"
+ ],
+ "etiquetear": [
+  "etiquetear, etiquetar"
+ ],
+ "exaccionar": [
+  "exaccionar, exigir, cobrar por fuerza"
+ ],
+ "exir": [
+  "exir, salir"
+ ],
+ "expectar": [
+  "expectar, esperar"
+ ],
+ "fachar": [
+  "fachar, robar"
+ ],
+ "fallir": [
+  "fallir, errar, fallar"
+ ],
+ "farrear": [
+  "farrear, juerguear, festejar"
+ ],
+ "faxear": [
+  "faxear, enviar por fax"
+ ],
+ "fiestear": [
+  "fiestear, festejar, hacer fiesta"
+ ],
+ "finir": [
+  "finir, terminar, acabar"
+ ],
+ "flexear": [
+  "flexear, flexionar"
+ ],
+ "frentear": [
+  "frentear, encarar, hacer frente"
+ ],
+ "fritar": [
+  "fritar, freír"
+ ],
+ "grajear": [
+  "grajear, graznar"
+ ],
+ "guantear": [
+  "guantear, abofetear, dar con el guante"
+ ],
+ "guataquear": [
+  "guataquear, cavar con azadón"
+ ],
+ "herventar": [
+  "herventar, hervir, hacer hervir"
+ ],
+ "hurguetear": [
+  "hurguetear, hurgar, curiosear"
+ ],
+ "implar": [
+  "implar, llenar"
+ ],
+ "incidentar": [
+  "incidentar, mostrar, exhibir"
+ ],
+ "infraccionar": [
+  "infraccionar, multar, sancionar"
+ ],
+ "jainear": [
+  "jainear, besar"
+ ],
+ "jalonear": [
+  "jalonear, tirar de, dar tirones"
+ ],
+ "jaquear": [
+  "jaquear, piratear, hackear"
+ ],
+ "jitear": [
+  "jitear, golpear"
+ ],
+ "laburar": [
+  "laburar, trabajar"
+ ],
+ "lagartear": [
+  "lagartear, tomar el sol, holgar"
+ ],
+ "lagear": [
+  "lagear, ir con retraso, sufrir lag"
+ ],
+ "langüetear": [
+  "langüetear, lamer"
+ ],
+ "larpear": [
+  "larpear, jugar al rol en vivo"
+ ],
+ "lechar": [
+  "lechar, ordeñar"
+ ],
+ "lengüetear": [
+  "lengüetear, lamer"
+ ],
+ "likear": [
+  "likear, dar un me gusta"
+ ],
+ "linkear": [
+  "linkear, enlazar"
+ ],
+ "lisar": [
+  "lisar, disolverse ( célula )"
+ ],
+ "llantear": [
+  "llantear, llorar, lamentarse"
+ ],
+ "llavear": [
+  "llavear, cerrar con llave"
+ ],
+ "llavir": [
+  "llavir, cerrar con llave"
+ ],
+ "lobreguecer": [
+  "lobreguecer, oscurecer, anochecer"
+ ],
+ "logar": [
+  "logar, alquilar, arrendar"
+ ],
+ "loquear": [
+  "loquear, bloquear, cerrar con llave"
+ ],
+ "malonear": [
+  "malonear, incursionar, pillar ( gauchos )"
+ ],
+ "mandonear": [
+  "mandonear, dar órdenes, mandonear"
+ ],
+ "manyar": [
+  "manyar, comer"
+ ],
+ "mechar": [
+  "mechar, introducir tocino en la carne"
+ ],
+ "mesturar": [
+  "mesturar, mezclar"
+ ],
+ "miagar": [
+  "miagar, maullar"
+ ],
+ "miañar": [
+  "miañar, maullar"
+ ],
+ "mixturar": [
+  "mixturar, mezclar"
+ ],
+ "moguear": [
+  "moguear, burlarse, humillar"
+ ],
+ "mojonear": [
+  "mojonear, charlar, soltar mentiras"
+ ],
+ "molinar": [
+  "molinar, moler"
+ ],
+ "montear": [
+  "montear, batir el monte, acosar"
+ ],
+ "mopear": [
+  "mopear, trapear el suelo"
+ ],
+ "morrear": [
+  "morrear, besar con lengua"
+ ],
+ "mulger": [
+  "mulger, ordeñar"
+ ],
+ "mutear": [
+  "mutear, silenciar"
+ ],
+ "normar": [
+  "normar, normalizar, reglamentar"
+ ],
+ "nukear": [
+  "nukear, bombardear con armas nucleares"
+ ],
+ "oboear": [
+  "oboear, tocar el oboe"
+ ],
+ "orlar": [
+  "orlar, ribetear, adornar el borde"
+ ],
+ "paccionar": [
+  "paccionar, pactar"
+ ],
+ "palmear": [
+  "palmear, dar palmadas"
+ ],
+ "pandear": [
+  "pandear, combar, doblarse"
+ ],
+ "payasear": [
+  "payasear, hacer el payaso"
+ ],
+ "pedorrear": [
+  "pedorrear, tirarse pedos"
+ ],
+ "pelársela": [
+  "pelársela, masturbarse ( vulgar )"
+ ],
+ "pichar": [
+  "pichar, fornicar ( vulgar )"
+ ],
+ "pichulear": [
+  "pichulear, vender, comerciar"
+ ],
+ "pordiosear": [
+  "pordiosear, mendigar"
+ ],
+ "postar": [
+  "postar, apostar"
+ ],
+ "postear": [
+  "postear, publicar en internet"
+ ],
+ "puchar": [
+  "puchar, empujar"
+ ],
+ "quimbar": [
+  "quimbar, fornicar ( vulgar )"
+ ],
+ "quitear": [
+  "quitear, renunciar, dejar"
+ ],
+ "rabear": [
+  "rabear, mover la cola"
+ ],
+ "raidear": [
+  "raidear, incursionar, asaltar"
+ ],
+ "rankear": [
+  "rankear, clasificar por rango"
+ ],
+ "rapear": [
+  "rapear, cantar rap"
+ ],
+ "rastrar": [
+  "rastrar, arrastrar"
+ ],
+ "rebordear": [
+  "rebordear, hacer el borde, ribetear"
+ ],
+ "recagar": [
+  "recagar, golpear"
+ ],
+ "refalar": [
+  "refalar, resbalar"
+ ],
+ "refilar": [
+  "refilar, recortar, repelar"
+ ],
+ "renguear": [
+  "renguear, renquear, cojear"
+ ],
+ "rentar": [
+  "rentar, alquilar, arrendar"
+ ],
+ "reputar": [
+  "reputar, estimar, considerar"
+ ],
+ "resfalar": [
+  "resfalar, resbalar"
+ ],
+ "retentar": [
+  "retentar, pegar, encolar"
+ ],
+ "ridear": [
+  "ridear, leer"
+ ],
+ "ripear": [
+  "ripear, rasgar, romper"
+ ],
+ "rootear": [
+  "rootear, hacer root, descifrar el móvil"
+ ],
+ "sementar": [
+  "sementar, sembrar"
+ ],
+ "sextear": [
+  "sextear, enviar mensajes eróticos"
+ ],
+ "sirgar": [
+  "sirgar, remolcar, arrastrar con cuerda"
+ ],
+ "sobrebarrer": [
+  "sobrebarrer, barrer encima de, sacudir el polvo"
+ ],
+ "solar": [
+  "solar, empedrar, pavimentar"
+ ],
+ "surfear": [
+  "surfear, hacer surf, navegar"
+ ],
+ "tachonar": [
+  "tachonar, cubrir de tachuelas"
+ ],
+ "taponear": [
+  "taponear, tapar, atascar"
+ ],
+ "tardecer": [
+  "tardecer, anochecer, caer la tarde"
+ ],
+ "tinturar": [
+  "tinturar, teñir"
+ ],
+ "tipar": [
+  "tipar, teclear, escribir a máquina"
+ ],
+ "tipear": [
+  "tipear, teclear"
+ ],
+ "toar": [
+  "toar, remolcar"
+ ],
+ "transponer": [
+  "transponer, trasladar, mover"
+ ],
+ "trapear": [
+  "trapear, fregar el suelo"
+ ],
+ "vapear": [
+  "vapear, fumar cigarrillo electrónico"
+ ],
+ "ventar": [
+  "ventar, aventar, soplar"
+ ],
+ "vidajenear": [
+  "vidajenear, curiosear, entrometerse"
+ ],
+ "vinear": [
+  "vinear, curiosear, entrometerse"
+ ],
+ "vistear": [
+  "vistear, mirar, ojear"
+ ],
+ "zurear": [
+  "zurear, arrullar ( paloma )"
+ ],
+ "zurrir": [
+  "zurrir, zumbar"
+ ],
+ "ñacar": [
+  "ñacar, golpear"
+ ]
+}

@@ -590,6 +590,13 @@ Détail du procédé :
   894 roumaines. Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
+- **Lot 17 de traduction, espagnol ( version 1.5.37 )** :
+  premiere tranche espagnole : 300 gloses espagnoles
+  ( `outils/traduits_es.json`, 300 entrees ). 300 sens traduits
+  ce lot ; restent 2 922 gloses espagnoles, 2 183 tcheques,
+  894 roumaines. Etiquette et source
+  « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
+  0 sans source.
 - **Comblement des définitions manquantes ( Wiktionary, CC BY-SA 4.0 )** :
   avec les filtres abandonnés, 439 verbes restaient sans définition
   ( fr 4, en 7, es 19, pl 356, cs 53 ). Ils ont été traités depuis
