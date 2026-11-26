@@ -5,6 +5,9 @@
  "abastar": [
   "abastecer"
  ],
+ "abastecer": [
+  "abastecer, prover, fornecer"
+ ],
  "abastionar": [
   "abastionar, fortificar com bastiões"
  ],
@@ -13,6 +16,12 @@
  ],
  "abrigar": [
   "abrigar"
+ ],
+ "abscindir": [
+  "abscindir, arrancar, destacar por corte súbito"
+ ],
+ "academizar": [
+  "academizar, tornar académico"
  ],
  "acaramelar": [
   "acaramelar"
@@ -29,8 +38,17 @@
  "adentrar": [
   "adentrar, entrar em, ingressar em"
  ],
+ "adjudicar": [
+  "adjudicar, atribuir, adjudicar em arrematação"
+ ],
+ "adminicular": [
+  "adminicular, servir de adminículo, auxiliar"
+ ],
  "aerotransportar": [
   "transportar por via aérea"
+ ],
+ "afadigar": [
+  "afadigar, fatigar, cansar, fadar"
  ],
  "afamar": [
   "afamar, tornar famoso"
@@ -56,11 +74,17 @@
  "afrancesar": [
   "afrancesar"
  ],
+ "africanizar": [
+  "africanizar, tornar africano ou africanizar"
+ ],
  "afunhenhar": [
   "afunhenhar, aborrecer, incomodar"
  ],
  "agourar": [
   "agourar, prever, prognosticar"
+ ],
+ "agourentar": [
+  "agourentar, agourar, constituir mau agozo ou presságio"
  ],
  "aguisar": [
   "aguisar, arranjar; dispor"
@@ -73,6 +97,12 @@
  ],
  "alaranjar": [
   "alaranjar (tornar laranja)"
+ ],
+ "alaudar": [
+  "alaudar, tornar semelhante a alaúde, afinar ao alaúde"
+ ],
+ "alavancar": [
+  "alavancar, mover ou levantar com alavanca"
  ],
  "albardar": [
   "albardar (pôr a albarda)"
@@ -107,6 +137,9 @@
  "amanhar": [
   "amanhar, arranjar, preparar"
  ],
+ "amanteigar": [
+  "amanteigar, barrar com manteiga"
+ ],
  "amargurar": [
   "amargurar, tornar amargo, amargar"
  ],
@@ -127,6 +160,9 @@
  ],
  "amiudar": [
   "amiudar, repetir amiúde, fazer repetidamente"
+ ],
+ "amnistiar": [
+  "amnistiar, conceder amnistia a"
  ],
  "amolegar": [
   "amolegar, amolecer; suavizar"
@@ -152,8 +188,17 @@
  "anelar": [
   "arquejar"
  ],
+ "angelizar": [
+  "angelizar, tornar semelhante a anjo, purificar"
+ ],
  "anglicizar": [
   "anglicizar"
+ ],
+ "angular": [
+  "angular, dobrar de modo a formar ângulo"
+ ],
+ "anilhar": [
+  "anilhar, pôr anilha (identificadora em ave)"
  ],
  "anodizar": [
   "anodizar"
@@ -188,11 +233,17 @@
  "apavorar": [
   "apavorar, aterrorizar"
  ],
+ "apedrejar": [
+  "apedrejar, apedrar, atirar pedras a"
+ ],
  "apelidar": [
   "apelidar, dar um nome"
  ],
  "apenar": [
   "entristecer, afligir"
+ ],
+ "aperceber": [
+  "aperceber, dar-se conta de, notar"
  ],
  "aperrear": [
   "aperrear, atiçar o cão"
@@ -242,8 +293,17 @@
  "arcar": [
   "arcar, suportar o peso"
  ],
+ "arengar": [
+  "arengar, aborrecer, importunar"
+ ],
+ "arianizar": [
+  "arianizar, tornar ariano"
+ ],
  "arminhar": [
   "guarnir com arminho"
+ ],
+ "aromatizar": [
+  "aromatizar, dar aroma ou perfume a"
  ],
  "arquivar": [
   "arquivar"
@@ -253,6 +313,9 @@
  ],
  "arrebentar": [
   "arrebentar, despedaçar"
+ ],
+ "arrecadar": [
+  "arrecadar, recolher dinheiro, angariar fundos"
  ],
  "arredar": [
   "afastar-se, partir"
@@ -275,11 +338,20 @@
  "artilhar": [
   "artilhar, fortificar com artilharia"
  ],
+ "asar": [
+  "asar, munir de asas ou asas de"
+ ],
  "assanhar": [
   "assanhar, enfurecer, irritar"
  ],
  "assemelhar": [
   "assemelhar (parecer-se)"
+ ],
+ "assenhorear": [
+  "assenhorear, apossar-se de, apoderar-se de"
+ ],
+ "assentir": [
+  "assentir, anuir, dar assentimento"
  ],
  "assertar": [
   "asserir, afirmar"
@@ -290,8 +362,14 @@
  "assombrar": [
   "assombrar, ofuscar"
  ],
+ "assopear": [
+  "assopear, pôr debaixo do pé, pisar"
+ ],
  "atapetar": [
   "atapetar (cobrir de tapete)"
+ ],
+ "atarefar": [
+  "atarefar, atribuir tarefas a, ocupar"
  ],
  "atassalhar": [
   "atassalhar, talhar às postas"
@@ -301,6 +379,9 @@
  ],
  "atendar": [
   "atendar, armar tendas"
+ ],
+ "atenuar": [
+  "atenuar, abrandar, diminuir, mitigar"
  ],
  "atilar": [
   "atilar, melhorar, aprimorar"
@@ -317,8 +398,17 @@
  "atribuir": [
   "atribuir"
  ],
+ "atucanar": [
+  "atucanar, aborrecer, perturbar, incomodar"
+ ],
  "atufar": [
   "atufar, encher; abarrotar"
+ ],
+ "aulir": [
+  "aulir, ladrar contra, ladrar a (cão)"
+ ],
+ "aureolar": [
+  "aureolar, cingir de aureola ou halo"
  ],
  "autocompletar": [
   "autocompletar"
@@ -328,6 +418,12 @@
  ],
  "autorizar": [
   "autorizar"
+ ],
+ "avellar": [
+  "avellar, secar até enrugar ou enrugitar"
+ ],
+ "avezar": [
+  "avezar, acostumar, habituar, afeiçoar"
  ],
  "aviltar": [
   "aviltar, degradar, envilecer"
@@ -341,17 +437,26 @@
  "azeitar": [
   "untar com azeite ou óleo"
  ],
+ "aziar": [
+  "aziar, azedar-se, irritar-se"
+ ],
  "azougar": [
   "azougar, misturar com azougue (mercúrio)"
  ],
  "azular": [
   "azular, pintar de azul"
  ],
+ "azulejar": [
+  "azulejar, revestir de azulejos"
+ ],
  "açacalar": [
   "açacalar, polir, brunir"
  ],
  "açodar": [
   "acelerar, apressar"
+ ],
+ "açoitar": [
+  "açoitar, injuriar com palavras, humilhar"
  ],
  "açucarar": [
   "açucarar, adoçar"
@@ -370,6 +475,9 @@
  ],
  "balancear": [
   "balancear, equilibrar, oscilar"
+ ],
+ "balcanizar": [
+  "balcanizar, balcanizar um território, fragmentar em Estados rivais"
  ],
  "bambear": [
   "bambear (abanar)"
@@ -413,8 +521,14 @@
  "bestar": [
   "bestar, dizer tolices"
  ],
+ "bichar": [
+  "bichar, encher de bichos ou larvas, apodrecer"
+ ],
  "bicotar": [
   "bicotar, dar muitos beijos ruidosos"
+ ],
+ "binocular": [
+  "binocular, observar com binóculos"
  ],
  "bioacumular": [
   "bioacumular"
@@ -434,8 +548,17 @@
  "blindar": [
   "blindar, couraçar"
  ],
+ "bofar": [
+  "bofar, lançar dos pulmões, arremessar com força"
+ ],
+ "bolchevizar": [
+  "bolchevizar, tornar bolchevique"
+ ],
  "bolear": [
   "bolear, fazer em bola"
+ ],
+ "borboletear": [
+  "borboletear, voar ou esvoaçar como borboleta"
  ],
  "botar": [
   "pôr, colocar"
@@ -451,6 +574,9 @@
  ],
  "brindar": [
   "brindar (erguer um brinde)"
+ ],
+ "britar": [
+  "britar, quebrar em pedaços, partir em brita"
  ],
  "brochar": [
   "brochar, ligar, conectar"
@@ -479,6 +605,9 @@
  "caducar": [
   "caducar, prescrever"
  ],
+ "cafeinar": [
+  "cafeinar, carregar de cafeína"
+ ],
  "cagar": [
   "cagar, defecar"
  ],
@@ -494,8 +623,14 @@
  "capitalizar": [
   "capitalizar"
  ],
+ "capitanear": [
+  "capitanear, comandar, chefiar, governar"
+ ],
  "captar": [
   "captar"
+ ],
+ "caquinar": [
+  "caquinar, gargalhar por dentro, dar risadinha"
  ],
  "carcar": [
   "carcar, pôr, empurrar com força"
@@ -566,8 +701,14 @@
  "cheatar": [
   "enganar, fazer batota"
  ],
+ "chibatar": [
+  "chibatar, castigar com chibata"
+ ],
  "chicanar": [
   "chicanar, usar de chicanas"
+ ],
+ "chicotear": [
+  "chicotear, açoitar com chicote"
  ],
  "chilar": [
   "descansar, relaxar (gíria)"
@@ -599,6 +740,9 @@
  "circundar": [
   "circundar, rodear, cercar"
  ],
+ "circunvagar": [
+  "circunvagar, andar em volta de, circumvagar"
+ ],
  "cisar": [
   "cisar, cortar, separar"
  ],
@@ -607,6 +751,9 @@
  ],
  "clorar": [
   "clorar, tratar com cloro"
+ ],
+ "coalizar": [
+  "coalizar, coligar, unir em coligação ou coligação"
  ],
  "coartar": [
   "coartar, limitar, restringir"
@@ -635,6 +782,9 @@
  "combar": [
   "combinar"
  ],
+ "comiscar": [
+  "comiscar, comer em pequenas dentadas ou comiscadas"
+ ],
  "compartilhar": [
   "compartilhar, partilhar"
  ],
@@ -649,6 +799,9 @@
  ],
  "complexar": [
   "complexar, complicar"
+ ],
+ "compostar": [
+  "compostar, podrir em composto"
  ],
  "comprazer": [
   "comprazer, dar prazer a, contentar"
@@ -665,8 +818,20 @@
  "conceituar": [
   "conceituar, julgar"
  ],
+ "concretizar": [
+  "concretizar, tornar real, efetivar"
+ ],
+ "condimentar": [
+  "condimentar, temperar (comida)"
+ ],
+ "condir": [
+  "condir, preparar, temperar, misturar (medicamentos)"
+ ],
  "confeccionar": [
   "confeccionar"
+ ],
+ "conflitar": [
+  "conflitar, entrar em conflito, estar em desacordo"
  ],
  "confortar": [
   "confortar"
@@ -680,8 +845,14 @@
  "conjugar": [
   "conjugar, combinar"
  ],
+ "conscientizar": [
+  "conscientizar, dar consciência a, alertar"
+ ],
  "consistir": [
   "consistir (em)"
+ ],
+ "consubstanciar": [
+  "consubstanciar, unir numa só substância, consolidar"
  ],
  "contra-argumentar": [
   "contra-argumentar, refutar"
@@ -710,8 +881,14 @@
  "convalescer": [
   "convalescer, restabelecer-se"
  ],
+ "convelir": [
+  "convelir, ter convulsão, convulsionar"
+ ],
  "convocar": [
   "convocar, chamar, reunir"
+ ],
+ "convulsar": [
+  "convulsar, convulsionar, ter convulsão"
  ],
  "copar": [
   "desempenhar-se, dar conta"
@@ -749,6 +926,9 @@
  "crioulizar": [
   "crioulizar"
  ],
+ "crochetar": [
+  "crochetar, fazer crochê"
+ ],
  "culminar": [
   "culminar"
  ],
@@ -761,6 +941,9 @@
  "cursar": [
   "cursar, percorrer"
  ],
+ "curvetear": [
+  "curvetear, erguer-se nas patas traseiras"
+ ],
  "cõfessar": [
   "abreviatura de confessar"
  ],
@@ -770,11 +953,23 @@
  "danificar": [
   "danificar, causar dano a"
  ],
+ "datilografar": [
+  "datilografar, escrever à máquina"
+ ],
+ "debitar": [
+  "debitar, lançar a débito, registar uma dívida"
+ ],
  "debruçar": [
   "curvar, inclinar"
  ],
  "decantar": [
   "decantar"
+ ],
+ "decifrar": [
+  "decifrar, decodificar, decifrar código ou enigma"
+ ],
+ "decuplicar": [
+  "decuplicar, decuplicar valor, multiplicar por dez"
  ],
  "dedodurar": [
   "variante gráfica de dedo-durar"
@@ -803,6 +998,12 @@
  "deliberar": [
   "deliberar, ponderar, discutir"
  ],
+ "demolir": [
+  "demolir, derrubar, demoler, destruir"
+ ],
+ "demonstrar": [
+  "demonstrar (todos os sentidos), provar, evidenciar"
+ ],
  "departir": [
   "departir, dividir, repartir"
  ],
@@ -812,6 +1013,9 @@
  "depositar": [
   "depositar"
  ],
+ "derrengar": [
+  "derrengar, vergar, abater, fazer tombar de cansaço"
+ ],
  "derruir": [
   "derruir, derribar"
  ],
@@ -820,6 +1024,9 @@
  ],
  "desabitar": [
   "desabitar, despovoar"
+ ],
+ "desabituar": [
+  "desabituar, tirar o hábito de, desavezer de"
  ],
  "desabotoar": [
   "desabotoar"
@@ -845,8 +1052,17 @@
  "desacreditar": [
   "desacreditar"
  ],
+ "desafinar": [
+  "desafinar, cantar ou tocar fora de tom"
+ ],
  "desaforar": [
   "desaforar, desistir de, renunciar a"
+ ],
+ "desagradar": [
+  "desagradar, contrariar, ser desagradável a"
+ ],
+ "desagravar": [
+  "desagravar, fazer reparações por, indenizar"
  ],
  "desaguar": [
   "desaguar, desembocar, correr para fora"
@@ -859,6 +1075,9 @@
  ],
  "desamarrar": [
   "desamarrar"
+ ],
+ "desancorar": [
+  "desancorar, levantar a âncora de"
  ],
  "desaparafusar": [
   "desaparafusar"
@@ -899,6 +1118,9 @@
  "desbanir": [
   "retirar a proibição"
  ],
+ "descair": [
+  "descair, ficar pendurado, pender"
+ ],
  "descalçar": [
   "descalçar, tirar o sapato a"
  ],
@@ -907,6 +1129,9 @@
  ],
  "descarbonizar": [
   "descarbonizar"
+ ],
+ "descarnar": [
+  "descarnar, tirar a carne de"
  ],
  "descercar": [
   "descercar, libertar, pôr em liberdade"
@@ -947,6 +1172,9 @@
  "desconfortar": [
   "desconfortar"
  ],
+ "desconjurar": [
+  "desconjurar, fazer jurar, obrigar por juramento ou promessa a"
+ ],
  "desconsiderar": [
   "desconsiderar"
  ],
@@ -964,6 +1192,9 @@
  ],
  "desconvocar": [
   "desconvocar, cancelar, anular"
+ ],
+ "descosturar": [
+  "descosturar, desfazer a costura de"
  ],
  "descurtir": [
   "descurtir (anular a curtida)"
@@ -989,8 +1220,14 @@
  "desembrulhar": [
   "desembrulhar"
  ],
+ "desempenhar": [
+  "desempenhar, cumprir ou desempenhar (uma tarefa)"
+ ],
  "desemperrar": [
   "desemperrar, destravar"
+ ],
+ "desempoar": [
+  "desempoar, tirar o pó de, sacudir"
  ],
  "desencantar": [
   "desencantar"
@@ -1034,6 +1271,9 @@
  "desfavorecer": [
   "desfavorecer, ser desfavorável a, prejudicar"
  ],
+ "desfechar": [
+  "desfechar, disparar ou descarregar (uma arma)"
+ ],
  "desfibrilar": [
   "desfibrilar"
  ],
@@ -1055,6 +1295,9 @@
  "desimpedir": [
   "desimpedir, desobstruir"
  ],
+ "desincentivar": [
+  "desincentivar, desestimular, dissuadir"
+ ],
  "desindustrializar": [
   "desindustrializar"
  ],
@@ -1063,6 +1306,9 @@
  ],
  "desinibir": [
   "desinibir"
+ ],
+ "desinscrever": [
+  "desinscrever, cancelar a inscrição, anular o registo"
  ],
  "desintoxicar": [
   "desintoxicar"
@@ -1133,6 +1379,9 @@
  "desocupar": [
   "desocupar, esvaziar, libertar"
  ],
+ "desodorar": [
+  "desodorar, tirar o odor de"
+ ],
  "desonestar": [
   "desonestar, desonrar, desacreditar"
  ],
@@ -1145,6 +1394,9 @@
  "despachar": [
   "despachar, expedir"
  ],
+ "desperceber": [
+  "desperceber, não notar, deixar de ver, desatender"
+ ],
  "desplantar": [
   "desplantar, desenraizar"
  ],
@@ -1153,6 +1405,9 @@
  ],
  "despolarizar": [
   "despolarizar"
+ ],
+ "despoluir": [
+  "despoluir, descontaminar, limpar"
  ],
  "despontar": [
   "despontar, brotar, emergir"
@@ -1168,6 +1423,9 @@
  ],
  "desprestigiar": [
   "desprestigiar, descreditar, denegrir"
+ ],
+ "desprogramar": [
+  "desprogramar, cancelar ou anular (uma atividade planeada ou programada)"
  ],
  "desproporcionar": [
   "desproporcionar, tornar desproporcionado"
@@ -1199,6 +1457,9 @@
  "destelhar": [
   "destelhar, tirar as telhas de (o teto)"
  ],
+ "destinar": [
+  "destinar, decidir, determinar, resolver"
+ ],
  "destorcer": [
   "destorcer"
  ],
@@ -1214,6 +1475,9 @@
  "desumidificar": [
   "desumidificar"
  ],
+ "desvendar": [
+  "desvendar, tirar a venda dos olhos, revelar"
+ ],
  "desver": [
   "não conseguir desver"
  ],
@@ -1222,6 +1486,9 @@
  ],
  "deturpar": [
   "deturpar, corromper, desfigurar"
+ ],
+ "devisar": [
+  "devisar, planear, projetar, idealizar"
  ],
  "diagnosticar": [
   "diagnosticar"
@@ -1247,6 +1514,12 @@
  "discorrer": [
   "discorrer, dissertar"
  ],
+ "discretear": [
+  "discretear, discretear em voz baixa, discursar discretamente"
+ ],
+ "disparar": [
+  "disparar, atirar, disparar (uma arma)"
+ ],
  "dispensar": [
   "dispensar"
  ],
@@ -1256,17 +1529,26 @@
  "disponibilizar": [
   "disponibilizar, tornar disponível"
  ],
+ "divinizar": [
+  "divinizar, deificar, tornar deus"
+ ],
  "domar": [
   "domar"
  ],
  "domesticar": [
   "domesticar"
  ],
+ "dosar": [
+  "dosar, dosificar, administrar em doses"
+ ],
  "dramatizar": [
   "dramatizar"
  ],
  "drogar": [
   "drogar, alucinar"
+ ],
+ "dropar": [
+  "dropar, levantar-se e surfar uma onda"
  ],
  "duelar": [
   "duelar, bater-se em duelo"
@@ -1289,11 +1571,23 @@
  "eletrolisar": [
   "eletrolisar, sujeitar a eletrólise"
  ],
+ "elogiar": [
+  "elogiar, encomiar, enaltecer"
+ ],
  "emascular": [
   "emascular, castrar"
  ],
  "embair": [
   "embair, enganar, iludir"
+ ],
+ "embalsamar": [
+  "embalsamar, embalsamar um cadáver, mumificar"
+ ],
+ "embandeirar": [
+  "embandeirar, ornar com bandeiras"
+ ],
+ "embarafustar": [
+  "embarafustar, entrar ou mover-se sem ordem, atropelar"
  ],
  "embarangar": [
   "embarangar, enfeiar com o tempo"
@@ -1313,6 +1607,9 @@
  "embirrar": [
   "embirrar, ter antipatia (por empecilhos)"
  ],
+ "embolotar": [
+  "embolotar, fazer em bolos ou novelos"
+ ],
  "embolsar": [
   "embolsar, meter na algibeira, bolsar"
  ],
@@ -1327,6 +1624,9 @@
  ],
  "emparelhar": [
   "emparelhar"
+ ],
+ "empavesar": [
+  "empavesar, apavesar, guarnecer (navio) de paveses"
  ],
  "empedernir": [
   "empedernir, tornar duríssimo"
@@ -1348,6 +1648,12 @@
  ],
  "empertigar": [
   "empertigar, endireitar, aprumar"
+ ],
+ "empoar": [
+  "empoar, cobrir de pó, enpoar"
+ ],
+ "empobrecer": [
+  "empobrecer, tornar pobre, empobrecir"
  ],
  "empoderar": [
   "empoderar"
@@ -1376,11 +1682,17 @@
  "encabrestar": [
   "encabrestar, dominar, sujeitar, subjugar"
  ],
+ "encabular": [
+  "encabular, envergonhar, causar timidez"
+ ],
  "encadear": [
   "encadear, ligar em cadeia"
  ],
  "encaixilhar": [
   "emoldurar (pôr em caixilho)"
+ ],
+ "encaixotar": [
+  "encaixotar, meter numa caixa"
  ],
  "encalistrar": [
   "encalistrar, envergonhar"
@@ -1403,6 +1715,9 @@
  "encarregar": [
   "encarregar"
  ],
+ "encasquetar": [
+  "encasquetar, obstinar-se, teimar"
+ ],
  "encastoar": [
   "encastoar, pôr o castão (numa espada)"
  ],
@@ -1412,17 +1727,26 @@
  "encefalizar": [
   "encefalizar"
  ],
+ "encetar": [
+  "encetar, começar, iniciar"
+ ],
  "encimar": [
   "encimar, pôr por cima"
  ],
  "encomiar": [
   "encomiar, elogiar"
  ],
+ "encompridar": [
+  "encompridar, alongar, tornar mais comprido"
+ ],
  "encorajar": [
   "encorajar, animar"
  ],
  "encordoar": [
   "encordoar, pôr cordas em (um instrumento)"
+ ],
+ "encorpar": [
+  "encorpar, engrossar, tornar mais denso"
  ],
  "encrespar": [
   "encrespar (frisar o cabelo)"
@@ -1433,8 +1757,14 @@
  "encucar": [
   "encucar, atrapalhar"
  ],
+ "encurtar": [
+  "encurtar, abreviar, tornar mais curto"
+ ],
  "endereçar": [
   "endereçar (dirigir-se a)"
+ ],
+ "endeusar": [
+  "endeusar, deificar, considerar deus"
  ],
  "endividar": [
   "endividar"
@@ -1472,6 +1802,9 @@
  "enfumaçar": [
   "enfumaçar, cobrir de fumo"
  ],
+ "enfunar": [
+  "enfunar, encher, inchar, avantar"
+ ],
  "engarrafar": [
   "engarrafar, tolher"
  ],
@@ -1481,11 +1814,17 @@
  "engendrar": [
   "engendrar, gerar"
  ],
+ "engodar": [
+  "engodar, atrair com isca ou engodo, acodar"
+ ],
  "engolfar": [
   "engolfar, absorver, tragar"
  ],
  "engravatar": [
   "engravatar, pôr a gravata a"
+ ],
+ "engravecer": [
+  "engravecer, agravar, tornar mais grave ou sério"
  ],
  "engravidar": [
   "engravidar"
@@ -1505,8 +1844,14 @@
  "enlutar": [
   "enlutar, cobrir de luto"
  ],
+ "enovelar": [
+  "enovelar, enrolar em novelo, enroscar"
+ ],
  "enramalhetar": [
   "enramalhetar, fazer um raminho de"
+ ],
+ "enredar": [
+  "enredar, apanhar em rede, envolver em malha"
  ],
  "enriquecer": [
   "enriquecer"
@@ -1514,11 +1859,17 @@
  "enrouquecer": [
   "enrouquecer, ficar rouco"
  ],
+ "ensebar": [
+  "ensebar, untar com sebo, engraxar com sebo"
+ ],
  "ensombrar": [
   "ensombrar, toldar com sombra"
  ],
  "ensopar": [
   "ensopar, encharcar"
+ ],
+ "entaipar": [
+  "entaipar, cercar ou fechar com taipa"
  ],
  "entelhar": [
   "entelhar, telhar"
@@ -1541,6 +1892,12 @@
  "entreolhar": [
   "entreolhar, olhar-se mutuamente"
  ],
+ "entronar": [
+  "entronar, entronar em trono, entronizar"
+ ],
+ "entronizar": [
+  "entronizar, entronizar em trono, entronar"
+ ],
  "entrosar": [
   "entrosar, encaixar, engrenar"
  ],
@@ -1556,17 +1913,26 @@
  "enviuvar": [
   "enviuvar, ficar viúvo"
  ],
+ "equalizar": [
+  "equalizar, nivelar, tornar uniforme"
+ ],
  "equipar": [
   "equipar, apetrechar"
  ],
  "equivocar": [
   "equivocar, confundir (duas coisas)"
  ],
+ "erodir": [
+  "erodir, sofrer erosão, corroer"
+ ],
  "eructar": [
   "eructar, arrotar"
  ],
  "erupcionar": [
   "entrar em erupção"
+ ],
+ "esbaldar": [
+  "esbaldar, divertir-se muito"
  ],
  "esbater": [
   "esbater, desfocar"
@@ -1583,6 +1949,9 @@
  "esburacar": [
   "esburacar, fazer buracos em"
  ],
+ "escadeirar": [
+  "escadeirar, magoar ou bater nas costas (lombalgia)"
+ ],
  "escafeder": [
   "escafeder-se, fugir"
  ],
@@ -1594,6 +1963,9 @@
  ],
  "escançar": [
   "escançar, servir bebidas"
+ ],
+ "escarnecer": [
+  "escarnecer, escarnear, zombar, mofar"
  ],
  "escarnir": [
   "escarnir, caçoar, zombar"
@@ -1651,6 +2023,12 @@
  ],
  "estiolar": [
   "estiolar, definhar; apodrecer"
+ ],
+ "estorricar": [
+  "estorricar, torrar, assar até quase queimar"
+ ],
+ "estraçalhar": [
+  "estraçalhar, estraçalhar em pedaços, esfarragar"
  ],
  "estreiar": [
   "variante gráfica de estrear"
@@ -1718,6 +2096,9 @@
  "facultar": [
   "facultar, facilitar"
  ],
+ "falcoar": [
+  "falcoar, caçar com falcão, falcoaria"
+ ],
  "fanfar": [
   "fanfar, fanfarronar"
  ],
@@ -1745,20 +2126,32 @@
  "fecundar": [
   "fecundar"
  ],
+ "feltrar": [
+  "feltrar, tornar feltro, meter em feltro"
+ ],
  "fibrilar": [
   "fibrilar (sofrer fibrilação)"
  ],
  "ficcionalizar": [
   "ficcionalizar"
  ],
+ "finar": [
+  "finar, acabar, chegar ao fim"
+ ],
  "fincar": [
   "fincar, espetar"
+ ],
+ "finlandizar": [
+  "finlandizar, tornar finlandês ou semelhante"
  ],
  "fissionar": [
   "fissionar (sofrer fissão)"
  ],
  "fissurar": [
   "fissurar, fendear"
+ ],
+ "flabelar": [
+  "flabelar, abanar com leque"
  ],
  "flexibilizar": [
   "flexibilizar"
@@ -1795,6 +2188,12 @@
  ],
  "freiar": [
   "variante gráfica de frear"
+ ],
+ "fresquear": [
+  "fresquear, comportar-se com excesso de melindre"
+ ],
+ "frisar": [
+  "frisar, anelar, encaracolar (o cabelo)"
  ],
  "fulgir": [
   "fulgir, reluzir"
@@ -1837,6 +2236,9 @@
  ],
  "germanizar": [
   "germanizar"
+ ],
+ "gestualizar": [
+  "gestualizar, exprimir com gestos"
  ],
  "givar": [
   "givar, render-se, entregar-se"
@@ -1931,6 +2333,12 @@
  "incarnar": [
   "variante gráfica de encarnar"
  ],
+ "incisar": [
+  "incisar, cortar, fazer incisão"
+ ],
+ "incrassar": [
+  "incrassar, engrossar, tornar grosso"
+ ],
  "incrustar": [
   "incrustar, encastrar, cravar"
  ],
@@ -1942,6 +2350,9 @@
  ],
  "indignar": [
   "indignar, revoltar"
+ ],
+ "individualizar": [
+  "individualizar (todos os sentidos), individualizar"
  ],
  "inebriar": [
   "inebriar, embriagar, exaltar"
@@ -1961,6 +2372,9 @@
  "influenciar": [
   "influenciar"
  ],
+ "infraestruturar": [
+  "infraestruturar, dotar de infraestruturas"
+ ],
  "inglesar": [
   "anglicizar"
  ],
@@ -1979,11 +2393,17 @@
  "intencionar": [
   "intencionar, tencionar, pretender"
  ],
+ "interpelar": [
+  "interpelar, perguntar, interrogar"
+ ],
  "interrogar": [
   "interrogar"
  ],
  "intricar": [
   "intricar, emaranhar, enredar"
+ ],
+ "intubar": [
+  "intubar, introduzir tubo em, entubar"
  ],
  "inutilizar": [
   "inutilizar, inabilitar"
@@ -2024,6 +2444,12 @@
  "lajear": [
   "lajear, pavimentar com lajes"
  ],
+ "lampejar": [
+  "lampejar, relampejar, cintilar de repente"
+ ],
+ "lamuriar": [
+  "lamuriar, lamurijar, lastimar-se, prantear"
+ ],
  "lastar": [
   "lastar, solver um débito"
  ],
@@ -2045,6 +2471,9 @@
  "liberalizar": [
   "liberalizar, tornar liberal, libertar"
  ],
+ "liberar": [
+  "liberar, libertar, pôr em liberdade"
+ ],
  "licitar": [
   "licitar, dar um lance"
  ],
@@ -2056,6 +2485,9 @@
  ],
  "linguajar": [
   "linguajar, conversar"
+ ],
+ "litorar": [
+  "litorar, ir passar tempo no litoral"
  ],
  "lorotar": [
   "lorotar, mentir"
@@ -2084,11 +2516,17 @@
  "macaquear": [
   "macaquear, imitar, brincar"
  ],
+ "macetear": [
+  "macetear, golpear com maço ou marreta"
+ ],
  "madeirar": [
   "madeirar, revestir com madeira"
  ],
  "magnificar": [
   "magnificar, engrandecer"
+ ],
+ "maisquerer": [
+  "maisquerer, preferir, ter mais afeição a"
  ],
  "maldizer": [
   "maldizer, praguejar, difamar"
@@ -2098,6 +2536,9 @@
  ],
  "mandatar": [
   "mandatar, dar mandato a"
+ ],
+ "mandingar": [
+  "mandingar, enfeitiçar, fazer mandinga ou feitiçaria"
  ],
  "maneirar": [
   "maneirar, agir com moderação"
@@ -2111,14 +2552,23 @@
  "manumitir": [
   "manumitir (libertar um escravo)"
  ],
+ "manutenir": [
+  "manutenir, conservar, manter (um estado)"
+ ],
  "mapear": [
   "mapear"
  ],
  "maratonar": [
   "maratonar, ver em maratona"
  ],
+ "margar": [
+  "margar, cobrir com marga"
+ ],
  "marginalizar": [
   "marginalizar"
+ ],
+ "marretar": [
+  "marretar, golpear com marreta"
  ],
  "mascavar": [
   "mascavar, refinar (açúcar)"
@@ -2138,11 +2588,17 @@
  "maturar": [
   "maturar, amadurecer"
  ],
+ "mealhar": [
+  "mealhar, ir juntando mealha, poupar pouco a pouco"
+ ],
  "mecanizar": [
   "mecanizar"
  ],
  "mediatizar": [
   "mediatizar, subordinar a um poder mediato"
+ ],
+ "melecar": [
+  "melecar, sujar ou embaciar com meleca"
  ],
  "melodramatizar": [
   "melodramatizar, carregar nas tintas"
@@ -2185,6 +2641,9 @@
  ],
  "mitigar": [
   "mitigar, atenuar"
+ ],
+ "mitrar": [
+  "mitrar, coroar com mitra, consagrar bispo"
  ],
  "modar": [
   "modar, instalar modificações (mods)"
@@ -2249,6 +2708,12 @@
  "pandicular": [
   "pandicular, espreguiçar-se"
  ],
+ "pantanizar": [
+  "pantanizar, transformar em pântano, alagar"
+ ],
+ "papear": [
+  "papear, conversar, tagarelar, palrar"
+ ],
  "paralelizar": [
   "paralelizar"
  ],
@@ -2269,6 +2734,9 @@
  ],
  "pedintar": [
   "pedir esmola"
+ ],
+ "pensionar": [
+  "pensionar, aposentar com pensão, dar pensão a"
  ],
  "pentelhar": [
   "pentelhar, aborrecer, atazanar"
@@ -2297,11 +2765,20 @@
  "pinxar": [
   "pular, quicar"
  ],
+ "pirraçar": [
+  "pirraçar, caçoar de, levar na contramão, contrariar"
+ ],
+ "pitar": [
+  "pitar, fumar (sobretudo em cachimbo)"
+ ],
  "pixelizar": [
   "pixelizar"
  ],
  "placar": [
   "acalmar"
+ ],
+ "planar": [
+  "planar, pairar no ar, voar sem motor"
  ],
  "planger": [
   "planger, lamentar-se"
@@ -2345,8 +2822,14 @@
  "preconizar": [
   "preconizar, recomendar"
  ],
+ "predicar": [
+  "predicar, pregar, promover (uma ideia)"
+ ],
  "preexistir": [
   "preexistir"
+ ],
+ "prefaciar": [
+  "prefaciar, escrever o prefácio de"
  ],
  "prefixar": [
   "prefixar, pôr prefixo a"
@@ -2372,14 +2855,23 @@
  "proclamar": [
   "proclamar"
  ],
+ "profitar": [
+  "profitar, lucrar, tirar proveito"
+ ],
  "propulsar": [
   "propulsar"
+ ],
+ "protrair": [
+  "protrair, fazer sobressair, protelar"
  ],
  "protuberar": [
   "protuberar, sobressair, projetar-se"
  ],
  "providenciar": [
   "providenciar, obter"
+ ],
+ "pré-comprar": [
+  "pré-comprar, comprar antecipadamente, reservar comprando"
  ],
  "pré-visualizar": [
   "pré-visualizar"
@@ -2423,6 +2915,12 @@
  "ranzinzar": [
   "ranzinzar, tornar-se rabugento"
  ],
+ "rascunhar": [
+  "rascunhar, esboçar, fazer rascunho de"
+ ],
+ "rasurar": [
+  "rasurar, riscar ou inutilizar por rasura, carimbar"
+ ],
  "reabastecer": [
   "reabastecer, tornar a abastecer"
  ],
@@ -2440,6 +2938,9 @@
  ],
  "rearrumar": [
   "rearrumar, reorganizar"
+ ],
+ "reassistir": [
+  "reassistir, assistir de novo, rever"
  ],
  "reativar": [
   "reativar, tornar a ativar"
@@ -2468,6 +2969,9 @@
  "reciclar": [
   "reciclar"
  ],
+ "reclinar": [
+  "reclinar, deitar ou fazer reclinar, encostar"
+ ],
  "recobrir": [
   "recobrir, cobrir por completo"
  ],
@@ -2482,6 +2986,9 @@
  ],
  "reconectar": [
   "reconectar"
+ ],
+ "reconfirmar": [
+  "reconfirmar, confirmar de novo"
  ],
  "recontextualizar": [
   "recontextualizar"
@@ -2525,6 +3032,15 @@
  "reembalar": [
   "reembalar, empacotar de novo"
  ],
+ "reembolsar": [
+  "reembolsar, devolver, ressarcir"
+ ],
+ "reencher": [
+  "reencher, encher de novo, voltar a encher"
+ ],
+ "reenforçar": [
+  "construção errada de reforçar"
+ ],
  "reerguer": [
   "reerguer"
  ],
@@ -2537,14 +3053,23 @@
  "refregar": [
   "refregar (combater)"
  ],
+ "refugiar": [
+  "refugiar, abrigar, dar refúgio a"
+ ],
  "refulgir": [
   "refulgir, reluzir, brilhar"
  ],
  "regionalizar": [
   "regionalizar"
  ],
+ "regularizar": [
+  "regularizar, tornar regular, pôr em ordem"
+ ],
  "reindustrializar": [
   "reindustrializar"
+ ],
+ "reinstalar": [
+  "reinstalar, tornar a instalar"
  ],
  "reintroduzir": [
   "reintroduzir"
@@ -2630,6 +3155,9 @@
  "replicar": [
   "replicar, responder, retorquir"
  ],
+ "repolir": [
+  "repolir, polir de novo, lustrar de novo"
+ ],
  "reportar": [
   "reportar, relatar"
  ],
@@ -2651,11 +3179,17 @@
  "reprogramar": [
   "reprogramar"
  ],
+ "repudiar": [
+  "repudiar, rejeitar, deserdar, condenar"
+ ],
  "requestar": [
   "requerer com insistência"
  ],
  "rescaldar": [
   "superaquecer"
+ ],
+ "resguardar": [
+  "resguardar, abrigar, proteger, guardar"
  ],
  "resignar": [
   "resignar, demitir-se"
@@ -2684,6 +3218,9 @@
  "reverenciar": [
   "reverenciar"
  ],
+ "revezar": [
+  "revezar, alternar-se, fazer turnos"
+ ],
  "revirar": [
   "revirar, revolver"
  ],
@@ -2702,14 +3239,23 @@
  "rixar": [
   "rixar, brigar, altercar"
  ],
+ "rodopiar": [
+  "rodopiar, girar, rodar, andar às voltas"
+ ],
  "rolezar": [
   "rolezar, sair, andar com, frequentar"
  ],
  "romanizar": [
   "romanizar"
  ],
+ "romper": [
+  "romper, quebrar, rasgar, rebentar"
+ ],
  "rootear": [
   "obter acesso root"
+ ],
+ "rotacionar": [
+  "rotacionar, girar, rodar, revolver"
  ],
  "rugar": [
   "enrugar, amarfanhar"
@@ -2747,6 +3293,9 @@
  "semelhar": [
   "semelhar, assemelhar"
  ],
+ "semicerrar": [
+  "semicerrar, fechar a meio, entreabrir"
+ ],
  "sengar": [
   "peneirar, joeirar"
  ],
@@ -2783,8 +3332,14 @@
  "sofrer": [
   "sofrer"
  ],
+ "solidificar": [
+  "solidificar, tornar sólido"
+ ],
  "solubilizar": [
   "solubilizar"
+ ],
+ "sombrear": [
+  "sombrear, dar sombra a, escurecer, abrigar da luz"
  ],
  "sonecar": [
   "cochilar"
@@ -2816,8 +3371,14 @@
  "subtrair": [
   "subtrair"
  ],
+ "sucumbir": [
+  "sucumbir, sucumbir a, ceder a, render-se a"
+ ],
  "superar": [
   "superar, exceder"
+ ],
+ "supervisar": [
+  "supervisar, superintender, dirigir, ter a seu cargo"
  ],
  "suplementar": [
   "suplementar"
@@ -2846,11 +3407,20 @@
  "tibungar": [
   "mergulhar"
  ],
+ "tietar": [
+  "tietar, comportar-se como fã incondicional"
+ ],
  "tilintar": [
   "tilintar, tilintar moedas"
  ],
+ "tipar": [
+  "tipar, determinar o grupo sanguíneo de"
+ ],
  "tiranizar": [
   "tiranizar, oprimir"
+ ],
+ "tirar": [
+  "tirar, retirar, levar embora"
  ],
  "tirotear": [
   "tirotear, disparar"
@@ -2897,6 +3467,9 @@
  "traumatizar": [
   "traumatizar"
  ],
+ "trefilar": [
+  "trefilar, estirar em fio (metal)"
+ ],
  "tresandar": [
   "recuar, andar para trás"
  ],
@@ -2927,11 +3500,20 @@
  "trombar": [
   "trombar, colidir"
  ],
+ "trombetear": [
+  "trombetear, tocar trombeta, trombetar"
+ ],
  "tronchar": [
   "tronchar, cortar, decepar"
  ],
  "trovar": [
   "trovar, compor trovas, fazer versos"
+ ],
+ "trunfar": [
+  "trunfar, jogar trunfo, valer-se de trunfo"
+ ],
+ "turbinar": [
+  "turbinar, munir de turbina"
  ],
  "turistar": [
   "turistar, viajar como turista"
@@ -2957,6 +3539,9 @@
  "vassourar": [
   "vassourar, varrer com vassoura"
  ],
+ "vegetar": [
+  "vegetar, crescer como planta, viver vegetando"
+ ],
  "velarizar": [
   "velarizar (linguística)"
  ],
@@ -2966,11 +3551,20 @@
  "versejar": [
   "versejar, compor versos"
  ],
+ "viaticar": [
+  "viaticar, administrar o viático a"
+ ],
  "vice-reinar": [
   "governar como vice-rei"
  ],
+ "vigiar": [
+  "vigiar, guardar, atentar"
+ ],
  "vinificar": [
   "vinificar"
+ ],
+ "virginizar": [
+  "virginizar, dar caráter virginal a"
  ],
  "vislumbrar": [
   "vislumbrar, entrever"
@@ -2990,11 +3584,17 @@
  "volver": [
   "fazer"
  ],
+ "vulnerar": [
+  "vulnerar, ferir, ofender, lesionar"
+ ],
  "xisnovar": [
   "xisnovar, denunciar, delatar"
  ],
  "xoxar": [
   "xoxar, caçoar, zombar de"
+ ],
+ "zaralhar": [
+  "zaralhar, zaragatear, brincar, tagarelar"
  ],
  "zicar": [
   "zicar, dar azar a, enfeitiçar"
