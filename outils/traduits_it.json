@@ -62,6 +62,9 @@
  "acciarpare": [
   "acciarpare, racconciare alla meglio"
  ],
+ "acciglionare": [
+  "argine: proteggere con argini o ripari"
+ ],
  "accincignare": [
   "sgualcire, stropicciare, raggrinzire"
  ],
@@ -269,8 +272,14 @@
  "amicare": [
   "diventare amico di, legarsi d'amicizia"
  ],
+ "ammainare": [
+  "ammainare, ammainare, ammainare (una bandiera), calare"
+ ],
  "ammalazzare": [
   "ammalazzare, ammalarsi"
+ ],
+ "ammaliziare": [
+  "ammaliziare, ammaestrare, render più esperto o avveduto"
  ],
  "ammanettare": [
   "mettere le manette, ammanettare"
@@ -295,6 +304,9 @@
  ],
  "ammetare": [
   "ammetare, ammucchiare fieno, accatastare"
+ ],
+ "ammezzare": [
+  "ammezzare, ammezzare, dimezzare, dividere a metà"
  ],
  "ammezzire": [
   "ammezzire, ammaccare (frutta: farsi mezza)"
@@ -349,6 +361,9 @@
  ],
  "annobilire": [
   "innobilire, nobilitare"
+ ],
+ "annodarsi": [
+  "annodarsi, annodarsi, annodarsi, ingarbugliarsi, annodarsi in nodi"
  ],
  "annodicchiare": [
   "annodicchiare, fare piccoli nodi"
@@ -443,6 +458,9 @@
  "arponare": [
   "arpionare, colpir con l'arpone"
  ],
+ "arrabattarsi": [
+  "arrabattarsi, arrabattarsi, arrangiarsi, darsi da fare alla volta"
+ ],
  "arraffiare": [
   "arraffiare, arpionare, agganciare (con un raffio)"
  ],
@@ -493,6 +511,9 @@
  ],
  "asfissiarsi": [
   "asfissiarsi, soffocare, avere asfissia"
+ ],
+ "aspreggiare": [
+  "aspreggiare, aspreggiare, maltrattare, angariare, straziare"
  ],
  "assecondare": [
   "assecondare, assecondare un capriccio, compiacere"
@@ -584,6 +605,9 @@
  "autogestire": [
   "autogestire, gestire da se stessi"
  ],
+ "autogestirsi": [
+  "autogestirsi, gestire da soli i propri affari"
+ ],
  "autogiustificarsi": [
   "autogiustificarsi, discolparsi da se"
  ],
@@ -601,6 +625,12 @@
  ],
  "autolesionarsi": [
   "autolesionarsi, farsi del male da soli"
+ ],
+ "automedicare": [
+  "automedicare, curarsi da soli, automedicarsi"
+ ],
+ "automedicarsi": [
+  "automedicarsi, curarsi da soli con farmaci propri"
  ],
  "automotivarsi": [
   "automotivarsi, motivarsi da soli"
@@ -719,6 +749,9 @@
  "begare": [
   "litigare, questionare, begare"
  ],
+ "benavere": [
+  "benavere, ottenere pace e serenità, appagarsi"
+ ],
  "benefare": [
   "far del bene"
  ],
@@ -803,6 +836,9 @@
  "calere": [
   "calere, importare, avere importanza"
  ],
+ "cambusare": [
+  "cambusare, cambusare, archiviare (una pagina di discussione)"
+ ],
  "camuffare": [
   "camuffare, travestire"
  ],
@@ -827,6 +863,9 @@
  "cappare": [
   "scegliere, prendere"
  ],
+ "carezzare": [
+  "carezzare, accarezzare, lambire"
+ ],
  "caricaturizzare": [
   "caricaturare, satirizzare in caricatura"
  ],
@@ -842,8 +881,14 @@
  "cartografare": [
   "rilevare e tracciare la mappa di un territorio"
  ],
+ "cascarci": [
+  "cascarci, cascarci, cascare, lasciarvisi ingannare"
+ ],
  "catenare": [
   "catenare, incatenare"
+ ],
+ "cattiveggiare": [
+  "cattiveggiare, affliggersi, struggersi, tormentarsi"
  ],
  "causticare": [
   "causticare, cauterizzare"
@@ -865,6 +910,9 @@
  ],
  "ciocciare": [
   "ciucciare (poppare)"
+ ],
+ "circonflettere": [
+  "circonflettere, piegare ad arco, curvare a cerchio"
  ],
  "clamare": [
   "clamare, invocare ad alta voce"
@@ -938,6 +986,9 @@
  "confederarsi": [
   "confederarsi, unirsi in confederazione"
  ],
+ "conferirsi": [
+  "conferirsi, conferire tra loro, consultarsi"
+ ],
  "confingere": [
   "falsificare, contraffare"
  ],
@@ -974,8 +1025,14 @@
  "contessere": [
   "intessere, intrecciare"
  ],
+ "controbracciare": [
+  "controbracciare, dare i controbracci (a vele e pennoni)"
+ ],
  "controrispondere": [
   "controrispondere, replicare, controrispondere a"
+ ],
+ "controvertere": [
+  "controvertere, controbattere, confutare, contraddire"
  ],
  "coobare": [
   "coobare, ristillare sul residuo (alchimia)"
@@ -1073,6 +1130,9 @@
  "decomporsi": [
   "decomporsi, disfarsi, marcire"
  ],
+ "deconcentrarsi": [
+  "deconcentrarsi, perdere la concentrazione, distrarsi"
+ ],
  "decontrarre": [
   "decontrarre, rilassare, decontrarre un muscolo"
  ],
@@ -1099,6 +1159,9 @@
  ],
  "deliziarsi": [
   "deliziarsi, compiacersi, prendersi diletto"
+ ],
+ "dementare": [
+  "dementare, far uscire di senno, far impazzire"
  ],
  "demetallizzare": [
   "demetallizzare (chimica)"
@@ -1163,6 +1226,9 @@
  "desorbire": [
   "desorbire (scaricare dati dalla memoria di lavoro)"
  ],
+ "desquamarsi": [
+  "desquamarsi, squamarsi, perdere squame o pellicole"
+ ],
  "destalinizzare": [
   "destalinizzare, eliminare l'eredita staliniana"
  ],
@@ -1178,6 +1244,12 @@
  "deteriorare": [
   "deteriorare, danneggiare, degradare"
  ],
+ "deteriorarsi": [
+  "deteriorarsi, deteriorarsi, guastarsi, deperire, marcire"
+ ],
+ "dezippare": [
+  "dezippare, decomprimere (un archivio compresso)"
+ ],
  "diagonalizzare": [
   "diagonalizzare (matematica)"
  ],
@@ -1186,6 +1258,9 @@
  ],
  "dibruscare": [
   "potare, spuntare"
+ ],
+ "diffrangersi": [
+  "diffrangersi, subire diffrazione"
  ],
  "dilettarsi": [
   "dilettarsi, dilettarsi di, compiacersi di"
@@ -1298,6 +1373,9 @@
  "disincagliarsi": [
   "disincagliarsi, tornare a galla (nave incagliata)"
  ],
+ "disincrostare": [
+  "disincrostare, togliere le incrostazioni (a un bollitore ecc.)"
+ ],
  "disincrostarsi": [
   "perdere le incrostazioni"
  ],
@@ -1310,8 +1388,14 @@
  "disinformare": [
   "disinformare, dare informazioni sbagliate"
  ],
+ "disingannare": [
+  "disingannare, disilludere, togliere dall'inganno"
+ ],
  "disingannarsi": [
   "disingannarsi, perdere le illusioni"
+ ],
+ "disinibire": [
+  "disinibire, togliere le inibizioni, sciogliere"
  ],
  "disinibirsi": [
   "perdere le inibizioni, lasciarsi andare"
@@ -1445,6 +1529,9 @@
  "disviarsi": [
   "disviarsi, sviersi, smarrir la via"
  ],
+ "disvolere": [
+  "disvolere, non volere più, cessar di volere (qualcosa)"
+ ],
  "diteggiare": [
   "adoperare le dita (in particolare nel suonare)"
  ],
@@ -1453,6 +1540,12 @@
  ],
  "divallare": [
   "scendere a valle"
+ ],
+ "diveltare": [
+  "diveltare, vangare, zappare, sminuzzare (un terreno)"
+ ],
+ "divolgere": [
+  "divolgere, volgere, girare (in una direzione)"
  ],
  "dogmatizzare": [
   "dogmatizzare, insegnare come dogma"
@@ -1466,8 +1559,14 @@
  "dondolarsi": [
   "dondolarsi, ondeggiare, oscillare, cullarsi"
  ],
+ "dorare": [
+  "dorare, indorare, dorare, placcare d'oro, tinger di oro"
+ ],
  "dormicchiare": [
   "dormicchiare, sonnecchiare, appisolarsi"
+ ],
+ "dottorarsi": [
+  "dottorarsi, conseguire il dottorato, addottorarsi"
  ],
  "dragare": [
   "dragare, scavare dal fondo con la draga"
@@ -1501,6 +1600,9 @@
  ],
  "elasticizzare": [
   "elasticizzare, dare elasticita"
+ ],
+ "eleggere": [
+  "eleggere, nominare, designare, scegliere"
  ],
  "eliminarsi": [
   "eliminarsi a vicenda, annullarsi l'un l'altro"
@@ -1538,6 +1640,9 @@
  "enfiarsi": [
   "gonfiarsi"
  ],
+ "enuclearsi": [
+  "enuclearsi, enucleare, chiarirsi, manifestarsi"
+ ],
  "equare": [
   "equare, pareggiare, livellare"
  ],
@@ -1552,6 +1657,9 @@
  ],
  "esacerbarsi": [
   "esacerbarsi, inasprirsi, aggravarsi"
+ ],
+ "esanimare": [
+  "esanimare, esanimare, scoraggiare, disanimare, avvilire"
  ],
  "esborsare": [
   "esborsare, sborsare, pagare"
@@ -1604,6 +1712,9 @@
  "estubare": [
   "estubare, rimuovere il tubo (estubazione)"
  ],
+ "esulare": [
+  "esulare, esulare, esser fuori, trascendere, estar fuori"
+ ],
  "eterizzare": [
   "eterizzare, addizionare di etere"
  ],
@@ -1634,6 +1745,9 @@
  "faccettare": [
   "sfaccettare, tagliare a faccette (gemme)"
  ],
+ "fagliare": [
+  "fagliare, fagliarsi, fratturarsi formando una faglia (geologia)"
+ ],
  "fanatizzare": [
   "fanatizzare, render fanatico"
  ],
@@ -1646,11 +1760,17 @@
  "fasciare": [
   "bendare, avvolgere con fascia"
  ],
+ "fatare": [
+  "fatare, fatare, incantare, ammaliare come fate, stregare"
+ ],
  "favellare": [
   "parlare, conversare"
  ],
  "favoleggiare": [
   "favoleggiare, narrar favole"
+ ],
+ "fedare": [
+  "fedare, insudiciare, contaminare, bruttare"
  ],
  "fedecommettere": [
   "fedecommettere, lasciare in fiducia, lasciare in fedecommesso"
@@ -1660,6 +1780,9 @@
  ],
  "federarsi": [
   "federarsi, unirsi in federazione"
+ ],
+ "fedire": [
+  "fedire, ferire, ledere, nuocere, offendere"
  ],
  "felicitare": [
   "felicitare, congratularsi con"
@@ -1730,6 +1853,9 @@
  "flambare": [
   "cuocere alla fiamma, fiammeggiare (flambe)"
  ],
+ "flautare": [
+  "flautare, flautare, sonarono il flauto, suonare il flauto"
+ ],
  "flemmatizzare": [
   "flemmatizzare, render flemmatico"
  ],
@@ -1753,6 +1879,9 @@
  ],
  "follare": [
   "follare, follonare (panno: infeltrire)"
+ ],
+ "folleggiare": [
+  "folleggiare, folleggiare, fare il pazzo, dare in bizzarie"
  ],
  "fonare": [
   "asciugare i capelli col fon"
@@ -1796,6 +1925,9 @@
  "frantumarsi": [
   "frantumarsi, spezzarsi, ridursi in frantumi"
  ],
+ "frappare": [
+  "frappare, guarnire con falpala o volantino"
+ ],
  "frapporsi": [
   "frapporsi, interporsi"
  ],
@@ -1822,6 +1954,9 @@
  ],
  "fumarsela": [
   "fumarsela, squagliarsela, svignarsela"
+ ],
+ "fumeggiare": [
+  "fumeggiare, fumare, levarsi in fumo o nebbia"
  ],
  "funghire": [
   "funghire, fare la muffa"
@@ -1913,6 +2048,9 @@
  "giovaneggiare": [
   "comportarsi da giovane"
  ],
+ "girandolare": [
+  "girandolare, girandolare, girandolare in giro, gironzolare"
+ ],
  "giravoltare": [
   "giravoltare, fare una giravolta"
  ],
@@ -1927,6 +2065,9 @@
  ],
  "giulebbarsi": [
   "giulebbarsi, doversi sorbire, sorbirsi (qualcosa)"
+ ],
+ "giuracchiare": [
+  "giuracchiare, giurare con leggerezza o senza pensieri"
  ],
  "giustapporre": [
   "giustapporre, porre l'una accanto all'altra"
@@ -1949,6 +2090,9 @@
  "goffrare": [
   "goffrare, stampare a secco in rilievo"
  ],
+ "gonadectomizzare": [
+  "gonadectomizzare, asportare chirurgicamente le gonadi"
+ ],
  "gonfiarsi": [
   "gonfiarsi, aumentare di volume"
  ],
@@ -1963,6 +2107,9 @@
  ],
  "graffare": [
   "agraffare, fermare con graffette"
+ ],
+ "graficare": [
+  "graficare, creare grafica al computer, elaborare grafica"
  ],
  "gragnolare": [
   "grandinare, venire grandine"
@@ -2063,6 +2210,9 @@
  "imbibire": [
   "imbevere, inzuppare"
  ],
+ "imbizzarrirsi": [
+  "imbizzarrirsi, scalpitare, diventare ombroso o irrequieto (cavallo)"
+ ],
  "imboiaccare": [
   "imbrattare di boiacca, stuccare le fughe"
  ],
@@ -2071,6 +2221,9 @@
  ],
  "imboschire": [
   "imboschire, metter bosco, rimboschire"
+ ],
+ "imbottare": [
+  "imbottare, imbottare, mettere in botte o botti"
  ],
  "imbracciare": [
   "imbracciare, mettersi a spalla (l'arma)"
@@ -2126,17 +2279,26 @@
  "immortalizzare": [
   "immortalizzare, render immortale"
  ],
+ "immucidire": [
+  "immucidire, ammuffire, sapere di muffa"
+ ],
  "impaccare": [
   "imballare, involtare"
  ],
  "impaciare": [
   "impaciare, finire alla pari, pareggiare, chiudere in parità"
  ],
+ "impadronire": [
+  "impadronire, rendere padrone (qualcuno di qualcosa)"
+ ],
  "impallidare": [
   "impallidire, far pallido"
  ],
  "impancare": [
   "impancare, mettere o fissare su una panca"
+ ],
+ "impannare": [
+  "impannare, impannare, coprire con panno o carta, appannare"
  ],
  "impapocchiare": [
   "imbrogliare, raggirare"
@@ -2153,6 +2315,9 @@
  "impegolare": [
   "impegolare, impeciare, spalmare di pece"
  ],
+ "impellere": [
+  "impellere, impellere, spingere con forza, incalzare, sospingere"
+ ],
  "impellicciare": [
   "impellicciare, impellettare, vestir di pelliccia"
  ],
@@ -2168,6 +2333,9 @@
  "imperlare": [
   "imperlare, guarnire di perle"
  ],
+ "imperlarsi": [
+  "imperlarsi, ornarsi o coprirsi di perle o goccioline"
+ ],
  "impermalire": [
   "irritare, far arrabbiare"
  ],
@@ -2176,6 +2344,9 @@
  ],
  "impermeabilizzarsi": [
   "impermeabilizzarsi, diventare impermeabile"
+ ],
+ "impiagare": [
+  "impiagare, coprire di piaghe, piagare, ulcerare"
  ],
  "impicciare": [
   "impicciare, importunare, dare impiccio"
@@ -2225,6 +2396,9 @@
  "impolverarsi": [
   "impolverarsi, coprirsi di polvere"
  ],
+ "impomatare": [
+  "impomatare, dare pomata a, impomatare, ungere con pomata"
+ ],
  "impoppare": [
   "impoppare, abbassarsi a poppa"
  ],
@@ -2251,6 +2425,9 @@
  ],
  "impuzzire": [
   "impuzzire, puzzare, diventare puzzolente"
+ ],
+ "inacetire": [
+  "inacetire, inacidire, acersi, tornare aceto"
  ],
  "inacutire": [
   "acuire, render piu acuto"
@@ -2305,6 +2482,9 @@
  ],
  "incannare": [
   "incannare, avvolgere su cannucci"
+ ],
+ "incapsulare": [
+  "incapsulare (tutti i sensi), incastonare, chiudere in capsula"
  ],
  "incardinare": [
   "incardinare, munire di cardini, imperniare"
@@ -2372,6 +2552,9 @@
  "incornare": [
   "incornare, colpire con le corna"
  ],
+ "incravattare": [
+  "incravattare, incravattare, mettere la cravatta a (qualcuno)"
+ ],
  "incretinirsi": [
   "incretinirsi, rincitnillirsi, imbecillirsi"
  ],
@@ -2392,6 +2575,9 @@
  ],
  "indebitare": [
   "indebitare, gravare di debiti"
+ ],
+ "indirigere": [
+  "indirizzare, voltare, rivolgere (una lettera ecc.)"
  ],
  "indolcire": [
   "indolcire, addolcire"
@@ -2471,6 +2657,9 @@
  "infragilire": [
   "infragilire, render fragile"
  ],
+ "inframezzare": [
+  "inframezzare, inframezzare, interporre, intercalare, frapporre"
+ ],
  "inframmettere": [
   "inframmettere, interporre, frapporre"
  ],
@@ -2495,6 +2684,9 @@
  "ingelosirsi": [
   "diventare geloso"
  ],
+ "ingemmare": [
+  "ingemmare, ornare o guarnire di gemme"
+ ],
  "ingenerarsi": [
   "ingenerarsi, nascere, prodursi"
  ],
@@ -2504,11 +2696,17 @@
  "ingiulebbare": [
   "giulebbare, ingiulebbare, tinger di giulebbe"
  ],
+ "ingraticolare": [
+  "ingraticolare, chiudere con graticolato o inferriata"
+ ],
  "ingraziosire": [
   "ingraziosire, render grazioso, abbellire"
  ],
  "ingrugnare": [
   "ingrugnare, fare il grugno (malumore)"
+ ],
+ "ingrullire": [
+  "ingrullire, instupidire, imbecillire, diventare grullo"
  ],
  "inguainare": [
   "inguainare, ricoprire come una guaina"
@@ -2522,6 +2720,15 @@
  "iniettarsi": [
   "iniettarsi, farsi un'iniezione di"
  ],
+ "iniziarsi": [
+  "iniziarsi, iniziarsi, cominciare, dare inizio, intraprendere"
+ ],
+ "innevarsi": [
+  "innevarsi, coprirsi di neve, imbiancare di neve"
+ ],
+ "innocentare": [
+  "innocentare, innocentare, assolvere, dichiarare innocente"
+ ],
  "innocuizzare": [
   "innocuizzare, rendere innocuo, neutralizzare"
  ],
@@ -2533,6 +2740,9 @@
  ],
  "insacchettare": [
   "insacchettare, mettere in sacchetti"
+ ],
+ "inscatolarsi": [
+  "inscatolarsi, incastrarsi uno dentro l'altro"
  ],
  "inseguire": [
   "inseguire, incalzare, braccare, rincorrere"
@@ -2555,8 +2765,17 @@
  "insudare": [
   "insudare, affannarsi, sudare pena"
  ],
+ "insugnare": [
+  "insugnare, insugnare, ungere di sugna, ingrasare con sugna"
+ ],
+ "insussurrare": [
+  "insussurrare, sussurrare all'orecchio di qualcuno"
+ ],
  "intabaccare": [
   "macchiare di tabacco"
+ ],
+ "intasarsi": [
+  "intasarsi, intasarsi, intasarsi, otturarsi, ingorgarsi"
  ],
  "intelare": [
   "intelaiare, fornire di telaio"
@@ -2587,6 +2806,9 @@
  ],
  "interfogliare": [
   "interfogliare, inserire fogli intercisi tra le pagine"
+ ],
+ "interlineare": [
+  "interlineare, distanziare, spaziare le righe"
  ],
  "intermezzare": [
   "intermezzare, interporre, intercalare"
@@ -2639,6 +2861,9 @@
  "intricare": [
   "intricare, ingarbugliare"
  ],
+ "intrippare": [
+  "intrippare, ingozzare, rimpinzare di cibo"
+ ],
  "intronizzare": [
   "intronizzare, metter sul trono, consacrare"
  ],
@@ -2647,6 +2872,9 @@
  ],
  "intrufolarsi": [
   "intrufolarsi, insinuarsi (di nascosto)"
+ ],
+ "intrugliarsi": [
+  "intrugliarsi, intricare, impelagarsi, impacciarsi"
  ],
  "intrupparsi": [
   "intrupparsi, unirsi alla truppa"
@@ -2696,8 +2924,14 @@
  "inzolfare": [
   "inzolfare, solfatare, impregnare di zolfo"
  ],
+ "inzotichirsi": [
+  "inzotichirsi, diventare zotico o rozzo, imbarbarirsi"
+ ],
  "inzuccherare": [
   "zuccherare, mescolare lo zucchero"
+ ],
+ "inzufolare": [
+  "inzufolare, abbindolare, incantare con lusinghe"
  ],
  "inzupparsi": [
   "inzupparsi, infradiciarsi, bagnarsi fino all'osso"
@@ -2723,6 +2957,9 @@
  "irrancidire": [
   "irrancidire, farsi rancido"
  ],
+ "irruvidirsi": [
+  "irruvidirsi, irruvidirsi, arruvidire, divenire ruvido"
+ ],
  "islamizzarsi": [
   "convertirsi all'Islam"
  ],
@@ -2731,6 +2968,12 @@
  ],
  "ispanizzare": [
   "ispanizzare, rendere ispanico"
+ ],
+ "istituirsi": [
+  "istituirsi, venire istituito o fondato"
+ ],
+ "istruirsi": [
+  "istruirsi, informarsi, apprendere, imparare"
  ],
  "italianizzarsi": [
   "italianizzarsi, divenir italiano (costumi)"
@@ -2746,6 +2989,9 @@
  ],
  "laconizzare": [
   "laconizzare, parlar laconico"
+ ],
+ "ladroneggiare": [
+  "ladroneggiare, fare il ladro, vivere di rapina"
  ],
  "lamare": [
   "lamare, lisciare, piallare"
@@ -2791,6 +3037,9 @@
  ],
  "legnare": [
   "legnare, percuotere con un bastone"
+ ],
+ "lellare": [
+  "lellare, indugiare, titubare, attardarsi"
  ],
  "lentare": [
   "allentare, rilasciare (lentare)"
@@ -2960,6 +3209,9 @@
  "martellinare": [
   "martellinare, bugiardare (superficie), martellina battere"
  ],
+ "marzeggiare": [
+  "marzeggiare, esser volubile (del tempo), capricciare"
+ ],
  "maschiettare": [
   "maschiettare, cardare o sfibrare (la lana)"
  ],
@@ -3061,6 +3313,9 @@
  ],
  "micronizzare": [
   "micronizzare, macinare finissimo"
+ ],
+ "mignolare": [
+  "mignolare, gemmare, buttare mignole (ulivo)"
  ],
  "millantarsi": [
   "millantarsi, vantarsi, millantar fanfaronate"
@@ -3179,17 +3434,26 @@
  "muffare": [
   "ammuffire, muffire"
  ],
+ "muffire": [
+  "muffire, ammuffire, prendersi di muffa"
+ ],
  "mugghiare": [
   "mugghiare, muggire (dei buoi ecc.)"
  ],
  "multiplexare": [
   "multiplexare, trasmettere in multiplex"
  ],
+ "munerare": [
+  "munerare, munerare, munere, remunerare, compenso, ricompensare"
+ ],
  "municipalizzare": [
   "municipalizzare, passare al comune"
  ],
  "museificare": [
   "museificare, collocare in un museo"
+ ],
+ "mussare": [
+  "mussare, mussare, spumeggiare, brillare (vino)"
  ],
  "mussitare": [
   "mormorare sottovoce, mussitare"
@@ -3337,6 +3601,9 @@
  ],
  "originarsi": [
   "originarsi, trarre origine"
+ ],
+ "orlettare": [
+  "orlettare, orlettare, bordare o millimetrare il bordo (di una moneta)"
  ],
  "ormeggiare": [
   "dare ormeggio (a una nave)"
@@ -3626,6 +3893,9 @@
  "pieghettare": [
   "pieghettare, plissettare, fare pieghe (stoffa, carta)"
  ],
+ "pietrificarsi": [
+  "pietrificarsi, pietrificare, fossilizzarsi, impietrirsi (tutti i sensi)"
+ ],
  "pigmentare": [
   "pigmentare, colorare di pigmenti"
  ],
@@ -3748,6 +4018,9 @@
  ],
  "prefare": [
   "premettere, fare da premessa"
+ ],
+ "prefazionare": [
+  "prefazionare, premettere, dotare di prefazione"
  ],
  "prefigurare": [
   "prefigurare, figurare in anticipo, prevedere"
@@ -3884,6 +4157,9 @@
  "provincializzare": [
   "provincializzare, ridurre alla provincia"
  ],
+ "provvedersi": [
+  "provvedersi, munirsi, rifornirsi, equipaggiarsi"
+ ],
  "prueggiare": [
   "prueggiare (dirigere la prua al vento)"
  ],
@@ -3974,6 +4250,9 @@
  "raccomodare": [
   "accomodare, rammendare"
  ],
+ "racconciare": [
+  "racconciare, racconciare, accomodare, riparare, rassettare"
+ ],
  "racconsolare": [
   "consolare, confortare"
  ],
@@ -4010,6 +4289,9 @@
  "raddursi": [
   "tornare, ridursi di nuovo"
  ],
+ "radicalizzare": [
+  "radicalizzare, rendere radicale, estremizzare"
+ ],
  "radiografare": [
   "radiografare, fare una radiografia a"
  ],
@@ -4024,6 +4306,9 @@
  ],
  "raffilare": [
   "raffilare, affilare di nuovo, riaffilare"
+ ],
+ "raffinire": [
+  "raffinire, raffinarsi, diventare più fine"
  ],
  "raffittire": [
   "addensare, infittire"
@@ -4057,6 +4342,15 @@
  ],
  "raggrumolare": [
   "raccogliere in grumi"
+ ],
+ "raggruzzolare": [
+  "raggruzzolare, racimolare, raggranellare, risparmiare"
+ ],
+ "ragionacchiare": [
+  "ragionacchiare, ragionare con poco criterio o logica"
+ ],
+ "ragnare": [
+  "ragnare, ragnare, uccellare con reti sottili (ragni)"
  ],
  "rallargare": [
   "rallargare, allargare di nuovo"
@@ -4139,6 +4433,9 @@
  "raschiettare": [
   "raschiare, grattar via con raschietto"
  ],
+ "rasciugare": [
+  "rasciugare, asciugare del tutto, disseccare"
+ ],
  "raspare": [
   "raschiare, grattare aspramente"
  ],
@@ -4150,6 +4447,9 @@
  ],
  "rassodarsi": [
   "rassodarsi, tonificarsi"
+ ],
+ "rassottigliare": [
+  "rassottigliare, assottigliare di nuovo o più, smagrire"
  ],
  "ratinare": [
   "ratinare, rattinare (panno: alzare il pelo)"
@@ -4274,6 +4574,9 @@
  "reimprimere": [
   "reimprimere, ristampare"
  ],
+ "reincarcerare": [
+  "reincarcerare, reincarcerare, incarcerare di nuovo, reimprigionare"
+ ],
  "reincaricare": [
   "reincaricare, ricaricare (incarico)"
  ],
@@ -4319,6 +4622,9 @@
  "reinsediarsi": [
   "reinsediarsi, reinsediare (profughi), rimettere a sedere"
  ],
+ "reinserire": [
+  "reinserire, reinserire, inserire di nuovo, reintrodurre"
+ ],
  "reinsorgere": [
   "reinsorgere, risorgere o ribellarsi di nuovo"
  ],
@@ -4333,6 +4639,9 @@
  ],
  "reintervenire": [
   "intervenire di nuovo"
+ ],
+ "reintrodurre": [
+  "reintrodurre, introdurre di nuovo, reinserire"
  ],
  "reintrodursi": [
   "reintrodursi, rientrare"
@@ -4382,6 +4691,9 @@
  "residuare": [
   "residuare, restare come residuo"
  ],
+ "resumere": [
+  "resumere, riprendere, riafferrare, riacquistare"
+ ],
  "retentire": [
   "retentire, risonare, risuonare"
  ],
@@ -4409,8 +4721,17 @@
  "riabboccare": [
   "abboccare di nuovo"
  ],
+ "riabbonare": [
+  "riabbonare, rinnovare l'abbonamento a"
+ ],
  "riabbottonare": [
   "abbottonare di nuovo"
+ ],
+ "riabbracciarsi": [
+  "riabbracciarsi, riabbracciarsi, ritrovarsi, rivedersi"
+ ],
+ "riabilitarsi": [
+  "riabilitarsi, riconquistare la propria reputazione"
  ],
  "riabitare": [
   "riabitare, abitare di nuovo"
@@ -4454,6 +4775,9 @@
  "riaccertare": [
   "riaccertare, verificare di nuovo"
  ],
+ "riaccettare": [
+  "riaccettare, riaccettare, accettare di nuovo"
+ ],
  "riacclimatare": [
   "riacclimatare, acclimatare di nuovo"
  ],
@@ -4477,6 +4801,9 @@
  ],
  "riaccreditare": [
   "riaccreditare, accreditare di nuovo"
+ ],
+ "riaccucciarsi": [
+  "riaccucciarsi, accucciarsi di nuovo, riaccovacciarsi"
  ],
  "riaccusare": [
   "riaccusare, accusare di nuovo"
@@ -4558,6 +4885,9 @@
  ],
  "riaggiustare": [
   "riaggiustare, sistemare di nuovo"
+ ],
+ "riaggiustarsi": [
+  "riaggiustarsi, riappacificarsi, riconciliarsi"
  ],
  "riaggravarsi": [
   "aggravarsi di nuovo, peggiorare di nuovo"
@@ -4669,6 +4999,9 @@
  ],
  "riappellarsi": [
   "riappellarsi, appellarsi di nuovo"
+ ],
+ "riappendere": [
+  "riappendere, appendere di nuovo (un quadro ecc.)"
  ],
  "riappianare": [
   "riappianare, livellare di nuovo"
@@ -4796,11 +5129,17 @@
  "riassuefare": [
   "riassuefare, assuefare di nuovo"
  ],
+ "riattaccarsi": [
+  "riattaccarsi, attaccarsi di nuovo, riunirsi"
+ ],
  "riatterrare": [
   "atterrare di nuovo"
  ],
  "riattingere": [
   "riattingere, attingere di nuovo (un liquido)"
+ ],
+ "riattizzare": [
+  "riattizzare, riattizzare, attizzare di nuovo, rinfiammare"
  ],
  "riattorcere": [
   "attorcigliare di nuovo"
@@ -4816,6 +5155,9 @@
  ],
  "riaumentare": [
   "riaumentare, aumentare di nuovo"
+ ],
+ "riavvallare": [
+  "riavvallare, riavvallarsi, riavvallarsi di nuovo, franare di nuovo"
  ],
  "riavvampare": [
   "divampare di nuovo"
@@ -4846,6 +5188,9 @@
  ],
  "riavvisare": [
   "riavvisare, avvisare di nuovo"
+ ],
+ "riavvitare": [
+  "riavvitare, avvitare di nuovo, serrare di nuovo"
  ],
  "riavviticchiare": [
   "avvitare di nuovo, riavvolgere"
@@ -4895,6 +5240,9 @@
  "ribeccare": [
   "beccare di nuovo, ribeccar esi"
  ],
+ "ribellare": [
+  "ribellare, sobillare, ribellare, spingere alla rivolta, istigare"
+ ],
  "ribenedire": [
   "ribenedire, benedire di nuovo"
  ],
@@ -4916,6 +5264,9 @@
  "ribruscolare": [
   "grattare di nuovo"
  ],
+ "ribucare": [
+  "ribucare, bucare o forare di nuovo"
+ ],
  "riburlare": [
   "riburlare, burlarsi di nuovo"
  ],
@@ -4927,6 +5278,9 @@
  ],
  "ricacciare": [
   "cacciare di nuovo"
+ ],
+ "ricacciarsi": [
+  "ricacciarsi, ricacciarsi, ricacciarsi dentro (nei guai)"
  ],
  "ricalare": [
   "calare di nuovo"
@@ -4951,6 +5305,9 @@
  ],
  "ricanalizzare": [
   "ricanalizzare, incanalare di nuovo"
+ ],
+ "ricandidare": [
+  "ricandidare, ricandidare, candidare di nuovo (un candidato)"
  ],
  "ricantare": [
   "ricantare, cantar di nuovo"
@@ -4982,11 +5339,20 @@
  "ricenare": [
   "cenar di nuovo"
  ],
+ "ricensurare": [
+  "ricensurare, censurare o biasimare di nuovo"
+ ],
  "ricerchiare": [
   "cerchiare di nuovo, circoscrivere di nuovo"
  ],
+ "ricernere": [
+  "ricernere, discernere o scegliere di nuovo, riselezionare"
+ ],
  "richinare": [
   "chinarsi di nuovo"
+ ],
+ "ricingere": [
+  "ricingere, cingere o circondare di nuovo"
  ],
  "riciondolare": [
   "riciondolare, ciondolare di nuovo, oscillare di nuovo"
@@ -5048,14 +5414,23 @@
  "ricompattarsi": [
   "ricompattarsi, riassestarsi compatte"
  ],
+ "ricompiere": [
+  "ricompiere, compiere o completare di nuovo"
+ ],
  "ricompilare": [
   "ricompilare, compilare di nuovo"
+ ],
+ "ricompitare": [
+  "ricompitare, compitare di nuovo, risillabare"
  ],
  "ricomprimere": [
   "ricomprimere, comprimere di nuovo"
  ],
  "ricomprovare": [
   "ricomprovare, comprovar di nuovo"
+ ],
+ "ricomputare": [
+  "ricomputare, computare o ricalcolare di nuovo"
  ],
  "riconcedere": [
   "riconcedere, concedere di nuovo, ridare"
@@ -5075,6 +5450,9 @@
  "riconcorrere": [
   "riconcorrere, concorrere di nuovo"
  ],
+ "ricondannare": [
+  "ricondannare, condannare di nuovo (in giudizio)"
+ ],
  "ricondensare": [
   "ricondensare, condensare di nuovo"
  ],
@@ -5089,6 +5467,9 @@
  ],
  "riconfezionare": [
   "riconfezionare, rinconfezionare"
+ ],
+ "riconficcare": [
+  "riconficcare, conficcare o piantare di nuovo"
  ],
  "riconfidare": [
   "riconfidare, confidare di nuovo"
@@ -5120,11 +5501,17 @@
  "riconfutare": [
   "riconfutare, confutare di nuovo"
  ],
+ "ricongedare": [
+  "ricongedare, congedare di nuovo, accommiatare di nuovo"
+ ],
  "ricongegnare": [
   "ricongegnare, rimettere i ceppi"
  ],
  "ricongelare": [
   "ricongelare, gelare di nuovo"
+ ],
+ "riconiare": [
+  "riconiare, coniare o riversare di nuovo (monete)"
  ],
  "riconnettere": [
   "riconnettere, riannodare, ricollegare"
@@ -5137,6 +5524,9 @@
  ],
  "riconsiderare": [
   "riconsiderare, ponderar di nuovo"
+ ],
+ "riconsigliare": [
+  "riconsigliare, consigliare di nuovo, raccomandare ancora"
  ],
  "riconsolare": [
   "riconsolare, consolare di nuovo"
@@ -5185,6 +5575,9 @@
  ],
  "ricoronare": [
   "ricoronare, incoronare di nuovo"
+ ],
+ "ricorreggere": [
+  "ricorreggere, correggere di nuovo, ritoccare"
  ],
  "ricospargere": [
   "ricospargere, cospargere di nuovo di"
@@ -5252,6 +5645,9 @@
  "ridigitare": [
   "ridigitare, riscrivere al computer"
  ],
+ "ridileguare": [
+  "ridileguare, dileguare o disperdere di nuovo"
+ ],
  "ridiminuire": [
   "diminuire di nuovo, ridurre di nuovo"
  ],
@@ -5311,6 +5707,9 @@
  ],
  "ridivorare": [
   "ridivorare, divorare di nuovo"
+ ],
+ "ridolere": [
+  "ridolere, dolere di nuovo, tornare a dolere"
  ],
  "ridomare": [
   "domare di nuovo"
@@ -5405,6 +5804,9 @@
  "riespugnare": [
   "riespugnare, espugnare di nuovo, riconquistare"
  ],
+ "riessere": [
+  "riessere, riessere, essere di nuovo nello stesso posto, ritrovarsi"
+ ],
  "riestasiare": [
   "mandare in estasi di nuovo"
  ],
@@ -5477,6 +5879,9 @@
  "rifirmare": [
   "rifirmare, firmare di nuovo"
  ],
+ "rifischiare": [
+  "rifischiare, fischiare di nuovo o in risposta"
+ ],
  "riflagellare": [
   "flagellare di nuovo"
  ],
@@ -5486,8 +5891,17 @@
  "rifolgorare": [
   "rifolgorare, folgorare di nuovo, risplendere"
  ],
+ "rifomentare": [
+  "rifomentare, fomentare di nuovo, riacutizzare"
+ ],
  "rifondare": [
   "rifondare, fondare di nuovo"
+ ],
+ "rifondere": [
+  "rifondere, fondere di nuovo (metallo, cera ecc.)"
+ ],
+ "riforare": [
+  "riforare, forare o trafiggere di nuovo"
  ],
  "riforbire": [
   "riforbire, forbire di nuovo, pulire di nuovo"
@@ -5600,6 +6014,9 @@
  "riguarnire": [
   "guarnire di nuovo"
  ],
+ "riguastare": [
+  "riguastare, guastare o danneggiare di nuovo"
+ ],
  "riguidare": [
   "guidare di nuovo"
  ],
@@ -5609,8 +6026,14 @@
  "rigustare": [
   "gustare di nuovo, assaporare di nuovo"
  ],
+ "rilacerare": [
+  "rilacerare, lacerare di nuovo, squarciare di nuovo"
+ ],
  "rilacrimare": [
   "lacrimare di nuovo, sparger lacrime"
+ ],
+ "rilagnarsi": [
+  "rilagnarsi, lagnarsi di nuovo, protestare di nuovo"
  ],
  "rilamentare": [
   "rilamentare, lamentare di nuovo"
@@ -5626,6 +6049,9 @@
  ],
  "rilavare": [
   "rilavare, lavare di nuovo"
+ ],
+ "rileccare": [
+  "rileccare, leccare di nuovo o più volte"
  ],
  "rilegare": [
   "rilegare, rilegar (libri)"
@@ -5662,6 +6088,9 @@
  ],
  "rimaledire": [
   "rimaledire, maledire di nuovo"
+ ],
+ "rimangiare": [
+  "rimangiare, mangiare di nuovo (dopo intervallo), ruminare"
  ],
  "rimangiarsi": [
   "rimangiarsi, ritirare (la parola data)"
@@ -5765,6 +6194,9 @@
  "rimodellare": [
   "rimodellare, rimodellare forme nuove"
  ],
+ "rimoderare": [
+  "rimoderare, moderare di nuovo o più"
+ ],
  "rimodernare": [
   "rimodernare, modernizzare"
  ],
@@ -5849,6 +6281,9 @@
  "rimpiccinire": [
   "rimpiccinire, ridimensionare, far piccino"
  ],
+ "rimpiccolirsi": [
+  "rimpiccolirsi, impiccolire, diventare più piccolo, scemare"
+ ],
  "rimpietosire": [
   "impietosire di nuovo, muovere di nuovo a pietà"
  ],
@@ -5900,6 +6335,9 @@
  "rimutarsi": [
   "rimutarsi, mutare opinione"
  ],
+ "rinarrare": [
+  "rinarrare, narrare o raccontare di nuovo"
+ ],
  "rinascondere": [
   "rinascondere, nascondere di nuovo, ricelare"
  ],
@@ -5914,6 +6352,9 @@
  ],
  "rincalorire": [
   "rincalorire, riscaldare di nuovo, infiammarsi"
+ ],
+ "rincanagliarsi": [
+  "rincanagliarsi, incanaglirsi, imbarbarirsi, imbruttirsi"
  ],
  "rincanalare": [
   "rincanalare, incanalar di nuovo"
@@ -5941,6 +6382,9 @@
  ],
  "rincassare": [
   "rincassare, incassare di nuovo"
+ ],
+ "rincastrare": [
+  "rincastrare, incastro o incastonare di nuovo"
  ],
  "rincattivire": [
   "rincattivire, incattivirsi di nuovo"
@@ -6073,6 +6517,12 @@
  ],
  "rinformare": [
   "rinformare, informare di nuovo"
+ ],
+ "rinfornare": [
+  "rinfornare, rinfornare, infornare di nuovo, ricuocere al forno"
+ ],
+ "rinfossare": [
+  "rinfossare, infossare di nuovo o più, scavare"
  ],
  "rinfradiciare": [
   "rinfradiciare, inzuppare di nuovo"
@@ -6251,11 +6701,17 @@
  "rinvergare": [
   "rinvergare, rinvenir, ritrovar (per caso)"
  ],
+ "rinverminire": [
+  "rinverminire, rinvermire, tornare brulicante di vermi"
+ ],
  "rinverniciare": [
   "rinverniciare, riverniciare"
  ],
  "rinvilire": [
   "svilire, abbassare il valore"
+ ],
+ "rinviluppare": [
+  "rinviluppare, avviluppare di nuovo o più stretto"
  ],
  "rinvitare": [
   "rinvitare, invitare di nuovo"
@@ -6268,6 +6724,9 @@
  ],
  "rinvolgere": [
   "rinvolgere, avvolgere di nuovo"
+ ],
+ "rinvoltare": [
+  "rinvoltare, involtare di nuovo, ravvoltolare"
  ],
  "rinvoltolare": [
   "rinvoltolare, avvoltolare, involtare su se stesso"
@@ -6365,6 +6824,9 @@
  "riperdere": [
   "riperdere, perdere di nuovo (qualcosa)"
  ],
+ "riperpetrare": [
+  "riperpetrare, perpetrare o commettere di nuovo"
+ ],
  "riperseguitare": [
   "perseguitare di nuovo"
  ],
@@ -6388,6 +6850,12 @@
  ],
  "ripiastrellare": [
   "ripiastrellare, rimettere le piastrelle"
+ ],
+ "ripicchettare": [
+  "ripicchettare, picchettare di nuovo, tutorare di nuovo (piante)"
+ ],
+ "ripicchiare": [
+  "ripicchiare, picchiare o battere di nuovo"
  ],
  "ripigiare": [
   "ripigiare, pigiare di nuovo"
@@ -6451,6 +6919,12 @@
  ],
  "riprofumare": [
   "riprofumare, profumare o aromatizzare di nuovo"
+ ],
+ "riprogettare": [
+  "riprogettare, ridisegnare, riplasmare un progetto"
+ ],
+ "ripronunciare": [
+  "ripronunciare, pronunciare o articolare di nuovo"
  ],
  "riprosperare": [
   "prosperare di nuovo"
@@ -6577,6 +7051,9 @@
  ],
  "riserrare": [
   "richiudere, serrare di nuovo"
+ ],
+ "riservare": [
+  "riservare, serbare, accantonare, tenere da parte"
  ],
  "riservire": [
   "riservire, servire di nuovo"
@@ -6805,6 +7282,9 @@
  ],
  "ritassare": [
   "tassare di nuovo"
+ ],
+ "ritastare": [
+  "ritastare, tastare o palpeggiare di nuovo, sondare di nuovo"
  ],
  "ritelefonare": [
   "ritelefonare, telefonare di nuovo"
@@ -7094,6 +7574,9 @@
  "sbaionettare": [
   "colpir con la baionetta, sbaionettare"
  ],
+ "sbaldanzire": [
+  "sbaldanzire, scoraggiare, disanimare, avvilire"
+ ],
  "sbaldire": [
   "rallegrarsi, esultare (sbaldire)"
  ],
@@ -7187,6 +7670,9 @@
  "sbisciare": [
   "sbisciare, strisciare come serpe"
  ],
+ "sbisoriare": [
+  "sbisoriare, sbisbigliare, pregare borbottando a mezza voce"
+ ],
  "sbocciolare": [
   "sfoltire i boccioli, cimare"
  ],
@@ -7195,6 +7681,9 @@
  ],
  "sbonzolare": [
   "ciondolare, ballonzolare, sbonzolare"
+ ],
+ "sborbottare": [
+  "sborbottare, sgridare, rampognare, punzecchiare"
  ],
  "sbordare": [
   "disfare l'orlo, togliere il bordo"
@@ -7382,6 +7871,9 @@
  "scellerare": [
   "macchiarsi di colpa"
  ],
+ "scentrare": [
+  "scentrare, spostare dal centro, decentrare"
+ ],
  "scerbare": [
   "sarchiare, togliere le erbacce"
  ],
@@ -7538,6 +8030,9 @@
  "sconcatenare": [
   "sconcatenare, separare gli anelli"
  ],
+ "sconciare": [
+  "sconciare, guastare, sciupare, rovinare"
+ ],
  "sconcordare": [
   "discordare, essere in disaccordo"
  ],
@@ -7549,6 +8044,9 @@
  ],
  "scongiungere": [
   "scongiungere, disgiungere, separare"
+ ],
+ "sconsolare": [
+  "sconsolare, scoraggiare, sconfortare, disanimare"
  ],
  "scontarla": [
   "scontarla, pagar cara (la cosa), espiarla"
@@ -7730,6 +8228,9 @@
  "sfaccendare": [
   "sfaccendare, sfacchinare, darsi da fare"
  ],
+ "sfagliare": [
+  "sfagliare, scartare (una carta da gioco)"
+ ],
  "sfaldellare": [
   "sgretolare, sfaldellarsi"
  ],
@@ -7757,6 +8258,9 @@
  "sfascicolare": [
   "sfascicolare, slegare (ad es. un libro)"
  ],
+ "sfaticare": [
+  "sfaticare, faticare, sgobbare, affaticarsi"
+ ],
  "sfavillare": [
   "sfavillare, brillare a faville"
  ],
@@ -7778,6 +8282,9 @@
  "sfiancarsi": [
   "spossarsi"
  ],
+ "sfiatare": [
+  "sfiatare, sfiatare, sfogare aria o gas, sbuffare"
+ ],
  "sfibbiare": [
   "sfibbiare, slacciare la fibbia"
  ],
@@ -7789,6 +8296,12 @@
  ],
  "sfiondare": [
   "lanciare con la fionda"
+ ],
+ "sfiorettare": [
+  "sfiorettare, abusare di un linguaggio fiorito e lezioso"
+ ],
+ "sfittare": [
+  "sfittare, lasciare libero un alloggio o podere affittato"
  ],
  "sfittire": [
   "diradare, sfoltirsi"
@@ -7856,6 +8369,9 @@
  "sgomitolare": [
   "sgomitolare, dipanare il gomitolo"
  ],
+ "sgottare": [
+  "sgottare, sgottare, aggottare, vuotare l'acqua a secchiate"
+ ],
  "sgovernare": [
   "sgovernare, malgovernare"
  ],
@@ -7864,6 +8380,12 @@
  ],
  "sgranchire": [
   "sgranchire, sciogliere le membra"
+ ],
+ "sgranchirsi": [
+  "sgranchirsi, sciogliere le membra distendendosi"
+ ],
+ "sgrappare": [
+  "sgrappare, strappare o divellere con forza"
  ],
  "sgratare": [
   "sgratare, disgradire, dispiacere"
@@ -7889,6 +8411,9 @@
  "sgrovigliare": [
   "sgrovigliare, sgrossare, sgarbugliare, dipanare"
  ],
+ "sgrugnare": [
+  "sgrugnare, colpire in viso con un pugno"
+ ],
  "sguiggiare": [
   "sguiggiare, strappare la cinghia a"
  ],
@@ -7912,6 +8437,9 @@
  ],
  "simmetrizzare": [
   "simmetrizzare, render simmetrico"
+ ],
+ "simoneggiare": [
+  "simoneggiare, esercitare simonia, trafficare in cose sacre"
  ],
  "sincerare": [
   "sincerare, darsi pena, assicurare"
@@ -8168,6 +8696,9 @@
  "sopraccomperare": [
   "comprare oltre il bisogno, sovraccomperare"
  ],
+ "sopraccorrere": [
+  "sopraccorrere, accorrere in aiuto (in un luogo)"
+ ],
  "sopraccrescere": [
   "ricrescere sopra, invadere crescendo"
  ],
@@ -8414,11 +8945,20 @@
  "spidocchiare": [
   "spidocchiare, togliere i pidocchi"
  ],
+ "spignorare": [
+  "spignorare, riscattare (dal monte dei pegni)"
+ ],
  "spigolare": [
   "spigolare, raccogliere le spighe residue"
  ],
  "spigrire": [
   "destare all'azione, stimolare"
+ ],
+ "spillaccherare": [
+  "spillaccherare, pulire da schizzi di fango"
+ ],
+ "spilluzzicare": [
+  "spilluzzicare, spiluzzicare, piluccare, assaggiucchiare"
  ],
  "spiombare": [
   "dissigillare, togliere il piombo"
@@ -8449,6 +8989,9 @@
  ],
  "sporre": [
   "sporre, spiegare, illustrare, chiarire"
+ ],
+ "sportellare": [
+  "sportellare, aprire lo sportello di (un'automobile)"
  ],
  "spossedere": [
   "spossessere, spogliare del possesso"
@@ -8558,6 +9101,9 @@
  "stiracchiarsi": [
   "stirarsi, distendersi"
  ],
+ "stivalare": [
+  "stivalare, camminare calzando stivali, stare in stivali"
+ ],
  "stogliere": [
   "stogliere, togliere, levare"
  ],
@@ -8570,11 +9116,17 @@
  "stordirsi": [
   "stordirsi, istupidirsi, rintronarsi"
  ],
+ "stormeggiare": [
+  "stormeggiare, frusciare, brulicare come uno sciame"
+ ],
  "stozzare": [
   "formare a stampo (stozzare, metallurgia)"
  ],
  "strabiliare": [
   "strabiliare, stupire, meravigliare"
+ ],
+ "strabiliarsi": [
+  "strabiliarsi, sbalordirsi, restare stupefatto"
  ],
  "stracannare": [
   "riavvolgere (nastro, pellicola)"
@@ -8584,6 +9136,9 @@
  ],
  "stracuocere": [
   "stracuocere, cuocere troppo"
+ ],
+ "strafare": [
+  "strafare, esagerare, fare troppo, esorbitare"
  ],
  "strafregarsene": [
   "infischiarsene del tutto"
@@ -8618,11 +9173,17 @@
  "strigare": [
   "dipanare, disfare (strigare)"
  ],
+ "striminzire": [
+  "striminzire, far magro o sottile, assottigliare"
+ ],
  "strinare": [
   "strinare, bruciacchiare senza fiamma"
  ],
  "strinarsi": [
   "strinarsi, bruciacchiarsi"
+ ],
+ "stringare": [
+  "stringare, condensare, far conciso"
  ],
  "strombare": [
   "allargare a strombo, svasare"
@@ -8638,6 +9199,9 @@
  ],
  "strutturalizzare": [
   "strutturalizzare, dar struttura"
+ ],
+ "studiacchiare": [
+  "studiacchiare, studiare poco o a singhiozzi, studiare svogliatamente"
  ],
  "stuellare": [
   "tamponare, fare tamponamento (medicina)"
@@ -8822,6 +9386,9 @@
  "telemetrare": [
   "telemetrare, misurare a distanza"
  ],
+ "teleriscaldare": [
+  "teleriscaldare, fornire riscaldamento a distanza (urbano)"
+ ],
  "teletrasportarsi": [
   "teletrasportarsi, essere teletrasportato"
  ],
@@ -8906,6 +9473,9 @@
  "tintinnire": [
   "sonare, tintinnare"
  ],
+ "tippare": [
+  "tippare, scrivere a macchina, dattilografare"
+ ],
  "toccolare": [
   "bussare a una porta"
  ],
@@ -8914,6 +9484,9 @@
  ],
  "tonalizzare": [
   "tonalizzare, tingere i capelli"
+ ],
+ "tonchiare": [
+  "tonchiare, esser roso dal tonchio (legumi, granaglie)"
  ],
  "tondere": [
   "tosare, tondere"
@@ -8972,6 +9545,9 @@
  "trafilare": [
   "trafilare, tirare in filo"
  ],
+ "trambasciare": [
+  "trambasciare, tribolare, angustiarsi, esser sopraffatto dall'angoscia"
+ ],
  "tramescolare": [
   "tramescolare, mescolare frammischiando"
  ],
@@ -9008,6 +9584,9 @@
  "transustanziarsi": [
   "transustanziarsi"
  ],
+ "trapungere": [
+  "trapungere, pungere o trafiggere violentemente"
+ ],
  "trapuntare": [
   "trapuntare, imbottire e cucire a trapunta"
  ],
@@ -9028,6 +9607,9 @@
  ],
  "trasmigrare": [
   "trasmigrare, emigrare, migrare altrove"
+ ],
+ "trasmutare": [
+  "trasmutare, tramutare, trasformare"
  ],
  "trasricchire": [
   "arricchire oltre misura"
@@ -9113,6 +9695,9 @@
  "ubiquitinare": [
   "ubiquitinare (biologia: legare l'ubiquitina)"
  ],
+ "uccellinare": [
+  "uccellinare, pigliare uccelletti vivi (con lacci o reti)"
+ ],
  "uggiolare": [
   "uggiolare, guaire"
  ],
@@ -9142,6 +9727,9 @@
  ],
  "urgenzare": [
   "sollecitare come urgente (burocratese)"
+ ],
+ "urtacchiare": [
+  "urtacchiare, urtare o cozzare ripetutamente"
  ],
  "usarsi": [
   "usarsi, essere in uso"
@@ -9212,6 +9800,9 @@
  "vedovare": [
   "far restare vedovo, vedovare"
  ],
+ "vegliare": [
+  "vegliare, vigilare, assistere, custodire"
+ ],
  "velarizzare": [
   "velarizzare (fonetica)"
  ],
@@ -9248,6 +9839,9 @@
  "vetrinare": [
   "smaltare, vetrinare"
  ],
+ "vigliare": [
+  "vigliare, spazzare e raccogliere dopo la trebbiatura"
+ ],
  "vigoreggiare": [
   "vigoreggiare, essere in pieno vigore"
  ],
@@ -9256,6 +9850,9 @@
  ],
  "villeggiare": [
   "villeggiare, passare le vacanze"
+ ],
+ "virilizzare": [
+  "virilizzare, virilizzare, rendere virile, mascolinizzare"
  ],
  "virtualizzare": [
   "virtualizzare (informatica)"
@@ -9325,6 +9922,9 @@
  ],
  "zompare": [
   "saltare (popolare)"
+ ],
+ "zonizzare": [
+  "zonizzare, zonizzare, suddividere in zone"
  ],
  "zoomare": [
   "ingrandire o ridurre con lo zoom"
