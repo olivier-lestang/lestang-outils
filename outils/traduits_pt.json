@@ -266,6 +266,10 @@
  "almoedar": [
   "leiloar"
  ],
+ "almoçar": [
+  "almoçar, fazer a refeição do meio-dia, almoçar",
+  "almoçar, comer alguma coisa no almoço, ter por almoço"
+ ],
  "alquimizar": [
   "alquimizar, transmutar por alquimia, alquimizar"
  ],
@@ -473,6 +477,10 @@
  "apavorar": [
   "apavorar, aterrorizar"
  ],
+ "apaziguar": [
+  "apaziguar, acalmar, pacificar",
+  "apaziguar, reconciliar, pôr de acordo"
+ ],
  "apedrejar": [
   "apedrejar, apedrar, atirar pedras a"
  ],
@@ -491,6 +499,10 @@
  "aperrear": [
   "aperrear, atiçar o cão"
  ],
+ "apetecer": [
+  "apetecer, desejar, ter vontade de",
+  "apetecer, agradar, ser do interesse de"
+ ],
  "apiedar": [
   "apiedar, apiedar-se de, ter pena de"
  ],
@@ -508,6 +520,12 @@
  ],
  "apologizar": [
   "apologizar, apologizar, apologizar (fazer apologia ou defesa)"
+ ],
+ "apontar": [
+  "apontar, indicar, assinalar",
+  "apontar, referir, mencionar",
+  "apontar, citar, aduzir ( razão, prova )",
+  "apontar, apontar com o dedo, apontar para"
  ],
  "aporrinhar": [
   "amolar, importunar"
@@ -541,6 +559,13 @@
  ],
  "approvar": [
   "grafia pré-reforma ( até 1943 no Brasil e 1911 em Portugal ) de aprovar"
+ ],
+ "apresilhar": [
+  "apresilhar, prender com presilha, fixar com presilha"
+ ],
+ "apressar": [
+  "apressar, apressar-se, dar pressa a",
+  "apressar, atropelar, acelerar"
  ],
  "apresuntar": [
   "apresuntar, preparar em forma de presunto"
@@ -611,6 +636,12 @@
  "arraigar": [
   "enraizar, criar raízes"
  ],
+ "arranjar": [
+  "arranjar, arrumar, dispor",
+  "arranjar, organizar, coordenar",
+  "arranjar, providenciar, obter",
+  "arranjar, consertar, reparar"
+ ],
  "arrebanhar": [
   "arrebanhar, ajuntar-se em bando, andar em rebanho"
  ],
@@ -646,6 +677,9 @@
  ],
  "arroubar": [
   "arroubar, enlevar"
+ ],
+ "arrozar": [
+  "arrozar, permanecer passivo, atuar em papel secundário ( sem iniciativa, sobretudo em romance )"
  ],
  "arruar": [
   "alinhar em ruas, traçar ruas"
@@ -752,6 +786,16 @@
  "atracar": [
   "atracar, acostar"
  ],
+ "atrapalhar": [
+  "atrapalhar, perturbar, estorvar",
+  "atrapalhar, embaralhar, estragar"
+ ],
+ "atrasar": [
+  "atrasar, retardar, adiar",
+  "atrasar, atrasar-se, chegar atrasado",
+  "atrasar, estorvar o progresso, travar",
+  "atrasar, adiar, transferir para depois"
+ ],
  "atrever": [
   "ousar"
  ],
@@ -776,6 +820,9 @@
  "atufar": [
   "atufar, encher; abarrotar"
  ],
+ "aturar": [
+  "aturar, tolerar, aguentar, suportar ( sem reclamar )"
+ ],
  "auferir": [
   "colher, obter, receber"
  ],
@@ -788,6 +835,10 @@
  "aulir": [
   "aulir, ladrar contra, ladrar a (cão)"
  ],
+ "aumentar": [
+  "aumentar, crescer, tornar-se maior",
+  "aumentar, fazer crescer, ampliar"
+ ],
  "aureolar": [
   "aureolar, cingir de aureola ou halo"
  ],
@@ -796,6 +847,9 @@
  ],
  "autenticar": [
   "autuar, validar, certificar como autêntico"
+ ],
+ "auto-sabotar": [
+  "grafia pré-reforma ( até 1990 ) de autossabotar; ainda usada onde o acordo não vigora, podendo ocorrer como erro de grafia"
  ],
  "autocompletar": [
   "autocompletar"
@@ -817,6 +871,11 @@
  ],
  "avellar": [
   "avellar, secar até enrugar ou enrugitar"
+ ],
+ "aventurar": [
+  "aventurar, arriscar-se, expor ao risco",
+  "aventurar, partir para a aventura",
+  "aventurar, arriscar, pôr em risco"
  ],
  "avessar": [
   "avessar, inverter, revirar, pôr de pernas para o ar"
@@ -917,8 +976,15 @@
  "bancar": [
   "bancar, custear, financiar"
  ],
+ "banhar": [
+  "banhar, dar banho a, limpar com água",
+  "banhar, banhar as margens de ( país ou região )"
+ ],
  "banquetear": [
   "banquetear, banquetear, banquetear (dar ou participar de banquete)"
+ ],
+ "baptizar": [
+  "grafia pré-reforma ( até 1943 no Brasil e 1990 em Portugal ) de batizar; ainda usada onde o acordo não vigora, podendo ocorrer como erro de grafia"
  ],
  "baratar": [
   "baratar, vender barato"
@@ -1082,6 +1148,9 @@
  "bruxulear": [
   "bruxulear, bruxulear, brilhar vacilante, tremular"
  ],
+ "buffar": [
+  "buffar, fortalecer ( personagem ou habilidade, gíria de jogo ), dar buff"
+ ],
  "bugar": [
   "bugar, sofrer bugs ou defeitos técnicos, travar"
  ],
@@ -1124,6 +1193,9 @@
  "cagar": [
   "cagar, defecar"
  ],
+ "cagüetar": [
+  "grafia pré-reforma ( até 1990 no Brasil e 1945 em Portugal ) de caguetar; pode ainda ocorrer como erro de grafia"
+ ],
  "caitar": [
   "caitar, caitar ( atacar recuando, sem deixar que o inimigo alcance, gíria de jogo )"
  ],
@@ -1141,6 +1213,12 @@
  ],
  "camperar": [
   "acampar em posição vantajosa (jogo)"
+ ],
+ "canelar": [
+  "canelar, acanalar, fazer estrias, sulcos ou caneluras em ( p. ex. com o arado )"
+ ],
+ "canetar": [
+  "canetar, despachar burocraticamente ( autenticar ou sancionar por assinatura )"
  ],
  "cangotear": [
   "agarrar pela nuca"
@@ -1259,6 +1337,10 @@
  "centrifugar": [
   "centrifugar"
  ],
+ "cercar": [
+  "cercar, sitiar, pôr sítio a",
+  "cercar, rodear, circundar"
+ ],
  "cerimoniar": [
   "cerimoniar, presidir; ser anfitrião"
  ],
@@ -1315,6 +1397,12 @@
  ],
  "chinar": [
   "apunhalar"
+ ],
+ "chocar": [
+  "chocar, chocar ( ave incubando ), chocar ovos",
+  "chocar, eclodir ( do ovo )",
+  "chocar, demorar-se, tardar",
+  "chocar, azedar pelo calor, tornar-se insípido"
  ],
  "chonar": [
   "dormir"
@@ -1406,8 +1494,17 @@
  "colear": [
   "coleiar (abanar o corpo)"
  ],
+ "coleccionar": [
+  "grafia pré-reforma ( até 1943 no Brasil e 1990 em Portugal ) de colecionar; ainda usada onde o acordo não vigora, podendo ocorrer como erro de grafia"
+ ],
  "colecionar": [
   "colecionar"
+ ],
+ "colectar": [
+  "grafia pré-reforma ( até 1990 ) de coletar; ainda usada onde o acordo não vigora, podendo ocorrer como erro de grafia"
+ ],
+ "colectivizar": [
+  "grafia pré-reforma ( até 1943 no Brasil e 1990 em Portugal ) de coletivizar; ainda usada onde o acordo não vigora, podendo ocorrer como erro de grafia"
  ],
  "coligar": [
   "coligar, unir por coligação, agrupar"
@@ -1475,6 +1572,10 @@
  "compenetrar": [
   "compenetrar, introduzir a fundo"
  ],
+ "compensar": [
+  "compensar, pagar, recompensar, valer a pena",
+  "compensar, contrabalançar, compensar"
+ ],
  "competir": [
   "competir, contender"
  ],
@@ -1483,6 +1584,10 @@
  ],
  "complementar": [
   "complementar"
+ ],
+ "completar": [
+  "completar, terminar, concluir",
+  "completar, suplementar, completar com"
  ],
  "complexar": [
   "complexar, complicar"
@@ -1513,6 +1618,11 @@
  ],
  "conceituar": [
   "conceituar, julgar"
+ ],
+ "concentrar": [
+  "concentrar, concentrar ( reunir num ponto )",
+  "concentrar, centralizar",
+  "concentrar, focar, localizar"
  ],
  "concernir": [
   "concernir a, interessar"
@@ -1564,6 +1674,10 @@
  ],
  "conscientizar": [
   "conscientizar, dar consciência a, alertar"
+ ],
+ "considerar": [
+  "considerar, ponderar, julgar",
+  "considerar, ter em alta conta, estimar muito"
  ],
  "consistir": [
   "consistir (em)"
@@ -1676,6 +1790,12 @@
  "creditar": [
   "creditar"
  ],
+ "criar": [
+  "criar, pôr em existência, dar origem a",
+  "criar, inventar, imaginar",
+  "criar, educar, criar ( filho ou animal )",
+  "criar, procriar ( animais ), selecionar para reprodução"
+ ],
  "cricrilar": [
   "cricrilar, estridular como um grilo"
  ],
@@ -1748,6 +1868,9 @@
  "debruçar": [
   "curvar, inclinar"
  ],
+ "debuffar": [
+  "debuffar, enfraquecer ( personagem ou habilidade, gíria de jogo ), dar debuff"
+ ],
  "debugar": [
   "debugar, depurar, localizar e corrigir erros ( em software )"
  ],
@@ -1756,6 +1879,15 @@
  ],
  "decantar": [
   "decantar"
+ ],
+ "dechavar": [
+  "dechavar, desfazer em forma usável, picar ( fumo ou folhas )"
+ ],
+ "decidir": [
+  "decidir, resolver, decidir-se",
+  "decidir, determinar, fixar",
+  "decidir, resolver, dirimir",
+  "decidir, deliberar, refletir antes de concluir"
  ],
  "decifrar": [
   "decifrar, decodificar, decifrar código ou enigma"
@@ -1903,6 +2035,9 @@
  ],
  "desacreditar": [
   "desacreditar"
+ ],
+ "desactivar": [
+  "grafia pré-reforma ( até 1943 no Brasil e 1990 em Portugal ) de desativar; ainda usada onde o acordo não vigora, podendo ocorrer como erro de grafia"
  ],
  "desafetar": [
   "desafetar, não afetar, não ser afetado por"
@@ -2150,6 +2285,9 @@
  "desemmaranhar": [
   "grafia pré-reforma ( até 1943 no Brasil e 1945 em Portugal ) de desemaranhar"
  ],
+ "desemmerdar": [
+  "desemmerdar, sair de enrascada sem ajuda, virar-se sozinho ( por si mesmo )"
+ ],
  "desempenhar": [
   "desempenhar, cumprir ou desempenhar (uma tarefa)"
  ],
@@ -2335,6 +2473,9 @@
  ],
  "deslembrar": [
   "esquecer"
+ ],
+ "deslocalizar": [
+  "deslocalizar, deslocar produção industrial ( buscando custos menores, p. ex. mão de obra )"
  ],
  "deslustrar": [
   "tirar o brilho ou lustre de, desbotar"
@@ -2615,8 +2756,20 @@
  "diversificar": [
   "tornar mais diverso"
  ],
+ "divertir": [
+  "divertir, distrair, desviar a atenção",
+  "divertir, entreter, recrear",
+  "divertir, dissuadir, desviar do propósito",
+  "divertir-se, divertir-se ( recrear-se, entreter-se )"
+ ],
  "divinizar": [
   "divinizar, deificar, tornar deus"
+ ],
+ "dobrar": [
+  "dobrar, duplicar, multiplicar por dois",
+  "dobrar, dobrar ( flexionar ), dobrar por cima",
+  "dobrar, aumentar, fazer maior",
+  "dobrar, subjugar, domar, trazer sob controle"
  ],
  "doestar": [
   "insulto desonroso, caluniar"
@@ -2660,6 +2813,13 @@
  "edificar": [
   "edificar, construir"
  ],
+ "efectivar": [
+  "grafia pré-reforma ( até 1990 ) de efetivar; ainda usada onde o acordo não vigora, podendo ocorrer como erro de grafia"
+ ],
+ "efetuar": [
+  "efetuar, realizar, levar a efeito",
+  "efetuar, fazer, executar, praticar"
+ ],
  "effectivar": [
   "grafia pré-reforma ( até 1943 no Brasil e 1911 em Portugal ) de efetivar"
  ],
@@ -2668,6 +2828,19 @@
  ],
  "eivar": [
   "eivar, contaminar com eiva"
+ ],
+ "ejectar": [
+  "grafia pré-reforma ( até 1943 no Brasil e 1990 em Portugal ) de ejetar; ainda usada onde o acordo não vigora, podendo ocorrer como erro de grafia"
+ ],
+ "electrificar": [
+  "grafia pré-reforma ( até 1943 no Brasil e 1990 em Portugal ) de eletrificar; ainda usada onde o acordo não vigora, podendo ocorrer como erro de grafia"
+ ],
+ "electrocutar": [
+  "grafia pré-reforma ( até 1943 no Brasil e 1990 em Portugal ) de eletrocutar; ainda usada onde o acordo não vigora, podendo ocorrer como erro de grafia"
+ ],
+ "eleger": [
+  "eleger, eleger por voto, escolher",
+  "eleger, nomear, designar"
  ],
  "elencar": [
   "elencar, relacionar em lista, enumerar"
@@ -2707,6 +2880,10 @@
  ],
  "embarangar": [
   "embarangar, enfeiar com o tempo"
+ ],
+ "embaraçar": [
+  "embaraçar, embaraçar ( cabelos, cordas, cabos ), enlear",
+  "embaraçar, embaraçar, constranger"
  ],
  "embarcar": [
   "embarcar"
@@ -2852,6 +3029,11 @@
  "empunhar": [
   "empunhar, segurar pelo cabo ou punho ( como uma espada )"
  ],
+ "empurrar": [
+  "empurrar, empurrar com força, impulsionar",
+  "empurrar, forçar para baixo, empurrar puxando para baixo",
+  "empurrar, empurrar para afundar ( empurrar debaixo d'água )"
+ ],
  "empuxar": [
   "empuxar, empurrar, impelir"
  ],
@@ -2984,6 +3166,12 @@
  "encortinar": [
   "cortinar, cobrir com cortina"
  ],
+ "encostar": [
+  "encostar, apoiar, suster fisicamente",
+  "encostar, tocar, tocar de leve em",
+  "encostar, fechar ( porta ) sem trancar",
+  "encostar, viver à custa de, explorar ( alguém )"
+ ],
  "encravar": [
   "encravar, espetar de modo a prender, fincar"
  ],
@@ -3013,6 +3201,12 @@
  ],
  "endeusar": [
   "endeusar, deificar, considerar deus"
+ ],
+ "endireitar": [
+  "endireitar, alinhar, pôr direito",
+  "endireitar, melhorar, retificar",
+  "endireitar, pôr no bom caminho, regenerar",
+  "endireitar, reparar, remediar ( endireitar um erro )"
  ],
  "endividar": [
   "endividar"
@@ -3146,6 +3340,10 @@
  "enovelar": [
   "enovelar, enrolar em novelo, enroscar"
  ],
+ "enquadrar": [
+  "enquadrar, moldurar, pôr em moldura",
+  "enquadrar, enquadrar-se em, caber em ( categoria )"
+ ],
  "enrabar": [
   "enrabar, sodomizar, praticar o coito anal"
  ],
@@ -3178,6 +3376,9 @@
  ],
  "ensangùentar": [
   "grafia pré-reforma ( até 1920 ) de ensanguentar"
+ ],
+ "ensangüentar": [
+  "grafia pré-reforma ( até 1990 no Brasil e 1945 em Portugal ) de ensanguentar; pode ainda ocorrer como erro de grafia"
  ],
  "ensebar": [
   "ensebar, untar com sebo, engraxar com sebo"
@@ -3437,6 +3638,12 @@
  "estapear": [
   "estapear, dar tapas, estalar"
  ],
+ "estar": [
+  "estar, existir, estar ( em estado ou lugar )",
+  "estar, parecer, ter aparência de",
+  "estar, custar ( preço, sobretudo variável )",
+  "estar, estar de pé, estar posto ( ereto )"
+ ],
  "estenographar": [
   "grafia pré-reforma ( até 1943 no Brasil e 1911 em Portugal ) de estenografar"
  ],
@@ -3560,6 +3767,9 @@
  "exsurgir": [
   "surgir"
  ],
+ "extender": [
+  "grafia pré-reforma ( até 1943 no Brasil e 1911 em Portugal ) de estender; hoje um erro de grafia comum"
+ ],
  "exteriorizar": [
   "exteriorizar"
  ],
@@ -3574,6 +3784,9 @@
  ],
  "facholar": [
   "sachar (capinar com enxada)"
+ ],
+ "factorizar": [
+  "grafia pré-reforma ( até 1943 no Brasil e 1990 em Portugal ) de fatorizar; ainda usada onde o acordo não vigora, podendo ocorrer como erro de grafia"
  ],
  "facultar": [
   "facultar, facilitar"
@@ -3680,6 +3893,10 @@
  "fluoretar": [
   "fluoretar"
  ],
+ "focar": [
+  "focar, pôr em foco, ajustar o foco de",
+  "focar, focar, concentrar-se"
+ ],
  "folegar": [
   "resfolegar, respirar com folgo"
  ],
@@ -3742,6 +3959,10 @@
  ],
  "gangrenar": [
   "causar gangrena"
+ ],
+ "ganhar": [
+  "ganhar, vencer ( prêmio ou disputa ), lucrar",
+  "ganhar, auferir ( salário ), ganhar dinheiro"
  ],
  "gankar": [
   "gankar, emboscar de surpresa em grupo ( gíria de jogo )"
@@ -3823,6 +4044,9 @@
  ],
  "gorjear": [
   "gorjear, cantar (aves)"
+ ],
+ "gourmetizar": [
+  "gourmetizar, tornar sofisticado ou requintado ( sobretudo comida, para efeito comercial )"
  ],
  "grafitar": [
   "fazer grafitos ou pichações"
@@ -3914,8 +4138,17 @@
  "hiperventilar": [
   "hiperventilar, respirar de forma acelerada"
  ],
+ "humilhar": [
+  "humilhar, aviltar, ferir a dignidade ou o amor próprio",
+  "humilhar, fazer humilde, anular"
+ ],
  "hypar": [
   "hipar, empolgar-se (gíria)"
+ ],
+ "identificar": [
+  "identificar, identificar ( dizer quem ou o que é ), determinar",
+  "identificar, reconhecer, identificar de novo",
+  "identificar, associar, estabelecer relação com"
  ],
  "igualar": [
   "igualar, equiparar, pôr em pé de igualdade"
@@ -3928,6 +4161,9 @@
  ],
  "imundar": [
   "imundar, sujar"
+ ],
+ "inactivar": [
+  "grafia pré-reforma ( até 1943 no Brasil e 1990 em Portugal ) de inativar; ainda usada onde o acordo não vigora, podendo ocorrer como erro de grafia"
  ],
  "inativar": [
   "inativar"
@@ -4025,11 +4261,18 @@
  "interrogar": [
   "interrogar"
  ],
+ "interromper": [
+  "interromper, cortar, cesar",
+  "interromper, descontinuar, parar"
+ ],
  "intersectar": [
   "intersectar, cruzar-se, cortar-se"
  ],
  "intricar": [
   "intricar, emaranhar, enredar"
+ ],
+ "introjectar": [
+  "grafia pré-reforma ( até 1943 no Brasil e 1990 em Portugal ) de introjetar; ainda usada onde o acordo não vigora, podendo ocorrer como erro de grafia"
  ],
  "intubar": [
   "intubar, introduzir tubo em, entubar"
@@ -4118,6 +4361,13 @@
  "lancetar": [
   "lancetar, cortar ou abrir com lanceta"
  ],
+ "lanchar": [
+  "lanchar, tomar lanche ( lanche da tarde, por volta das 17 horas )"
+ ],
+ "lapidar": [
+  "lapidar, lapidar ( cortar uma gema )",
+  "lapidar, apedrejar, lapidar ( matar a pedradas )"
+ ],
  "lastar": [
   "lastar, solver um débito"
  ],
@@ -4126,6 +4376,9 @@
  ],
  "laudar": [
   "laudar, elaborar um laudo (médico)"
+ ],
+ "leccionar": [
+  "grafia pré-reforma ( até 1943 no Brasil e 1990 em Portugal ) de lecionar; ainda usada onde o acordo não vigora, podendo ocorrer como erro de grafia"
  ],
  "legendar": [
   "legendar, pôr legendas em ( um filme )"
@@ -4310,6 +4563,9 @@
  "matear": [
   "matear, tomar mate"
  ],
+ "matematizar": [
+  "matematizar, matematizar, modelar matematicamente ( situação concreta, real ou figurada )"
+ ],
  "maturar": [
   "maturar, amadurecer"
  ],
@@ -4427,6 +4683,12 @@
  "morfar": [
   "comer"
  ],
+ "morrer": [
+  "morrer, falecer, morrer",
+  "morrer, quebrar, parar de funcionar",
+  "morrer, estar morto para ( estar indiferente a )",
+  "morrer, extinguir-se, fenecer ( espécie, uso )"
+ ],
  "moshar": [
   "moshar, dançar colidindo com os outros ( em roda punk )"
  ],
@@ -4480,6 +4742,10 @@
  ],
  "nutar": [
   "nutar, oscilar"
+ ],
+ "nutrir": [
+  "nutrir, alimentar, sustentar",
+  "nutrir, engordar, cevar"
  ],
  "objetificar": [
   "objetificar, reduzir alguém a objeto ( sobretudo sexual )"
@@ -4655,11 +4921,21 @@
  "perfumar": [
   "aplicar perfume a, cheirar bem"
  ],
+ "perfurar": [
+  "perfurar, furar, fazer orifício em",
+  "perfurar, traspassar, atravessar com furo"
+ ],
  "perlavar": [
   "perlavar, lavar"
  ],
  "perlustrar": [
   "perlustrar, perlustrar, examinar com minúcia, esquadrinhar"
+ ],
+ "permitir": [
+  "permitir, autorizar, deixar",
+  "permitir, permitir, consentir",
+  "permitir, tolerar, aturar",
+  "permitir, conseguir, atinar ( gíria )"
  ],
  "permittir": [
   "grafia pré-reforma ( até 1943 no Brasil e 1911 em Portugal ) de permitir"
@@ -4736,6 +5012,9 @@
  "polinizar": [
   "aplicar pólen a, fecundar"
  ],
+ "polir": [
+  "polir, brunir, lustrar, alisar até brilhar ( esfregando, limpando ou retificando )"
+ ],
  "politicar": [
   "politicar, politizar, ocupar-se de política"
  ],
@@ -4778,6 +5057,9 @@
  "precarizar": [
   "precarizar, tornar precário"
  ],
+ "precindir": [
+  "grafia preconizada do Acordo Ortográfico de 1931 ( não aplicado ) de prescindir"
+ ],
  "precintar": [
   "precintar, cingir com correias"
  ],
@@ -4792,6 +5074,9 @@
  ],
  "preexistir": [
   "preexistir"
+ ],
+ "prefabricar": [
+  "prefabricar, fabricar em componentes-padrão ( prontos para montagem no local )"
  ],
  "prefaciar": [
   "prefaciar, escrever o prefácio de"
@@ -4828,6 +5113,10 @@
  ],
  "pretextar": [
   "pretextar, alegar como pretexto"
+ ],
+ "prevalecer": [
+  "prevalecer, prevalecer, prevalecer ( ter primazia )",
+  "prevalecer, predominar, prevalecer"
  ],
  "prevaricar": [
   "prevaricar, transgredir leis, deveres ou obrigações"
@@ -4888,6 +5177,10 @@
  ],
  "protagonizar": [
   "protagonizar, protagonizar, fazer o papel principal"
+ ],
+ "proteger": [
+  "proteger, defender, abrigar, guardar",
+  "proteger, apoiar, amparar"
  ],
  "protrair": [
   "protrair, fazer sobressair, protelar"
@@ -5060,6 +5353,12 @@
  "recarregar": [
   "recarregar, recarregar, recarregar, voltar a carregar (bateria, arma)"
  ],
+ "receber": [
+  "receber, ganhar, tomar",
+  "receber, arrecadar ou receber pagamento, cobrar",
+  "receber, receber ( ganhar ou tomar posse de )",
+  "receber, ser atingido por, sofrer ( algo que chega )"
+ ],
  "receitar": [
   "receitar, prescrever"
  ],
@@ -5092,6 +5391,10 @@
  ],
  "reconfirmar": [
   "reconfirmar, confirmar de novo"
+ ],
+ "reconhecer": [
+  "reconhecer, identificar, reconhecer ( quem ou o que é )",
+  "reconhecer, admitir, confessar ou declarar"
  ],
  "recontextualizar": [
   "recontextualizar"
@@ -5294,6 +5597,11 @@
  "repertoriar": [
   "repertoriar, compilar um repertório"
  ],
+ "repetir": [
+  "repetir, repetir, dizer de novo",
+  "repetir, reprovar ( em disciplina ), repetir de ano",
+  "repetir, comer mais um prato de ( durante a refeição )"
+ ],
  "replicar": [
   "replicar, responder, retorquir"
  ],
@@ -5342,6 +5650,11 @@
  "rescaldar": [
   "superaquecer"
  ],
+ "resgatar": [
+  "resgatar, socorrer, salvar, tirar do perigo",
+  "resgatar, redimir, remir ( uma dívida ou obrigação )",
+  "resgatar, pagar resgate por, libertar mediante pagamento"
+ ],
  "resguardar": [
   "resguardar, abrigar, proteger, guardar"
  ],
@@ -5371,6 +5684,9 @@
  ],
  "restituir": [
   "restituir, reembolsar"
+ ],
+ "retractar": [
+  "grafia pré-reforma ( até 1943 no Brasil e 1990 em Portugal ) de retratar; ainda usada onde o acordo não vigora, podendo ocorrer como erro de grafia"
  ],
  "retrancar": [
   "retrancar, fechar de novo, trancar de novo"
@@ -5438,6 +5754,9 @@
  "roubartilhar": [
   "roubartilhar, salvar e repassar conteúdo ( citando ou não a fonte )"
  ],
+ "ruar": [
+  "ruar, andar à toa ( vagando sem destino nem hora de voltar ), paquerar, flertar"
+ ],
  "rugar": [
   "enrugar, amarfanhar"
  ],
@@ -5465,6 +5784,12 @@
  "sacolejar": [
   "sacolejar, abanar, abalar"
  ],
+ "sair": [
+  "sair, sair de, partir, retirar-se",
+  "sair, sair ( passear, divertir-se )",
+  "sair, afastar-se, despedir-se e ir",
+  "sair a ( alguém ), puxar a, herdar traços ou aparência de"
+ ],
  "salinar": [
   "salinar, cristalizar sal"
  ],
@@ -5476,6 +5801,9 @@
  ],
  "sanfonar": [
   "sanfonar, tocar sanfona (acordeão)"
+ ],
+ "sanscritizar": [
+  "sanscritizar, conformar ( texto ou palavra ) à forma do sânscrito"
  ],
  "sapar": [
   "minar, solapar"
@@ -5495,6 +5823,9 @@
  "scriptar": [
   "escrever ou criar script, roteirizar"
  ],
+ "scrollar": [
+  "scrollar, rolar ( a vista de dados ) na tela, deslocar gradualmente"
+ ],
  "secretar": [
   "produzir e exsudar, segregar"
  ],
@@ -5506,6 +5837,9 @@
  ],
  "sejar": [
   "sejar, formular hipóteses"
+ ],
+ "selectar": [
+  "grafia pré-reforma ( até 1943 no Brasil e 1990 em Portugal ) de seletar; ainda usada onde o acordo não vigora, podendo ocorrer como erro de grafia"
  ],
  "sembrar": [
   "sembrar, semelhar-se"
@@ -5530,6 +5864,11 @@
  ],
  "serralhar": [
   "limar"
+ ],
+ "servir": [
+  "servir, servir ( ser criado ou atender )",
+  "servir, bastar, ser suficiente",
+  "servir, ser para, servir de ou a"
  ],
  "sexar": [
   "determinar o sexo de"
@@ -5560,6 +5899,9 @@
  ],
  "sobrecarregar": [
   "sobrecarregar, carregar demasiado"
+ ],
+ "sobreestimar": [
+  "grafia pré-reforma ( até 1990 ) de sobre-estimar; ainda usada onde o acordo não vigora, podendo ocorrer como erro de grafia"
  ],
  "sobrerrepresentar": [
   "sobrerrepresentar, representar em demasia"
@@ -5852,6 +6194,12 @@
  "traumatizar": [
   "traumatizar"
  ],
+ "travar": [
+  "travar, unir ou encaixar ( peças de madeira )",
+  "travar, frear, acionar o freio",
+  "travar, trancar, fechar à chave",
+  "travar, reter, refrear ( um animal )"
+ ],
  "travestir": [
   "travestir, travestir-se ( usar roupas do sexo oposto )"
  ],
@@ -5969,6 +6317,12 @@
  "varear": [
   "varear, impulsionar com varas ( uma embarcação )"
  ],
+ "varrer": [
+  "varrer, varrer ( com vassoura ), limpar varrendo",
+  "varrer, expulsar por completo e rapidamente",
+  "varrer, percorrer, atravessar",
+  "varrer, fazer varredura ( scan ), fotografar digitalmente"
+ ],
  "vassourar": [
   "vassourar, varrer com vassoura"
  ],
@@ -5978,6 +6332,12 @@
  "velarizar": [
   "velarizar (linguística)"
  ],
+ "vencer": [
+  "vencer, ganhar, triunfar",
+  "vencer, derrotar, superar",
+  "vencer, expirar, caducar ( prazo )",
+  "vencer, ser devido ( dívida ou prazo )"
+ ],
  "venerar": [
   "venerar"
  ],
@@ -5986,6 +6346,10 @@
  ],
  "vergastar": [
   "açoitar com vara ou cana"
+ ],
+ "verificar": [
+  "verificar, conferir, comprovar",
+  "verificar, observar, constatar ( ocorrer )"
  ],
  "versejar": [
   "versejar, compor versos"

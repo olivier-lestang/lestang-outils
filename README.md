@@ -426,6 +426,16 @@ Détail du procédé :
   ( multi-sens ou gloses longues, a traiter autrement ).
   Etiquette et source « angl. Wiktionary, trad. » ; total inchange :
   176 941 sens, 0 sans source.
+- **Lot 15 de traduction, italien + portugais ( version 1.5.16 )** :
+  suite : 200 gloses italiennes et les 90 portugais restants,
+  traduits sens par sens pour les multi-sens ( 184 sens pt,
+  gloses uniques ou multiples, traductions per-sens ;
+  `outils/traduits_it.json` et `outils/traduits_pt.json` ).
+  384 sens traduits ce lot ; le portugais est EPUISE :
+  0 verbe a glose anglaise restant ; restent en italien 817
+  verbes a vraie glose anglaise. Etiquette et source
+  « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
+  0 sans source.
 - **Comblement des définitions manquantes ( Wiktionary, CC BY-SA 4.0 )** :
   avec les filtres abandonnés, 439 verbes restaient sans définition
   ( fr 4, en 7, es 19, pl 356, cs 53 ). Ils ont été traités depuis
