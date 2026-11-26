@@ -462,6 +462,15 @@ Détail du procédé :
   verbes polonais. Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
+- **Lot 19 de traduction, italien : EPUISEMENT ( version 1.5.20 )** :
+  solde italien : 213 verbes restants ( 241 sens ), traduits
+  sens par sens pour les multi-sens ( 14 verbes multi-sens,
+  gloses uniques ou multiples ; `outils/traduits_it.json` ).
+  241 sens traduits ce lot ; L'ITALIEN EST EPUISE : 0 verbe a
+  glose anglaise restant ; le portugais restait deja EPUISE ;
+  restent 2 441 verbes polonais a glose anglaise.
+  Etiquette et source « angl. Wiktionary, trad. » ;
+  total inchange : 176 941 sens, 0 sans source.
 - **Comblement des définitions manquantes ( Wiktionary, CC BY-SA 4.0 )** :
   avec les filtres abandonnés, 439 verbes restaient sans définition
   ( fr 4, en 7, es 19, pl 356, cs 53 ). Ils ont été traités depuis
