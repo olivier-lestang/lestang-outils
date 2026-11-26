@@ -1,15 +1,30 @@
 {
+ "abalourdir": [
+  "abalourdir, abêtir, rendre stupide"
+ ],
  "abeilardiser": [
   "castrer, châtrer"
+ ],
+ "abisser": [
+  "abisser, endommager, détruire"
  ],
  "abluer": [
   "laver, lessiver"
  ],
+ "ablutionner": [
+  "ablutionner, laver, faire ses ablutions"
+ ],
  "abnéguer": [
   "abnéguer, renoncer, sacrifier"
  ],
+ "abéliser": [
+  "abéliser, charmer, séduire"
+ ],
  "abérier": [
   "abriter, mettre à l'abri"
+ ],
+ "abêtifier": [
+  "abêtifier, abrutir"
  ],
  "accalmir": [
   "calmer, apaiser, adoucir"
@@ -17,8 +32,14 @@
  "acyler": [
   "acyler ( chimie )"
  ],
+ "adirer": [
+  "adirer, perdre, égarer"
+ ],
  "adoniser": [
   "adoniser, embellir, parer"
+ ],
+ "adorner": [
+  "adorner, orner, décorer"
  ],
  "affacturer": [
   "factoriser ( une matrice, un polynôme )"
@@ -35,6 +56,9 @@
  "airbnbiser": [
   "louer sur Airbnb"
  ],
+ "aiser": [
+  "aiser, s'installer confortablement"
+ ],
  "alcalifier": [
   "alcalifier, alcaliniser"
  ],
@@ -47,11 +71,35 @@
  "allyler": [
   "allyler ( chimie )"
  ],
+ "ambuler": [
+  "ambuler, marcher, se promener"
+ ],
+ "amenuir": [
+  "amenuir, diminuer, s'amenuiser"
+ ],
+ "angarier": [
+  "angarier, tracasser, tourmenter"
+ ],
  "angler": [
   "donner un angle à, incliner"
  ],
+ "anser": [
+  "anser, emmancher ( un manche )"
+ ],
+ "anthropomorphiser": [
+  "anthropomorphiser, prêter une forme humaine à"
+ ],
+ "antisymétriser": [
+  "antisymétriser ( mathématiques )"
+ ],
  "anuiter": [
   "surprendre par la nuit"
+ ],
+ "apparager": [
+  "apparager, apparier, mettre par paires"
+ ],
+ "aquareller": [
+  "aquareller, peindre à l'aquarelle"
  ],
  "aramaïser": [
   "aramaïser, rendre araméen"
@@ -59,11 +107,23 @@
  "ardre": [
   "brûler"
  ],
+ "arrher": [
+  "arrher, verser des arrhes"
+ ],
+ "arrocher": [
+  "arrocher, lapider, jeter des pierres à"
+ ],
+ "artificialiser": [
+  "artificialiser, rendre artificiel"
+ ],
  "aryaniser": [
   "aryaniser, rendre aryen"
  ],
  "ascendre": [
   "monter, gravir"
+ ],
+ "asiner": [
+  "asiner, faire l'âne, dire des âneries"
  ],
  "assavoir": [
   "savoir, connaître"
@@ -74,14 +134,65 @@
  "asserter": [
   "affirmer, poser une assertion"
  ],
+ "assonancer": [
+  "assonancer, employer en assonance"
+ ],
+ "atourner": [
+  "atourner, vêtir, parer"
+ ],
  "attoucher": [
   "toucher, tâter"
+ ],
+ "auner": [
+  "auner, mesurer à l'aune"
+ ],
+ "autoassimiler": [
+  "s'autoassimiler, s'assimiler soi-même"
+ ],
+ "autocatégoriser": [
+  "autocatégoriser, classer soi-même dans une catégorie"
+ ],
+ "autoclassifier": [
+  "autoclassifier, classer automatiquement"
+ ],
+ "autocompléter": [
+  "autocompléter, compléter automatiquement"
+ ],
+ "autocorriger": [
+  "s'autocorriger, se corriger soi-même"
+ ],
+ "autodéterminer": [
+  "s'autodéterminer, décider de soi-même"
+ ],
+ "automutiler": [
+  "s'automutiler, se mutiler soi-même"
+ ],
+ "autopiloter": [
+  "autopiloter, piloter seul ( un appareil )"
+ ],
+ "autorépliquer": [
+  "s'autorépliquer, se répliquer soi-même"
+ ],
+ "autostimuler": [
+  "s'autostimuler, se stimuler soi-même"
+ ],
+ "auvergner": [
+  "auvergner, attraper un hâle forcé"
+ ],
+ "azerbaïdjaniser": [
+  "azerbaïdjaniser, rendre azerbaïdjanais"
  ],
  "aérifier": [
   "imprégner d'air, aérifier, aérer"
  ],
  "baliver": [
   "étêter, émonder ( un arbre )"
+ ],
+ "baliverner": [
+  "baliverner, dire des balivernes"
+ ],
+ "barbarouffer": [
+  "barbarouffer, pousser un cri"
  ],
  "basourdir": [
   "tuer, abattre"
@@ -92,20 +203,47 @@
  "baudir": [
   "baudir, enhardir, encourager"
  ],
+ "bavardocher": [
+  "bavardocher, bavarder, cancaner"
+ ],
  "bienvenir": [
   "accueillir, souhaiter la bienvenue"
+ ],
+ "biguiner": [
+  "biguiner, danser le biguine"
+ ],
+ "biker": [
+  "biker, faire du vélo, pédaler"
  ],
  "binoter": [
   "biner, sarcler"
  ],
+ "bioaccumuler": [
+  "bioaccumuler, accumuler dans les organismes"
+ ],
+ "bioconcentrer": [
+  "bioconcentrer, concentrer dans les organismes"
+ ],
+ "bistouiller": [
+  "bistouiller, boire de l'alcool"
+ ],
  "bloguer": [
   "bloguer, tenir un blog"
+ ],
+ "booker": [
+  "booker, réserver"
  ],
  "booster": [
   "booster, amplifier, stimuler"
  ],
+ "botoxer": [
+  "botoxer, traiter au Botox"
+ ],
  "bouillaver": [
   "baiser, niquer ( vulgaire )"
+ ],
+ "bretonner": [
+  "bretonner, parler breton"
  ],
  "caguer": [
   "déféquer, caguer ( familier )"
@@ -116,11 +254,35 @@
  "canceller": [
   "annuler, invalider"
  ],
+ "caposer": [
+  "caposer, amarrer la barre au vent ( marine )"
+ ],
+ "carbonitrurer": [
+  "carbonitrurer ( métallurgie )"
+ ],
+ "caribéaniser": [
+  "caribéaniser, rendre caribéen"
+ ],
+ "caster": [
+  "caster, lancer ( un sort )"
+ ],
  "castiller": [
   "disputer, discuter"
  ],
+ "caséifier": [
+  "caséifier, transformer en fromage"
+ ],
+ "ceintrer": [
+  "déplacer un navire à l'aide d'un grelin, ceintrer"
+ ],
  "chaluter": [
   "chaluter, pêcher au chalut"
+ ],
+ "charier": [
+  "charier, transporter en charrette"
+ ],
+ "checker": [
+  "checker, vérifier, contrôler"
  ],
  "chicotter": [
   "fouetter, flageller"
@@ -133,6 +295,9 @@
  ],
  "circuiter": [
   "décrire un circuit, contourner par un circuit"
+ ],
+ "circumnaviguer": [
+  "circumnaviguer, faire le tour de la terre par mer"
  ],
  "clairsemer": [
   "diminuer, s'éclaircir, clairsemer"
@@ -164,11 +329,23 @@
  "commer": [
   "comparer"
  ],
+ "compassionner": [
+  "compassionner, plaindre, compatir à"
+ ],
+ "compénétrer": [
+  "compénétrer, pénétrer profondément"
+ ],
  "condoléancer": [
   "présenter ses condoléances, condoléancer"
  ],
  "contemner": [
   "mépriser, condamner"
+ ],
+ "contiguïser": [
+  "contiguïser, rendre contigu"
+ ],
+ "contondre": [
+  "contondre, frapper, porter des coups"
  ],
  "convoluer": [
   "convoluer ( mathématiques )"
@@ -176,8 +353,20 @@
  "copiloter": [
   "copiloter, piloter en second"
  ],
+ "copolymériser": [
+  "copolymériser ( chimie )"
+ ],
+ "coprécipiter": [
+  "coprécipiter ( chimie )"
+ ],
+ "cornemuser": [
+  "cornemuser, jouer de la cornemuse"
+ ],
  "corneter": [
   "mettre en cornet, envelopper en cornet"
+ ],
+ "couiquer": [
+  "couiquer, tuer ( volontairement )"
  ],
  "covoiturer": [
   "covoiturer, pratiquer le covoiturage"
@@ -185,11 +374,17 @@
  "coécrire": [
   "coécrire, écrire à plusieurs"
  ],
+ "criser": [
+  "criser, faire une crise"
+ ],
  "crooner": [
   "crooner, chanter doucement"
  ],
  "crématiser": [
   "crématiser, incinérer"
+ ],
+ "cuider": [
+  "cuider, penser, croire"
  ],
  "câlisser": [
   "jeter, balancer ( québécois )"
@@ -197,8 +392,14 @@
  "côteler": [
   "strier, marquer de stries"
  ],
+ "daguerréotyper": [
+  "daguerréotyper, photographier au daguerréotype"
+ ],
  "deadnamer": [
   "appeler quelqu'un par son ancien prénom, deadnamer"
+ ],
+ "dermabraser": [
+  "dermabraser, pratiquer une dermabrasion"
  ],
  "designer": [
   "concevoir, dessiner, créer"
@@ -209,11 +410,23 @@
  "diaboliser": [
   "diaboliser, démoniser"
  ],
+ "diffluer": [
+  "diffluer, s'écouler de façon diffuse"
+ ],
  "digresser": [
   "digresser, s'éloigner du sujet"
  ],
+ "dimériser": [
+  "dimériser ( chimie )"
+ ],
+ "directer": [
+  "directer, diriger, gérer"
+ ],
  "dispatcher": [
   "dispatcher, répartir, expédier"
+ ],
+ "dissembler": [
+  "dissembler, différer, être dissemblable"
  ],
  "disturber": [
   "déranger, troubler"
@@ -221,8 +434,20 @@
  "douiller": [
   "faire mal, blesser"
  ],
+ "dragonner": [
+  "dragonner, forcer à s'engager, tracasser"
+ ],
  "dualiser": [
   "dualiser ( mathématiques )"
+ ],
+ "débitumer": [
+  "débitumer, retirer le bitume"
+ ],
+ "débituminiser": [
+  "débituminiser, retirer le bitume"
+ ],
+ "débouillir": [
+  "débouillir, blanchir à l'eau bouillante ( textiles )"
  ],
  "débruiter": [
   "débruiter, retirer le bruit"
@@ -236,14 +461,41 @@
  "décadrer": [
   "décadrer, sortir du cadre"
  ],
+ "décarbonyler": [
+  "décarbonyler ( chimie )"
+ ],
+ "décarboxyler": [
+  "décarboxyler ( chimie )"
+ ],
  "décheveler": [
   "décheveler, ébouriffer"
+ ],
+ "déchlorer": [
+  "déchlorer, retirer le chlore"
+ ],
+ "décirer": [
+  "décirer, retirer la cire de"
  ],
  "décliver": [
   "incliner, pencher"
  ],
  "décohérer": [
   "décohérer ( physique quantique )"
+ ],
+ "décompléter": [
+  "décompléter, rendre incomplet"
+ ],
+ "déconceptualiser": [
+  "déconceptualiser, retirer son caractère conceptuel"
+ ],
+ "déconfessionnaliser": [
+  "déconfessionnaliser, retirer de la sphère confessionnelle"
+ ],
+ "déconfire": [
+  "déconfire, anéantir, détruire"
+ ],
+ "défibriller": [
+  "défibriller ( cardiologie )"
  ],
  "déflouter": [
   "déflouter, rendre net"
@@ -257,11 +509,35 @@
  "dégausser": [
   "dégausser, désaimanter"
  ],
+ "dégriffer": [
+  "dégriffer, effacer en grattant"
+ ],
+ "déguignonner": [
+  "déguignonner, conjurer le guignon"
+ ],
+ "déjudiciariser": [
+  "déjudiciariser, retirer de la sphère judiciaire"
+ ],
+ "délierrer": [
+  "délierrer, retirer le lierre de"
+ ],
+ "délinquer": [
+  "délinquer, commettre des délits"
+ ],
+ "délégitimer": [
+  "délégitimer, ôter sa légitimité à"
+ ],
  "démoniser": [
   "démoniser, diaboliser"
  ],
+ "dénominer": [
+  "dénominer, nommer, désigner"
+ ],
  "dénébuliser": [
   "dissiper le brouillard, dénébuliser"
+ ],
+ "déparasiter": [
+  "déparasiter, débarrasser des parasites"
  ],
  "dépenailler": [
   "mettre en lambeaux, déchiqueter"
@@ -269,8 +545,32 @@
  "dépersuader": [
   "dissuader, détourner de"
  ],
+ "déphlogistiquer": [
+  "déphlogistiquer, purger du phlogistique"
+ ],
+ "déphosphoryler": [
+  "déphosphoryler ( biochimie )"
+ ],
+ "dépopulariser": [
+  "dépopulariser, rendre impopulaire"
+ ],
  "dépourvoir": [
   "déséquiper, dépouiller de son équipement"
+ ],
+ "dépresser": [
+  "dépresser, éclaircir ( des plants )"
+ ],
+ "déprêtriser": [
+  "déprêtriser, défroquer ( un prêtre )"
+ ],
+ "dépénaliser": [
+  "dépénaliser, retirer du code pénal"
+ ],
+ "dérembourser": [
+  "dérembourser, cesser de rembourser"
+ ],
+ "désaboyer": [
+  "désaboyer, empêcher d'aboyer"
  ],
  "désaffubler": [
   "désaffubler, débarrasser de son accoutrement"
@@ -278,8 +578,23 @@
  "désagréer": [
   "dégarnir, désarmer ( un navire )"
  ],
+ "désaimer": [
+  "désaimer, cesser d'aimer"
+ ],
+ "désaisonnaliser": [
+  "désaisonnaliser, atténuer les variations saisonnières"
+ ],
+ "désamianter": [
+  "désamianter, retirer l'amiante de"
+ ],
  "désaper": [
   "dévêtir, déshabiller"
+ ],
+ "désassocier": [
+  "désassocier, dissocier"
+ ],
+ "désatelliser": [
+  "désatelliser, désorbiter ( un satellite )"
  ],
  "désemballer": [
   "déballer, désemballer"
@@ -287,14 +602,41 @@
  "désembouer": [
   "désembouer, retirer la boue, curer"
  ],
+ "désenterrer": [
+  "désenterrer, exhumer, déterrer"
+ ],
+ "désentêter": [
+  "désentêter, guérir de l'obstination"
+ ],
+ "déseuropéaniser": [
+  "déseuropéaniser, rendre moins européen"
+ ],
  "désexciter": [
   "désexciter ( physique )"
+ ],
+ "déshydrogéner": [
+  "déshydrogéner ( chimie )"
+ ],
+ "désiler": [
+  "désiler, retirer d'un silo"
+ ],
+ "désindustrialiser": [
+  "désindustrialiser, priver d'industrie"
+ ],
+ "désinformer": [
+  "désinformer, donner de fausses informations"
  ],
  "désioniser": [
   "désioniser, déioniser"
  ],
  "déstresser": [
   "déstresser, destresser, se détendre"
+ ],
+ "détalinguer": [
+  "détalinguer, détacher le câble ( marine )"
+ ],
+ "détatouer": [
+  "détatouer, retirer un tatouage"
  ],
  "détoxifier": [
   "détoxifier, détoxiquer"
@@ -311,20 +653,62 @@
  "dézoomer": [
   "dézoomer, zoomer en arrière"
  ],
+ "effigier": [
+  "effigier, brûler en effigie"
+ ],
+ "embabouiner": [
+  "embabouiner, cajoler, dorloter"
+ ],
+ "embancher": [
+  "embancher, s'asseoir sur un banc"
+ ],
+ "embûcher": [
+  "embûcher, faire rentrer dans son terrier"
+ ],
  "emmuseler": [
   "museler, brider"
+ ],
+ "empaffer": [
+  "empaffer, sodomiser ( vulgaire )"
  ],
  "empiéger": [
   "empiéger, prendre au piège"
  ],
+ "emplâtrer": [
+  "emplâtrer, couvrir d'un emplâtre"
+ ],
+ "encagouler": [
+  "encagouler, couvrir d'une cagoule"
+ ],
  "encalminer": [
   "immobiliser faute de vent, encalminer"
+ ],
+ "enchifrener": [
+  "enchifrener, engorger ( le nez )"
  ],
  "enconner": [
   "baiser, niquer ( vulgaire )"
  ],
+ "encoubler": [
+  "encoubler, trébucher, buter"
+ ],
+ "enfarger": [
+  "enfarger, entraver, empêtrer"
+ ],
+ "ennoyer": [
+  "ennoyer, noyer, inonder"
+ ],
  "enscéner": [
   "mettre en scène"
+ ],
+ "ensoupler": [
+  "ensoupler, charger un ensouple ( tissage )"
+ ],
+ "ensuquer": [
+  "ensuquer, étourdir, assommer"
+ ],
+ "entradmirer": [
+  "s'entr'admirer, s'admirer mutuellement"
  ],
  "enturbanner": [
   "enturbanner, coiffer d'un turban"
@@ -341,11 +725,17 @@
  "esclavager": [
   "asservir, réduire en esclavage"
  ],
+ "espagnoliser": [
+  "espagnoliser, rendre espagnol"
+ ],
  "esseuler": [
   "esseuler, isoler"
  ],
  "essoubler": [
   "oublier"
+ ],
+ "estrasser": [
+  "déchirer, estrasser"
  ],
  "excogiter": [
   "excogiter, imaginer, concevoir"
@@ -353,8 +743,17 @@
  "exonder": [
   "exonder, découvrir en retirant l'eau"
  ],
+ "extradosser": [
+  "extradosser, donner un extrados à"
+ ],
  "extuber": [
   "extuber, retirer une sonde ( médecine )"
+ ],
+ "exulcérer": [
+  "exulcérer, irriter ( la peau )"
+ ],
+ "factorialiser": [
+  "factorialiser ( mathématiques )"
  ],
  "fantasier": [
   "imaginer, rêver, fantasmer"
@@ -365,11 +764,26 @@
  "festiner": [
   "festoyer, banqueter"
  ],
+ "fiabiliser": [
+  "fiabiliser, rendre plus fiable"
+ ],
+ "fictionaliser": [
+  "fictionnaliser, rendre romanesque"
+ ],
+ "filialiser": [
+  "filialiser, ériger en filiale"
+ ],
+ "flammer": [
+  "flammer, saigner ( un animal )"
+ ],
  "fliquer": [
   "fliquer, surveiller, flicarder"
  ],
  "flouter": [
   "flouter, rendre flou"
+ ],
+ "flusher": [
+  "flusher, tirer la chasse d'eau"
  ],
  "flânocher": [
   "flâner, traîner"
@@ -380,11 +794,26 @@
  "follower": [
   "suivre, s'abonner à"
  ],
+ "fonctionnaliser": [
+  "fonctionnaliser, rendre fonctionnel"
+ ],
+ "forcener": [
+  "forcener, devenir furieux, perdre la raison"
+ ],
  "foëner": [
   "foëner, faire les foins"
  ],
+ "frisoter": [
+  "frisoter, friser, créponner"
+ ],
+ "fromager": [
+  "fromager, ajouter du fromage à"
+ ],
  "frouiller": [
   "tricher, escroquer"
+ ],
+ "gaber": [
+  "gaber, railler, bafouer"
  ],
  "galer": [
   "griffer, égratigner"
@@ -398,8 +827,14 @@
  "garrocher": [
   "jeter, lancer"
  ],
+ "gastrectomiser": [
+  "gastrectomiser, pratiquer une gastrectomie sur"
+ ],
  "gaudir": [
   "se réjouir, gaudir"
+ ],
+ "giguer": [
+  "giguer, danser la gigue"
  ],
  "girer": [
   "tourner, virer"
@@ -407,11 +842,23 @@
  "gnoquer": [
   "comprendre, saisir"
  ],
+ "golfer": [
+  "golfer, pratiquer le golf"
+ ],
  "goualer": [
   "goualer, chanter à tue-tête"
  ],
  "graffer": [
   "graffer, couvrir de graffitis"
+ ],
+ "grammaticaliser": [
+  "grammaticaliser, rendre grammatical"
+ ],
+ "grattouiller": [
+  "grattouiller, gratter, avoir des démangeaisons"
+ ],
+ "gruter": [
+  "gruter, déplacer à la grue"
  ],
  "guimbler": [
   "jouer, parier"
@@ -419,8 +866,14 @@
  "guindailler": [
   "guindailler, festoyer, faire bombance"
  ],
+ "guéder": [
+  "guéder, rassasier"
+ ],
  "géocoder": [
   "géocoder, localiser par coordonnées"
+ ],
+ "hacher": [
+  "hacher, couper menu"
  ],
  "hachurer": [
   "tracer des hachures, hachurer"
@@ -434,6 +887,9 @@
  "harnacher": [
   "harnacher, atteler"
  ],
+ "harper": [
+  "harper, saisir fortement"
+ ],
  "harponner": [
   "saisir au harpon, harponner"
  ],
@@ -443,11 +899,35 @@
  "hausser": [
   "hausser, élever"
  ],
+ "haussmanniser": [
+  "haussmanniser, transformer à la manière de Haussmann"
+ ],
  "havir": [
   "roussir, brûler superficiellement"
  ],
+ "hennir": [
+  "hennir, crier ( dit du cheval )"
+ ],
+ "hermétiser": [
+  "hermétiser, fermer hermétiquement"
+ ],
+ "hisser": [
+  "hisser, élever, lever"
+ ],
+ "homopolymériser": [
+  "homopolymériser ( chimie )"
+ ],
+ "homoérotiser": [
+  "homoérotiser, charger d'érotisme homosexuel"
+ ],
  "hoqueter": [
   "hoqueter, avoir le hoquet"
+ ],
+ "horizontaliser": [
+  "horizontaliser, rendre horizontal"
+ ],
+ "houblonner": [
+  "houblonner, ajouter du houblon à"
  ],
  "houer": [
   "houer, sarcler"
@@ -461,6 +941,15 @@
  "humer": [
   "humer, flairer, respirer"
  ],
+ "hurler": [
+  "hurler, crier très fort"
+ ],
+ "hyperpolariser": [
+  "hyperpolariser, polariser fortement"
+ ],
+ "hâter": [
+  "hâter, accélérer, presser"
+ ],
  "héroïser": [
   "héroïser, ériger en héros"
  ],
@@ -470,11 +959,20 @@
  "illimiter": [
   "illimiter, rendre illimité, débrider"
  ],
+ "incapaciter": [
+  "incapaciter, rendre incapable"
+ ],
+ "indonésianiser": [
+  "indonésianiser, rendre indonésien"
+ ],
  "infixer": [
   "insérer, intercaler"
  ],
  "insignifier": [
   "rabaisser, déconsidérer, avilir"
+ ],
+ "interconvertir": [
+  "interconvertir, se convertir mutuellement"
  ],
  "intuitionner": [
   "saisir par intuition, intuiter"
@@ -488,11 +986,17 @@
  "irrumer": [
   "irrumer ( pratique sexuelle )"
  ],
+ "irrésistibiliser": [
+  "irrésistibiliser, rendre irrésistible"
+ ],
  "jacker": [
   "soulever au cric"
  ],
  "jacqueter": [
   "bavarder, jaser"
+ ],
+ "jazzifier": [
+  "jazzifier, mettre au goût du jazz"
  ],
  "karatéer": [
   "faire du karaté"
@@ -502,6 +1006,15 @@
  ],
  "kirkifier": [
   "kirkifier, rendre presbytérien ( calvinisme écossais )"
+ ],
+ "knockouter": [
+  "knockouter, assommer ( boxe )"
+ ],
+ "labeurer": [
+  "labeurer, peiner, trimer"
+ ],
+ "laidir": [
+  "laidir, devenir laid, enlaidir"
  ],
  "lapiniser": [
   "lapiniser, transformer en lapin"
@@ -515,6 +1028,9 @@
  "liquater": [
   "raffiner par fusion, liquater"
  ],
+ "lixivier": [
+  "lixivier, lessiver, laver par lixiviation"
+ ],
  "loader": [
   "charger, téléverser"
  ],
@@ -524,8 +1040,14 @@
  "léviter": [
   "léviter, se maintenir en l'air"
  ],
+ "maganer": [
+  "maganer, abîmer, maltraiter"
+ ],
  "manumettre": [
   "manumettre, affranchir"
+ ],
+ "mapper": [
+  "mapper, cartographier, mettre en correspondance"
  ],
  "marketer": [
   "commercialiser, lancer sur le marché"
@@ -533,8 +1055,20 @@
  "matifier": [
   "matifier, rendre mat"
  ],
+ "mazurker": [
+  "mazurker, danser la mazurka"
+ ],
  "menotter": [
   "menotter, passer les menottes"
+ ],
+ "mercurer": [
+  "mercurer, amalgamer au mercure"
+ ],
+ "microdisséquer": [
+  "microdisséquer, disséquer au microscope"
+ ],
+ "microprogrammer": [
+  "microprogrammer ( informatique )"
  ],
  "minifier": [
   "minifier, compacter ( du code )"
@@ -542,23 +1076,62 @@
  "minimaliser": [
   "minimaliser, minimiser"
  ],
+ "moller": [
+  "moller, filer ( un cordage )"
+ ],
  "monitorer": [
   "monitorer, surveiller"
+ ],
+ "monoalkyler": [
+  "monoalkyler ( chimie )"
+ ],
+ "monochromatiser": [
+  "monochromatiser, rendre monochrome"
+ ],
+ "monophosphoryler": [
+  "monophosphoryler ( biochimie )"
+ ],
+ "monophtonguer": [
+  "monophtonguer, réduire à une voyelle unique ( phonétique )"
+ ],
+ "monseigneuriser": [
+  "monseigneuriser, appeler « monseigneur »"
  ],
  "morinommer": [
   "appeler quelqu'un par son ancien prénom, deadnamer"
  ],
+ "mornifler": [
+  "mornifler, gifler"
+ ],
  "mouveter": [
   "remuer, bouger à peine"
+ ],
+ "multiprogrammer": [
+  "multiprogrammer ( informatique )"
+ ],
+ "muscader": [
+  "muscader, parfumer à la muscade"
+ ],
+ "mécomprendre": [
+  "mécomprendre, comprendre de travers"
  ],
  "médier": [
   "médier, servir d'intermédiaire"
  ],
+ "médiocriser": [
+  "médiocriser, rendre médiocre"
+ ],
  "mélaniser": [
   "mélaniser, foncer ( la peau )"
  ],
+ "mélodramatiser": [
+  "mélodramatiser, traiter en mélodrame"
+ ],
  "métriser": [
   "métriser, mesurer, régler en mètres"
+ ],
+ "métropolitaniser": [
+  "métropolitaniser, rendre métropolitain"
  ],
  "napalmiser": [
   "bombarder au napalm"
@@ -569,6 +1142,9 @@
  "navetter": [
   "navetter, faire la navette"
  ],
+ "nigauder": [
+  "nigauder, faire le nigaud"
+ ],
  "nocer": [
   "faire la noce, festoyer"
  ],
@@ -577,6 +1153,12 @@
  ],
  "nominer": [
   "nommer, désigner"
+ ],
+ "notabiliser": [
+  "notabiliser, s'imposer comme notable"
+ ],
+ "nuager": [
+  "nuager, couvrir de nuages"
  ],
  "nullifier": [
   "nullifier, annuler, rendre nul"
@@ -587,8 +1169,20 @@
  "néerlandiser": [
   "néerlandiser, rendre néerlandais"
  ],
+ "oraliser": [
+  "oraliser, rendre oral, exprimer à voix haute"
+ ],
  "orgasmer": [
   "jouir, avoir un orgasme"
+ ],
+ "orthogonaliser": [
+  "orthogonaliser ( mathématiques )"
+ ],
+ "orthonormaliser": [
+  "orthonormaliser ( mathématiques )"
+ ],
+ "oscariser": [
+  "oscariser, décerner un Oscar à"
  ],
  "overbooker": [
   "overbooker, surréserver"
@@ -599,8 +1193,35 @@
  "paiser": [
   "faire taire, apaiser"
  ],
+ "paradoxer": [
+  "paradoxer, énoncer des paradoxes"
+ ],
+ "parker": [
+  "parker, garer ( un véhicule )"
+ ],
+ "passiver": [
+  "passiver, rendre passif"
+ ],
  "perroqueter": [
   "répéter comme un perroquet, perroqueter"
+ ],
+ "phlogistiquer": [
+  "phlogistiquer, expliquer par le phlogistique"
+ ],
+ "phoner": [
+  "phoner, appeler, téléphoner"
+ ],
+ "phosphoryler": [
+  "phosphoryler ( biochimie )"
+ ],
+ "photoamorcer": [
+  "photoamorcer, amorcer par la lumière"
+ ],
+ "photopolymériser": [
+  "photopolymériser ( chimie )"
+ ],
+ "pigner": [
+  "pigner, pleurnicher"
  ],
  "pilorier": [
   "pilorier, exposer au pilori"
@@ -611,6 +1232,12 @@
  "pixelliser": [
   "pixelliser, pixeliser"
  ],
+ "piétonner": [
+  "piétonner, aller à pied"
+ ],
+ "placoter": [
+  "placoter, bavarder, jaser"
+ ],
  "pochetronner": [
   "saoûler, picoler"
  ],
@@ -620,8 +1247,20 @@
  "pogner": [
   "attraper, saisir, pogner ( québécois )"
  ],
+ "polyestérifier": [
+  "polyestérifier ( chimie )"
+ ],
+ "polyploïdiser": [
+  "polyploïdiser, rendre polyploïde"
+ ],
  "polytyper": [
   "polytyper, imprimer en plusieurs sortes"
+ ],
+ "portraiturer": [
+  "portraiturer, peindre le portrait de"
+ ],
+ "postaccélérer": [
+  "postaccélérer, accélérer ensuite"
  ],
  "pougner": [
   "tricher, tromper"
@@ -629,8 +1268,23 @@
  "poutzer": [
   "nettoyer, astiquer"
  ],
+ "pranker": [
+  "pranker, faire un canular à"
+ ],
+ "problématiser": [
+  "problématiser, poser en problème"
+ ],
+ "professionnaliser": [
+  "professionnaliser, rendre professionnel"
+ ],
  "prompter": [
   "donner la réplique, souffler le texte"
+ ],
+ "protéiner": [
+  "protéiner, enrichir en protéines"
+ ],
+ "préconcentrer": [
+  "préconcentrer, concentrer à l'avance"
  ],
  "prédécouper": [
   "prédécouper, découper à l'avance"
@@ -638,8 +1292,17 @@
  "préremplir": [
   "préremplir, remplir à l'avance"
  ],
+ "prérégler": [
+  "prérégler, régler à l'avance"
+ ],
+ "présidentialiser": [
+  "présidentialiser, rendre présidentiel"
+ ],
  "prévisualiser": [
   "prévisualiser, visionner en avance"
+ ],
+ "pseudonymiser": [
+  "pseudonymiser, rendre anonyme par un pseudonyme"
  ],
  "putter": [
   "putter ( golf )"
@@ -650,11 +1313,23 @@
  "pyrolyser": [
   "pyrolyser, décomposer par la chaleur"
  ],
+ "pèleriner": [
+  "pèleriner, aller en pèlerinage"
+ ],
  "pétocher": [
   "craindre, redouter, avoir la pétoche"
  ],
  "racémiser": [
   "racémiser ( chimie )"
+ ],
+ "radiopasteuriser": [
+  "radiopasteuriser, pasteuriser par rayonnement"
+ ],
+ "radiostériliser": [
+  "radiostériliser, stériliser par rayonnement"
+ ],
+ "ragenouiller": [
+  "ragenouiller, s'agenouiller de nouveau"
  ],
  "rattiédir": [
   "réchauffer, rétiédir"
@@ -662,8 +1337,23 @@
  "rebouillir": [
   "rebouillir, faire bouillir de nouveau"
  ],
+ "rebourrer": [
+  "rebourrer, rembourrer de nouveau"
+ ],
  "recadrer": [
   "recadrer ( une image )"
+ ],
+ "recapitaliser": [
+  "recapitaliser, renforcer le capital de"
+ ],
+ "reconcentrer": [
+  "reconcentrer, concentrer de nouveau"
+ ],
+ "reconceptualiser": [
+  "reconceptualiser, conceptualiser de nouveau"
+ ],
+ "reconsacrer": [
+  "reconsacrer, consacrer de nouveau"
  ],
  "recroiser": [
   "recroiser, croiser de nouveau"
@@ -677,11 +1367,35 @@
  "rediviser": [
   "rediviser, diviser de nouveau"
  ],
+ "redéchirer": [
+  "redéchirer, déchirer de nouveau"
+ ],
+ "redécoller": [
+  "redécoller, décoller de nouveau"
+ ],
+ "redécouper": [
+  "redécouper, découper de nouveau"
+ ],
+ "redéparasiter": [
+  "redéparasiter, déparasiter de nouveau"
+ ],
+ "refilmer": [
+  "refilmer, tourner de nouveau"
+ ],
  "refonder": [
   "refonder, fonder de nouveau"
  ],
  "reformater": [
   "reformater, remettre en forme"
+ ],
+ "refouetter": [
+  "refouetter, fouetter de nouveau"
+ ],
+ "refourguer": [
+  "refourguer, refiler, fourguer"
+ ],
+ "refréner": [
+  "réfréner, contenir, retenir"
  ],
  "refuir": [
   "fuir, s'enfuir"
@@ -689,8 +1403,14 @@
  "refusionner": [
   "refusionner, faire refondre"
  ],
+ "refédéraliser": [
+  "refédéraliser, fédéraliser de nouveau"
+ ],
  "relocaliser": [
   "relocaliser, déplacer ailleurs"
+ ],
+ "remanufacturer": [
+  "remanufacturer, refabriquer"
  ],
  "remastériser": [
   "remasteriser ( un enregistrement )"
@@ -704,11 +1424,17 @@
  "remouvoir": [
   "remuer, déplacer"
  ],
+ "remuscler": [
+  "remuscler, redonner du muscle à"
+ ],
  "remâter": [
   "remasteriser ( un enregistrement )"
  ],
  "remécher": [
   "remettre des mèches ( à un archet ), remècher"
+ ],
+ "renationaliser": [
+  "renationaliser, nationaliser de nouveau"
  ],
  "rencarder": [
   "renseigner, informer"
@@ -716,11 +1442,35 @@
  "renettoyer": [
   "renettoyer, nettoyer de nouveau"
  ],
+ "renipper": [
+  "renipper, réparer, rafistoler"
+ ],
+ "repaster": [
+  "repaster, recoller, recimenter ( un collage )"
+ ],
+ "reperpétuer": [
+  "reperpétuer, perpétuer de nouveau"
+ ],
+ "repolitiser": [
+  "repolitiser, rendre de nouveau politique"
+ ],
+ "repomper": [
+  "repomper, pomper de nouveau"
+ ],
+ "repopulariser": [
+  "repopulariser, rendre de nouveau populaire"
+ ],
+ "reprécipiter": [
+  "reprécipiter, précipiter de nouveau"
+ ],
  "repétrir": [
   "repétrir, pétrir de nouveau"
  ],
  "reremplir": [
   "remplir de nouveau"
+ ],
+ "resaisonnaliser": [
+  "resaisonnaliser, rendre saisonnier de nouveau"
  ],
  "resiphonner": [
   "resiphonner, siphonner de nouveau"
@@ -737,6 +1487,15 @@
  "retweeter": [
   "retweeter, reposter un tweet"
  ],
+ "revaloir": [
+  "revaloir, se venger de ( quelqu'un )"
+ ],
+ "revasculariser": [
+  "revasculariser, pourvoir de nouveau de vaisseaux"
+ ],
+ "riocher": [
+  "riocher, rire doucement"
+ ],
  "ripper": [
   "déchirer, découdre"
  ],
@@ -752,6 +1511,12 @@
  "ruper": [
   "manger, croquer"
  ],
+ "râlocher": [
+  "râlocher, grogner, grommeler"
+ ],
+ "réaccélérer": [
+  "réaccélérer, accélérer de nouveau"
+ ],
  "réannexer": [
   "réannexer, annexer de nouveau"
  ],
@@ -761,23 +1526,53 @@
  "réengazonner": [
   "réengazonner, regazonner"
  ],
+ "réentendre": [
+  "réentendre, entendre de nouveau"
+ ],
+ "réenterrer": [
+  "réenterrer, enterrer de nouveau"
+ ],
+ "réexciter": [
+  "réexciter, exciter de nouveau"
+ ],
  "réfranger": [
   "réfranger, faire réfracter"
+ ],
+ "régimer": [
+  "régimer, suivre un régime"
+ ],
+ "réincarcérer": [
+  "réincarcérer, emprisonner de nouveau"
  ],
  "réindexer": [
   "réindexer, indexer de nouveau"
  ],
+ "réindustrialiser": [
+  "réindustrialiser, redonner de l'industrie"
+ ],
  "réinitialiser": [
   "réinitialiser, redémarrer"
  ],
+ "réislamiser": [
+  "réislamiser, rendre musulman de nouveau"
+ ],
+ "réorthogonaliser": [
+  "réorthogonaliser, orthogonaliser de nouveau"
+ ],
  "réouvrir": [
   "rouvrir, ouvrir de nouveau"
+ ],
+ "résolver": [
+  "résolver, résoudre, réparer ( un défaut )"
  ],
  "rééjecter": [
   "rééjecter, éjecter de nouveau"
  ],
  "réémettre": [
   "réémettre, émettre de nouveau"
+ ],
+ "réémigrer": [
+  "réémigrer, émigrer de nouveau"
  ],
  "réépeler": [
   "réépeler, épeler de nouveau"
@@ -791,14 +1586,26 @@
  "réévoquer": [
   "réévoquer, évoquer de nouveau"
  ],
+ "sabbatiser": [
+  "sabbatiser, observer le sabbat"
+ ],
+ "saxophoner": [
+  "saxophoner, jouer du saxophone"
+ ],
  "schlaguer": [
   "frapper, taper"
+ ],
+ "scorer": [
+  "scorer, marquer ( un but )"
  ],
  "scorifier": [
   "scorifier, séparer par scorification"
  ],
  "scroller": [
   "faire défiler, scroller"
+ ],
+ "sexer": [
+  "sexer, déterminer le sexe de ( poussins )"
  ],
  "shampooiner": [
   "laver avec un shampoing, shampouiner"
@@ -812,6 +1619,12 @@
  "skipper": [
   "skipper, barrer, diriger un voilier"
  ],
+ "slacker": [
+  "slacker, relâcher, desserrer"
+ ],
+ "slicer": [
+  "slicer, couper la balle ( golf )"
+ ],
  "smogler": [
   "passer en contrebande, importer en fraude"
  ],
@@ -821,11 +1634,38 @@
  "spammer": [
   "spammer, inonder de pourriels"
  ],
+ "spermer": [
+  "spermer, éjaculer"
+ ],
  "striker": [
   "frapper, taper"
  ],
+ "subjectiviser": [
+  "subjectiviser, rendre subjectif"
+ ],
+ "super": [
+  "sucer, téter, siroter"
+ ],
  "surarmer": [
   "armer excessivement, surarmer"
+ ],
+ "surcapitaliser": [
+  "surcapitaliser, doter d'un capital excessif"
+ ],
+ "surmotiver": [
+  "surmotiver, stimuler fortement"
+ ],
+ "surreprésenter": [
+  "surreprésenter, représenter excessivement"
+ ],
+ "sursolliciter": [
+  "sursolliciter, solliciter excessivement"
+ ],
+ "surstimuler": [
+  "surstimuler, stimuler excessivement"
+ ],
+ "surtraduire": [
+  "surtraduire, traduire avec excès"
  ],
  "surutiliser": [
   "surutiliser, user excessivement"
@@ -842,6 +1682,9 @@
  "tagger": [
   "tagger, marquer de graffiti"
  ],
+ "tarabistouiller": [
+  "tarabistouiller, tracasser, embêter"
+ ],
  "taser": [
   "neutraliser au pistolet électrique, taser"
  ],
@@ -854,17 +1697,44 @@
  "tchatter": [
   "chatter, bavarder en ligne"
  ],
+ "tchoquer": [
+  "tchoquer, frapper, cogner"
+ ],
+ "territorialiser": [
+  "territorialiser, rattacher à un territoire"
+ ],
  "teufer": [
   "faire la fête, teufer"
  ],
  "thaïfier": [
   "thaïfier, rendre thaï"
  ],
+ "trachéotomiser": [
+  "trachéotomiser, pratiquer une trachéotomie sur"
+ ],
  "trader": [
   "spéculer en bourse, trader"
  ],
+ "translittérer": [
+  "translittérer, transcrire lettre à lettre"
+ ],
+ "translitérer": [
+  "translittérer, transcrire lettre à lettre"
+ ],
+ "transverbérer": [
+  "transverbérer, transpercer ( mystique )"
+ ],
  "trawler": [
   "chaluter, pêcher au chalut"
+ ],
+ "trigonaliser": [
+  "trigonaliser ( mathématiques )"
+ ],
+ "troncher": [
+  "troncher, baiser, niquer ( vulgaire )"
+ ],
+ "tuner": [
+  "tuner, préparer ( un véhicule )"
  ],
  "updater": [
   "mettre à jour, actualiser"
@@ -875,11 +1745,26 @@
  "vaper": [
   "vapoter, fumer la cigarette électronique"
  ],
+ "vasculariser": [
+  "pourvoir de vaisseaux sanguins, vasculariser"
+ ],
  "velcroter": [
   "fixer avec du velcro, velcroter"
  ],
  "verrer": [
   "récurer, décaper"
+ ],
+ "vigiler": [
+  "vigiler, veiller, monter la garde"
+ ],
+ "vingtupler": [
+  "vingtupler, multiplier par vingt"
+ ],
+ "violir": [
+  "violir, se teinter de violet"
+ ],
+ "viorner": [
+  "viorner, faire grand bruit"
  ],
  "voiser": [
   "exprimer, donner voix à, formuler"
@@ -887,14 +1772,29 @@
  "wikifier": [
   "wikifier, mettre au format wiki"
  ],
+ "zaïrianiser": [
+  "zaïrianiser, rendre zaïrois"
+ ],
  "zombifier": [
   "zombifier, transformer en zombie"
+ ],
+ "égyptianiser": [
+  "égyptianiser, rendre à l'égyptienne"
  ],
  "éluer": [
   "éluer ( chromatographie )"
  ],
+ "énuquer": [
+  "énuquer, se rompre le cou"
+ ],
  "éparer": [
   "épandre, étaler"
+ ],
+ "épinocher": [
+  "épinocher, picorer, trier dans son assiette"
+ ],
+ "étymologiser": [
+  "étymologiser, faire l'étymologie de"
  ],
  "éventiller": [
   "planer, voleter"
