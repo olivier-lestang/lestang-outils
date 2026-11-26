@@ -559,6 +559,16 @@ Détail du procédé :
   lot ; polonais EPUISE. Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
+- **Lot 13 de traduction, français + extension du traducteur ( version 1.5.33 )** :
+  le traducteur `outils/traduire_wikt.py` couvre desormais aussi le
+  tcheque et le roumain, et traite les gloses anglaises restees sans
+  etiquette ( fr, es ). 300 gloses françaises traduites à la main
+  ( `outils/traduits_fr.json`, nouveau ) plus 1 187 renvois
+  automatiques ( fr 81, es 438, cs 29, ro 639 ). 1 487 sens traduits
+  ce lot ; restent 1 052 gloses françaises, 3 222 espagnoles,
+  2 183 tcheques, 894 roumaines. Etiquette et source
+  « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
+  0 sans source.
 - **Comblement des définitions manquantes ( Wiktionary, CC BY-SA 4.0 )** :
   avec les filtres abandonnés, 439 verbes restaient sans définition
   ( fr 4, en 7, es 19, pl 356, cs 53 ). Ils ont été traités depuis
