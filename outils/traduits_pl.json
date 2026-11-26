@@ -203,6 +203,9 @@
  "błamować": [
   "podszewkować futrem dużego zwierzęcia"
  ],
+ "błocić": [
+  "błocić, brudzić błotem; błocić się, brudzić się błotem"
+ ],
  "całościować": [
   "scałkowywać, włączać w całość"
  ],
@@ -211,6 +214,9 @@
  ],
  "ceremoniować": [
   "ceremoniować się, zachowywać się z ceremoniami, dworakować"
+ ],
+ "certolić": [
+  "certolić, ceregielić, obchodzić się z ceregielami; uprawiać ceregiele; przekombinowywać"
  ],
  "chachać": [
   "śmiać się"
@@ -242,6 +248,12 @@
  "chwierutać": [
   "chwiać się ( chwierutanie )"
  ],
+ "chwycić": [
+  "chwytać, łapać, ujmować; łapać, zastawiać sidła; chwytać, pojmywać"
+ ],
+ "chycić": [
+  "chycić, chwycić, łapać; chycić się, zaczynać; zdobywać, osiągać"
+ ],
  "cielić": [
   "cielić ( rodzić cielęta, o krowie )"
  ],
@@ -259,6 +271,9 @@
  ],
  "cyrkulować": [
   "cyrkulować ( krążyć )"
+ ],
+ "czepić": [
+  "czepiać, zaczepiać, haczyć; czepiać się, trzymać się; czepiać się drobiazgów"
  ],
  "czerwić": [
   "czerwić ( składać jaja )"
@@ -289,6 +304,9 @@
  ],
  "dobadać": [
   "dopytać się ( dociekać )"
+ ],
+ "dobijać": [
+  "dobijać, uśmiercać ostatecznie, dobijać do reszty; trapić, zadawać boleść; dobijać do brzegu, przycumowywać"
  ],
  "dobrzeć": [
   "powracać do zdrowia"
@@ -341,17 +359,29 @@
  "dogrywać": [
   "dogrywać, kończyć granie; dogrywać drugi raz; doprawiać dogrywką"
  ],
+ "dogryzać": [
+  "dogryzać, dokończyć gryzienie; dogryzać, uszczypliwać, ironizować"
+ ],
  "dogrzać": [
   "dogrzewać, dogrzewać do jakiejś temperatury, dogrzewać dokładnie"
  ],
  "doigrać": [
   "doigrać się, zapłacić za swoje"
  ],
+ "dojeść": [
+  "dojadać, dojadać do końca; dojadać dodatkowo, najeżdzać się do syta; dojadać, zaczepiać uszczypliwie"
+ ],
  "dokapitalizować": [
   "dokapitalizowywać, dostarczać dodatkowego finansowania"
  ],
+ "doklejać": [
+  "doklejać, przyklejać z boku; doklejać, dodawać kolejne kawałki"
+ ],
  "dokować": [
   "dokować ( zawijać do doku )"
+ ],
+ "dokręcić": [
+  "dokręcać, wkręcać do końca; przykręcać, domykać skręcając; doszlifowywać"
  ],
  "dolepiać": [
   "dolepiać, doklejać, dolepiać coś lepiąc"
@@ -374,6 +404,9 @@
  "domyć": [
   "domywać, spłukiwać; domywać się"
  ],
+ "domówić": [
+  "domawiać, dokończyć mówienie; domawiać się, zamawiać dodatkowo; umawiać, uzgadniać szczegóły"
+ ],
  "donaszać": [
   "donosić ( ciążę )"
  ],
@@ -392,8 +425,14 @@
  "dopełzać": [
   "docierać pełzając"
  ],
+ "dopiekać": [
+  "dopiekać, dopiekać do końca; nękać, gnębić; bywać zarazem gorącym"
+ ],
  "dopierać": [
   "spłukiwać, dociskać, opierać o coś, przyciskać"
+ ],
+ "dopilnować": [
+  "dopilnowywać, dopilnować, doglądać; dopilnowywać się; doglądać się nawzajem"
  ],
  "dopominać": [
   "dopominać się ( żądać )"
@@ -401,14 +440,23 @@
  "doposażać": [
   "wyposażać dodatkowo ( modernizować )"
  ],
+ "dopowiedzieć": [
+  "dopowiadać, dokończyć mówienie; dopowiadać, dodawać, wtrącać"
+ ],
  "dopracować": [
   "dopracowywać ( do końca )"
  ],
  "dopracowywać": [
   "wygładzać ( dopieszczać )"
  ],
+ "dopraszać": [
+  "dopraszać się, zapraszać kogoś dodatkowo; dopraszać się, wyciągać zgodę po długich prośbach"
+ ],
  "doprawić": [
   "doprawiać, dodawać więcej przypraw lub ziół"
+ ],
+ "doprowadzić": [
+  "doprowadzać, doprowadzać coś gdzieś; doprowadzać kogoś, coś do ruchu; doprowadzać coś do skutku"
  ],
  "dopychać": [
   "dopychać, popychać; przepychać się, przeciskać się"
@@ -458,6 +506,9 @@
  "dosypiać": [
   "dosypiać, dospać się do jakiejś godziny, dosypiać do syta"
  ],
+ "dosyłać": [
+  "dosyłać, dosyłać dodatkowe przesyłki; dosyłać kogoś dodatkowo"
+ ],
  "doszkalać": [
   "szkolić ( doszkalanie )"
  ],
@@ -476,8 +527,17 @@
  "dosłodzić": [
   "dosładzać, dosypywać cukru, dosłodzić po smaku"
  ],
+ "dosłuchać": [
+  "dosłuchiwać, dosłuchać do końca; wyłapywać słuchem, dosłuchiwać się"
+ ],
+ "dosłuchiwać": [
+  "dosłuchiwać, dosłuchać do końca; wyłapywać słuchem, dosłuchiwać się"
+ ],
  "dotaczać": [
   "dotaczać, docierać coś toczonego; dotaczać się, toczyć się powoli"
+ ],
+ "dotować": [
+  "dotować, subsydiować, subwencjonować; dotować się; dotować się nawzajem"
  ],
  "dowartościować": [
   "dowartościowywać, podnosić wartość, dodawać otuchy"
@@ -487,6 +547,9 @@
  ],
  "dowiadywać": [
   "dowiadywać ( dowiadywać się )"
+ ],
+ "dowlekać": [
+  "dowlekać się, docierać gdzieś ciągnąc coś; dowlekać się, dobijać się z trudem"
  ],
  "dozbrajać": [
   "dozbrajać; dozbrajać się, zbroić się"
@@ -526,6 +589,12 @@
  ],
  "dziwować": [
   "dziwić się ( zdumiewać się )"
+ ],
+ "dębieć": [
+  "dębieć, oniemiewać z wrażenia; twardnieć i robić się niesmacznym"
+ ],
+ "dłutować": [
+  "dłutować, drążyć dłutem, skuwać; wyrywać zęby dłutem"
  ],
  "ekskuzować": [
   "ekskuzować ( usprawiedliwiać )"
@@ -572,6 +641,9 @@
  "fajkować": [
   "fajkować ( tykać )"
  ],
+ "fajtać": [
+  "fajtać, kolebać, wymachiwać; fajtać, chwiać się, chwiać na boki"
+ ],
  "farcić": [
   "farcić ( mieć szczęście )"
  ],
@@ -617,6 +689,9 @@
  "fugować": [
   "wypełniać fugi ( spoiny )"
  ],
+ "fukać": [
+  "fukać, prychać, parskać; odpowiadać opryskliwie; łajać, ganić"
+ ],
  "furkotać": [
   "furkotać ( furczeć )"
  ],
@@ -628,6 +703,9 @@
  ],
  "gnuśnieć": [
   "gnuśnieć ( leńczyć się )"
+ ],
+ "gorzknieć": [
+  "gorzknieć, robić się gorzkim; gorzknieć, stawać się urażanym"
  ],
  "gotowić": [
   "gotowić ( przygotowywać )"
@@ -682,6 +760,9 @@
  ],
  "hukać": [
   "hukać, huczeć, grzmotać; przywalić, dołubać w coś"
+ ],
+ "hydzić": [
+  "hydzić, obrzydzać, odstręczać; hydzić się, brzydzić się, hydzić się czymś"
  ],
  "idiocieć": [
   "idiocieć, głupieć, tępieć, robić się idiotą"
@@ -764,6 +845,9 @@
  "kamieniować": [
   "kamienować ( forma alternatywna )"
  ],
+ "kangurować": [
+  "kangurować [kogoś]; odbijać się od pasa startowego jak kangur"
+ ],
  "kapslować": [
   "kapslować ( zamykać kapslem )"
  ],
@@ -796,6 +880,9 @@
  ],
  "kompresować": [
   "kompresować, ściskać; kondensować, zagęszczać"
+ ],
+ "konfekcjonować": [
+  "konfekcjonować, pakować pojedynczo; produkować gotową odzież"
  ],
  "kontrasygnować": [
   "sygnować ( podpisywać dodatkowo )"
@@ -857,6 +944,9 @@
  "kwikać": [
   "kwiczeć ( na wizę )"
  ],
+ "laicyzować": [
+  "laicyzować, świecczyć, sekularyzować; laicyzować się, sekularyzować się"
+ ],
  "laminować": [
   "laminować ( powlekać folią )"
  ],
@@ -914,6 +1004,9 @@
  "majdrować": [
   "majsterkować ( dłubać )"
  ],
+ "marać": [
+  "marać, mazać, brudzić, kalać; grzebać [po czymś], obmacywać"
+ ],
  "marginalizować": [
   "marginalizować ( spychać na margines )"
  ],
@@ -928,6 +1021,9 @@
  ],
  "memłać": [
   "miąć ( mamrotać )"
+ ],
+ "mendzić": [
+  "mendzić, męczyć kogoś długim gderaniem o drobiazgach"
  ],
  "mieczować": [
   "mieczować ( rozpierać )"
@@ -998,11 +1094,17 @@
  "nabzdyczać": [
   "dąsać się (okazywać urazę )"
  ],
+ "nachlewać": [
+  "nachlewać, upijać kogoś; chlać wiele; nachlewać się, upijać się"
+ ],
  "nachylać": [
   "nachylać, przechylać; nachylać się, schylać się"
  ],
  "naczytać": [
   "naczytać się, czytać do syta, wychtytać"
+ ],
+ "nadać": [
+  "nadawać, przyznawać, obdarzać; nadawać przez fale; nadawać, wysyłać"
  ],
  "nadganiać": [
   "nadrabiać zaległości"
@@ -1028,6 +1130,12 @@
  "nadpisywać": [
   "nadpisywać, tytułować, dodawać nagłówek; nadpisywać, przepisywać"
  ],
+ "nadpracować": [
+  "nadpracowywać się, przerabiać nadliczbowe godziny"
+ ],
+ "nadpracowywać": [
+  "nadpracowywać się, przerabiać nadliczbowe godziny"
+ ],
  "nadpłacić": [
   "nadpłacić ( przepłacać )"
  ],
@@ -1039,6 +1147,9 @@
  ],
  "nadwyrężać": [
   "nadwyrężać, nadwerężać, nadwątlać; nadwyrężać się"
+ ],
+ "nadłamywać": [
+  "nadłamywać, odlamywać kawałki, łamać po trochu; nadłamywać się, rysować się"
  ],
  "naganiać": [
   "naganiać, pędzić, przepędzać zwierzynę; nagabywać, zapraszać"
@@ -1070,6 +1181,9 @@
  "najeść": [
   "najeść ( jeść do sytości )"
  ],
+ "najeżać": [
+  "najeżać, jeżyć, stawiać na sztorc; rozpraszać, rozsypywać; najeżać się, jeżyć się"
+ ],
  "nakablować": [
   "donosić ( sypać kogoś )"
  ],
@@ -1087,6 +1201,9 @@
  ],
  "nakreślić": [
   "nakreślać, zarysowywać, naszkicować"
+ ],
+ "nakłuć": [
+  "nakłuwać, kłuć wielokrotnie; nadziewać, nabijać; nakłuwać się"
  ],
  "nalecieć": [
   "nalecieć, zjeżdżać ławami; wdzierać się; napływać, wlewać się"
@@ -1136,6 +1253,9 @@
  "napracować": [
   "ciężko pracować ( harować )"
  ],
+ "naprawić": [
+  "naprawiać, cerować, koić; zaradzać, prostować; podlegać naprawie"
+ ],
  "napromieniowywać": [
   "naświetlać ( napromieniowanie )"
  ],
@@ -1175,6 +1295,15 @@
  "naumieć": [
   "naumieć ( nauczyć się )"
  ],
+ "naurągać": [
+  "naurągać, lżyć, urągać [komuś]; obrażać pomówieniami"
+ ],
+ "nawarstwiać": [
+  "nawarstwiać, warstwić; nawarstwiać się, narastać lawinowo"
+ ],
+ "nawarstwić": [
+  "nawarstwiać, warstwić; nawarstwiać się, narastać lawinowo"
+ ],
  "nawidzieć": [
   "zazdrościć"
  ],
@@ -1190,6 +1319,9 @@
  "nawodzić": [
   "naprowadzać; doprowadzać, powodować"
  ],
+ "naćpać": [
+  "naćpać się, odurzać się narkotykami; naćpać się, pożerać łapczywie"
+ ],
  "naładować": [
   "ładować ( naładowanie )"
  ],
@@ -1198,6 +1330,9 @@
  ],
  "naśmiewać": [
   "wyśmiewać ( naigrawać )"
+ ],
+ "naświetlać": [
+  "naświetlać, oświetlać, przyświecać; napromieniowywać; naświetlać kliszę"
  ],
  "nicestwieć": [
   "ginąć ( przepadać )"
@@ -1250,14 +1385,35 @@
  "obiecać": [
   "obiecać ( złożyć obietnicę )"
  ],
+ "objeść": [
+  "objadać, obgryzać dookoła, wybierać; wyjadać komuś zapasy; objadać się, przejadać się"
+ ],
  "obladzać": [
   "obladzać, pokrywać lodem; obladzać się, zarastać lodem"
+ ],
+ "oblać": [
+  "oblewać, polewać czymś, zalewać; smarować; oblać egzamin"
+ ],
+ "obluzować": [
+  "obluzowywać, poluźniać, osłabiać; obluzowywać się, poluźniać się"
+ ],
+ "obluźniać": [
+  "obluźniać, poluźniać, rozluźniać; obluźniać się"
+ ],
+ "obluźnić": [
+  "obluźniać, poluźniać, rozluźniać; obluźniać się"
+ ],
+ "obmalować": [
+  "obmalowywać, malować ze wszystkich stron; obmawiać, obgadywać; obmalowywać się"
  ],
  "obmyślić": [
   "obmyślać, wymyślać, kombinować"
  ],
  "obrabowywać": [
   "napadać ( rabować )"
+ ],
+ "obrobić": [
+  "obrabiać, nadawać kształt; wykańczać, dopracowywać; przygotowywać, uprawiać"
  ],
  "obruszać": [
   "stłuczać, siniaczyć; urażać, oburzać; obruszać się"
@@ -1279,6 +1435,9 @@
  ],
  "obrzynać": [
   "obcinać ( ucinać gałęzie )"
+ ],
+ "obrócić": [
+  "obracać, kręcić, obracać; przekształcać, przeobrażać; obracać się, wirować, kręcić się"
  ],
  "obsikać": [
   "obsikać, sikać na coś; obsikać się, zabryzgać się moczem"
@@ -1340,6 +1499,12 @@
  "obłowić": [
   "obławiać, łowić na danym akwenie; polować; obławiać się, zbierać obfite łowy"
  ],
+ "obłąkać": [
+  "obłąkiwać, sprowadzać na manowce, mylić; obłąkiwać, doprowadzać do szału; obłąkiwać się, błądzić"
+ ],
+ "obściskiwać": [
+  "obściskiwać, wielokrotnie obściskiwać; obściskiwać się"
+ ],
  "obślizgiwać": [
   "obślizgiwać ( wyślizgiwać się )"
  ],
@@ -1391,14 +1556,23 @@
  "odchamić": [
   "nabierać kultury ( towarzyskiej )"
  ],
+ "odchudzić": [
+  "odchudzać, czynić szczuplejszym; odchudzać się, chudnąć, siadać na diecie"
+ ],
  "odchwaszczać": [
   "pielić ( chwasty )"
  ],
  "odchylać": [
   "odbiegać ( odchylać )"
  ],
+ "odcyfrować": [
+  "odcyfrowywać, rozszyfrowywać, dekodować; interpretować, rozbierać na czynniki"
+ ],
  "odczarowywać": [
   "odczarowywać, odczarowywać czary; odmitologizować, poprawiać"
+ ],
+ "odczepić": [
+  "odczepiać, odłączać, odspinać; odchodzić, odstępować"
  ],
  "odczołgiwać": [
   "odczołgiwać ( odpełzać )"
@@ -1499,6 +1673,9 @@
  "odmienić": [
   "odmieniać, przeobrażać; odmieniać przez przypadki, konjugować"
  ],
+ "odmówić": [
+  "odmawiać, zaprzeczać, odmawiać zgody; odrzucać; odmawiać modlitwę, pacierz; odmawiać, recytować"
+ ],
  "odnajdować": [
   "wariant słowa: odnajdywać; odnajdywać się"
  ],
@@ -1550,6 +1727,9 @@
  "odprzedać": [
   "odsprzedać ( forma alternatywna )"
  ],
+ "odpukać": [
+  "odpukiwać, wystukiwać; odpukiwać, przyjmować rozgrzeszenie; odpukiwać w niemalowane"
+ ],
  "odpyskiwać": [
   "odpyskiwać, odbijać, przytykać"
  ],
@@ -1577,11 +1757,20 @@
  "odsprzedać": [
   "odsprzedać ( sprzedawać dalej )"
  ],
+ "odstawić": [
+  "odstawiać, odkładać na miejsce; przerywać, zerwać (nałóg); rzucać, wycinać z użycia"
+ ],
  "odsypywać": [
   "odsypywać, odsuwać ziemię; osypywać; odkopywać"
  ],
+ "odsysać": [
+  "odsysać, odciągać przez ssanie; usuwać podciśnieniem, odsysać"
+ ],
  "odszczepić": [
   "odszczepiać ( odłamywać )"
+ ],
+ "odszykować": [
+  "odszykowywać, poprawiać, porządkować; odszykowywać się, stroić się elegancko"
  ],
  "odtajać": [
   "topnieć, tajać, rozmarzać; robić się cieplejszym"
@@ -1604,6 +1793,9 @@
  "odwodzić": [
   "odwodzić, zniechęcać; odciągać, odprowadzać"
  ],
+ "odwołać": [
+  "odwoływać, kasować, odwoływać uroczystość; zwalniać, odwoływać ze stanowiska; wycofywać"
+ ],
  "odwzajemniać": [
   "odwzajemniać ( odpłacać się tym samym )"
  ],
@@ -1613,11 +1805,35 @@
  "odymać": [
   "wydymać wargi; nadymać pyska, puszyć się; chmurzyć się"
  ],
+ "odzwierciedlić": [
+  "odzwierciedlać, odbijać, odzwierciedlać; odzwierciedlać się, lśnić odbiciem"
+ ],
+ "odzywać": [
+  "odzywać się, zabierać głos, wypowiadać się; być słyszanym, wydawać głos"
+ ],
+ "odławiać": [
+  "odławiać, oddzielać żywe sztuki łowiąc; łowić w sidła, łapać, zapędzać"
+ ],
+ "odżulić": [
+  "odżułać, odżylić, wyprowadzać żuli; przywracać do łask; rozkwitać"
+ ],
  "ofukiwać": [
   "ganić ( strofować )"
  ],
+ "ogałacać": [
+  "ogałacać z czegoś, obdzierać; ogałacać się; ogałacać się nawzajem"
+ ],
  "ognić": [
   "ropić się ( jadać w środku )"
+ ],
+ "ogołacać": [
+  "ogałacać z czegoś, obdzierać; ogałacać się; ogałacać się nawzajem"
+ ],
+ "ogołocić": [
+  "ogałacać z czegoś, obdzierać; ogałacać się; ogałacać się nawzajem"
+ ],
+ "ograć": [
+  "ogrywać, pokonywać w grze; nudzić się od zbyt częstego grania"
  ],
  "ogromieć": [
   "robić się ogromnym"
@@ -1630,6 +1846,12 @@
  ],
  "okablowywać": [
   "okablowywać (wyposażyć w okablowanie )"
+ ],
+ "okaleczać": [
+  "okaleczać, kaleczyć, oszpecać; kaleczyć psychicznie; poważnie szkodzić roślinie lub przedmiotowi"
+ ],
+ "okiełznywać": [
+  "okiełznywać, ujeżdżać; powściągać, hamować; okiełznywać się"
  ],
  "okocić": [
   "rodzić młode ( o kocie )"
@@ -1661,6 +1883,15 @@
  "okutać": [
   "owijać się ( okutanie )"
  ],
+ "omywać": [
+  "omywać, myć powierzchnię czegoś gruntownie; omywać się; podlegać omyciu"
+ ],
+ "omyć": [
+  "omywać, myć powierzchnię czegoś gruntownie; omywać się; podlegać omyciu"
+ ],
+ "omówić": [
+  "omawiać, dyskutować o czymś; omawiać, opisywać; omawiać i uzasadniać"
+ ],
  "opchać": [
   "opychać, opychać kogoś, przeładowywać żołądek"
  ],
@@ -1676,6 +1907,12 @@
  "oplotkowywać": [
   "obplotkować kogoś; plotkować o sobie nawzajem"
  ],
+ "oplątać": [
+  "oplątywać, oplatać, owijać; zamieszać, wciągać; oplątywać się, oplatać, owijać się"
+ ],
+ "oplątywać": [
+  "oplątywać, oplatać, owijać; zamieszać, wciągać; oplątywać się, oplatać, owijać się"
+ ],
  "opodatkowywać": [
   "opodatkowywać ( nakładać podatek )"
  ],
@@ -1685,8 +1922,20 @@
  "opowiedzieć": [
   "opowiadać, relacjonować; opowiadać się za kimś, popierać"
  ],
+ "opracować": [
+  "opracowywać, tworzyć, redagować, układać w całość"
+ ],
+ "oprawić": [
+  "oprawiać, wiązać w oprawę; oprawiać, ramować; oprawiać, obierać ze skóry"
+ ],
  "oprogramować": [
   "programować ( pisać programy )"
+ ],
+ "opromieniać": [
+  "opromieniać, oświetlać; rozjaśniać, jaśnieć; wynosić sławą"
+ ],
+ "opromienić": [
+  "opromieniać, oświetlać; rozjaśniać; wynosić sławą"
  ],
  "oprzątać": [
   "oprzątać ( czyścić, pielęgnować ( zwierzę ) )"
@@ -1724,6 +1973,9 @@
  "oskrzydlić": [
   "obejść skrzydłem"
  ],
+ "oskubywać": [
+  "oskubywać, wyskubywać pierze; ogołacać, wyłuskiwać wszystko; oskubywać się nawzajem"
+ ],
  "osmalić": [
   "osmalać, opalać; osmalać się, opalać się"
  ],
@@ -1744,6 +1996,12 @@
  ],
  "osączać": [
   "osączać ( odwadniać )"
+ ],
+ "osłabić": [
+  "osłabiać, stępiać, łagodzić; osłabiać się, słabnąć"
+ ],
+ "osłonić": [
+  "osłaniać, zasłaniać, osłaniać od czegoś; osłaniać się, zasłaniać się"
  ],
  "osłupieć": [
   "dumieć ( ze zdumienia )"
@@ -1777,6 +2035,9 @@
  ],
  "ożyć": [
   "ożyć (ożywać )"
+ ],
+ "pacać": [
+  "pacać, klepać; opadać bezwładnie; pacać się, oklepywać się nawzajem"
  ],
  "palatalizować": [
   "zmiękczać ( w wymowie )"
@@ -1829,6 +2090,9 @@
  "pietrać": [
   "synonim bać się"
  ],
+ "pirzgać": [
+  "pirzgać, zwiać, umykać; miotać, ciskać"
+ ],
  "plagiatować": [
   "plagiatować ( przywłaszczać cudze utwory )"
  ],
@@ -1862,8 +2126,14 @@
  "pochylić": [
   "pochylać, pochylać głowę; schylać się"
  ],
+ "pociskać": [
+  "pociskać, miotać bezładnie przez pewien czas; pchnąć mocno; ripostować"
+ ],
  "poczernieć": [
   "poczernieć ( stawać się czarnym )"
+ ],
+ "podbuzować": [
+  "podbudzać, rozkręcać, podsycać emocje; podniecać, nakręcać"
  ],
  "podchmielić": [
   "podchmielić ( upijać się lekko )"
@@ -1879,6 +2149,12 @@
  ],
  "podczepić": [
   "doczepić od spodu"
+ ],
+ "poddawać": [
+  "poddawać się, kapitulować, ulegać; poddawać, podsuwać; podpowiadać, sugerować"
+ ],
+ "podduszać": [
+  "podduszać, lekko dławić; dogotowywać do miękkości"
  ],
  "podetkać": [
   "podtykać, podkładać pod coś; przedstawiać, poddawać, oferować"
@@ -1900,6 +2176,9 @@
  ],
  "podgłośnić": [
   "podgłośnić ( podwyższyć głośność )"
+ ],
+ "podjeść": [
+  "podjadać, podjadać do syta; podgryzać, podjadać; podjadać się, podjadać po kryjomu"
  ],
  "podkasać": [
   "podwijać ( podciągać )"
@@ -1943,6 +2222,15 @@
  "podniecić": [
   "podniecać, pobudzać, rozbudzać; podniecać się, ekscytować się"
  ],
+ "podpalić": [
+  "podpalać, wzniecać ogień; podpalać, wzniecać pożar; przypiekać na rumiano"
+ ],
+ "podpasać": [
+  "podpasywać, opasywać paskiem lub sznurem; opasywać się"
+ ],
+ "podpasywać": [
+  "podpasywać, opasywać paskiem lub sznurem; opasywać się"
+ ],
  "podporządkować": [
   "podporządkowywać, ujarzmiać; podporządkowywać się, ulegać"
  ],
@@ -1960,6 +2248,9 @@
  ],
  "podróżowywać": [
   "zabarwiać na różowo; zabarwiać się na różowo"
+ ],
+ "podstrzygać": [
+  "podstrzygać, przystrzygać, obcinać po trochu; podstrzygać włosy"
  ],
  "podstąpić": [
   "podchodzić, podstępować pod coś"
@@ -2027,6 +2318,9 @@
  "pogłówkować": [
   "zastanawiać się ( rozmyślać )"
  ],
+ "poharatać": [
+  "poharatać, szarżować, ranić; ciąć, rąbać; masakrować, okaleczać"
+ ],
  "poinstruować": [
   "instruować ( poinformować )"
  ],
@@ -2059,6 +2353,9 @@
  ],
  "pokrzywdzić": [
   "pokrzywdzić ( wyrządzić krzywdę )"
+ ],
+ "pokrzywić": [
+  "pokrzywiać, wyginać w wielu miejscach; pokrzywiać wiele przedmiotów; pokrzywiać się"
  ],
  "pokwaśnieć": [
   "kwaśnieć ( nabierać kwaśności )"
@@ -2111,8 +2408,14 @@
  "poprzysięgać": [
   "poprzysięgać, zobowiązywać się przysięgą, uroczyście postanawiać"
  ],
+ "popróbować": [
+  "popróbować, próbować; próbować, kosztować; rywalizować"
+ ],
  "popłakać": [
   "popłakać się przez pewien czas, zacząć płakać"
+ ],
+ "porozrzucać": [
+  "porozrzucać, rozpraszać wiele rzeczy w różne strony; porozrzucać się"
  ],
  "porozumiewać": [
   "porozumiewać się, komunikować się, dogadywać się"
@@ -2120,11 +2423,17 @@
  "porozumieć": [
   "porozumiewać się, komunikować się, dogadywać się"
  ],
+ "poróżniać": [
+  "poróżniać, wywoływać niezgodę, siać spory; poróżniać się, popadać w spór"
+ ],
  "poróżowieć": [
   "różowieć ( nabierać różu )"
  ],
  "posiać": [
   "siać ( posiew )"
+ ],
+ "posiekać": [
+  "posiekać, siekać na drobno; dratować raniąc; chłostać"
  ],
  "posikać": [
   "sikać na coś; posikać się ze strachu, zsikać się"
@@ -2150,6 +2459,12 @@
  "postrzygać": [
   "postrzygać, strzyc (wiele); wyrównywać, gładzić strzyżeniem"
  ],
+ "postąpić": [
+  "postępować, działać, zachowywać się; posuwać się naprzód; brnąć dalej"
+ ],
+ "poszarzeć": [
+  "poszarzeć, szarzeć, siwieć; szarzeć o brzasku lub zmierzchu"
+ ],
  "poszczycić": [
   "chwalić się, szczycić się czymś"
  ],
@@ -2158,6 +2473,9 @@
  ],
  "potratować": [
   "potratować ( deptać wokół )"
+ ],
+ "potrącić": [
+  "potrącać, szturchać uderzeniem; przepychać się; odliczać, pomniejszać"
  ],
  "poturlać": [
   "poturlać (turlać, toczyć )"
@@ -2168,14 +2486,32 @@
  "powachlować": [
   "wachlować ( poruszać powietrze )"
  ],
+ "powalić": [
+  "powalać, przewracać, wywalać na ziemię; zastrzelić na śmierć; ogłuszać"
+ ],
  "poważnieć": [
   "nabierać powagi"
  ],
  "poweseleć": [
   "rozweselać się ( rozoptimizmować )"
  ],
+ "powielać": [
+  "powielać, zwielokrotniać, kopiować; powielać, przedłużać powtórzeniami"
+ ],
+ "powielić": [
+  "powielać, zwielokrotniać, kopiować; powielać, przedłużać powtórzeniami"
+ ],
+ "powikłać": [
+  "powikływać, watkować; komplikować, plątać; powikływać się"
+ ],
+ "powołać": [
+  "powoływać, mianować; powoływać do wojska, do służby; powoływać się, tytułować"
+ ],
  "powspominać": [
   "wspominać ( rozprawiać o przeszłości )"
+ ],
+ "powstrzymać": [
+  "powstrzymywać, powściągać, zatrzymywać; powstrzymywać się, wstrzymywać się"
  ],
  "powszednieć": [
   "stawać się codziennym, banalizować się, lichzieć"
@@ -2200,6 +2536,9 @@
  ],
  "pozłocić": [
   "pozłocić ( pokryć złotem )"
+ ],
+ "połapić": [
+  "połapywać, łowić ryby; porywać siłą; chwytać, brać w dłonie"
  ],
  "poślizgać": [
   "ślizgać się ( przez chwilę )"
@@ -2234,6 +2573,9 @@
  "przeadresowywać": [
   "adresować ( przekierowywać )"
  ],
+ "przebadać": [
+  "przebadać, badać po kolei; badać gruntownie; odnajdywać, wyszukiwać"
+ ],
  "przebałaganić": [
   "przebałamucić ( zwlekać beztrosko )"
  ],
@@ -2248,6 +2590,9 @@
  ],
  "przebudzić": [
   "przebudzać, budzić; przebudzać się, ocknąć się"
+ ],
+ "przebyć": [
+  "przebywać, przemierzać; przechodzić przez coś, doświadczać; przebywać, mieszkać"
  ],
  "przecenić": [
   "przeceniać, zawyżać wartość; przeceniać, obniżać cenę"
@@ -2276,11 +2621,17 @@
  "przeciążać": [
   "przeciążać, obciążać ponad miarę"
  ],
+ "przeczołgiwać": [
+  "przeczołgiwać, deptać po głowie, przerastać; przeczołgiwać się, czołgać się przez dystans"
+ ],
  "przeczuć": [
   "przeczuwać ( domyślać się )"
  ],
  "przeczytać": [
   "przeczytać ( całość )"
+ ],
+ "przedawnić": [
+  "przedawniać, powodować wygaśnięcie, unieważniać; przedawniać się, tracić moc prawną"
  ],
  "przedobrzać": [
   "przedobrzać, poprawiając psuć; przesadzać w ulepszaniu"
@@ -2309,6 +2660,9 @@
  "przegapiać": [
   "przegapić, przeoczyć, nie zauważyć"
  ],
+ "przegonić": [
+  "przeganiać, przepędzać; wyprzedzać, przestrzeliwać; przeganiać kogoś"
+ ],
  "przegrodzić": [
   "przegradzać, oddzielać przegrodą, dzielić"
  ],
@@ -2318,8 +2672,14 @@
  "przegrzewać": [
   "przegrzewać się"
  ],
+ "przejaśnić": [
+  "przejaśniać, rozjaśniać; przejaśniać się, robić się jaśniejszym; przejaśniać się (o pogodzie)"
+ ],
  "przejednać": [
   "przejednać ( udobruchać, ułagodzić )"
+ ],
+ "przejeść": [
+  "przejadać, zjadać całość; najadać się po trochu; przejadać się, objadać się"
  ],
  "przejąć": [
   "przejmować ( zawłaszczać )"
@@ -2332,6 +2692,9 @@
  ],
  "przekartkowywać": [
   "kartkować ( przewracać kartki )"
+ ],
+ "przekichać": [
+  "przekichać, trwonić, przepuszczać głupio; przesiedzieć jakiś czas kichając"
  ],
  "przekierować": [
   "przekierować ( kierować gdzie indziej )"
@@ -2366,11 +2729,17 @@
  "przemagać": [
   "przemagać, zwyciężać, pokonywać; panować, górować"
  ],
+ "przemeblować": [
+  "przemeblowywać, wymieniać umeblowanie; przemeblowywać się"
+ ],
  "przemianowywać": [
   "zmieniać nazwę ( przemianowanie )"
  ],
  "przemycić": [
   "przemycać nielegalnie; przedostawać się nielegalnie"
+ ],
+ "przemyć": [
+  "przemywać, obmywać, wykąpać; przemywać na szybko, opłukiwać"
  ],
  "przeorywać": [
   "przeorywać, zaorywać, przewracać skibę; żłobić bruzdy, marszczyć"
@@ -2402,6 +2771,12 @@
  "przepracowywać": [
   "pracować przez pewien czas; przerabiać"
  ],
+ "przeprawić": [
+  "przeprawiać, przeprawić przez rzekę; przeprawiać się, przeprawiać coś na drugą stronę; redagować, poprawiać tekst"
+ ],
+ "przeprosić": [
+  "przepraszać, przepraszać kogoś; przepraszać się nawzajem; uspokajać się; przepraszać, przebaczać; przepraszać"
+ ],
  "przepłukać": [
   "płukać ( przepłukiwanie )"
  ],
@@ -2423,6 +2798,9 @@
  "przesiadać": [
   "zmieniać miejsce siedzenia; przesiadać się"
  ],
+ "przesiać": [
+  "przesiewać, oddzielać przesiewając; odsiewać, filtrować; podlegać przesiewaniu"
+ ],
  "przesiedlać": [
   "przenosić osadę ( przesiedlanie )"
  ],
@@ -2437,6 +2815,12 @@
  ],
  "przestudiowywać": [
   "studiować, przeglądać, odpytywać coś gruntownie"
+ ],
+ "przestąpić": [
+  "przestawiać stopy, przekraczać; opuszczać, przechodzić; pomijać"
+ ],
+ "przesycić": [
+  "przesycać, nasycać ponad miarę; wypełniać, zaspokajać; przesycać"
  ],
  "przesyłać": [
   "przesyłać, wysyłać, nadawać; przekazywać dalej"
@@ -2471,6 +2855,9 @@
  "przetłaczać": [
   "przetłaczać, wyciskać, tłoczyć; przepompowywać; formować prasowaniem"
  ],
+ "przewalić": [
+  "przewalać, wywracać, powalać; przemieszczać, przerzucać, turlać; tracić, przepuszczać"
+ ],
  "przewartościować": [
   "przewartościowywać ( oceniać na nowo )"
  ],
@@ -2479,6 +2866,9 @@
  ],
  "przewiewać": [
   "przewiewać, przesuwać wiewem; wietrzyć, wychładzać; wiać, łuskać"
+ ],
+ "przewrócić": [
+  "przewracać, wywracać; przewracać się, chwiać się, kulać"
  ],
  "przewędrowywać": [
   "przewędrowywać, przemierzać, przechodzić wędrując"
@@ -2501,14 +2891,26 @@
  "przyblokować": [
   "przyblokować ( zablokować )"
  ],
+ "przychylić": [
+  "przychylać, przechylać; przychylać się, przechylać się; sprzyjać, skłaniać się ku czemuś"
+ ],
+ "przyczajać": [
+  "przyczajać się, czatować w zasadzce, kryć się; trzymać się z daleka"
+ ],
  "przyczepić": [
   "przyczepiać, przytwierdzać; przyczepiać się, przywierać; czepiać się"
  ],
  "przyczesać": [
   "przyczesać ( rozczesać grzebieniem )"
  ],
+ "przyczynić": [
+  "przyczyniać, wywoływać; być przyczyną, mieć swój wkład; przyczyniać się"
+ ],
  "przydawać": [
   "przydawać, dodawać, użyczać; przydawać się, być przydatnym"
+ ],
+ "przyduszać": [
+  "przyduszać, lekko dławić; przygasać, przygłuszać; spowalniać, hamować"
  ],
  "przydzielić": [
   "przydzielać, przyznawać, przydzielać komuś coś"
@@ -2518,6 +2920,9 @@
  ],
  "przyfasolić": [
   "przyłożyć komuś solidnie, przywalić"
+ ],
+ "przygasać": [
+  "przygasać, dogasać, przygasać światło; słabnąć, wygasać, tracić zapał"
  ],
  "przygotować": [
   "przygotować ( uczynić gotowym )"
@@ -2567,6 +2972,9 @@
  "przyobiecać": [
   "przyobiecać ( przyrzec )"
  ],
+ "przyoblekać": [
+  "przyodziewać, przyoblekać, inwestować; wdziewać; przyodziewać się, stroić się"
+ ],
  "przypakować": [
   "przypakowywać się, ćwiczyć, trenować; narzucać, zobowiązywać"
  ],
@@ -2578,6 +2986,12 @@
  ],
  "przypieczętowywać": [
   "przypieczętowywać, przesądzać, ostatecznie rozstrzygać; pieczętować"
+ ],
+ "przypierać": [
+  "przypierać, przyciskać do czegoś; dopierać, zapędzać w kąt; przypierać się, cisnąć"
+ ],
+ "przyplątywać": [
+  "przyplątywać, wplątywać, zamieszać; przyplątywać się, zjawiać się nieproszonym, uczepiać się"
  ],
  "przypochlebiać": [
   "przypochlebiać się"
@@ -2597,6 +3011,12 @@
  "przyprószać": [
   "przysypywać, przykrywać, obsypując"
  ],
+ "przyrumieniać": [
+  "przyrumieniać, przyrumieniać się, przyprażać do rumieńca; przyrumieniać się"
+ ],
+ "przyrumienić": [
+  "przyrumieniać, przyprażać do rumieńca; przyrumieniać się"
+ ],
  "przyskakiwać": [
   "podskakiwać w stronę, szybko się zbliżać"
  ],
@@ -2608,6 +3028,9 @@
  ],
  "przystawić": [
   "przystawiać, przystawiać coś do czegoś; zagadywać, flirtować"
+ ],
+ "przystrzygać": [
+  "przystrzygać, podstrzygać, obcinać po trochu; przystrzygać włosy"
  ],
  "przysypiać": [
   "zadrzemać ( zasypiać na chwilę )"
@@ -2678,8 +3101,14 @@
  "pulać": [
   "kpić ( żartować z kogoś )"
  ],
+ "puryfikować": [
+  "puryfikować, oczyszczać; obcierać kielich puryfikatorzem podczas komunii"
+ ],
  "puszkować": [
   "zamykać w puszkach ( konserwować )"
+ ],
+ "pyrgać": [
+  "pyrgać, ciskać, miotać; pyrgać, mknąć, gnać, pędzić"
  ],
  "pytlować": [
   "pytlować, przesiewać mąkę przez węzełek; pleść bzdury"
@@ -2768,6 +3197,9 @@
  "robaczywieć": [
   "robacieć, robić się robaczywym"
  ],
+ "rozagitować": [
+  "agitować, obchodzić domy, prowadzić kampanię; agitować kogoś; agitować się nawzajem"
+ ],
  "rozbalować": [
   "bawić się na balach"
  ],
@@ -2813,8 +3245,14 @@
  "rozgaszczać": [
   "rozgaszczać się, urządzać się wygodnie, jak w domu"
  ],
+ "rozgałęzić": [
+  "rozgałęziać, rozwidlać; rozgałęziać się, rozwidlać się, rozchodzić się"
+ ],
  "rozgonić": [
   "rozpędzać, rozpraszać, rozpraszać grupę"
+ ],
+ "rozgorączkować": [
+  "rozgorączkowywać, rozpalać, nakręcać, podniecać; gorączkować, podniecać się"
  ],
  "rozgotować": [
   "przegotowywać ( na papkę )"
@@ -2843,6 +3281,9 @@
  "rozkodowywać": [
   "dekodować ( odczyt kodu )"
  ],
+ "rozkręcić": [
+  "rozkręcać, odczepiać skręcając; rozkręcać, rozmontowywać; rozkręcać coś, uruchamiać"
+ ],
  "rozksięgować": [
   "rozksięgować, dzielić, rozdzielać; rozdzielać księgowo, przenosić"
  ],
@@ -2852,8 +3293,14 @@
  "rozleniwiać": [
   "usidlać lenistwem, wyrabiać gnuśność; leniwieć"
  ],
+ "rozluzować": [
+  "rozluźniać, popuszczać; rozluźniać się, poluźniać się"
+ ],
  "rozluźniać": [
   "rozluźniać, poluźniać; rozluźniać się, tracić napięcie"
+ ],
+ "rozmarzać": [
+  "rozmarzać, rozbudzać marzenia; rozmarzać się, zamyślać się, rozmyślać beztrosko"
  ],
  "rozmasować": [
   "rozmasowywać, masować, rozgrzewać masażem część ciała"
@@ -2867,6 +3314,9 @@
  "rozmydlić": [
   "rozmydlać, mydlić, pienić; zacierać, rozmywać; rozmydlać się"
  ],
+ "rozmyć": [
+  "rozmywać, spłukiwać; rozcieńczać, rozpuszczać; zacierać"
+ ],
  "rozmyślić": [
   "rozmyślić się"
  ],
@@ -2879,6 +3329,9 @@
  "rozochocić": [
   "ożywiać, rozweselać; ożywiać się, weseleć"
  ],
+ "rozpalić": [
+  "rozpalać, zapalać; rozpalać, pobudzać; rozpalać się, zapalać się"
+ ],
  "rozpamiętywać": [
   "zadumywać się nad, przypominać sobie, wspominać"
  ],
@@ -2888,11 +3341,23 @@
  "rozpieczętować": [
   "odpieczętować ( zdjąć pieczęć )"
  ],
+ "rozpierać": [
+  "rozpierać, rozpierać coś na boki; czuć coś bardzo intensywnie; rozpierać się, rozsiadać się wygodnie"
+ ],
+ "rozpirzać": [
+  "rozpirzać, rozbijać na strzępy; rozrzucać, rozsypywać; rozpirzać się, rozpraszać się"
+ ],
  "rozplanować": [
   "planować szczegółowo"
  ],
  "rozplanowywać": [
   "planować szczegółowo"
+ ],
+ "rozplątać": [
+  "rozplątywać, rozwiązywać, odplątywać; prostować; rozplątywać się"
+ ],
+ "rozplątywać": [
+  "rozplątywać, rozwiązywać, odplątywać; prostować; rozplątywać się"
  ],
  "rozpocząć": [
   "rozpoczynać ( zaczynać )"
@@ -2954,6 +3419,9 @@
  "rozsiodłać": [
   "rozsiodłać ( zdejmować siodło )"
  ],
+ "rozsiąść": [
+  "rozsiadać się, siadać wygodnie, urządzić się wygodnie"
+ ],
  "rozstawiać": [
   "rozstawiać, rozsuwać; ustawiać, rozkładać; rozsiewać"
  ],
@@ -2975,8 +3443,17 @@
  "roztyć": [
   "tyć ( bardzo mocno )"
  ],
+ "rozwichrzać": [
+  "rozwichrzać, rozczochrywać; rozwichrzać się"
+ ],
  "rozwidlić": [
   "rozwidlić ( rozdzielić na odnogi )"
+ ],
+ "rozwlekać": [
+  "rozwlekać, rozścielać, rozwijać; rozsiewać zarazki; rozgrabiać, rozkradać"
+ ],
+ "rozwodnić": [
+  "rozwadniać, rozcieńczać wodą; spłycać, banalizować; rozwadniać się, tracić treść"
  ],
  "rozwydrzać": [
   "rozwydrzać kogoś; rozwydrzać się"
@@ -2998,6 +3475,9 @@
  ],
  "rusyfikować": [
   "zrusyfikować ( narzucać rosyjskość )"
+ ],
+ "rzeźwić": [
+  "rzeźwić, orzeźwiać, dodawać wigoru; doprowadzać kogoś do siebie; orzeźwiać się"
  ],
  "rzucić": [
   "rzucać, ciskać, zarzucać; porzucać, rzucać palenie"
@@ -3028,6 +3508,9 @@
  ],
  "scherleć": [
   "robić się chorowitym ( więdnąć )"
+ ],
+ "schlewać": [
+  "schlewać, upajać, upijać; chlać dużo; schlewać się, chlać, upijać się"
  ],
  "schować": [
   "schować, chować; chować przed kimś"
@@ -3077,6 +3560,9 @@
  "skamerować": [
   "kręcić kamerą"
  ],
+ "skapcanieć": [
+  "skapcanieć, robić się niezdarnym, tracić sprawność"
+ ],
  "skarmelizować": [
   "karmelizować ( przekształcić w karmel )"
  ],
@@ -3092,8 +3578,14 @@
  "skatować": [
   "katować, dręczyć, męczyć; katować się; walić z rozmachem"
  ],
+ "skażać": [
+  "skażać, zanieczyszczać, zatruwać; psuć, deprawować"
+ ],
  "skipować": [
   "ratować wyrzuconą żywność, wyławiać jedzenie ze śmietników"
+ ],
+ "sklecić": [
+  "sklecić, składać byle jak, zlepiać; pojawiać się, powstawać"
  ],
  "sklepiać": [
   "wykładać sklepieniem"
@@ -3109,6 +3601,9 @@
  ],
  "skomercjalizować": [
   "komercjalizować, uprzedmiotawiać, uczyniać towarem"
+ ],
+ "skomplementować": [
+  "skomplementowywać, komplementować, chwalić; komplementować się nawzajem"
  ],
  "skomplikować": [
   "komplikować, utrudniać; stawać się bardziej złożonym"
@@ -3131,6 +3626,9 @@
  "skonfundować": [
   "konfundować, mieszać, oszołamiać; konfundować się"
  ],
+ "skonsultować": [
+  "konsultować, konsultować w sprawie; zasięgać opinii; radzić się"
+ ],
  "skontaminować": [
   "skażać ( zanieczyszczać )"
  ],
@@ -3145,6 +3643,9 @@
  ],
  "skopić": [
   "skopić ( kastrować barana )"
+ ],
+ "skołować": [
+  "skołować, wykombinować, zdobyć; wykiwać, mamić"
  ],
  "skoślawieć": [
   "skoślawieć ( giąć się, krzywić )"
@@ -3179,6 +3680,9 @@
  "skulić": [
   "kulić się ( skurczyć się )"
  ],
+ "skumać": [
+  "skumać, łapać, rozumieć; skumać się, kumać się z kimś"
+ ],
  "skumulować": [
   "kumulować, nagromadzać, gromadzić; podlegać kumulacji"
  ],
@@ -3196,6 +3700,9 @@
  ],
  "składkować": [
   "zbierać składki"
+ ],
+ "skłonić": [
+  "skłaniać, popędzać, pobudzać; pochylać; skłaniać się, chylić się"
  ],
  "skłębiać": [
   "skłębiać, zbiegać się w skupisko; skłębiać się"
@@ -3251,8 +3758,14 @@
  "spetryfikować": [
   "petryfikować, utrwalać, zamrażać w formie; petryfikować się, kamienieć"
  ],
+ "spiekać": [
+  "spiekać, przesuszać przez wypiekanie; wypalać, przypiekać; spiekać ze sobą"
+ ],
  "spieniać": [
   "spieniać, pienić; pienić się"
+ ],
+ "spierniczać": [
+  "spierniczać, uciekać co sił, drapać się; spartaczyć, spartolić, spieprzać"
  ],
  "spieszczać": [
   "spieszczać, zdrobniać; przymilać się, czule zwracać się"
@@ -3277,6 +3790,9 @@
  ],
  "splątywać": [
   "splątywać, pleść w węzły, zaplatać; splątywać się"
+ ],
+ "spochmurnieć": [
+  "spochmurnieć, chmurzyć się, posępnieć; smutnieć, posępnieć"
  ],
  "spodobać": [
   "spodobać się ( podobać się )"
@@ -3344,6 +3860,9 @@
  "spróchnieć": [
   "próchnieć ( psuć się )"
  ],
+ "sprężynować": [
+  "sprężynować, odbijać się na sprężynach; spulchniać glebę broną sprężynową; wyposażać w sprężyny"
+ ],
  "spsocić": [
   "hulać, swawolić, urządzać sobie psoty"
  ],
@@ -3364,6 +3883,9 @@
  ],
  "spławić": [
   "spławiać, przewozić, puszczać wodą; spłukiwać"
+ ],
+ "spłodzić": [
+  "spłodzić, płodzić potomstwo; tworzyć; płodzić, rozmnażać się"
  ],
  "spłonić": [
   "spłaniać, rumienić; rumienić się"
@@ -3470,6 +3992,9 @@
  "sypiać": [
   "sypiać, mieć zwyczaj sypiania; współżyć z kimś"
  ],
+ "szarzeć": [
+  "szarzeć, robić się szarym, siwieć; szarzeć o brzasku lub zmierzchu"
+ ],
  "szczupleć": [
   "szczupleć ( chudnąć )"
  ],
@@ -3484,6 +4009,9 @@
  ],
  "szpetnieć": [
   "szpetnieć ( robić się szpetnym )"
+ ],
+ "szpikować": [
+  "szpikować, przeszywać sadłem; szpikować narkotykami; szpikować się nimi"
  ],
  "sztachać": [
   "zaciągać się ( dymem )"
@@ -3590,14 +4118,23 @@
  "uatrakcyjnić": [
   "uatrakcyjnić, uatrakcyjniać, przyozdabiać"
  ],
+ "ubarwić": [
+  "ubarwiać, zabarwiać; przystrajać, upiększać; ubarwiać się"
+ ],
  "ubezwłasnowolniać": [
   "pozbawiać zdolności prawnych"
  ],
  "ubezwłasnowolnić": [
   "pozbawić zdolności prawnych"
  ],
+ "ubić": [
+  "ubijać, spieniać trzepiąc; ubijać, zagęszczać, wałować; ubijać, wyburzać"
+ ],
  "ubliżać": [
   "poniżać ( ubliżanie )"
+ ],
+ "ubogacić": [
+  "ubogacać, wzbogacać; przystrajać, zdobić; ubogacać się"
  ],
  "ubożeć": [
   "ubożeć ( biednieć )"
@@ -3608,11 +4145,20 @@
  "ubóstwić": [
   "ubóstwiać ( boskie czczenie )"
  ],
+ "ubłagiwać": [
+  "ubłagiwać, upraszać, błagać, przebłagiwać; przebłagać"
+ ],
  "uchachać": [
   "uśmiać się ( rozchichotać )"
  ],
+ "uchlewać": [
+  "uchlewać, upajać, upijać kogoś; uchlewać się, chlać, upijać się"
+ ],
  "uchronić": [
   "uchraniać, osłaniać; uchronić się, kryć się"
+ ],
+ "uchwalić": [
+  "uchwalać, przydzielać, przeznaczać; uchwalać, rozstrzygać, stanowić"
  ],
  "uchybić": [
   "uchybiać, naruszać, łamać; ubliżać, obrażać"
@@ -3622,6 +4168,9 @@
  ],
  "ucywilizować": [
   "cywilizować ( oswajać obyczajowo )"
+ ],
+ "uczepić": [
+  "uczeplać, zaczepiać, łapać; uczeplać się, trzymać się; czepiać się"
  ],
  "uczulić": [
   "uczulać, wywoływać uczulenie; uczulać się na coś"
@@ -3659,6 +4208,9 @@
  "udrożnić": [
   "drożnić, udrażniać, udrożnić przewody"
  ],
+ "udzielić": [
+  "udzielać, przyznawać, obdarzać; oddziaływać na kogoś, udzielać się"
+ ],
  "udziwniać": [
   "nadawać dziwności"
  ],
@@ -3677,6 +4229,9 @@
  "ugrzecznić": [
   "ugrzecznić ( oczyścić z nieprzyzwoitości )"
  ],
+ "ujarzmić": [
+  "ujarzmiać, poskramiać, oswajać, obejmować kontrolą; zaprzęgać"
+ ],
  "ujednolicać": [
   "ujednolicać, ujednospajać; ujednolicać się, stawać się jednolitym"
  ],
@@ -3691,6 +4246,9 @@
  ],
  "ujednoznacznić": [
   "ujednoznacznić ( zdefiniować jednoznacznie )"
+ ],
+ "ujeść": [
+  "ukąsać, kąsać; najadać się; gadać bez końca; wydzierać się; kłamać"
  ],
  "ukamieniować": [
   "ukamienować ( forma alternatywna )"
@@ -3722,8 +4280,14 @@
  "ukłonić": [
   "kłaniać się ( pokłonić )"
  ],
+ "ulotnić": [
+  "ulotniać się, ulatywać; zmykać, wymykać się, uciekać zbyt wcześnie"
+ ],
  "umalić": [
   "umniejszać"
+ ],
+ "umartwić": [
+  "umartwiać, szkodzić własnemu ciału; umartwiać się, pościć, zwłaszcza z pobudek religijnych"
  ],
  "umiejscowić": [
   "umiejscawiać ( umiejscowienie )"
@@ -3739,6 +4303,9 @@
  ],
  "umizgiwać": [
   "umizgiwać się, zalecać się; przymilać się, trwożyć"
+ ],
+ "umocnić": [
+  "umacniać, wzmacniać; utrwalać, umacniać, potwierdzać; umacniać się"
  ],
  "umoralniać": [
   "umoralniać ( podnosić moralnie )"
@@ -3776,14 +4343,23 @@
  "unieruchomić": [
   "unieruchamiać, wyłączać z ruchu, unieszkodliwiać; unieruchamiać się"
  ],
+ "unieszczęśliwić": [
+  "unieszczęśliwiać, czynić nieszczęśliwym; czynić siebie nieszczęśliwym; unieszczęśliwiać się nawzajem"
+ ],
  "unieszkodliwić": [
   "unieszkodliwić ( czynić nieszkodliwym )"
+ ],
+ "uniewinnić": [
+  "uniewinniać [od]; bronić od zarzutu; uniewinniać się"
  ],
  "uniezwyklać": [
   "uniezwykliwać, czynić niezwykłym, odbierać zwyczajność; uniezwykliwiać się"
  ],
  "uniezwyklić": [
   "uniezwykliwać, czynić niezwykłym, odbierać zwyczajność; uniezwykliwiać się"
+ ],
+ "unieśmiertelnić": [
+  "unieśmiertelniać, uwieczniać, upamiętniać; utrwalać w pamięci"
  ],
  "unifikować": [
   "unifikować ( ujednolicać )"
@@ -3806,6 +4382,12 @@
  "uobecnić": [
   "uobecniać, ukazywać, przedstawiać; uobecniać się"
  ],
+ "uodparniać": [
+  "uodparniać, czynić odpornym; uodparniać się, nabywać odporności"
+ ],
+ "uodpornić": [
+  "uodparniać, czynić odpornym; uodparniać się, nabywać odporności"
+ ],
  "uogólnić": [
   "uogólniać, kategoryzować; stawać się ogólniejszym"
  ],
@@ -3814,6 +4396,9 @@
  ],
  "upadlać": [
   "upadlać, poniżać; upadlać się"
+ ],
+ "upajać": [
+  "upajać, upijać, onieśmielać; upajać się, upijać się"
  ],
  "upaćkać": [
   "upaćkać, brudzić, paczyć; upaćkać się nawzajem"
@@ -3835,6 +4420,9 @@
  ],
  "uplasować": [
   "plasować ( umiejscawiać )"
+ ],
+ "upodabniać": [
+  "upodabniać, czynić podobnym; upodabniać się, naśladować; asymilować"
  ],
  "upodmiotowić": [
   "czynić podmiotem"
@@ -3863,6 +4451,9 @@
  "uprawić": [
   "uprawiać, uprawiać ziemię; uprawiać rośliny"
  ],
+ "uprzedzić": [
+  "uprzedzać, ubiegać, wyprzedzać; powiadamiać z wyprzedzeniem; ostrzegać"
+ ],
  "uprzemysławiać": [
   "uprzemysławiać ( industrializować )"
  ],
@@ -3877,6 +4468,9 @@
  ],
  "uprzywilejowywać": [
   "uprzywilejowywać ( nadawać przywileje )"
+ ],
+ "upędzić": [
+  "upędzać, warzyć domowym sposobem; przyspieszać wzrost roślin; podlegać domowej destylacji"
  ],
  "upłynniać": [
   "przekształcać w płyn"
@@ -3929,6 +4523,9 @@
  "ustosunkowywać": [
   "ustosunkowywać się, odnosić się, zajmować stanowisko"
  ],
+ "ustąpić": [
+  "ustępować, robić miejsce, cofać się; ustępować, pozbywać się; uginać się, przyznawać rację"
+ ],
  "usynowiać": [
   "usynawiać ( forma alternatywna )"
  ],
@@ -3953,6 +4550,9 @@
  "usłuchać": [
   "usłuchać ( słuchać )"
  ],
+ "utaczać": [
+  "utaczać, wytaczać tocząc; obrabiać na tokarce; odciągać, zlewać"
+ ],
  "utajniać": [
   "utajniać ( klasyfikować jako tajne )"
  ],
@@ -3974,6 +4574,9 @@
  "utrudzić": [
   "trudzić ( męczyć )"
  ],
+ "utrwalić": [
+  "utrwalać, umacniać, konsolidować; wkuwać na pamięć, przyswajać; utrwalać w pamięci, uwieczniać"
+ ],
  "utrzymać": [
   "utrzymywać ( utrzymanie )"
  ],
@@ -3982,6 +4585,9 @@
  ],
  "utylizować": [
   "utylizować ( przetwarzać ponownie )"
+ ],
+ "utłukiwać": [
+  "utłukiwać, tłuc, kruszyć; zrzucać uderzeniem; nabijać, nawyrabiać"
  ],
  "uwewnętrzniać": [
   "uwewnętrzniać ( przyjmować wewnętrznie )"
@@ -4025,11 +4631,17 @@
  "uziemiać": [
   "uziemiać, obsypywać ziemią; obciążać, uziemiać"
  ],
+ "uzmysłowić": [
+  "uświadamiać, unaoczniać, obrazować; uzmysławiać coś komuś; uzmysławiać sobie, pojmować"
+ ],
  "uładzać": [
   "porządkować ( uładać )"
  ],
  "uładzić": [
   "uporządkować ( uładać )"
+ ],
+ "uściełać": [
+  "uściełać, urządzać posłanie; uściełać łóżko; wyścielać, zasłaniać, uściełać czymś"
  ],
  "uściślać": [
   "uściślać ( doprecyzowywać )"
@@ -4088,6 +4700,9 @@
  "wdowieć": [
   "wdowieć ( stawać się wdową lub wdowcem )"
  ],
+ "wdzierać": [
+  "wdzierać się, wpychać się, włamywać się; wpadać gwałtownie, wdzierać się w środek; najeżdżać, okupować"
+ ],
  "welaryzować": [
   "welaryzować ( nadawać brzmienie welarne )"
  ],
@@ -4112,6 +4727,9 @@
  "wgłębić": [
   "zagłębić się ( wniknąć )"
  ],
+ "wikłać": [
+  "wikłać, wplątąwać, pogrążać; wikłać się, poplątywać się"
+ ],
  "wiotczeć": [
   "wiotczeć, tracić sprężystość, mięknąć"
  ],
@@ -4130,6 +4748,9 @@
  "wkupywać": [
   "wkupywać sobie przychylność, wkradać się"
  ],
+ "wkuć": [
+  "wkuwać, osadzać kuciem; wkuwać na pamięć, zakuwać; podlegać osadzeniu kuciem"
+ ],
  "wmurować": [
   "wmurowywać ( w mur )"
  ],
@@ -4142,14 +4763,29 @@
  "wnerwić": [
   "nerwić, irytować, denerwować; nerwić się, irytować się"
  ],
+ "worywać": [
+  "worywać, zagarniać cudzą rolę pługiem; zapuszczać się w głąb, drążyć"
+ ],
  "wpakować": [
   "wpakować ( pakować, upychać )"
+ ],
+ "wpaść": [
+  "wpadać, wpaść; wpadać z wizytą, zabierać się; wpadać na kogoś, natrafiać"
+ ],
+ "wpełzać": [
+  "wpełzać, wpełzać w coś; wpełzać w górę, na coś; wkradać się, wczepiać się"
  ],
  "wpieniać": [
   "wkurzać, irytować; wpieniać się, irytować się"
  ],
  "wpienić": [
   "wkurzać, irytować; wpieniać się, irytować się"
+ ],
+ "wplątać": [
+  "wplątywać, wplatać, wplątąwać; zamieszać, wciągać; wplątywać się, plątać się"
+ ],
+ "wprawić": [
+  "wprawiać, umieszczać w czymś; wprawiać, wywoływać; wprawiać się, przyuczać"
  ],
  "wrobić": [
   "wplątywać kogoś ( fałszywie )"
@@ -4162,6 +4798,9 @@
  ],
  "wrzucić": [
   "wrzucać do środka; wrzucać do sieci; włączać się, uczestniczyć"
+ ],
+ "wrócić": [
+  "wracać, powracać; wracać do czegoś; zawracać"
  ],
  "wsadzić": [
   "wsadzać, wkładać, umieszczać; pomagać komuś w czymś; osadzać, zamykać"
@@ -4190,6 +4829,9 @@
  "wtopić": [
   "wtapiać, osadzać w czymś; przeplatać, wplatać"
  ],
+ "wtranżalać": [
+  "wtranżalać, pożerać, pochłaniać; wtranżalać się, wtykać się, wpychać"
+ ],
  "wtrynić": [
   "wpychać ( wciskać nieproszony )"
  ],
@@ -4208,6 +4850,9 @@
  "wyadwokatować": [
   "adwokatować ( bronić )"
  ],
+ "wyagitować": [
+  "agitować, obchodzić domy, prowadzić kampanię; agitować kogoś; agitować się nawzajem"
+ ],
  "wyartykułować": [
   "artykułować, wymawiać, wyartykułowywać wyraźnie"
  ],
@@ -4225,6 +4870,9 @@
  ],
  "wybraniać": [
   "bronić ( osłaniać )"
+ ],
+ "wybrzmiewać": [
+  "wybrzmiewać, dobrzmiewać, milknąć; rozbrzmiewać; artykułować szczegółowo"
  ],
  "wybrzuszać": [
   "robić wybrzuszenie"
@@ -4253,6 +4901,9 @@
  "wybłękitnieć": [
   "wybłękitnieć (nabierać błękitu )"
  ],
+ "wychlapywać": [
+  "wychlapywać, wylewać chlapcząc; wychlapywać, chlustać, chlać; wyczerpywać ciecz"
+ ],
  "wychować": [
   "wychowywać ( wychowanie )"
  ],
@@ -4262,20 +4913,38 @@
  "wychłodzić": [
   "wychładzać, schładzać, robić zimnym; wychładzać się, stygnąć"
  ],
+ "wycierpieć": [
+  "wycierpywać, przecierpieć długo ból fizyczny lub psychiczny"
+ ],
  "wyciszać": [
   "wyciszać, przyciszać; wyciszać dźwięk, uspokajać"
+ ],
+ "wyciągnąć": [
+  "wyciągać, wyjmować; wyciągać, rozprostowywać; wyciągać się, wydłużać się"
  ],
  "wycofać": [
   "wycofywać, cofać; wycofywać się, odchodzić; rezygnować"
  ],
+ "wycwanić": [
+  "wycwaniać się, uchylać się sprytem; wykręcać się, wymigiwać się; robić się cwaniejszym"
+ ],
  "wycyganiać": [
   "wycyganiać ( wyłudzać )"
+ ],
+ "wyczekać": [
+  "wyczekiwać, niecierpliwie wypatrywać; przeczekiwać długo"
  ],
  "wyczesać": [
   "uczesać ( wyczesywać )"
  ],
  "wyczołgiwać": [
   "wyczołgiwać ( wydostawać się na czworakach )"
+ ],
+ "wyczulać": [
+  "wyczulać, czynić wrażliwym; wyczulać się, stawać się wyczulonym"
+ ],
+ "wyczulić": [
+  "wyczulać, czynić wrażliwym; wyczulać się, stawać się wyczulonym"
  ],
  "wyczuć": [
   "przeczuwać ( instynktownie )"
@@ -4322,6 +4991,9 @@
  "wyemancypować": [
   "emancypować, usamodzielniać; emancypować się"
  ],
+ "wyemitować": [
+  "emitować, wydawać; nadawać, emitować; emitować, wypuszczać"
+ ],
  "wyewoluować": [
   "ewoluować ( wyewoluowanie )"
  ],
@@ -4334,11 +5006,17 @@
  "wygrać": [
   "wygrać ( zwyciężyć; prowadzić )"
  ],
+ "wygryzać": [
+  "wygryzać, wygryzywać; wyjadać gryząc do końca; wyganiać, doprowadzać do odejścia"
+ ],
  "wygumkować": [
   "wygumkować ( usuwać gumką )"
  ],
  "wygumkowywać": [
   "wygumkowywać ( wymazywać gumką )"
+ ],
+ "wygładzić": [
+  "wygładzać, gładzić, wyrównywać powierzchnię; wygładzać stylistycznie, doszlifowywać"
  ],
  "wygłupiać": [
   "wygłupiać się ( głupkowato )"
@@ -4397,6 +5075,9 @@
  "wylansować": [
   "wylansować, promować; wysławiać samego siebie"
  ],
+ "wylepić": [
+  "wylepiać, wyklejać, wyściełać; formować lepiąc, wylepiać z czegoś"
+ ],
  "wylesić": [
   "wylesić ( pozbawiać lasów )"
  ],
@@ -4454,8 +5135,17 @@
  "wynaturzać": [
   "wynaturzać ( wypaczać )"
  ],
+ "wynurzać": [
+  "wynurzać, wynurzać na powierzchnię; wynurzać się, wypływać; majaczyć na horyzoncie"
+ ],
  "wyobcowywać": [
   "czynić obcym ( wyobcowanie )"
+ ],
+ "wyoblić": [
+  "wyoblać, wyoblać przedmioty z blachy dociskając ją do wirowającego wzorca"
+ ],
+ "wyodrębnić": [
+  "wyodrębniać, odcinać, wyłączać; wyodrębniać się, wyodrębniać się"
  ],
  "wyolbrzymić": [
   "wyolbrzymiać, przesadzać, powiększać ponad miarę"
@@ -4472,8 +5162,17 @@
  "wypalić": [
   "spalać się, dopalać się; wypalać, suszyć w ogniu; piętnować żarem"
  ],
+ "wyparować": [
+  "wyparowywać, parować, ulatniać się; wyparowywać, odparowywać; znikać, rozpraszać się"
+ ],
+ "wyparowywać": [
+  "wyparowywać, parować, ulatniać się; odparowywać; znikać, rozpraszać się"
+ ],
  "wyperswadować": [
   "wyperswadować ( odwieść od czegoś )"
+ ],
+ "wypełnić": [
+  "wypełniać, zapełniać, zasypywać; uzupełniać, dopełniać; spełniać, zaspokajać"
  ],
  "wypieszczać": [
   "wypieszczać,pieścić; rozpieszczać, przytulać"
@@ -4483,6 +5182,9 @@
  ],
  "wypięknieć": [
   "pięknieć, stawać się coraz piękniejszym"
+ ],
+ "wypięknić": [
+  "wypiękniać, upiększać; wypiękniać się, upiększać się"
  ],
  "wypiętrzać": [
   "piętrzyć ( wypiętrzanie )"
@@ -4502,6 +5204,9 @@
  "wypocić": [
   "wypocić pot, pocić się; parować, ulatniać się"
  ],
+ "wypogodzić": [
+  "wypogadzać, przejaśniać, rozpogadzać; wypogadzać się, przejaśniać się"
+ ],
  "wypomnieć": [
   "wypominać komuś, wyrzucać komuś"
  ],
@@ -4513,6 +5218,9 @@
  ],
  "wyprawić": [
   "wyprawiać, odprawiać, wysyłać; wyprawiać skóry; ruszać dokądkolwiek"
+ ],
+ "wyprzeć": [
+  "wypierać, wypędzać; wypierać, prześcigać, zajmować czyjeś miejsce; wypierać się, wyrzekać się"
  ],
  "wypróbowywać": [
   "próbować ( testować )"
@@ -4562,6 +5270,9 @@
  "wyskalować": [
   "skalować ( według skali )"
  ],
+ "wysmuklać": [
+  "wysmuklać, wyszczuplać; wysmuklać się, wysmukleć"
+ ],
  "wysmukleć": [
   "wysmukleć ( robić się smukłym )"
  ],
@@ -4583,6 +5294,9 @@
  "wystukać": [
   "wystukiwać, wybijać, wystukiwać rytm; wystukiwać na klawiaturze; współżyć z kimś"
  ],
+ "wystąpić": [
+  "występować, pojawiać się; grać na scenie; zabierać głos; występować z czegoś; aplikować"
+ ],
  "wysupływać": [
   "wysupływać, wydłubywać, wyłuskiwać; wysmykiwać się"
  ],
@@ -4601,6 +5315,9 @@
  "wyszumować": [
   "wyszumować ( wyjaśniać )"
  ],
+ "wyszykować": [
+  "wyszykowywać, przygotowywać, szykować; wyszykowywać się, stroić się elegancko"
+ ],
  "wysławić": [
   "wysławiać, sławić; wysławiać się; wymieniać, zwać po imieniu"
  ],
@@ -4610,11 +5327,20 @@
  "wytapetować": [
   "tapetować; nakładać za grubą warstwę makijażu"
  ],
+ "wytracić": [
+  "wytracać, wybijać, uśmiercać; pomniejszać, obniżać; wytracać się, tracić, wyczerpywać"
+ ],
  "wytropić": [
   "wytropić ( tropić, wyśledzić )"
  ],
  "wytrzewiać": [
   "wytrzewiać, usuwać wnętrzności, wypruwać"
+ ],
+ "wytłukiwać": [
+  "wytłukiwać, wybijać, walić; wytłukiwać się nawzajem"
+ ],
+ "wytłuszczać": [
+  "wytłuszczać, brudzić tłuszczem; pogrubiać pismo; zbrudzić się tłuszczem"
  ],
  "wyuzdać": [
   "pozbawiać hamulców ( moralnych )"
@@ -4628,14 +5354,23 @@
  "wywiedzieć": [
   "dopytywać się, wypytywać, sondować kogoś"
  ],
+ "wywlekać": [
+  "wywlekać, wywłóczyć, wyciągać z trudem; wynosić kogoś siłą; wywłóczyć, wypominać"
+ ],
  "wywnioskować": [
   "wnioskować ( wywnioskowanie )"
+ ],
+ "wywąchiwać": [
+  "wywąchiwać, wytropić węsząc; wywąchiwać się, wywęszyć"
  ],
  "wyzbywać": [
   "pozbywać się [czegoś], wyzbywać się"
  ],
  "wyzbyć": [
   "pozbyć się [czegoś], wyzbywać się"
+ ],
+ "wyzierać": [
+  "wyzierać, wyglądać, wyzierać się; wypatrywać, wyczekiwać; wyłaniać się"
  ],
  "wyziębić": [
   "wyziębić ( wychłodzić )"
@@ -4655,11 +5390,20 @@
  "wyładnieć": [
   "ładnieć ( robić się ładnym )"
  ],
+ "wyładować": [
+  "wyładowywać, rozładowywać; wyładowywać się, dawać ujście; rozładowywać się (o baterii)"
+ ],
  "wyłanczać": [
   "wyłączać ( forma nienormatywna )"
  ],
  "wyłgiwać": [
   "wyłgiwać się, wymigiwać się; wyłudzać, wyprowadzać w pole"
+ ],
+ "wyłonić": [
+  "wyłaniać, wskazywać, wyłaniać po rozstrzygnięciu; wyłaniać się, majaczyć; powstawać"
+ ],
+ "wyłowić": [
+  "wyławiać, wydobywać z wody; wyławiać się, wydobywać z trudem"
  ],
  "wyłysieć": [
   "łysieć ( tracić włosy )"
@@ -4679,14 +5423,29 @@
  "wyżebrywać": [
   "wyżebrywać, wyciągać żebraniem, wyłudzać żebraniem, zdobywać żebraniem"
  ],
+ "wyżłabiać": [
+  "wyżłabiać, żłobić, drążyć; podlegać żłobieniu, wyżłabiać się"
+ ],
  "wzbić": [
   "wzbijać, wybijać w górę; wzbijać się, wzlatywać"
+ ],
+ "wzbogacić": [
+  "wzbogacać, powiększać majątek komuś; wzbogacać, ulepszać, urozmaicać; wzbogacać się"
+ ],
+ "wzbronić": [
+  "wzbraniać, odmawiać, zabraniać; wzbraniać się, wzdrygać się, ociągać się"
  ],
  "wzbudzić": [
   "wzbudzać, wywoływać, budzić; wymuszać, podjudzać"
  ],
+ "wzmocnić": [
+  "wzmacniać, potęgować, umacniać, wzmagać; wzmacniać się"
+ ],
  "wzmówić": [
   "uzgadniać, umawiać się, ustalać spotkanie"
+ ],
+ "wzniecić": [
+  "wzniecać, rozniecać; podżegać, nakręcać, wzniecać; zapalać się"
  ],
  "wzorcować": [
   "wzorcować ( kalibrować wzorcem )"
@@ -4702,6 +5461,9 @@
  ],
  "włanczać": [
   "włączać ( forma nienormatywna )"
+ ],
+ "włączyć": [
+  "włączać, zasilać; włączać do czegoś; zaczynać działać"
  ],
  "wściubiać": [
   "wścibiać ( forma alternatywna )"
@@ -4729,6 +5491,9 @@
  ],
  "zaadsorbować": [
   "zaadsorbować ( adsorbować )"
+ ],
+ "zaagitować": [
+  "agitować, obchodzić domy, prowadzić kampanię; agitować kogoś; agitować się nawzajem"
  ],
  "zaakompaniować": [
   "akompaniować ( przygrywać komuś )"
@@ -4832,6 +5597,9 @@
  "zachybotać": [
   "chylać się, kołysać; chybotać się, bujać się"
  ],
+ "zachęcić": [
+  "zachęcać, kusić, motywować; zachęcać się; zachęcać się nawzajem"
+ ],
  "zaciemnić": [
   "zaciemniać, przyciemniać, przesłaniać, mącić"
  ],
@@ -4847,11 +5615,20 @@
  "zaciukać": [
   "zaciukać (dźgać na śmierć )"
  ],
+ "zaczadzać": [
+  "zaczadzać, dusić dymem, zadymiać; zaczadzać się, ulegać zaczadzeniu; mącić komuś myśli"
+ ],
  "zaczadzieć": [
   "otruć się czadem, zaczadzić się tlenkiem węgla"
  ],
+ "zaczadzić": [
+  "zaczadzać, dusić dymem, zadymiać; zaczadzać się, ulegać zaczadzeniu; mącić komuś myśli"
+ ],
  "zaczarowywać": [
   "oczarowywać ( zaczarowanie )"
+ ],
+ "zaczepić": [
+  "zaczepiać, zaczepiać i przytwierdzać; zagadywać, adresować się; zaczepiać się, łapać się"
  ],
  "zaczerwieniać": [
   "czerwienić się ( rumienić )"
@@ -4871,6 +5648,9 @@
  "zadokować": [
   "dokować ( zawinąć do doku )"
  ],
+ "zadomawiać": [
+  "zadomawiać się, osiadać na stałe, zagnieżdżać się; przyjmować się, zyskiwać popularność"
+ ],
  "zadoptować": [
   "zadoptować ( przysposabiać )"
  ],
@@ -4889,11 +5669,23 @@
  "zadurzać": [
   "zadurzać się ( zadurzenie )"
  ],
+ "zaduszać": [
+  "zaduszać, dławić, dusić na śmierć"
+ ],
+ "zadławić": [
+  "zadławić, dławić, dusić; hamować, przytłaczać; dławić się, krztusić się"
+ ],
+ "zafarbować": [
+  "zafarbowywać, farbować, przebarwiać; zafarbowywać włosy na inny kolor; zafarbowywać się, nabierać barwy"
+ ],
  "zafiksować": [
   "zafiksowywać, ustalać, zakładać, ustawiać; fiksować się, usztywniać się"
  ],
  "zafurkotać": [
   "zafurkotać ( zafurczeć, zamruczeć )"
+ ],
+ "zagajać": [
+  "zagajać, rozpoczynać, inaugurować; wpłacać opłatę za zbieranie gałęzi w lesie"
  ],
  "zagalopować": [
   "zagalopowywać, rwać w galop; zagalopowywać się, pomknąć"
@@ -4946,11 +5738,17 @@
  "zagłębić": [
   "zagłębiać ( zanurzać )"
  ],
+ "zahaczać": [
+  "zahaczać, zaczepiać hakiem; wtrącać mimochodem prośbę lub pytanie; zahaczać się, łapać się"
+ ],
  "zahibernować": [
   "usypiać ( w stan hibernacji )"
  ],
  "zahukać": [
   "hukać; zastraszać, onieśmielać"
+ ],
+ "zaimplikować": [
+  "implikować, sugerować; przypisywać, wplątywać; przesądzać"
  ],
  "zaimpregnować": [
   "zaimpregnować, przesycać; uodporniać, nasączać"
@@ -4963,6 +5761,9 @@
  ],
  "zainseminować": [
   "inseminować, unasieniać sztucznie; poddawać się inseminacji"
+ ],
+ "zainspirować": [
+  "inspirować, natchnąć; inspirować się; inspirować się wzajemnie"
  ],
  "zainsynuować": [
   "zainsynuować ( sugerować pośrednio )"
@@ -5039,6 +5840,9 @@
  "zaktywizować": [
   "aktywizować ( pobudzać )"
  ],
+ "zaktywować": [
+  "aktywować, uaktywniać; aktywować się, uaktywniać się"
+ ],
  "zakumplować": [
   "kumplować się ( zaprzyjaźnić się )"
  ],
@@ -5093,11 +5897,17 @@
  "zamarkować": [
   "zamarkowywać, markować, udawać; fałszować, imitować"
  ],
+ "zamartwić": [
+  "zamartwiać się, tracić siły, popadać w przygnębienie przez ciągłe zamartwianie się"
+ ],
  "zamarynować": [
   "marynować ( w marynacie )"
  ],
  "zamaskować": [
   "maskować ( zasłaniać )"
+ ],
+ "zamglić": [
+  "zamglać, mglić, zachmurzać mgłą; zamglać się, mglić się; robić się zamglonym"
  ],
  "zamigotać": [
   "migotać ( zamigotanie )"
@@ -5144,6 +5954,9 @@
  "zaoferować": [
   "oferować, proponować, przedkładać; proponować pomoc w czymś"
  ],
+ "zaopiekować": [
+  "zaopiekować się, opiekować się, przygarniać pod skrzydła"
+ ],
  "zaopiniować": [
   "zaopiniowywać, wyrażać opinię o czymś, oceniać"
  ],
@@ -5165,8 +5978,20 @@
  "zapieczętować": [
   "zapieczętować ( pieczętować )"
  ],
+ "zapijać": [
+  "zapijać, popijać jedzenie alkoholem; pić zagłuszając zmartwienia, zapijać smutki; zapić się na śmierć"
+ ],
+ "zapić": [
+  "zapić, popijać jedzenie alkoholem; pić zagłuszając zmartwienia, zapić smutki; zapić się na śmierć"
+ ],
  "zaplatać": [
   "zaplatać ( pleść warkocze )"
+ ],
+ "zapoczątkowywać": [
+  "zapoczątkowywać, zaczynać, inicjować, rozpoczynać; zapoczątkowywać coś"
+ ],
+ "zapodawać": [
+  "zapodawać, proponować; zapodawać, donosić; zapodawać, podrzucać"
  ],
  "zapośredniczać": [
   "pośredniczyć, przekazywać; podlegać mediacji"
@@ -5188,6 +6013,9 @@
  ],
  "zaprzyjaźnić": [
   "zaprzyjaźnić ( zaprzyjaźnić się )"
+ ],
+ "zaprzysięgać": [
+  "zaprzysięgać, przysięgać kogoś; przysięgać; przysięgać, obiecywać"
  ],
  "zaprzątywać": [
   "zaprzątać, wypełniać myśli, absorbować"
@@ -5225,11 +6053,17 @@
  "zarchiwizować": [
   "archiwizować ( umieszczać w archiwum )"
  ],
+ "zardzewieć": [
+  "rdzewieć, pokrywać się rdzą, utleniać się; rdzewieć, pokrywać się rdzawą barwą"
+ ],
  "zaromatyzować": [
   "aromatyzować ( dodawać aromatu )"
  ],
  "zarybić": [
   "zarybiać wodę narybkiem, zasiedlać narybkiem"
+ ],
+ "zarywać": [
+  "zarywać, powodować zapadanie się, niszczyć; uchylać się, zaniedbywać; podrywać"
  ],
  "zasadzić": [
   "zasadzać, posadzać roślinki; zasiadać"
@@ -5242,6 +6076,9 @@
  ],
  "zasiedlić": [
   "osiedlać ( kolonizować )"
+ ],
+ "zasiedzieć": [
+  "zasiedzieć się, osiadać; zalegać, przesiedzieć za długo"
  ],
  "zasilosować": [
   "zasilosować ( umieszczać w silosie )"
@@ -5261,6 +6098,9 @@
  "zasponsorować": [
   "sponsorować ( finansować )"
  ],
+ "zastanowić": [
+  "zastanawiać, zdumiewać; zastanawiać się, dumać, namyślać się"
+ ],
  "zastosowywać": [
   "stosować, używać, zastosowywać; przestrzegać"
  ],
@@ -5269,6 +6109,9 @@
  ],
  "zastukać": [
   "pukać, stukać"
+ ],
+ "zasysać": [
+  "zasysać, wciągać, wsysać; zwabiać, przyciągać; pobierać"
  ],
  "zaszantażować": [
   "szantażować ( wymuszać groźbą )"
@@ -5299,6 +6142,12 @@
  ],
  "zaszybić": [
   "oszołomiać ( zawroty głowy )"
+ ],
+ "zasępiać": [
+  "zasępiać, posępiać; zasępiać się, posępnieć"
+ ],
+ "zasępić": [
+  "zasępiać, posępiać; zasępiać się, posępnieć"
  ],
  "zasłuchać": [
   "zachłysnąć się słuchaniem"
@@ -5342,6 +6191,9 @@
  "zawadniać": [
   "nawadniać ( podlewać )"
  ],
+ "zawalać": [
+  "zawalać, zasypywać, obciążać; zastawiać, zatorywać; zasypywać kogoś robotą"
+ ],
  "zawekować": [
   "zawekować ( zamykać w słojach )"
  ],
@@ -5356,6 +6208,9 @@
  ],
  "zawyżać": [
   "zawyżać, zawyżać szacunki, przesadzać, zawyżać ceny"
+ ],
+ "zawzinać": [
+  "zawzinać, być zawziętym, być nieustępliwym w dokańczaniu czegoś; mieć do kogoś urazę"
  ],
  "zawężać": [
   "zawężać ( zwężać )"
@@ -5401,6 +6256,9 @@
  ],
  "zbabieć": [
   "babieć, kobiecieć, tracić męskość; babyć się, mięknąć, staczać się"
+ ],
+ "zbadać": [
+  "badać, testować, sondować; zgłębiać, dociekać"
  ],
  "zbajerować": [
   "zmyślać ( bajerować )"
@@ -5495,6 +6353,9 @@
  "zduplikować": [
   "zduplikować ( podwajać )"
  ],
+ "zdurnieć": [
+  "zdurnieć, głupeć, głupieć; gubić rozeznanie"
+ ],
  "zduszać": [
   "zduszać, dusić; tłumić, przygasać"
  ],
@@ -5518,6 +6379,9 @@
  ],
  "zerodować": [
   "ulec erozji"
+ ],
+ "zerować": [
+  "zerować, kasować stan licznika; wypijać wspólny trunek zwłaszcza alkoholowy"
  ],
  "zeskanować": [
   "zeskanować ( dokonać skanowania )"
@@ -5594,6 +6458,9 @@
  "zgnuśnieć": [
   "zgnuśnieć ( oddawać się lenistwu )"
  ],
+ "zgonić": [
+  "zganiać, przepędzać; zganiać do jednego miejsca; zganiać kogoś do upadłego"
+ ],
  "zgrabiać": [
   "grabić ( grabienie )"
  ],
@@ -5605,6 +6472,9 @@
  ],
  "zgrubić": [
   "tworzyć zgrubienia formy"
+ ],
+ "zgrzybieć": [
+  "zgrzybieć, robić się zgrzybialym, tracić sprawność"
  ],
  "zgładzać": [
   "gaśić ( zabić )"
@@ -5629,6 +6499,9 @@
  ],
  "ziajać": [
   "ziajać ( sapać, dyszeć )"
+ ],
+ "zimitować": [
+  "imitować, naśladować, kopiować; parodiować"
  ],
  "zindoktrynować": [
   "indoktrynować ( wpajać doktrynę )"
@@ -5657,6 +6530,9 @@
  "zjełczeć": [
   "zjełczeć ( jełczeć, psuć się ( o tłuszczu ) )"
  ],
+ "zlaicyzować": [
+  "laicyzować, świecczyć, sekularyzować; laicyzować się, sekularyzować się"
+ ],
  "zlatywać": [
   "zlatywać, przylatywać, zlatywać się"
  ],
@@ -5665,6 +6541,12 @@
  ],
  "zliberalizować": [
   "liberalizować ( uwalniać swobodnie )"
+ ],
+ "zluzowywać": [
+  "zluzowywać, poluźniać, odprężać; zastępować, zluzowywać kogoś; zluzowywać się"
+ ],
+ "zmachać": [
+  "zmachowywać, męczyć czyjąś aktywnością; zmachowywać się, męczyć się aktywnością"
  ],
  "zmaczać": [
   "moczyć ( zamoczyć )"
@@ -5749,6 +6631,9 @@
  ],
  "znieczulić": [
   "znieczulać, uśmierzać ból, znieczulać; wywoływać znieczulenie"
+ ],
+ "zniedołężnieć": [
+  "zniedołężnieć, robić się niedołężnym, tracić siły"
  ],
  "zniesmaczać": [
   "zniesmaczać, budzić obrzydzenie, przyprawiać o niesmak"
@@ -5852,8 +6737,14 @@
  "zrzekać": [
   "zrzekać ( wyrzekać się )"
  ],
+ "zrzucić": [
+  "zrzucać, spychać w dół, odrzucać, zrzucać z siebie; chudnąć, gubić wagę; składać się, dorzucać się do wspólnego"
+ ],
  "zrzygać": [
   "rzygać ( zrzyganie )"
+ ],
+ "zrównać": [
+  "zrównywać, wyrównywać, niwelować; zrównywać w prawach; zrównywać się, wyrównywać się"
  ],
  "zsadzać": [
   "wysadzać kogoś, wysadzać z pojazdu; wysiadać"
@@ -5882,6 +6773,9 @@
  "zsyłać": [
   "zsyłać, wysyłać na zesłanie, deportować; zsyłać w dół, zrzucać"
  ],
+ "zszarzeć": [
+  "zszarzeć, szarzeć, siwieć; odznaczać się szarym o brzasku lub zmierzchu"
+ ],
  "zszokować": [
   "zszokować ( wywołać wstrząs )"
  ],
@@ -5902,6 +6796,9 @@
  ],
  "zwerbalizować": [
   "werbalizować ( ująć w słowa )"
+ ],
+ "zwierać": [
+  "zwierać, zaciskać, domykać; podlegać zaciśnięciu; zwierać się w garść"
  ],
  "zwijać": [
   "zwijać, rolować, zwijać w rulon; likwidować, zwijać; kraść"
@@ -5938,6 +6835,9 @@
  ],
  "złuszczać": [
   "złuszczać, łuszczyć, obierać; złuszczać się, odłupywać się"
+ ],
+ "zżerać": [
+  "zżerać, zjadać, pożerać; zżerać się, objadać się, zajadać się"
  ],
  "zżynać": [
   "żąć ( zbierać plony )"
