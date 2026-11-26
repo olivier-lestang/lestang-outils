@@ -29,6 +29,9 @@
  "axiomatizovat": [
   "formalizovat axiomy"
  ],
+ "balancovat": [
+  "balancovat, udržovat rovnováhu, balancovat ; balancovat ( mezi možnostmi )"
+ ],
  "balzamovat": [
   "nabalzamovat"
  ],
@@ -194,6 +197,9 @@
  "chrochtat": [
   "chrochtat ( jako prase )"
  ],
+ "chroptět": [
+  "chroptět, chroptět ( umírat s chrčením ) ; chraplavě mluvit"
+ ],
  "chudnout": [
   "zchudnout"
  ],
@@ -208,6 +214,9 @@
  ],
  "chvět": [
   "chvět se"
+ ],
+ "chytávat": [
+  "chytávat ( opakovaně chytat ) ; chytávat ( jako brankář )"
  ],
  "chýlit": [
   "chýlit se"
@@ -326,11 +335,17 @@
  "dislokovat": [
   "dislokovat ( dislokace )"
  ],
+ "disponovat": [
+  "disponovat, disponovat ( mít k dispozici ) ; disponovat ( být vybaven )"
+ ],
  "divergovat": [
   "rozbíhat se"
  ],
  "divit": [
   "divit se"
+ ],
+ "dmout": [
+  "dmout, dmout ( vzdouvat ) ; nafukovat, dmout"
  ],
  "dmýchat": [
   "foukat"
@@ -338,11 +353,20 @@
  "dobalit": [
   "dokončit balení"
  ],
+ "dobrat": [
+  "dobrat, spotřebovat, dobrat ; dozvědět se, dobrat"
+ ],
  "dobudovat": [
   "dokončit stavbu"
  ],
+ "dobíhat": [
+  "dobíhat, doběhnout, dostihnout ; doběhnout si ( pro něco )"
+ ],
  "dobíjet": [
   "dobíjet ( dobíjení )"
+ ],
+ "doběhnout": [
+  "doběhnout, dostihnout, doběhnout ; doběhnout si ( pro něco )"
  ],
  "docenit": [
   "ocenit"
@@ -358,6 +382,9 @@
  ],
  "docílit": [
   "dosáhnout"
+ ],
+ "dodělat": [
+  "dodělat, dokončit ; přestat pracovat, dodělat ; dodělat se, opít se"
  ],
  "dodělávat": [
   "dodělávat ( dodělávání )"
@@ -394,6 +421,9 @@
  ],
  "dokončovat": [
   "dokončovat ( dokončování )"
+ ],
+ "dokoupit": [
+  "dokoupit, přikoupit, dokoupit"
  ],
  "dokouřit": [
   "dokončit kouření"
@@ -434,6 +464,9 @@
  "domýt": [
   "umýt nádobí"
  ],
+ "donášet": [
+  "donášet ( nedokonavé k donést ) ; udávat, žalovat"
+ ],
  "doplňovat": [
   "doplňovat ( doplňování )"
  ],
@@ -442,6 +475,9 @@
  ],
  "dopovídat": [
   "dokončit povídání"
+ ],
+ "dopracovat": [
+  "dopracovat se, dopracovat ( dosáhnout ) ; dopracovat ( dokončit práci )"
  ],
  "doprat": [
   "dokončit praní"
@@ -466,6 +502,9 @@
  ],
  "dotvořit": [
   "dotvořit ( dotvoření )"
+ ],
+ "dotáhnout": [
+  "dotáhnout, utáhnout ; dotáhnout ( do konce ) ; dotáhnout, přitáhnout"
  ],
  "dotírat": [
   "dotírat ( dotírání )"
@@ -695,6 +734,9 @@
  "hajinkat": [
   "zdrobněle od hajat"
  ],
+ "hanobit": [
+  "hanobit, hanobit ( hanět ) ; hanobit, pomlouvat, hanobit"
+ ],
  "hatit": [
   "křížit plány"
  ],
@@ -761,8 +803,14 @@
  "houstnout": [
   "zhoustnout"
  ],
+ "hovět": [
+  "hovět ( někomu, svědčit ) ; zahálet, lenošit"
+ ],
  "hradit": [
   "platit náklady"
+ ],
+ "hroutit": [
+  "hroutit se, rozpadat se ; hroutit se ( člověk, psychicky )"
  ],
  "hroužit": [
   "hroužit ( ponořováním )"
@@ -790,6 +838,9 @@
  ],
  "hákovat": [
   "chytit hákem"
+ ],
+ "hárat": [
+  "hárat ( o zvířeti, hárat ) ; hořet, hárat ; vířit, proudit, hárat"
  ],
  "hýkat": [
   "hýkat ( jako osel )"
@@ -1094,6 +1145,9 @@
  "kymácet": [
   "houpat se"
  ],
+ "kypět": [
+  "kypět, vřít, kypět ; přetékat, kypět ; přebývat, kypět"
+ ],
  "kysat": [
   "zkysat"
  ],
@@ -1136,6 +1190,9 @@
  "lemmatizovat": [
   "převést na základní tvar"
  ],
+ "lepit": [
+  "lepit, slepit, lepit ; lepit se, přilnout, lepit se"
+ ],
  "letovat": [
   "spojovat pájením"
  ],
@@ -1144,6 +1201,9 @@
  ],
  "leštit": [
   "vyleštit"
+ ],
+ "likvidovat": [
+  "likvidovat, zlikvidovat, vyřadit, zrušit"
  ],
  "lišit": [
   "lišit se"
@@ -1162,6 +1222,9 @@
  ],
  "louhovat": [
   "louhovat ( louhování )"
+ ],
+ "louskat": [
+  "louskat, loupat ; louskat, drtit ; pracně se probírat"
  ],
  "loučit": [
   "loučit se"
@@ -1259,6 +1322,9 @@
  "mordovat": [
   "zavraždit"
  ],
+ "motat": [
+  "motat, namotat, motat ; motat ( zmást, motat ) ; motat se, motat"
+ ],
  "motivovat": [
   "dát motivaci"
  ],
@@ -1282,6 +1348,9 @@
  ],
  "myslívat": [
   "opakovaně myslet"
+ ],
+ "máchat": [
+  "mávat, máchat ; máchat, namáčet, máchat"
  ],
  "mámit": [
   "mámit ( mámení )"
@@ -1319,6 +1388,9 @@
  "naběhat": [
   "uběhnout dlouhou vzdálenost"
  ],
+ "naběhnout": [
+  "naběhnout na, narazit, naběhnout ; naběhnout ( zduřet, naběhnout ) ; rozběhnout se, naběhnout"
+ ],
  "nachomýtat": [
   "nachomýtat ( nachomýtání )"
  ],
@@ -1327,6 +1399,9 @@
  ],
  "nachystat": [
   "nachystat ( nachystání )"
+ ],
+ "nachýlit": [
+  "nachýlit, nachýlit se, naklonit, nachýlit"
  ],
  "nacvičit": [
   "trénovat ( zkoušet )"
@@ -1351,6 +1426,9 @@
  ],
  "nadnášet": [
   "nadnášet ( nadnášení )"
+ ],
+ "nadnést": [
+  "nadnést, nadnést ( zvednout ) ; nadnést ( vznést, přehánět )"
  ],
  "nadsadit": [
   "nadsadit ( nadsazení )"
@@ -1379,6 +1457,9 @@
  "nahodit": [
   "nahodit ( nahození )"
  ],
+ "nahromadit": [
+  "nahromadit, nashromáždit, nahromadit ; nahrnout, nahromadit"
+ ],
  "nainstalovat": [
   "instalovat"
  ],
@@ -1387,6 +1468,9 @@
  ],
  "najímat": [
   "najímat ( najímání )"
+ ],
+ "nakapat": [
+  "nakapat, nakapat ( kapátkem ) ; nakapat ( vnuknout, nakapat )"
  ],
  "nakouknout": [
   "nahlédnout"
@@ -1400,8 +1484,14 @@
  "nakročit": [
   "vykročit"
  ],
+ "nakupit": [
+  "nakupit, nahrnout, nakupit, nakupit"
+ ],
  "naladit": [
   "vyladit"
+ ],
+ "nalepit": [
+  "nalepit, přilepit, nalepit ; nalepit se, přilnout, nalepit se"
  ],
  "nalepovat": [
   "nalepovat ( nalepování )"
@@ -1511,6 +1601,12 @@
  "narýsovat": [
   "nakreslit ( přesně )"
  ],
+ "naskládat": [
+  "naskládat, naskládat pořádně, naskládat ; navršit, poskládat, naskládat"
+ ],
+ "naskočit": [
+  "naskočit, poskočit, naskočit ; vyrazit běžet, naskočit ; objevit se, naskočit"
+ ],
  "nasměrovat": [
   "určit směr"
  ],
@@ -1547,6 +1643,9 @@
  "natlouct": [
   "natlouct ( natlučení )"
  ],
+ "natočit": [
+  "natočit ( film, natočit ) ; nahrát, natočit ; navinout, natočit"
+ ],
  "natrhat": [
   "utrhnout ( větší množství )"
  ],
@@ -1562,6 +1661,12 @@
  "navit": [
   "unavit"
  ],
+ "navléct": [
+  "navléct, navléknout, navléct"
+ ],
+ "navléknout": [
+  "navléct, navléknout, navléknout"
+ ],
  "navodit": [
   "navodit ( navození )"
  ],
@@ -1573,6 +1678,12 @@
  ],
  "navrátit": [
   "vrátit"
+ ],
+ "navršit": [
+  "navršit, nahrnout, navršit ( hromadu )"
+ ],
+ "navršovat": [
+  "navršovat, nahrnovat, navršovat"
  ],
  "navézt": [
   "navážet"
@@ -1589,6 +1700,9 @@
  "načekat": [
   "dlouho čekat"
  ],
+ "načesat": [
+  "načesat, načesat ( učesat ) ; načesat se, načesat se"
+ ],
  "načíst": [
   "nahrát ( data )"
  ],
@@ -1597,6 +1711,9 @@
  ],
  "naříkat": [
   "naříkat ( naříkání )"
+ ],
+ "naříznout": [
+  "naříznout, naříznout ( udělat zářez )"
  ],
  "naštvat": [
   "rozčílit"
@@ -1766,6 +1883,9 @@
  "obrábět": [
   "obrábět ( obrábění )"
  ],
+ "obsluhovat": [
+  "obsluhovat, obsluhovat ( obsloužit ) ; obsluhovat ( stroj )"
+ ],
  "obstarat": [
   "opatřit"
  ],
@@ -1919,6 +2039,9 @@
  "odpojit": [
   "odpojit ( odpojení )"
  ],
+ "odporovat": [
+  "odporovat, vzdorovat, odporovat ; odporovat ( polemizovat ) ; být v rozporu, odporovat"
+ ],
  "odposlouchat": [
   "odposlouchat ( odposlech )"
  ],
@@ -1942,6 +2065,9 @@
  ],
  "odstartovat": [
   "odstartovat ( odstartování )"
+ ],
+ "odstoupit": [
+  "odstoupit, odstoupit ( z funkce, odstoupit ) ; ustoupit, odstoupit"
  ],
  "odstrojit": [
   "odstrojit ( odstrojení )"
@@ -2069,6 +2195,9 @@
  "omrznout": [
   "omrznout ( chladem )"
  ],
+ "onkat": [
+  "onkat, onkat ( oslovovat ve třetí osobě )"
+ ],
  "opalovat": [
   "opalovat se"
  ],
@@ -2089,6 +2218,9 @@
  ],
  "opláchnout": [
   "opláchnout vodou"
+ ],
+ "opotřebit": [
+  "opotřebit, opotřebovat, opotřebit"
  ],
  "opovídat": [
   "opovídat ( opovídání )"
@@ -2147,6 +2279,9 @@
  "osamotit": [
   "osamotit ( osamocení )"
  ],
+ "osamět": [
+  "osamět, osamět, zůstat sám, osamět"
+ ],
  "oscilovat": [
   "kmitat"
  ],
@@ -2162,8 +2297,14 @@
  "oslabit": [
   "zeslabit"
  ],
+ "osopit": [
+  "osopit se, vyštěknout, osopit se ( na někoho )"
+ ],
  "osočit": [
   "obvinit"
+ ],
+ "osprchovat": [
+  "osprchovat, osprchovat ( někoho ) ; osprchovat se"
  ],
  "ostávat": [
   "ostávat ( ostávání )"
@@ -2189,6 +2330,9 @@
  "osvědčit": [
   "osvědčit ( osvědčení )"
  ],
+ "osvětařit": [
+  "osvětařit, věnovat se osvětě, osvětařit ; poučovat, osvětařit"
+ ],
  "osvěžit": [
   "osvěžit ( osvěžení )"
  ],
@@ -2197,6 +2341,9 @@
  ],
  "otelit": [
   "porodit ( tele )"
+ ],
+ "otužit": [
+  "otužit, otužit, otužit ( zvyknout si na chlad )"
  ],
  "otužovat": [
   "otužovat ( otužování )"
@@ -2219,8 +2366,14 @@
  "ověsit": [
   "ověsit ( ověšení )"
  ],
+ "ozdravit": [
+  "ozdravit, ozdravit ( učinit zdravějším ) ; zotavit, ozdravit"
+ ],
  "ozkoušet": [
   "vyzkoušet"
+ ],
+ "ozvat": [
+  "ozvat se, ozvat se ; ozvat se ( dát vědět, ozvat se )"
  ],
  "ozývat": [
   "ozývat se"
@@ -2300,6 +2453,9 @@
  "plazit": [
   "plazit se"
  ],
+ "pleskat": [
+  "pleskat, plácat, pleskat ; pleskat ( nohama, křídly )"
+ ],
  "plesnivět": [
   "plesnivět ( plesnivění )"
  ],
@@ -2351,6 +2507,9 @@
  "pobíjet": [
   "pobíjet ( pobíjení )"
  ],
+ "pobít": [
+  "pobít, povraždit, pobít ; pobít ( potahovat, pobít )"
+ ],
  "pocelovat": [
   "políbit"
  ],
@@ -2377,6 +2536,9 @@
  ],
  "podběhnout": [
   "proběhnout pod"
+ ],
+ "podejmout": [
+  "podejmout, nabrat, podejmout ; ujmout se, podejmout"
  ],
  "podejít": [
   "projít pod"
@@ -2405,6 +2567,9 @@
  "podlézt": [
   "podplížit se"
  ],
+ "podmanit": [
+  "podmanit, podmanit si, podmanit ; okouzlit, podmanit"
+ ],
  "podmáznout": [
   "uplatit"
  ],
@@ -2432,11 +2597,17 @@
  "podrbat": [
   "škrábat"
  ],
+ "podrobit": [
+  "podrobit, podmanit, podrobit ; podrobit se, podrobit"
+ ],
  "podráždit": [
   "podráždit ( podráždění )"
  ],
  "podrážet": [
   "podrážet ( podrážení )"
+ ],
+ "podržet": [
+  "držet, udržet ; podpořit"
  ],
  "podvolit": [
   "podvolit se"
@@ -2494,6 +2665,9 @@
  ],
  "pojíst": [
   "sníst"
+ ],
+ "pokapat": [
+  "pokapat, postříkat, pokapat ; pokapat ( rozlít, pokapat )"
  ],
  "pokazit": [
   "zkazit"
@@ -2606,6 +2780,9 @@
  "poposednout": [
   "poposednout ( poposednutí )"
  ],
+ "popovézt": [
+  "popojet, popovést ( o kousek dál )"
+ ],
  "popovídat": [
   "popovídat si"
  ],
@@ -2644,6 +2821,12 @@
  ],
  "posečkat": [
   "posečkat ( posečkáním )"
+ ],
+ "poskládat": [
+  "poskládat, poskládat ( sestavit ) ; naskládat, poskládat"
+ ],
+ "poskočit": [
+  "poskočit, poskočit ( poskočit ) ; prudce stoupnout, poskočit"
  ],
  "pospojovat": [
   "pospojovat ( pospojování )"
@@ -2702,17 +2885,26 @@
  "potrvat": [
   "trvat ( o čase )"
  ],
+ "potápět": [
+  "potápět, potopit, potápět ; potápět se, ponořovat se, potápět se"
+ ],
  "potírat": [
   "potírat ( potírání )"
  ],
  "potřást": [
   "zatřást"
  ],
+ "poukázat": [
+  "poukázat na, odkázat, poukázat ; převést, poukázat ( peníze )"
+ ],
  "poutat": [
   "spoutat"
  ],
  "povalit": [
   "povalit ( povalení )"
+ ],
+ "povalovat": [
+  "povalovat ( nedokonavé k povalit ) ; povalovat se, zahálet, povalovat se"
  ],
  "povjášet": [
   "pověsit"
@@ -2756,6 +2948,9 @@
  "pranýřovat": [
   "pranýřovat ( pranýřování )"
  ],
+ "prasit": [
+  "prasit ( o svini, vrhnout, prasit ) ; prasit, ušpinit, prasit"
+ ],
  "praštit": [
   "praštit ( praštění )"
  ],
@@ -2767,6 +2962,9 @@
  ],
  "probouzet": [
   "probouzet ( probouzení )"
+ ],
+ "probrat": [
+  "probrat, probrat ( prohovořit ) ; projít, probrat ; probudit se, probrat se"
  ],
  "procestovat": [
   "cestovat"
@@ -2804,6 +3002,9 @@
  "projímat": [
   "projímat ( projímání )"
  ],
+ "proklouznout": [
+  "proklouznout, prosmýknout se, proklouznout ; proklouznout ( projít nepozorovaně )"
+ ],
  "prolomit": [
   "prolomit ( prolomení )"
  ],
@@ -2812,6 +3013,9 @@
  ],
  "prolézt": [
   "prolézt ( proplížit )"
+ ],
+ "prolínat": [
+  "prolínat, prolínat ( prostupovat ) ; prolínat se, prolínat ( mísit se )"
  ],
  "promarnit": [
   "promrhat"
@@ -2840,14 +3044,23 @@
  "proplatit": [
   "proplatit náhradu"
  ],
+ "proplést": [
+  "proplést, proplétat, proplést ; proplést se, proplést"
+ ],
  "propojit": [
   "propojit ( propojení )"
+ ],
+ "propouštět": [
+  "propouštět, pouštět, propouštět ; propouštět ( ze zaměstnání ) ; propustit, propouštět"
  ],
  "propracovat": [
   "hníst"
  ],
  "propíjet": [
   "propíjet ( propíjení )"
+ ],
+ "propít": [
+  "propít, propít ( propít peníze ) ; prosakovat, propít ; propít, propít se"
  ],
  "proslout": [
   "dosáhnout proslulosti"
@@ -2911,6 +3124,9 @@
  ],
  "prozkoušet": [
   "detailně vyzkoušet"
+ ],
+ "prozrazovat": [
+  "prozrazovat, prozrazovat ( vyzradit ) ; zrazovat, prozrazovat ; prozrazovat se, prozrazovat"
  ],
  "pročesat": [
   "učesat"
@@ -3089,6 +3305,15 @@
  "přeměřit": [
   "změřit znovu"
  ],
+ "přenést": [
+  "přenést, přenést, převést ; přenést ( překonat )"
+ ],
+ "přepisovat": [
+  "přepisovat, opisovat, přepisovat ; přepisovat ( přepis znaků )"
+ ],
+ "přepálit": [
+  "přepálit, připravit ohněm, přepálit ; přepálit ( rozdělit ohněm ) ; přepálit ( spálit, přepálit )"
+ ],
  "přerozdělit": [
   "přerozdělit ( přerozdělení )"
  ],
@@ -3101,8 +3326,17 @@
  "přesidlovat": [
   "přesidlovat ( přesidlování )"
  ],
+ "přeskupit": [
+  "přeskupit, přeskládat"
+ ],
  "přeskupovat": [
   "přeskupovat ( přeskupování )"
+ ],
+ "přespat": [
+  "přespat, přenocovat, strávit noc"
+ ],
+ "přestavět": [
+  "přestavět, přestavět znovu, přestavět ; reorganizovat, přestavět"
  ],
  "přestrojit": [
   "přestrojit se"
@@ -3112,6 +3346,9 @@
  ],
  "přestěhovat": [
   "přestěhovat se"
+ ],
+ "přesunovat": [
+  "přesunovat, přesouvat, přesunovat"
  ],
  "přetavit": [
   "tavit znovu"
@@ -3124,6 +3361,9 @@
  ],
  "přetrvávat": [
   "přetrvávat ( přetrvávání )"
+ ],
+ "přetáhnout": [
+  "přitáhnout, přetáhnout ; udeřit"
  ],
  "přetírat": [
   "přetírat ( přetírání )"
@@ -3194,6 +3434,9 @@
  "přimalovat": [
   "přimalovat ( přimalování )"
  ],
+ "přimknout": [
+  "přimknout se, přitulit se, přimknout se"
+ ],
  "přimluvit": [
   "přimluvit se"
  ],
@@ -3214,6 +3457,9 @@
  ],
  "připálit": [
   "lehce opálit"
+ ],
+ "přisadit": [
+  "přisadit, přisadit ( přidat ) ; zasadit vedle, přisadit"
  ],
  "přiskočit": [
   "skočit"
@@ -3338,6 +3584,12 @@
  "rozbouchnout": [
   "vybuchnout"
  ],
+ "rozbíhat": [
+  "rozbíhat se, rozjíždět, rozbíhat se ; rozběhnout se, rozbíhat se"
+ ],
+ "rozběhnout": [
+  "rozběhnout se, rozběhnout ( rozjet ) ; rozběhnout se ( do běhu, rozběhnout se )"
+ ],
  "rozběsnit": [
   "rozběsnit se"
  ],
@@ -3361,6 +3613,9 @@
  ],
  "rozebrat": [
   "rozebrat ( rozebrání )"
+ ],
+ "rozebírat": [
+  "rozebírat, rozebírat ( demontovat ) ; rozebírat ( do detailu )"
  ],
  "rozednít": [
   "rozednít se"
@@ -3386,6 +3641,9 @@
  "rozesmát": [
   "rozesmát se"
  ],
+ "rozestavit": [
+  "rozestavit, rozmístit, rozestavit ; rozestoupit se, rozestavit se"
+ ],
  "rozestlat": [
   "ustlat"
  ],
@@ -3394,6 +3652,12 @@
  ],
  "rozetírat": [
   "rozetírat ( rozetírání )"
+ ],
+ "rozeznat": [
+  "rozeznat, rozlišit, rozeznat, rozeznat"
+ ],
+ "rozeznávat": [
+  "rozeznávat, rozlišovat, rozeznávat, rozeznávat"
  ],
  "rozežrat": [
   "rozežrat ( rozežrání )"
@@ -3428,6 +3692,9 @@
  "rozkročit": [
   "rozkročit se"
  ],
+ "rozkulačit": [
+  "rozkulačit, zabavit ( majetek kulaka )"
+ ],
  "rozkulačovat": [
   "rozkulačovat ( rozkulačování )"
  ],
@@ -3461,6 +3728,9 @@
  "rozmnožit": [
   "rozmnožit se"
  ],
+ "rozmnožovat": [
+  "rozmnožovat, rozmnožovat ( rozmnožit ) ; rozmnožovat se"
+ ],
  "rozmotat": [
   "rozmotat ( rozmotání )"
  ],
@@ -3491,11 +3761,17 @@
  "rozněcovat": [
   "rozněcovat ( rozněcování )"
  ],
+ "rozpadat": [
+  "rozpadat se, rozpadat se ( hroutit se ) ; rozkládat se, rozpadat se"
+ ],
  "rozpakovat": [
   "rozpakovat ( rozpaky )"
  ],
  "rozplánovat": [
   "podrobně naplánovat"
+ ],
+ "rozplést": [
+  "rozplést, rozmotat, rozplést ; rozplést se ( pustit se, rozplést se ) ; rozplést se, rozplést"
  ],
  "rozpovídat": [
   "rozpovídat se"
@@ -3517,6 +3793,9 @@
  ],
  "rozpřáhnout": [
   "rozpřáhnout ( rozpřažení )"
+ ],
+ "rozsadit": [
+  "rozsadit, rozmístit, rozsadit ( k sezení )"
  ],
  "rozsténat": [
   "začít sténat"
@@ -3623,17 +3902,35 @@
  "sbalit": [
   "sbalit ( sbalení )"
  ],
+ "sbližovat": [
+  "sbližovat, sbližovat se ( sbližovat )"
+ ],
+ "sblížit": [
+  "sblížit, sblížit se ( sblížit )"
+ ],
  "sbrousit": [
   "sbrousit ( sbroušení )"
+ ],
+ "sbíhat": [
+  "sbíhat se, sbíhat ( scházet se )"
  ],
  "scvrknout": [
   "zmenšit se"
  ],
+ "sdrhnout": [
+  "setřít, seškrábnout škrábáním"
+ ],
  "sdírat": [
   "sdírat ( sdírání )"
  ],
+ "seběhnout": [
+  "seběhnout ( dolů, seběhnout ) ; seběhnout se, sejít se, seběhnout se ; seběhnout ( stát se )"
+ ],
  "sedlat": [
   "osedlat"
+ ],
+ "sehnout": [
+  "sehnout, sklonit se, sehnout se"
  ],
  "seprat": [
   "seprat ( seprání )"
@@ -3686,6 +3983,9 @@
  "shodnout": [
   "shodnout se"
  ],
+ "shodovat": [
+  "shodovat se, souhlasit, shodovat se ; shodovat se ( v gramatice )"
+ ],
  "shovívat": [
   "shovívat ( shovívání )"
  ],
@@ -3694,6 +3994,9 @@
  ],
  "sjednotit": [
   "sjednocovat"
+ ],
+ "sjíždět": [
+  "sjíždět, sjíždět dolů, sjíždět ; sjíždět ( sklouznout ) ; sjíždět se, sjíždět"
  ],
  "skandovat": [
   "rytmicky volat"
@@ -3737,6 +4040,9 @@
  "skácet": [
   "porazit ( strom )"
  ],
+ "skřípat": [
+  "skřípat, vrzat, skřípat ; skřípat zuby, skřípat"
+ ],
  "sladit": [
   "sladit ( slazení )"
  ],
@@ -3767,6 +4073,9 @@
  "slunit": [
   "sušit na slunci"
  ],
+ "slušet": [
+  "slušet, slušet ( slušet někomu ) ; slušet, slušet"
+ ],
  "slušánkovat": [
   "zdrobněle slušet"
  ],
@@ -3778,6 +4087,9 @@
  ],
  "smekat": [
   "smekat ( smekání )"
+ ],
+ "smeknout": [
+  "smeknout ( klobouk, smeknout ) ; smeknout, uklouznout, smeknout"
  ],
  "smetat": [
   "smetat ( smetání )"
@@ -3872,6 +4184,9 @@
  "splňovat": [
   "splňovat ( splňování )"
  ],
+ "spokojit": [
+  "spokojit se, spokojit se ( být spokojen )"
+ ],
  "spoléhat": [
   "spoléhat se"
  ],
@@ -3892,6 +4207,9 @@
  ],
  "spávat": [
   "opakovaně spát"
+ ],
+ "spéct": [
+  "spéct, spéct ( slepením, spéct ) ; spéct se, spéct"
  ],
  "spínat": [
   "spínat ( spínání )"
@@ -3920,6 +4238,9 @@
  "sterilizovat": [
   "vysterilizovat"
  ],
+ "stlačit": [
+  "stlačit, stisknout, stlačit ; stlačit, stlačit ( snížit )"
+ ],
  "stlát": [
   "ustlát"
  ],
@@ -3946,6 +4267,9 @@
  ],
  "stydět": [
   "stydět se"
+ ],
+ "stát": [
+  "stát ; setrvat na místě, stát"
  ],
  "stávkovat": [
   "vyhlásit stávku"
@@ -4006,6 +4330,9 @@
  ],
  "svraštit": [
   "svraštit ( svraštění )"
+ ],
+ "svrhnout": [
+  "svrhnout, svrhnout ( shodit ) ; svrhnout ( z trůnu, svrhnout )"
  ],
  "svádět": [
   "svádět ( svádění )"
@@ -4082,11 +4409,17 @@
  "tloustnout": [
   "tloustnout ( tloustnutí )"
  ],
+ "tlumit": [
+  "tlumit, ztišit, ztlumit ; tlumit ( světlo )"
+ ],
  "tlumočit": [
   "překládat ústně"
  ],
  "tmít": [
   "ztmout"
+ ],
+ "topit": [
+  "topit ( v kamnech, topit ) ; topit, ohřívat, topit ; vydávat teplo, topit"
  ],
  "topořit": [
   "topořit se"
@@ -4121,6 +4454,9 @@
  "trpívat": [
   "opakovaně trpět"
  ],
+ "trudit": [
+  "trudit, trápit, trudit ; trudit se, trpět, trudit se"
+ ],
  "tryskat": [
   "ubíhat tryskem"
  ],
@@ -4136,6 +4472,9 @@
  "tvořívat": [
   "opakovaně tvořit"
  ],
+ "tvrdnout": [
+  "ztvrdnout, tvrdnout, tvrdnout ; zaseknout se, tvrdnout"
+ ],
  "tvářet": [
   "utvářet"
  ],
@@ -4150,6 +4489,9 @@
  ],
  "tížit": [
   "zatížit"
+ ],
+ "týkat": [
+  "týkat se, vztahovat se, týkat se"
  ],
  "týrat": [
   "týrat ( týrání )"
@@ -4196,6 +4538,9 @@
  "ubránit": [
   "ubránit se"
  ],
+ "ubytovat": [
+  "ubytovat, ubytovat ( hosta, ubytovat ) ; ubytovat se, ubytovat"
+ ],
  "ubíhat": [
   "ubíhat ( ubíhání )"
  ],
@@ -4205,8 +4550,17 @@
  "uchopovat": [
   "uchopovat ( uchopování )"
  ],
+ "uchovat": [
+  "uchovat, zachovat, uchovat ; uchovat se, uchovat"
+ ],
+ "uchovávat": [
+  "uchovávat, uchovávat ( uchovat ) ; uchovávat se, uchovávat"
+ ],
  "uchránit": [
   "ochránit"
+ ],
+ "uchýlit": [
+  "uchýlit se, uchýlit se ( uchovat se ) ; uchýlit se ( k něčemu )"
  ],
  "uctít": [
   "uctít ( uctění )"
@@ -4250,6 +4604,12 @@
  "ulovit": [
   "ulovit ( ulovení )"
  ],
+ "ulít": [
+  "ulít ( odlít trochu ) ; ulétnout, zameškat"
+ ],
+ "umazat": [
+  "umazat, ušpinit, umazat ; umazat ( smazat ) ; umazat se, umazat"
+ ],
  "umazávat": [
   "umazávat ( umazávání )"
  ],
@@ -4271,6 +4631,9 @@
  "upejpat": [
   "upejpat se"
  ],
+ "upevnit": [
+  "upevnit, posílit, upevnit"
+ ],
  "uplatit": [
   "uplatit ( úplatkou )"
  ],
@@ -4280,11 +4643,17 @@
  "upotřebit": [
   "použít"
  ],
+ "upoutat": [
+  "upoutat, okouzlit, upoutat ; přivázat, upoutat"
+ ],
  "upracovat": [
   "upracovat ( upracování )"
  ],
  "upsat": [
   "upsat ( upsání )"
+ ],
+ "upustit": [
+  "upustit ( nechat spadnout, upustit ) ; upustit ( od něčeho, upustit ) ; upustit ( uvolnit, upustit )"
  ],
  "upínat": [
   "upevňovat"
@@ -4316,6 +4685,9 @@
  "usmrtit": [
   "zabít"
  ],
+ "usmát": [
+  "usmát se ( radostí, usmát se ) ; usmát se do úpadku, usmát se"
+ ],
  "usmívat": [
   "usmívat se"
  ],
@@ -4343,6 +4715,9 @@
  "ustoupit": [
   "couvnout"
  ],
+ "ustrnout": [
+  "ustrnout, zastavit se, ustrnout ; ustrnout ( zkamenět ) ; ustrnout ( srdce, ustrnout )"
+ ],
  "ustrojit": [
   "ustrojit se"
  ],
@@ -4358,8 +4733,14 @@
  "utkat": [
   "utkat ( uplést )"
  ],
+ "utrpět": [
+  "utrpět ( újmu, utrpět ) ; utrpět, být poškozen, utrpět"
+ ],
  "utrácet": [
   "utrácet ( utrácení )"
+ ],
+ "utrápit": [
+  "utrápit, utrápit ( umučit ) ; utrápit se, utrápit se"
  ],
  "utvořit": [
   "vytvořit"
@@ -4481,6 +4862,9 @@
  "vnutit": [
   "vnucovat"
  ],
+ "vnést": [
+  "vnést, vnést ( poznámku, vnést ) ; vnést, vynést, vnést"
+ ],
  "vokalizovat": [
   "vokalizovat ( vokalizace )"
  ],
@@ -4493,11 +4877,17 @@
  "vpisovat": [
   "zapisovat"
  ],
+ "vplést": [
+  "vplést, zamotat, vplést ; vplést se, vplést"
+ ],
  "vplétat": [
   "zaplétat"
  ],
  "vplížit": [
   "vplížit se"
+ ],
+ "vpravit": [
+  "vpravit, vsunout, vpravit ( někam ) ; vpravit ( do kontextu )"
  ],
  "vpustit": [
   "vpustit ( vpouštění )"
@@ -4513,6 +4903,9 @@
  ],
  "vroukat": [
   "hrkat"
+ ],
+ "vrstvit": [
+  "vrstvit, pokládat vrstvami, vrstvit ; vrstvit ( vrstvit ), vrstvit"
  ],
  "vrážet": [
   "vrážet ( vrážení )"
@@ -4547,8 +4940,17 @@
  "vybarvit": [
   "vybarvit ( vybarvení )"
  ],
+ "vybouchnout": [
+  "vybouchnout, explodovat ; nevydat se, propadnout ; vybouchnout ( vztekem )"
+ ],
+ "vybuchovat": [
+  "vybuchovat ( nedokonavé k vybuchnout, vybuchovat )"
+ ],
  "vybumbat": [
   "vypít ( alkohol )"
+ ],
+ "vybíhat": [
+  "vybíhat ven, vybíhat ; vybíhat, vyčnívat, vybíhat ; vyplývat, vybíhat"
  ],
  "vyběhat": [
   "vydobýt"
@@ -4564,6 +4966,9 @@
  ],
  "vychutnat": [
   "vychutnat ( vychutnání )"
+ ],
+ "vycvičit": [
+  "vycvičit, vycvičit ( zvíře, někoho ) ; vycvičit se, vycvičit se"
  ],
  "vydechnout": [
   "vydechnout vzduch"
@@ -4610,6 +5015,9 @@
  "vyjasnit": [
   "objasnit"
  ],
+ "vyjímat": [
+  "vyjímat, vyjmout, vyjímat ; vyjímat ( vyjmout z pravidla )"
+ ],
  "vykadit": [
   "vykakat ( hovorově )"
  ],
@@ -4649,6 +5057,12 @@
  "vykřikovat": [
   "vykřikovat ( vykřikování )"
  ],
+ "vylepit": [
+  "vylepit, vyvěsit, vylepit ( plakát ) ; vylepit ( polepit, vylepit )"
+ ],
+ "vyletět": [
+  "vyletět, vzlétnout, vyletět ; rychle vylétnout, vyletět"
+ ],
  "vylodit": [
   "vylodit se"
  ],
@@ -4664,6 +5078,9 @@
  "vylézat": [
   "vylézat ( vylézání )"
  ],
+ "vylézt": [
+  "vylézt, vystoupout ven, vylézt"
+ ],
  "vymalovat": [
   "vymalovat ( barvami )"
  ],
@@ -4676,8 +5093,17 @@
  "vymetat": [
   "vymetat ( vymetání )"
  ],
+ "vymknout": [
+  "vymknout, vykloubit, vymknout ; vymknout se ( kontrole, vymknout se )"
+ ],
+ "vymluvit": [
+  "vymluvit ( někoho z něčeho, vymluvit ) ; vymluvit si ( výmluvu, vymluvit )"
+ ],
  "vymykat": [
   "vymykat se"
+ ],
+ "vymámit": [
+  "vymámit, vyzískat lstí, vymámit ( od někoho )"
  ],
  "vymést": [
   "vymetat"
@@ -4703,6 +5129,9 @@
  "vynásobit": [
   "vynásobit ( aritmeticky )"
  ],
+ "vynést": [
+  "vynést ven, vynést, vynést ; vynést ( vynést, užitek )"
+ ],
  "vyorat": [
   "zorat"
  ],
@@ -4718,6 +5147,9 @@
  "vypisovat": [
   "vypisovat ( vypisování )"
  ],
+ "vyplavat": [
+  "vyplavat, vynořit se, vyplavat ; vyplavat, dostat se na povrch"
+ ],
  "vyplašit": [
   "vyplašit ( vyplašení )"
  ],
@@ -4726,6 +5158,9 @@
  ],
  "vypláchnout": [
   "oplachovat uvnitř"
+ ],
+ "vyplést": [
+  "vyplést, vyprostit, vyplést ; vyplést se, vyplést"
  ],
  "vypotit": [
   "vypotit se"
@@ -4772,6 +5207,9 @@
  "vyronit": [
   "vyronit ( vyronění )"
  ],
+ "vyrovnávat": [
+  "vyrovnávat, vyrovnávat ( vyrovnat ) ; vyrovnávat se ( s něčím, vyrovnávat se )"
+ ],
  "vyskytnout": [
   "vyskytnout se"
  ],
@@ -4792,6 +5230,9 @@
  ],
  "vysportovat": [
   "vysportovat se"
+ ],
+ "vysprchovat": [
+  "osprchovat, vysprchovat ( někoho ) ; osprchovat se"
  ],
  "vystartovat": [
   "vyrazit"
@@ -4814,6 +5255,9 @@
  "vystát": [
   "obstát"
  ],
+ "vystěhovat": [
+  "vystěhovat, vystěhovat ( vystěhovat někoho ) ; vystěhovat se, vystěhovat"
+ ],
  "vystřízlivět": [
   "střízlivět"
  ],
@@ -4822,6 +5266,9 @@
  ],
  "vysílit": [
   "vyčerpat"
+ ],
+ "vytasit": [
+  "vytasit, tasit, vytasit ; vytasit se ( s něčím, vytasit se )"
  ],
  "vytočit": [
   "vytočit ( vytočení )"
@@ -4834,6 +5281,12 @@
  ],
  "vytrvat": [
   "vydržet"
+ ],
+ "vytáčet": [
+  "vytáčet, odšroubovat, vytáčet ; vytočit ( číslo, vytáčet ) ; vytáčet ( někoho, vytáčet )"
+ ],
+ "vytéct": [
+  "vytéct, vytékat ven ; uniknout, vytéct"
  ],
  "vytékat": [
   "vytékat ( vytékání )"
@@ -4898,6 +5351,9 @@
  "vyčkávat": [
   "vyčkávat ( vyčkávání )"
  ],
+ "vyčnívat": [
+  "vyčnívat, přesahovat, vyčnívat ; vyčnívat ( mezi ostatními, vyčnívat )"
+ ],
  "vyřizovat": [
   "vyřizovat ( vyřizování )"
  ],
@@ -4906,6 +5362,9 @@
  ],
  "vyšetřit": [
   "vyšetřit ( vyšetření )"
+ ],
+ "vyškrtávat": [
+  "vyškrtávat ( nedokonavé k vyškrtnout, vyškrtávat )"
  ],
  "vyškubat": [
   "vyškubat ( vyškubání )"
@@ -4952,6 +5411,12 @@
  "vzmužit": [
   "vzmužit se"
  ],
+ "vznášet": [
+  "vznášet ( návrh, vznášet ) ; vznášet se, vznášet se"
+ ],
+ "vznést": [
+  "vznést ( návrh, vznést ) ; vznést se, vzlétnout, vznést se"
+ ],
  "vznímat": [
   "vznímat ( vznímání )"
  ],
@@ -4972,6 +5437,9 @@
  ],
  "vzrušit": [
   "rozrušit"
+ ],
+ "vztekat": [
+  "zlobit se, vztekem, vztekat se"
  ],
  "vábit": [
   "vábit ( vábení )"
@@ -5027,6 +5495,9 @@
  "zabíhat": [
   "zabíhat ( zabíhání )"
  ],
+ "zabývat": [
+  "zabývat se, věnovat se, zabývat se"
+ ],
  "zaběhat": [
   "zaběhat ( zaběhání )"
  ],
@@ -5066,8 +5537,14 @@
  "zahladit": [
   "zahladit ( zahlazení )"
  ],
+ "zahnat": [
+  "zahnat ( zahnat žízeň, zahnat ) ; zahnat, zapudit, zahnat"
+ ],
  "zahojit": [
   "vyléčit ( ránu )"
+ ],
+ "zahubit": [
+  "zahubit, zničit ; vyhubit, zahubit"
  ],
  "zahustit": [
   "zahustit ( zahustění )"
@@ -5111,6 +5588,9 @@
  "zakřiknout": [
   "mluvit předčasně"
  ],
+ "zalehnout": [
+  "zalehnout ( ležet na něčem ) ; ulehnout si, zalehnout si"
+ ],
  "zalitovat": [
   "litovat"
  ],
@@ -5125,6 +5605,9 @@
  ],
  "zamalovat": [
   "zamalovat ( zamalování )"
+ ],
+ "zamazat": [
+  "zamazat, zašpinit, zamazat ; zamazat ( zazdít, zamazat ) ; zamazat ( zabarvit, zamazat )"
  ],
  "zamazávat": [
   "zamazávat ( zamazávání )"
@@ -5183,6 +5666,9 @@
  "zaparkovat": [
   "zaparkovat auto"
  ],
+ "zaplavat": [
+  "zaplavat, zvládnout plavat, zaplavat si"
+ ],
  "zaplavit": [
   "zaplnit vodou"
  ],
@@ -5240,6 +5726,9 @@
  "zasoutěžit": [
   "účastnit se soutěže"
  ],
+ "zastoupit": [
+  "zastoupit, nahradit, zastoupit ( někoho )"
+ ],
  "zastrašit": [
   "vyděsit hrozbou"
  ],
@@ -5270,11 +5759,20 @@
  "zatemňovat": [
   "zatemňovat ( zatemňování )"
  ],
+ "zatnout": [
+  "zatnout ( do něčeho, vrazit ) ; zatnout ( zuby, pěst ), zatnout"
+ ],
+ "zatočit": [
+  "zatočit, odbočit, zatočit ; zatočit ( kolem, zatočit )"
+ ],
  "zatratit": [
   "proklít"
  ],
  "zatvářit": [
   "zatvářit se"
+ ],
+ "zatřást": [
+  "zatřást, zatřást ( zatřást sebou, zatřást )"
  ],
  "zavadit": [
   "zavadit ( o něco )"
@@ -5321,6 +5819,9 @@
  "zaříkat": [
   "zaříkat ( zaříkání )"
  ],
+ "zaříkávat": [
+  "zaříkávat ( opakovaně zaříkat, zaříkávat )"
+ ],
  "zašifrovat": [
   "zašifrovat ( zašifrování )"
  ],
@@ -5336,11 +5837,17 @@
  "zbičovat": [
   "zbičovat ( zbičování )"
  ],
+ "zbloudit": [
+  "zbloudit, zabloudit, ztratit cestu, zbloudit"
+ ],
  "zbláznit": [
   "zbláznit se"
  ],
  "zbohatnout": [
   "obohat se"
+ ],
+ "zbrzdit": [
+  "zbrzdit, zpomalit, zbrzdit"
  ],
  "zbíhat": [
   "dezerovat"
@@ -5359,6 +5866,9 @@
  ],
  "zchátrat": [
   "upadnout"
+ ],
+ "zcizoložit": [
+  "cizoložit, dopustit se cizoložství"
  ],
  "zdanit": [
   "uvalit daň"
@@ -5387,11 +5897,17 @@
  "zdráhat": [
   "váhat"
  ],
+ "zdát": [
+  "zdát se, připadat, zdát se ; zdát se ( zdát se o něčem )"
+ ],
  "zdědit": [
   "zdědit ( po předcích )"
  ],
  "zděsit": [
   "zděsit se"
+ ],
+ "zefektivnit": [
+  "zefektivnit, učinit efektivnějším, zefektivnit"
  ],
  "zelenat": [
   "zelenat se"
@@ -5425,6 +5941,12 @@
  ],
  "zhltávat": [
   "zhltávat ( zhltávání )"
+ ],
+ "zhnusit": [
+  "zhnusit, ošklivit, zhnusit ; zhnusit se, zhnusit"
+ ],
+ "zhnědnout": [
+  "zhnědnout, zhnědnout ( zhnědnout úpravou )"
  ],
  "zhotovit": [
   "vyrobit"
@@ -5597,6 +6119,9 @@
  "znejasnit": [
   "znejasnit ( znejasnění )"
  ],
+ "znejistit": [
+  "znejistit ( někoho ) ; otřást ( důvěrou, znejistit )"
+ ],
  "zneklidnit": [
   "zneklidnit ( zneklidnění )"
  ],
@@ -5720,6 +6245,9 @@
  "zpěčovat": [
   "zpěčovat se"
  ],
+ "zpřístupnit": [
+  "zpřístupnit, učinit přístupným, zpřístupnit ; zpřístupnit ( utajované, zpřístupnit )"
+ ],
  "zrenovovat": [
   "zrenovovat ( zrenovování )"
  ],
@@ -5740,6 +6268,9 @@
  ],
  "ztrapnit": [
   "zahanbit"
+ ],
+ "ztrhat": [
+  "ztrhat ( opotřebovat, ztrhat ) ; ztrhat se, vyčerpat se, ztrhat se ; ztrhat ( v kritice, ztrhat )"
  ],
  "ztrhnout": [
   "ztrhnout ( ztrhnutí )"
@@ -5812,6 +6343,12 @@
  ],
  "úrokovat": [
   "úrokovat ( úročení )"
+ ],
+ "ústit": [
+  "ústit ( vést do, ústit ) ; ústit ( do řeky, ústit )"
+ ],
+ "účastnit": [
+  "účastnit se ( něčeho, účastnit se )"
  ],
  "účtovat": [
   "účtovat poplatek"
@@ -5897,6 +6434,9 @@
  "říznout": [
   "říznout ( říznutí )"
  ],
+ "šacovat": [
+  "šacovat, prohledat, šacovat ; odhadnout, ocenit, šacovat"
+ ],
  "šeplat": [
   "mluvit šišlavě"
  ],
@@ -5917,6 +6457,9 @@
  ],
  "šklebit": [
   "šklebit se"
+ ],
+ "školit": [
+  "školit, vyškolit, školit ; školit se, učit se"
  ],
  "škorpit": [
   "škorpit se"
@@ -5966,6 +6509,9 @@
  "šroubovat": [
   "přišroubovat"
  ],
+ "štrachat": [
+  "štrachat, štrachat ( hledat rukama ) ; ploužit se, štrachat"
+ ],
  "šturmovat": [
   "šturmovat ( šturm )"
  ],
@@ -5980,6 +6526,9 @@
  ],
  "šustit": [
   "šelestit"
+ ],
+ "švejkovat": [
+  "švejkovat, protestovat proti nesmyslnému rozkazu přehnanou přesností, švejkovat ; jednat jako švejk, švejkovat"
  ],
  "švihat": [
   "švihat ( švihání )"
