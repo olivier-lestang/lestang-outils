@@ -687,6 +687,13 @@ Détail du procédé :
   ROUMAIN EPUISE. TOUTES LES LANGUES SONT EPUISEES.
   Etiquette et source « angl. Wiktionary, trad. » ; total inchange :
   176 941 sens, 0 sans source.
+- **Lot 33 de nettoyage, OCR residuel et templates ( version 1.5.53 )** :
+  68 gloses retouchees ( residus OCR : Sanders 1876, Petrocchi 1887,
+  Slownik warszawski 1900, ligatures du glossaire angl. Wiktionary ) et
+  593 gloses italiennes normalisees ( templates wiki casses
+  « {Term|...}} » convertis en etiquettes textuelles ;
+  cf. outils/nettoie_ocr2.py ). Plus aucun residu detecte ;
+  total inchange : 176 941 sens, 0 sans source.
 - **Comblement des définitions manquantes ( Wiktionary, CC BY-SA 4.0 )** :
   avec les filtres abandonnés, 439 verbes restaient sans définition
   ( fr 4, en 7, es 19, pl 356, cs 53 ). Ils ont été traités depuis
