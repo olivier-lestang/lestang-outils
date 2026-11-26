@@ -362,6 +362,14 @@ Détail du procédé :
   traduire ( lots suivants ). Total : 176 941 sens ( +291, un sens
   anglais remplace par un a trois sens du dictionnaire ), 0 sans
   source.
+- **Lot 7 de traduction, italien + portugais ( version 1.5.8 )** :
+  suite : 200 gloses italiennes et 200 portugaises suivantes,
+  traduites une a une ( `outils/traduits_it.json` et
+  `outils/traduits_pt.json` ). 400 sens traduits ce lot ; restent
+  en italien 2 417 verbes a vraie glose anglaise et 1 317 en
+  portugais ( lots suivants ). Etiquette et source
+  « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
+  0 sans source.
 - **Comblement des définitions manquantes ( Wiktionary, CC BY-SA 4.0 )** :
   avec les filtres abandonnés, 439 verbes restaient sans définition
   ( fr 4, en 7, es 19, pl 356, cs 53 ). Ils ont été traités depuis
