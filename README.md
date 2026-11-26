@@ -436,6 +436,14 @@ Détail du procédé :
   verbes a vraie glose anglaise. Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
+- **Lot 16 de traduction, italien ( version 1.5.17 )** :
+  suite : 200 gloses italiennes suivantes, uniques et
+  d'au plus 95 caracteres ( `outils/traduits_it.json` ).
+  200 sens traduits ce lot ; le portugais reste EPUISE ;
+  restent en italien 613 verbes ( 641 sens ) a vraie
+  glose anglaise, puis 2 441 verbes polonais.
+  Etiquette et source « angl. Wiktionary, trad. » ;
+  total inchange : 176 941 sens, 0 sans source.
 - **Comblement des définitions manquantes ( Wiktionary, CC BY-SA 4.0 )** :
   avec les filtres abandonnés, 439 verbes restaient sans définition
   ( fr 4, en 7, es 19, pl 356, cs 53 ). Ils ont été traités depuis
