@@ -314,6 +314,14 @@ Détail du procédé :
   anglaise et 2 117 en portugais ( lots suivants ). Etiquette et
   source « angl. Wiktionary, trad. » ; total inchange : 176 650 sens,
   0 sans source.
+- **Lot 3 de traduction, italien ( version 1.5.3 )** : lot manuel revu
+  `outils/traduits_it.json` : 950 gloses courtes traduites une a une
+  et 14 « reflexive of X : glose » rendues en « Forma riflessiva
+  di X : ... ». 964 sens italiens traduits ce lot ; restent en
+  italien 3 217 verbes a vraie glose anglaise et 2 117 en
+  portugais ( lots suivants ). Etiquette et source
+  « angl. Wiktionary, trad. » ; total inchange : 176 650 sens,
+  0 sans source.
 - **Comblement des définitions manquantes ( Wiktionary, CC BY-SA 4.0 )** :
   avec les filtres abandonnés, 439 verbes restaient sans définition
   ( fr 4, en 7, es 19, pl 356, cs 53 ). Ils ont été traités depuis
