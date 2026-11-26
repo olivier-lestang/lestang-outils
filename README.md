@@ -159,9 +159,11 @@ qu'avant enrichissement** dans `outils/brut_orig.json`, puis lancer
   ( 4 378 / 1 931 / 5 437 verbes, dumps pl/cs/ro.wiktionary, CC BY-SA ),
   sinon glossaire anglais du Wiktionary ; les définitions traduites de
   l'anglais sont étiquetées « angl. Wiktionary, trad. ». Aucune
-  numérisation de dictionnaire du domaine public ( fin 19e, début 20e )
-  n'a pu être intégrée à ce jour : l'OCR du Słownik warszawski est
-  illisible, le dump officiel de dexonline ( pour le roumain ) était
+  numérisation de dictionnaire du domaine public ( fin 19e, début 20e ) n'a
+  pas encore été intégrée pour it/pt ( la traduction des gloses anglaises
+  a été préférée ) ; le Słownik warszawski, dont l'OCR archive.org est
+  exploitable, est intégré depuis la version 1.5.7, le dump officiel de
+  dexonline ( pour le roumain ) était
   tronqué au moment de la collecte et son site interdit le scraping ;
   le comblement « dictionnaire ancien » reste à faire si une
   numérisation libre devient disponible.
@@ -346,6 +348,20 @@ Détail du procédé :
   portugais ( lots suivants ). Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 650 sens,
   0 sans source.
+- **Comblement des définitions polonaises, Słownik warszawski
+  ( version 1.5.7 )** : l'OCR archive.org du Słownik języka polskiego
+  dit « warszawski » ( Karłowicz, Kryński, Niedźwiedzki, 1900-1927,
+  8 vol., domaine public ) est en fait exploitable, contrairement au
+  diagnostic initial. De nouvelles définitions natives du domaine
+  public remplacent la glose anglaise de 2 245 verbes polonais
+  ( 2 536 sens, au plus 3 par verbe, renvois « p. X » compris ;
+  `outils/dictionnaires_pd_pl.py`, etiquette et source
+  « Słownik warszawski 1900 », OCR conservé tel quel, coquilles
+  comprises ). Restent 2 441 verbes polonais a glose anglaise
+  ( « angl. Wiktionary » ), 2 617 italiens et 1 517 portugais a
+  traduire ( lots suivants ). Total : 176 941 sens ( +291, un sens
+  anglais remplace par un a trois sens du dictionnaire ), 0 sans
+  source.
 - **Comblement des définitions manquantes ( Wiktionary, CC BY-SA 4.0 )** :
   avec les filtres abandonnés, 439 verbes restaient sans définition
   ( fr 4, en 7, es 19, pl 356, cs 53 ). Ils ont été traités depuis
@@ -373,9 +389,12 @@ Détail du procédé :
   des traductions ( étiquette « angl. Wiktionary, trad. » ) via
   `outils/completer_natifs.py` ( support natifs + traduits ).
   Un dépassement par un dictionnaire du domaine public ( fin 19e,
-  début 20e ) n'a pas abouti à ce jour : Słownik warszawski ( OCR
-  gothique illisible ), dexonline ( dump officiel tronqué au moment
-  de la collecte, scraping interdit ), Săineanu ( pas d'OCR libre ),
+  début 20e ) a abouti : en it/pt via Petrocchi et Figueiredo ( cf.
+  `outils/dictionnaires_pd.py` ), en polonais via le Słownik warszawski
+  dont l'OCR archive.org est exploitable après examen ( version 1.5.7,
+  `outils/dictionnaires_pd_pl.py` ) ; dexonline ( dump officiel tronqué
+  au moment de la collecte, scraping interdit ), Săineanu ( pas d'OCR
+  libre ),
   Ottův slovník ( encyclopédie ) ; revu si une numérisation libre
   apparaît.
 - **Atelier SQL ( `outils/atelier.py` )** : stockage normalise optionnel
