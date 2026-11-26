@@ -306,6 +306,14 @@ Détail du procédé :
   traduites a la main, 115 renvois ), it 827 et pt 259 renvois ;
   restent en anglais it 5 826 et pt 2 117 verbes a vraie glose
   ( lots suivants ).
+- **Lot 2 de traduction, italien ( version 1.5.2 )** : nouveau motif
+  « reflexive of X » traduit automatiquement en « Forma riflessiva
+  di X » ( 895 verbes ) + lot manuel revu `outils/traduits_it.json`
+  ( 750 gloses courtes traduites une a une ). 1 645 sens italiens
+  traduits ce lot ; restent en italien 4 181 verbes a vraie glose
+  anglaise et 2 117 en portugais ( lots suivants ). Etiquette et
+  source « angl. Wiktionary, trad. » ; total inchange : 176 650 sens,
+  0 sans source.
 - **Comblement des définitions manquantes ( Wiktionary, CC BY-SA 4.0 )** :
   avec les filtres abandonnés, 439 verbes restaient sans définition
   ( fr 4, en 7, es 19, pl 356, cs 53 ). Ils ont été traités depuis

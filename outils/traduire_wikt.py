@@ -21,7 +21,7 @@ import sys
 
 ICI = os.path.dirname(os.path.abspath(__file__))
 ETIQ = 'angl. Wiktionary, trad.'
-JOUR = '2026-11-25'
+JOUR = '2026-11-26'
 
 # renvois : motif anglais -> gabarit par langue ( {} = vedette )
 RENV = [
@@ -88,6 +88,8 @@ RENV = [
     (re.compile(r'^([Ss]ynonym) of ([\wäöüÄÖÜßà-ÿ-]+)', ),
      {'it': 'Sinonimo di {}', 'pt': 'Sinônimo de {}', 'de': 'Synonym von {}',
       'fr': 'Synonyme de {}', 'es': 'Sinónimo de {}'}),
+    (re.compile(r'^([Rr]eflexive) of ([\wäöüÄÖÜßà-ÿ-]+)$'),
+     {'it': 'Forma riflessiva di {}'}),
 ]
 
 
