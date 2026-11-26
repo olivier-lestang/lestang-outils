@@ -639,6 +639,12 @@ Détail du procédé :
   gloses espagnoles, 2 183 tcheques, 894 roumaines. Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
+- **Lot 25 de traduction, espagnol ( version 1.5.45 )** :
+  suite : 422 gloses espagnoles suivantes ( `outils/traduits_es.json`,
+  3 222 entrees cumulees ). 422 sens traduits ce lot ; espagnol EPUISE.
+  Restent 2 183 gloses tcheques, 894 roumaines. Etiquette et source
+  « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
+  0 sans source.
 - **Comblement des définitions manquantes ( Wiktionary, CC BY-SA 4.0 )** :
   avec les filtres abandonnés, 439 verbes restaient sans définition
   ( fr 4, en 7, es 19, pl 356, cs 53 ). Ils ont été traités depuis
