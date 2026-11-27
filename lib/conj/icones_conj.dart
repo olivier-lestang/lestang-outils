@@ -21,7 +21,8 @@ const _verticaux = <String, List<Color>>{
 };
 
 /* Le portugal : vert sur deux cinquiemes, rouge sur trois. */
-const _pt = [Color(0xff046a38), Color(0xffda291c)];
+const _ptVert = Color(0xff046a38);
+const _ptRouge = Color(0xffda291c);
 
 const _codes = <String, String>{
   'fr': 'FR',
@@ -49,8 +50,8 @@ Widget _etendard(String langue) {
         width: 24,
         height: 16,
         child: Row(children: [
-          const Expanded(flex: 2, child: ColoredBox(color: _pt[0])),
-          const Expanded(flex: 3, child: ColoredBox(color: _pt[1])),
+          const Expanded(flex: 2, child: ColoredBox(color: _ptVert)),
+          const Expanded(flex: 3, child: ColoredBox(color: _ptRouge)),
         ]),
       ),
     );
