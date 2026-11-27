@@ -127,7 +127,9 @@ class _AppLestangOutilsState extends State<AppLestangOutils> {
       case 'conj-cs':
       case 'conj-ro':
         final langue = cle.substring(5);
-        return EcranConjugaison(langue, trad);
+        /* une cle par langue : sans elle, Flutter reutilise l'etat de
+           l'ecran d'une autre langue ( jeu de conjugaison deja charge ) */
+        return EcranConjugaison(langue, trad, key: ValueKey('conj-$langue'));
       case 'france':
       case 'union':
       case 'monde':
@@ -147,11 +149,11 @@ class _AppLestangOutilsState extends State<AppLestangOutils> {
                           appBar: AppBar(title: Text(trad(cle))),
                           body: Padding(
                               padding: const EdgeInsets.all(10),
-                              child: EcranCarte(cle))))),
+                              child: EcranCarte(cle, key: ValueKey(cle))))),
             ),
           ]),
           const SizedBox(height: 10),
-          Expanded(child: EcranCarte(cle)),
+          Expanded(child: EcranCarte(cle, key: ValueKey(cle))),
         ]);
       case 'météo':
         return EcranMeteo(trad);
