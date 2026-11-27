@@ -120,8 +120,8 @@ const _groups = <String, String>{
 };
 
 class SearchScreen extends StatefulWidget {
-  final Translator trad;
-  const SearchScreen(this.trad, {super.key});
+  final Translator translator;
+  const SearchScreen(this.translator, {super.key});
 
   @override
   State<SearchScreen> createState() => _SearchScreenState();
@@ -154,8 +154,8 @@ class _SearchScreenState extends State<SearchScreen> {
   Future<void> _launch(SearchEngine m, String q) async {
     if (q.trim().isEmpty) return;
     var pattern = m.pattern
-        .replaceAll('{wl}', widget.trad.language)
-        .replaceAll('{wt}', widget.trad.language)
+        .replaceAll('{wl}', widget.translator.language)
+        .replaceAll('{wt}', widget.translator.language)
         .replaceAll('{q}', Uri.encodeComponent(q.trim()));
     if (m.id == 'google') {
       /* the engines in {q} already encode; the path ones are
@@ -169,7 +169,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final t = widget.trad;
+    final t = widget.translator;
     if (_selected == null)
       return const Center(child: CircularProgressIndicator());
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [

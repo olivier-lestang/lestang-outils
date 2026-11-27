@@ -20,7 +20,7 @@ Future<String> databasePath() async {
 }
 
 /// The version of the embedded data, to keep in sync with the meta value
-/// written by outils/construire_bdd.py.
+/// written by tools/build_db.py.
 const databaseVersion = '1.5.65';
 
 /// Opens the database: the first time, the asset is copied to disk.

@@ -704,8 +704,8 @@ Future<WeatherReading> loadWeather(WeatherCity v, String source) async {
 /* ---------------- the screen ---------------- */
 
 class WeatherScreen extends StatefulWidget {
-  final Translator trad;
-  const WeatherScreen(this.trad, {super.key});
+  final Translator translator;
+  const WeatherScreen(this.translator, {super.key});
 
   @override
   State<WeatherScreen> createState() => _WeatherScreenState();
@@ -761,7 +761,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
       if (mounted) setState(() => _readings[v.key()] = r);
     } catch (_) {
       if (mounted) {
-        setState(() => _errors[v.key()] = widget.trad('meteo-erreur'));
+        setState(() => _errors[v.key()] = widget.translator('meteo-erreur'));
       }
     } finally {
       if (mounted) setState(() => _busy = false);
@@ -819,7 +819,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final t = widget.trad;
+    final t = widget.translator;
     if (_cities == null) {
       return const Center(child: CircularProgressIndicator());
     }

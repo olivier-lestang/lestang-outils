@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import '../l10n.dart';
 
 class InfoScreen extends StatelessWidget {
-  final Translator trad;
-  const InfoScreen(this.trad, {super.key});
+  final Translator translator;
+  const InfoScreen(this.translator, {super.key});
 
   @override
   Widget build(BuildContext context) {

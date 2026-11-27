@@ -24,11 +24,11 @@ String systemLanguage() {
    labels, which live in the glossary under keys instead of literals */
 String appLanguage = 'fr';
 
-String trad(String key) =>
-    _glossaires[appLanguage]?[key] ?? _glossaires['fr']![key] ?? key;
+String translate(String key) =>
+    _glossaries[appLanguage]?[key] ?? _glossaries['fr']![key] ?? key;
 
 /* Any key missing from a glossary falls back to French. */
-final Map<String, Map<String, String>> _glossaires = {
+final Map<String, Map<String, String>> _glossaries = {
   'fr': {
     'titre': 'Lestang Outils',
     'cartes': 'Cartes',
@@ -991,8 +991,8 @@ class Translator {
   final String language;
   Translator(this.language);
   String t(String key) =>
-      _glossaires[language]?[key] ?? _glossaires['fr']![key] ?? key;
+      _glossaries[language]?[key] ?? _glossaries['fr']![key] ?? key;
 
-  /* the translator is used like a function : trad ( 'key' ) */
+  /* the translator is used like a function : translate ( 'key' ) */
   String call(String key) => t(key);
 }

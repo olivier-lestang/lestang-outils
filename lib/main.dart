@@ -116,7 +116,7 @@ class _LestangOutilsAppState extends State<LestangOutilsApp> {
 
   @override
   Widget build(BuildContext context) {
-    final trad = Translator(_language);
+    final translator = Translator(_language);
     /* the map dialogs and the status bar read this global language to
        translate their own labels */
     appLanguage = _language;
@@ -142,7 +142,7 @@ class _LestangOutilsAppState extends State<LestangOutilsApp> {
                   seedColor: const Color(0xff3b82f6),
                   brightness: Brightness.dark)),
       home: Scaffold(
-        appBar: gradientAppBar(trad('titre')),
+        appBar: gradientAppBar(translator('titre')),
         bottomNavigationBar: const StatusBar(),
         body: DecoratedBox(
             decoration: BoxDecoration(gradient: light ? _bgLight : _bgDark),
@@ -161,7 +161,7 @@ class _LestangOutilsAppState extends State<LestangOutilsApp> {
                   icon: c.startsWith('conj-')
                       ? conjugIcon(c.substring(5))
                       : Icon(_icons[c] ?? Icons.extension),
-                  label: Text(trad(c)),
+                  label: Text(translator(c)),
                 ),
             ],
           ),
@@ -169,7 +169,7 @@ class _LestangOutilsAppState extends State<LestangOutilsApp> {
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(14),
-              child: _currentPage(trad),
+              child: _currentPage(translator),
             ),
           ),
         ])),
@@ -177,7 +177,7 @@ class _LestangOutilsAppState extends State<LestangOutilsApp> {
     );
   }
 
-  Widget _currentPage(Translator trad) {
+  Widget _currentPage(Translator translator) {
     if (_page >= _order.length) _page = 0;
     final key = _order[_page];
     switch (key) {
@@ -193,25 +193,25 @@ class _LestangOutilsAppState extends State<LestangOutilsApp> {
         final language = key.substring(5);
         /* one key per language : without it, Flutter reuses the state of
            the screen of another language ( conjugation set already loaded ) */
-        return ConjugationScreen(language, trad,
+        return ConjugationScreen(language, translator,
             key: ValueKey('conj-$language'));
       case 'france':
       case 'union':
       case 'monde':
         return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Row(children: [
-            Text(trad(key),
+            Text(translator(key),
                 style:
                     const TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
             const SizedBox(width: 10),
             IconButton(
-              tooltip: trad('plein-ecran'),
+              tooltip: translator('plein-ecran'),
               icon: const Icon(Icons.fullscreen),
               onPressed: () => Navigator.push(
                   context,
                   MaterialPageRoute(
                       builder: (context) => Scaffold(
-                          appBar: gradientAppBar(trad(key)),
+                          appBar: gradientAppBar(translator(key)),
                           bottomNavigationBar: const StatusBar(),
                           body: DecoratedBox(
                               decoration: BoxDecoration(
@@ -230,15 +230,15 @@ class _LestangOutilsAppState extends State<LestangOutilsApp> {
           Expanded(child: MapScreen(key, key: ValueKey(key))),
         ]);
       case 'météo':
-        return WeatherScreen(trad);
+        return WeatherScreen(translator);
       case 'pdf':
-        return PdfScreen(trad);
+        return PdfScreen(translator);
       case 'recherche':
-        return SearchScreen(trad);
+        return SearchScreen(translator);
       case 'raccourcis':
-        return ShortcutsScreen(trad);
+        return ShortcutsScreen(translator);
       case 'motdepasse':
-        return PasswordScreen(trad);
+        return PasswordScreen(translator);
       case 'réglages':
         return SettingsScreen(_language, _theme, _order, (l) async {
           final p = await SharedPreferences.getInstance();
@@ -262,7 +262,7 @@ class _LestangOutilsAppState extends State<LestangOutilsApp> {
           });
         });
       case 'infos':
-        return InfoScreen(trad);
+        return InfoScreen(translator);
     }
     return const SizedBox.shrink();
   }
@@ -385,8 +385,8 @@ class _StatusBarState extends State<StatusBar> {
         Theme.of(context).textTheme.bodySmall?.color ?? const Color(0xff495057);
     /* the labels of the bar live in the glossary, like the screens */
     final text = _rss > 0
-        ? '${trad('stat-ram')} : ${(_rss / 1048576).toStringAsFixed(0)} Mo · ${trad('stat-workers')} : $_workers'
-        : '${trad('stat-workers')} : $_workers';
+        ? '${translate('stat-ram')} : ${(_rss / 1048576).toStringAsFixed(0)} Mo · ${translate('stat-workers')} : $_workers'
+        : '${translate('stat-workers')} : $_workers';
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(

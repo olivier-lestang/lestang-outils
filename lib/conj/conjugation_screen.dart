@@ -29,8 +29,8 @@ const _tints = <Color>[
 
 class ConjugationScreen extends StatefulWidget {
   final String language; // fr, en, es, de, it, pt
-  final Translator trad;
-  ConjugationScreen(this.language, this.trad, {super.key});
+  final Translator translator;
+  ConjugationScreen(this.language, this.translator, {super.key});
 
   @override
   State<ConjugationScreen> createState() => _ConjugationScreenState();
@@ -82,7 +82,7 @@ class _ConjugationScreenState extends State<ConjugationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final t = widget.trad;
+    final t = widget.translator;
     if (tables == null) {
       return const Center(child: CircularProgressIndicator());
     }

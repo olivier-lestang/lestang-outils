@@ -22,8 +22,8 @@ String _humanSize(int bytes) {
 }
 
 class PdfScreen extends StatefulWidget {
-  final Translator trad;
-  const PdfScreen(this.trad, {super.key});
+  final Translator translator;
+  const PdfScreen(this.translator, {super.key});
 
   @override
   State<PdfScreen> createState() => _PdfScreenState();
@@ -37,7 +37,7 @@ class _PdfScreenState extends State<PdfScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final t = widget.trad;
+    final t = widget.translator;
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Text(t('pdf-titre'),
           style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
@@ -106,7 +106,7 @@ class _PdfScreenState extends State<PdfScreen> {
   }
 
   Future<void> _compress() async {
-    final t = widget.trad;
+    final t = widget.translator;
     final file = await openFile(acceptedTypeGroups: const [
       XTypeGroup(label: 'PDF', extensions: ['pdf'])
     ]);

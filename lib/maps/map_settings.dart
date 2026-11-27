@@ -10,7 +10,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../l10n.dart' show trad;
+import '../l10n.dart' show translate;
 import 'world_map.dart' show disputedGroups;
 
 /* a settings group: the title heads the dialog section ( a key of the
@@ -218,14 +218,14 @@ Future<void> mapSettingsDialog(
                 child: ListView(shrinkWrap: true, children: [
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20, 16, 20, 4),
-                    child: Text(trad('reglages-carte'),
+                    child: Text(translate('reglages-carte'),
                         style: Theme.of(context).textTheme.titleMedium),
                   ),
                   for (final e
                       in (cardGroups[map] ?? const <String, CardGroup>{})
                           .entries)
                     SwitchListTile(
-                      title: Text(trad(e.value.title)),
+                      title: Text(translate(e.value.title)),
                       value: groups[e.key] ?? true,
                       onChanged: (value) {
                         setSheet(() {});
@@ -236,12 +236,12 @@ Future<void> mapSettingsDialog(
                     const Divider(),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(20, 8, 20, 4),
-                      child: Text(trad('dlg-contestees')),
+                      child: Text(translate('dlg-contestees')),
                     ),
                     ListTile(
                       leading: const Icon(Icons.public),
-                      title: Text(trad('dlg-contestees')),
-                      subtitle: Text(trad('dlg-choisir-vues')),
+                      title: Text(translate('dlg-contestees')),
+                      subtitle: Text(translate('dlg-choisir-vues')),
                       trailing: disputed.values.any((v) => v.isNotEmpty)
                           ? Badge(
                               label:
@@ -259,11 +259,11 @@ Future<void> mapSettingsDialog(
                     const Divider(),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(20, 8, 20, 4),
-                      child: Text(trad('dlg-apparence')),
+                      child: Text(translate('dlg-apparence')),
                     ),
                     for (final s in styleLabels.keys)
                       RadioListTile<String>(
-                        title: Text(trad(styleLabels[s] ?? s)),
+                        title: Text(translate(styleLabels[s] ?? s)),
                         value: s,
                         groupValue: style,
                         onChanged: (value) {
@@ -275,11 +275,11 @@ Future<void> mapSettingsDialog(
                     const Divider(),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(20, 8, 20, 4),
-                      child: Text(trad('dlg-centrage')),
+                      child: Text(translate('dlg-centrage')),
                     ),
                     for (final c in worldCenters)
                       RadioListTile<double>(
-                        title: Text(trad(c.title)),
+                        title: Text(translate(c.title)),
                         value: c.value,
                         groupValue: center,
                         onChanged: (value) {
@@ -290,8 +290,8 @@ Future<void> mapSettingsDialog(
                       ),
                     ListTile(
                       leading: const Icon(Icons.location_city),
-                      title: Text(trad('dlg-villes-marquees')),
-                      subtitle: Text(trad('dlg-choisir-villes')),
+                      title: Text(translate('dlg-villes-marquees')),
+                      subtitle: Text(translate('dlg-choisir-villes')),
                       trailing: const Icon(Icons.chevron_right),
                       onTap: onPickCities,
                     ),
@@ -352,7 +352,7 @@ Future<void> disputedBordersDialog(
                 child: Column(mainAxisSize: MainAxisSize.min, children: [
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20, 16, 20, 4),
-                    child: Text(trad('dlg-contestees'),
+                    child: Text(translate('dlg-contestees'),
                         style: Theme.of(context).textTheme.titleMedium),
                   ),
                   Flexible(
@@ -360,13 +360,13 @@ Future<void> disputedBordersDialog(
                     for (final e in disputedGroups.entries) ...[
                       Padding(
                         padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
-                        child: Text(trad('conflit-${e.key}'),
+                        child: Text(translate('conflit-${e.key}'),
                             style:
                                 Theme.of(context).textTheme.titleSmall),
                       ),
                       RadioListTile<String>(
                         dense: true,
-                        title: Text(trad(neutralLabels[e.key] ?? 'neutre')),
+                        title: Text(translate(neutralLabels[e.key] ?? 'neutre')),
                         value: '',
                         groupValue: current[e.key] ?? '',
                         onChanged: (value) {
@@ -380,7 +380,7 @@ Future<void> disputedBordersDialog(
                       for (final v in views[e.key] ?? const <List<String>>[])
                         RadioListTile<String>(
                           dense: true,
-                          title: Text(trad(v[1])),
+                          title: Text(translate(v[1])),
                           value: v[0],
                           groupValue: current[e.key] ?? '',
                           onChanged: (value) {
@@ -409,13 +409,13 @@ Future<void> disputedBordersDialog(
                 child: Column(mainAxisSize: MainAxisSize.min, children: [
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20, 16, 20, 4),
-                    child: Text(trad('dlg-villes-marquees'),
+                    child: Text(translate('dlg-villes-marquees'),
                         style: Theme.of(context).textTheme.titleMedium),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Text(
-                        '${names.length - hidden.length} ${trad('dlg-sur')} ${names.length}'),
+                        '${names.length - hidden.length} ${translate('dlg-sur')} ${names.length}'),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -425,13 +425,13 @@ Future<void> disputedBordersDialog(
                             setSheet(() {});
                             onChange(<String>{});
                           },
-                          child: Text(trad('dlg-tout-afficher'))),
+                          child: Text(translate('dlg-tout-afficher'))),
                       TextButton(
                           onPressed: () {
                             setSheet(() {});
                             onChange(names.toSet());
                           },
-                          child: Text(trad('dlg-aucune'))),
+                          child: Text(translate('dlg-aucune'))),
                     ]),
                   ),
                   Flexible(

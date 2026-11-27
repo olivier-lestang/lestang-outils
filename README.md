@@ -35,57 +35,57 @@ utilisée (`file_selector`).
 La base est reconstruite à partir des fichiers de données du projet web :
 
 ```bash
-node outils/extraire.js <chemin-du-projet-web>/web/ outils/brut.json
-python3 outils/nettoie_en.py        # lexique anglais : filtre + doubles formes
-python3 outils/dedupe.py            # aucun doublon, toutes langues
+node tools/extract.js <chemin-du-projet-web>/web/ tools/raw.json
+python3 tools/clean_en.py        # lexique anglais : filtre + doubles formes
+python3 tools/dedupe.py            # aucun doublon, toutes langues
 # comblement des verbes sans définition depuis les Wiktionary
 # monolingues ( la collecte a déjà été faite, voir le bullet
 # « Comblement des définitions manquantes » ) :
-python3 outils/combler_defs.py outils/brut.json outils/wikt_defs.json outils/retires_wikt.json outils/brut.json
-python3 outils/construire_pl_cs.py
-python3 outils/construire_ro.py
-python3 outils/completer_natifs.py outils/brut.json
-python3 outils/construire_bdd.py
+python3 tools/fill_defs.py tools/raw.json tools/wikt_defs.json tools/withdrawn_wikt.json tools/raw.json
+python3 tools/build_pl_cs.py
+python3 tools/build_ro.py
+python3 tools/complete_natives.py tools/raw.json
+python3 tools/build_db.py
 
 # atelier SQL (optionnel) : tables normalisees editables dans un GUI
 # SQLite ; l'atelier devient la source de verite des donnees de
-# conjugaison, brut.json se regenere ensuite :
-#   python3 outils/atelier.py import   # brut.json -> atelier.db
-#   python3 outils/sources_defs.py    # rattache chaque sens a sa source
+# conjugaison, raw.json se regenere ensuite :
+#   python3 tools/workshop.py import   # raw.json -> workshop.db
+#   python3 tools/sources_defs.py    # rattache chaque sens a sa source
 #                                     # ( Littré, Académie, Webster 1913,
 #                                     # RAE 1913-1914, Wiktionary... )
-#   python3 outils/classes.py         # groupe/particularite des verbes
-#   python3 outils/nettoyer_textes.py # typo des defs ( ",." , fins pendantes )
-#   python3 outils/dictionnaires_pd.py # defs it/pt : Petrocchi 1887
+#   python3 tools/classes.py         # groupe/particularite des verbes
+#   python3 tools/clean_texts.py # typo des defs ( ",." , fins pendantes )
+#   python3 tools/dictionaries_pd.py # defs it/pt : Petrocchi 1887
 #                                     # et Figueiredo 1913 ( OCR archive.org )
-#   python3 outils/sanders_extract.py  # defs de : Sanders 1876 ( OCR maison )
-#   python3 outils/orthographe.py     # dic. PD : orthographe actuelle
+#   python3 tools/sanders_extract.py  # defs de : Sanders 1876 ( OCR maison )
+#   python3 tools/spelling.py     # dic. PD : orthographe actuelle
 #                                     # ( de 1901, it accents, pt AO90 )
-#   python3 outils/coquilles_ocr.py   # dic. PD : coquilles OCR certaines
+#   python3 tools/typos_ocr.py   # dic. PD : coquilles OCR certaines
 #                                     # ( fich->sich, superfice, ob jeto )
-#   python3 outils/ajouter_wikt.py    # it/pt/de : glosses anglais du
+#   python3 tools/add_wikt.py    # it/pt/de : glosses anglais du
 #                                     # Wiktionary ranges AVANT les dic.
 #                                     # PD ( restauration 1.2.2 + API )
-#   python3 outils/dump_natif.py fr frwiktionary-latest-pages-articles.xml.bz2
+#   python3 tools/dump_native.py fr frwiktionary-latest-pages-articles.xml.bz2
 #                                     # fr/es/it/pt/de : definition native
 #                                     # du Wiktionary de la langue, extraite
 #                                     # des dumps Wikimedia ( cache durable
 #                                     # wikt_natif_fetch.json, CC BY-SA 4.0 )
-#   python3 outils/natifs_wikt.py    # sens natifs EN TETE de chaque fiche ;
+#   python3 tools/native_wikt.py    # sens natifs EN TETE de chaque fiche ;
 #                                     # angl. Wiktionary ne reste qu'en
 #                                     # secours ( verbes sans article natif )
-#   python3 outils/traduire_wikt.py  # traduit dans la langue les gloses
+#   python3 tools/translate_wikt.py  # traduit dans la langue les gloses
 #                                     # anglaises de secours : lot manuel
-#                                     # outils/traduits_de.json + renvois
+#                                     # tools/translated_de.json + renvois
 #                                     # ( etiquette « angl. Wiktionary,
 #                                     # trad. » ; lots suivants it/pt )
-#   ... editions SQL dans atelier.db ...
-#   python3 outils/atelier.py export   # atelier.db -> brut.json
-#   python3 outils/atelier.py verifier  # controle de concordance fina
+#   ... editions SQL dans workshop.db ...
+#   python3 tools/workshop.py export   # workshop.db -> raw.json
+#   python3 tools/workshop.py verifier  # controle de concordance fina
 ```
 
-`extraire.js` charge les scripts de données de `index.html` et vide toutes
-les constantes ; `construire_bdd.py` décode chaque format (routes, contours,
+`extract.js` charge les scripts de données de `index.html` et vide toutes
+les constantes ; `build_db.py` décode chaque format (routes, contours,
 points, chaînes de conjugaison) et écrit `assets/lestang_outils.db` (~23 Mo).
 
 Les filtres par dictionnaire du domaine public (Webster pour l'anglais,
@@ -94,26 +94,26 @@ essayés, appliqués, puis **abandonnés comme filtres** : tous les verbes du
 Wiktionary sont désormais conservés (voir « Détail du procédé »). Depuis la
 version 1.3.0, Petrocchi et Figueiredo sont en revanche réutilisés comme
 **source des définitions** it/pt (sans filtrer la base) via
-`outils/dictionnaires_pd.py`. Les scripts
-`outils/filtre_webster.py`, `parse_figueiredo.py`, `filtre_figueiredo.py`,
-`parse_petrocchi.py`, `parse_crusca.py` et `filtre_italien.py` restent dans
+`tools/dictionaries_pd.py`. Les scripts
+`tools/filter_webster.py`, `parse_figueiredo.py`, `filter_figueiredo.py`,
+`parse_petrocchi.py`, `parse_crusca.py` et `filter_italian.py` restent dans
 le dépôt pour référence, avec les URLs des OCR des dictionnaires listées
 plus bas.
 
 Les langues polonaise (pl) et tchèque (cs) n'existent pas dans le moteur
-web : leurs chaînes sont construites par `python3 outils/construire_pl_cs.py`
-depuis les listes déjà vérifiées `outils/pl_ok.json` / `outils/cs_ok.json`
+web : leurs chaînes sont construites par `python3 tools/build_pl_cs.py`
+depuis les listes déjà vérifiées `tools/pl_ok.json` / `tools/cs_ok.json`
 (extraction kaiki/Wiktionary vérifiée forme par forme). Le roumain (ro) est
-construit de la même manière par `python3 outils/construire_ro.py` depuis
-`outils/ro_ok_*.json` (table ro-conj complète du Wiktionary, formes copiées
+construit de la même manière par `python3 tools/build_ro.py` depuis
+`tools/ro_ok_*.json` (table ro-conj complète du Wiktionary, formes copiées
 verbatim).
 
 La source de chaque verbe est stockée dans la base (ligne `vsrc` par langue :
 la liste des verbes venus du Wiktionary, les autres venant du générateur
 maison) et affichée sur chaque fiche de conjugaison. Pour la reconstruire
 après une nouvelle extraction : extraire les données du moteur web **tel
-qu'avant enrichissement** dans `outils/brut_orig.json`, puis lancer
-`python3 outils/ajouter_vsrc.py` avant `construire_bdd.py`.
+qu'avant enrichissement** dans `tools/raw_orig.json`, puis lancer
+`python3 tools/add_vsrc.py` avant `build_db.py`.
 
 ## Architecture
 
@@ -169,10 +169,10 @@ qu'avant enrichissement** dans `outils/brut_orig.json`, puis lancer
   numérisation libre devient disponible.
 - Le lexique anglais est épuré : pas de verbe composé à trait d union
   ( air-condition, birdy-sit ) ni de terme très spécialisé
-  (`outils/nettoie_en.py`) ; les verbes définis par le Webster's
+  (`tools/clean_en.py`) ; les verbes définis par le Webster's
   Revised Unabridged Dictionary ( 1913, texte du domaine public ;
   numérisation lunixbochs/webster, code MIT ) reçoivent sa définition
-  (`outils/filtre_webster.py`).
+  (`tools/filter_webster.py`).
 - France : 160 départements, 2 461 autoroutes, 2 884 nationales,
   50 984 départementales, 54 fleuves, LGV, 178 villes des transports,
   103 tronçons parisiens.
@@ -240,41 +240,41 @@ Détail du procédé :
   pour que chaque verbe ait une définition ancienne et libre de droits,
   plusieurs filtres ont été successivement appliqués puis retirés :
   - *EN (abandonné)* : limite au Webster 1913 des verbes qu'il définit
-    ( `outils/filtre_webster.py` ) - la limitation a été abandonnée, le
+    ( `tools/filter_webster.py` ) - la limitation a été abandonnée, le
     Webster ne fournit plus que des définitions là où il définit ;
   - *PT (abandonné)* : remplacement des glossaires par le Novo Diccionario
     da Lingua Portugueza ( Cândido de Figueiredo, 1913 ) via
-    `outils/parse_figueiredo.py` et `outils/filtre_figueiredo.py`, retrait
+    `tools/parse_figueiredo.py` et `tools/filter_figueiredo.py`, retrait
     des 1 292 verbes absents ( controlar, vetar, detectar, financiar… ) ;
   - *IT (abandonné)* : remplacement des glossaires par le Nòvo dizionàrio
     universale ( Pietro Petrocchi, 1887 ) puis, à défaut, le Dizionario
     della Crusca ( éd. Costa-Cardinali, 1819 ) via
-    `outils/parse_petrocchi.py`, `outils/parse_crusca.py` et
-    `outils/filtre_italien.py`, retrait des 5 611 verbes absents
+    `tools/parse_petrocchi.py`, `tools/parse_crusca.py` et
+    `tools/filter_italian.py`, retrait des 5 611 verbes absents
     ( filmare, idrogenare, cristianizzare… ). L'OCR de l'édition
     tomaseobellini.it et celui, isolé et incomplet, de 1912 avaient été
     écartés.
   Décision finale : conserver **tous** les verbes du Wiktionary ; les
   définitions de restent les glossaires anglais (CC BY-SA 4.0) ; les
   définitions it/pt sont depuis remplacées par Petrocchi 1887 et
-  Figueiredo 1913 via `outils/dictionnaires_pd.py` (version 1.3.0) ;
+  Figueiredo 1913 via `tools/dictionaries_pd.py` (version 1.3.0) ;
   en allemand, l'OCR Fraktur d'archive.org étant inutilisable, un OCR
   maison ( Tesseract modele frk, tessdata_best, 400 dpi, 1 908 pages,
   sorties modulables TXT / CSV pages / CSV mots / hOCR / TSV ) a été
-  produit sur les PDF images, et `outils/sanders_extract.py` (version
+  produit sur les PDF images, et `tools/sanders_extract.py` (version
   1.4.0) remplace les définitions de 205 verbes par celles du Sanders
   1876 ( releve revu à la main : les têtes d'entrées perdues par l'OCR
   laissent des verbes fréquents non couverts ; la liste noire des
   gloses écartées est dans le script ) ;
   orthographe modernisée ( version 1.4.1 ) : l'app étant destinée à
-  de jeunes utilisateurs, `outils/orthographe.py` passe les
+  de jeunes utilisateurs, `tools/spelling.py` passe les
   définitions des trois dictionnaires PD à l'orthographe actuelle
   ( allemand : réforme de 1901 ; italien : accents de syllabe
   interne, mejjo->meglio ; portugais : norme européenne,
   graphies pre-AO90 + accents abolis en 1945/1971 ), 2 244 sens
   sur 6 937, sans toucher aux autres lots ; corrections vérifiées
   hors ligne contre LanguageTool ( de : aucune erreur ; it/pt : seuls
-  des mots rares mais valides ) ; `outils/coquilles_ocr.py`
+  des mots rares mais valides ) ; `tools/typos_ocr.py`
   ( version 1.4.2 ) corrige en outre les coquilles OCR certaines
   ( fich->sich, dur<->durch, superfice->superficie, ob jeto->objeto,
   prospector rétabli ), revues une par une en contexte ;
@@ -283,16 +283,16 @@ Détail du procédé :
   retrouvent leurs glosses anglais du Wiktionary en tête ( 8 914 sens :
   5 743 verbes restaurés depuis la brute 1.2.2, 1 238 verbes centraux
   relevés via l'API MediaWiki du Wiktionary anglais par
-  `outils/ajouter_wikt.py` ; 13 verbes niche sans glose Wikt restent
+  `tools/add_wikt.py` ; 13 verbes niche sans glose Wikt restent
   en PD seul ), la définition native du dictionnaire du domaine public
   venant ensuite ; aucune définition n'est supprimée ;
-  les six scripts de filtrage restent dans `outils/` pour référence.
+  les six scripts de filtrage restent dans `tools/` pour référence.
 - **Affichage « Wiktionary de la langue d'abord » ( version 1.5.0 )** :
   pour fr/es/it/pt/de, chaque verbe ayant un article VERBE dans le
   Wiktionary de sa langue ( dump Wikimedia, section Verbe uniquement )
   reçoit en TETE de fiche ses sens natifs, étiquetés
   « fr. Wiktionnaire » / « es. » / « it. » / « pt. » / « de. Wiktionary »
-  ( `outils/dump_natif.py` + `outils/natifs_wikt.py` ; 64 035 sens :
+  ( `tools/dump_native.py` + `tools/native_wikt.py` ; 64 035 sens :
   fr 18 898, es 11 603, it 9 769, pt 9 063, de 14 702 ). Ces verbes
   perdent leur glose anglaise ; elle ne subsiste que pour les verbes
   sans article natif ( it 6 653, pt 2 376, de 431 verbes ), rangée
@@ -300,8 +300,8 @@ Détail du procédé :
   ( etiquette prevue « angl. Wiktionary, trad. » ) ; les dictionnaires
   du domaine public suivent ensuite.
 - **Lot 1 de traduction des gloses anglaises de secours
-  ( version 1.5.1 )** : `outils/traduire_wikt.py` applique le lot
-  manuel `outils/traduits_de.json` et traduit aussi les renvois
+  ( version 1.5.1 )** : `tools/translate_wikt.py` applique le lot
+  manuel `tools/translated_de.json` et traduit aussi les renvois
   (« alternative form of X », « obsolete spelling of X »...) par
   motifs revus ; etiquette et source « angl. Wiktionary, trad. ».
   1 517 sens traduits : allemand COMPLET ( 431 verbes : 316 gloses
@@ -310,14 +310,14 @@ Détail du procédé :
   ( lots suivants ).
 - **Lot 2 de traduction, italien ( version 1.5.2 )** : nouveau motif
   « reflexive of X » traduit automatiquement en « Forma riflessiva
-  di X » ( 895 verbes ) + lot manuel revu `outils/traduits_it.json`
+  di X » ( 895 verbes ) + lot manuel revu `tools/translated_it.json`
   ( 750 gloses courtes traduites une a une ). 1 645 sens italiens
   traduits ce lot ; restent en italien 4 181 verbes a vraie glose
   anglaise et 2 117 en portugais ( lots suivants ). Etiquette et
   source « angl. Wiktionary, trad. » ; total inchange : 176 650 sens,
   0 sans source.
 - **Lot 3 de traduction, italien ( version 1.5.3 )** : lot manuel revu
-  `outils/traduits_it.json` : 950 gloses courtes traduites une a une
+  `tools/translated_it.json` : 950 gloses courtes traduites une a une
   et 14 « reflexive of X : glose » rendues en « Forma riflessiva
   di X : ... ». 964 sens italiens traduits ce lot ; restent en
   italien 3 217 verbes a vraie glose anglaise et 2 117 en
@@ -326,24 +326,24 @@ Détail du procédé :
   0 sans source.
 - **Lot 4 de traduction, italien + portugais ( version 1.5.4 )** :
   premier lot bilingue : 200 gloses italiennes et 200 portugaises,
-  les plus courtes, traduites une a une ( `outils/traduits_it.json`
-  et nouveau `outils/traduits_pt.json` ). 400 sens traduits ce
+  les plus courtes, traduites une a une ( `tools/translated_it.json`
+  et nouveau `tools/translated_pt.json` ). 400 sens traduits ce
   lot ; restent en italien 3 017 verbes a vraie glose anglaise et
   1 917 en portugais ( lots suivants ). Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 650 sens,
   0 sans source.
 - **Lot 5 de traduction, italien + portugais ( version 1.5.5 )** :
   suite du lot bilingue : 200 gloses italiennes et 200 portugaises
-  suivantes, traduites une a une ( `outils/traduits_it.json` et
-  `outils/traduits_pt.json` ). 400 sens traduits ce lot ; restent
+  suivantes, traduites une a une ( `tools/translated_it.json` et
+  `tools/translated_pt.json` ). 400 sens traduits ce lot ; restent
   en italien 2 817 verbes a vraie glose anglaise et 1 717 en
   portugais ( lots suivants ). Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 650 sens,
   0 sans source.
 - **Lot 6 de traduction, italien + portugais ( version 1.5.6 )** :
   suite : 200 gloses italiennes et 200 portugaises suivantes,
-  traduites une a une ( `outils/traduits_it.json` et
-  `outils/traduits_pt.json` ). 400 sens traduits ce lot ; restent
+  traduites une a une ( `tools/translated_it.json` et
+  `tools/translated_pt.json` ). 400 sens traduits ce lot ; restent
   en italien 2 617 verbes a vraie glose anglaise et 1 517 en
   portugais ( lots suivants ). Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 650 sens,
@@ -355,7 +355,7 @@ Détail du procédé :
   diagnostic initial. De nouvelles définitions natives du domaine
   public remplacent la glose anglaise de 2 245 verbes polonais
   ( 2 536 sens, au plus 3 par verbe, renvois « p. X » compris ;
-  `outils/dictionnaires_pd_pl.py`, etiquette et source
+  `tools/dictionaries_pd_pl.py`, etiquette et source
   « Słownik warszawski 1900 », OCR conservé tel quel, coquilles
   comprises ). Restent 2 441 verbes polonais a glose anglaise
   ( « angl. Wiktionary » ), 2 617 italiens et 1 517 portugais a
@@ -364,64 +364,64 @@ Détail du procédé :
   source.
 - **Lot 7 de traduction, italien + portugais ( version 1.5.8 )** :
   suite : 200 gloses italiennes et 200 portugaises suivantes,
-  traduites une a une ( `outils/traduits_it.json` et
-  `outils/traduits_pt.json` ). 400 sens traduits ce lot ; restent
+  traduites une a une ( `tools/translated_it.json` et
+  `tools/translated_pt.json` ). 400 sens traduits ce lot ; restent
   en italien 2 417 verbes a vraie glose anglaise et 1 317 en
   portugais ( lots suivants ). Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 8 de traduction, italien + portugais ( version 1.5.9 )** :
   suite : 200 gloses italiennes et 200 portugaises suivantes,
-  traduites une a une ( `outils/traduits_it.json` et
-  `outils/traduits_pt.json` ). 400 sens traduits ce lot ; restent
+  traduites une a une ( `tools/translated_it.json` et
+  `tools/translated_pt.json` ). 400 sens traduits ce lot ; restent
   en italien 2 217 verbes a vraie glose anglaise et 1 117 en
   portugais ( lots suivants ). Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 9 de traduction, italien + portugais ( version 1.5.10 )** :
   suite : 200 gloses italiennes et 200 portugaises suivantes,
-  traduites une a une ( `outils/traduits_it.json` et
-  `outils/traduits_pt.json` ). 400 sens traduits ce lot ; restent
+  traduites une a une ( `tools/translated_it.json` et
+  `tools/translated_pt.json` ). 400 sens traduits ce lot ; restent
   en italien 2 017 verbes a vraie glose anglaise et 917 en
   portugais ( lots suivants ). Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 10 de traduction, italien + portugais ( version 1.5.11 )** :
   suite : 200 gloses italiennes et 200 portugaises suivantes,
-  traduites une a une ( `outils/traduits_it.json` et
-  `outils/traduits_pt.json` ). 400 sens traduits ce lot ; restent
+  traduites une a une ( `tools/translated_it.json` et
+  `tools/translated_pt.json` ). 400 sens traduits ce lot ; restent
   en italien 1 817 verbes a vraie glose anglaise et 717 en
   portugais ( lots suivants ). Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 11 de traduction, italien + portugais ( version 1.5.12 )** :
   suite : 200 gloses italiennes et 200 portugaises suivantes,
-  traduites une a une ( `outils/traduits_it.json` et
-  `outils/traduits_pt.json` ). 400 sens traduits ce lot ; restent
+  traduites une a une ( `tools/translated_it.json` et
+  `tools/translated_pt.json` ). 400 sens traduits ce lot ; restent
   en italien 1 617 verbes a vraie glose anglaise et 517 en
   portugais ( lots suivants ). Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 12 de traduction, italien + portugais ( version 1.5.13 )** :
   suite : 200 gloses italiennes et 200 portugaises suivantes,
-  traduites une a une ( `outils/traduits_it.json` et
-  `outils/traduits_pt.json` ). 400 sens traduits ce lot ; restent
+  traduites une a une ( `tools/translated_it.json` et
+  `tools/translated_pt.json` ). 400 sens traduits ce lot ; restent
   en italien 1 417 verbes a vraie glose anglaise et 317 en
   portugais ( lots suivants ). Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 13 de traduction, italien + portugais ( version 1.5.14 )** :
   suite : 200 gloses italiennes et 200 portugaises suivantes,
-  traduites une a une ( `outils/traduits_it.json` et
-  `outils/traduits_pt.json` ). 400 sens traduits ce lot ; restent
+  traduites une a une ( `tools/translated_it.json` et
+  `tools/translated_pt.json` ). 400 sens traduits ce lot ; restent
   en italien 1 217 verbes a vraie glose anglaise et 117 en
   portugais ( lots suivants ). Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 14 de traduction, italien + portugais ( version 1.5.15 )** :
   suite : 200 gloses italiennes et les 27 portugaises restantes a
-  glose unique courte, traduites une a une ( `outils/traduits_it.json`
-  et `outils/traduits_pt.json` ). 227 sens traduits ce lot ; restent
+  glose unique courte, traduites une a une ( `tools/translated_it.json`
+  et `tools/translated_pt.json` ). 227 sens traduits ce lot ; restent
   en italien 1 017 verbes a vraie glose anglaise et 90 en portugais
   ( multi-sens ou gloses longues, a traiter autrement ).
   Etiquette et source « angl. Wiktionary, trad. » ; total inchange :
@@ -430,7 +430,7 @@ Détail du procédé :
   suite : 200 gloses italiennes et les 90 portugais restants,
   traduits sens par sens pour les multi-sens ( 184 sens pt,
   gloses uniques ou multiples, traductions per-sens ;
-  `outils/traduits_it.json` et `outils/traduits_pt.json` ).
+  `tools/translated_it.json` et `tools/translated_pt.json` ).
   384 sens traduits ce lot ; le portugais est EPUISE :
   0 verbe a glose anglaise restant ; restent en italien 817
   verbes a vraie glose anglaise. Etiquette et source
@@ -438,7 +438,7 @@ Détail du procédé :
   0 sans source.
 - **Lot 16 de traduction, italien ( version 1.5.17 )** :
   suite : 200 gloses italiennes suivantes, uniques et
-  d'au plus 95 caracteres ( `outils/traduits_it.json` ).
+  d'au plus 95 caracteres ( `tools/translated_it.json` ).
   200 sens traduits ce lot ; le portugais reste EPUISE ;
   restent en italien 613 verbes ( 641 sens ) a vraie
   glose anglaise, puis 2 441 verbes polonais.
@@ -446,7 +446,7 @@ Détail du procédé :
   total inchange : 176 941 sens, 0 sans source.
 - **Lot 17 de traduction, italien ( version 1.5.18 )** :
   suite : 200 gloses italiennes suivantes, uniques et
-  d'au plus 95 caracteres ( `outils/traduits_it.json` ).
+  d'au plus 95 caracteres ( `tools/translated_it.json` ).
   200 sens traduits ce lot ; le portugais reste EPUISE ;
   restent en italien 413 verbes ( 441 sens ) a vraie
   glose anglaise, puis 2 441 verbes polonais.
@@ -454,7 +454,7 @@ Détail du procédé :
   total inchange : 176 941 sens, 0 sans source.
 - **Lot 18 de traduction, italien ( version 1.5.19 )** :
   suite : 200 gloses italiennes suivantes, uniques et
-  d'au plus 95 caracteres ( `outils/traduits_it.json` ).
+  d'au plus 95 caracteres ( `tools/translated_it.json` ).
   200 sens traduits ce lot ; le portugais reste EPUISE ;
   restent en italien 213 verbes ( 241 sens ) a vraie glose
   anglaise : les gloses uniques courtes s'epuisent,
@@ -465,7 +465,7 @@ Détail du procédé :
 - **Lot 19 de traduction, italien : EPUISEMENT ( version 1.5.20 )** :
   solde italien : 213 verbes restants ( 241 sens ), traduits
   sens par sens pour les multi-sens ( 14 verbes multi-sens,
-  gloses uniques ou multiples ; `outils/traduits_it.json` ).
+  gloses uniques ou multiples ; `tools/translated_it.json` ).
   241 sens traduits ce lot ; L'ITALIEN EST EPUISE : 0 verbe a
   glose anglaise restant ; le portugais restait deja EPUISE ;
   restent 2 441 verbes polonais a glose anglaise.
@@ -475,116 +475,116 @@ Détail du procédé :
   suite de l'italien et du portugais ( tous deux EPUISES ) :
   200 gloses polonaises, uniques et d'au plus
   95 caracteres, traduites en polonais ( nouveau
-  `outils/traduits_pl.json` ; le lot manuel couvre desormais
-  le polonais dans `outils/traduire_wikt.py` ). En rattrapage,
+  `tools/translated_pl.json` ; le lot manuel couvre desormais
+  le polonais dans `tools/translate_wikt.py` ). En rattrapage,
   4 gloses italiennes ressiduelles d'une autre source ont
-  ete traduites le meme lot ( traduits_it.json ).
+  ete traduites le meme lot ( translated_it.json ).
   204 sens traduits ce lot ; restent 2 241 verbes polonais a
   glose anglaise. Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 2 de traduction, polonais ( version 1.5.22 )** :
   suite : 200 gloses polonaises suivantes, uniques et
-  d'au plus 95 caracteres ( `outils/traduits_pl.json` ).
+  d'au plus 95 caracteres ( `tools/translated_pl.json` ).
   200 sens traduits ce lot ; restent 2 041 verbes
   polonais a glose anglaise. Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 3 de traduction, polonais ( version 1.5.23 )** :
   suite : 200 gloses polonaises suivantes, uniques et
-  d'au plus 95 caracteres ( `outils/traduits_pl.json` ).
+  d'au plus 95 caracteres ( `tools/translated_pl.json` ).
   200 sens traduits ce lot ; restent 1 841 verbes
   polonais a glose anglaise. Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 4 de traduction, polonais ( version 1.5.24 )** :
   suite : 200 gloses polonaises suivantes, uniques et
-  d'au plus 95 caracteres ( `outils/traduits_pl.json` ).
+  d'au plus 95 caracteres ( `tools/translated_pl.json` ).
   200 sens traduits ce lot ; restent 1 641 verbes
   polonais a glose anglaise. Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 5 de traduction, polonais ( version 1.5.25 )** :
   suite : 200 gloses polonaises suivantes, uniques et
-  d'au plus 95 caracteres ( `outils/traduits_pl.json` ).
+  d'au plus 95 caracteres ( `tools/translated_pl.json` ).
   200 sens traduits ce lot ; restent 1 441 verbes
   polonais a glose anglaise. Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 6 de traduction, polonais ( version 1.5.26 )** :
   suite : 200 gloses polonaises suivantes, uniques et
-  d'au plus 95 caracteres ( `outils/traduits_pl.json` ).
+  d'au plus 95 caracteres ( `tools/translated_pl.json` ).
   200 sens traduits ce lot ; restent 1 241 verbes
   polonais a glose anglaise. Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 7 de traduction, polonais ( version 1.5.27 )** :
   suite : 200 gloses polonaises suivantes, uniques et
-  d'au plus 95 caracteres ( `outils/traduits_pl.json` ).
+  d'au plus 95 caracteres ( `tools/translated_pl.json` ).
   200 sens traduits ce lot ; restent 1 041 verbes
   polonais a glose anglaise. Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 8 de traduction, polonais ( version 1.5.28 )** :
   suite : 200 gloses polonaises suivantes, uniques et
-  d'au plus 95 caracteres ( `outils/traduits_pl.json` ).
+  d'au plus 95 caracteres ( `tools/translated_pl.json` ).
   200 sens traduits ce lot ; restent 841 verbes
   polonais a glose anglaise. Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 9 de traduction, polonais ( version 1.5.29 )** :
   suite : 200 gloses polonaises suivantes, uniques et
-  d'au plus 95 caracteres ( `outils/traduits_pl.json` ).
+  d'au plus 95 caracteres ( `tools/translated_pl.json` ).
   200 sens traduits ce lot ; restent 641 verbes
   polonais a glose anglaise. Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 10 de traduction, polonais ( version 1.5.30 )** :
   suite : 200 gloses polonaises suivantes, uniques et
-  d'au plus 95 caracteres ( `outils/traduits_pl.json` ).
+  d'au plus 95 caracteres ( `tools/translated_pl.json` ).
   200 sens traduits ce lot ; restent 441 verbes
   polonais a glose anglaise. Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 11 de traduction, polonais ( version 1.5.31 )** :
   suite : 300 gloses polonaises suivantes, uniques et
-  d'au plus 95 caracteres pour la plupart ( `outils/traduits_pl.json` ).
+  d'au plus 95 caracteres pour la plupart ( `tools/translated_pl.json` ).
   300 sens traduits ce lot ; restent 141 verbes
   polonais a glose anglaise. Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 12 de traduction, polonais ( version 1.5.32 )** :
   suite et fin : 141 dernieres gloses polonaises suivantes ( plus de
-  95 caracteres ; `outils/traduits_pl.json` ). 141 sens traduits ce
+  95 caracteres ; `tools/translated_pl.json` ). 141 sens traduits ce
   lot ; polonais EPUISE. Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 13 de traduction, français + extension du traducteur ( version 1.5.33 )** :
-  le traducteur `outils/traduire_wikt.py` couvre desormais aussi le
+  le traducteur `tools/translate_wikt.py` couvre desormais aussi le
   tcheque et le roumain, et traite les gloses anglaises restees sans
   etiquette ( fr, es ). 300 gloses françaises traduites à la main
-  ( `outils/traduits_fr.json`, nouveau ) plus 1 187 renvois
+  ( `tools/translated_fr.json`, nouveau ) plus 1 187 renvois
   automatiques ( fr 81, es 438, cs 29, ro 639 ). 1 487 sens traduits
   ce lot ; restent 1 052 gloses françaises, 3 222 espagnoles,
   2 183 tcheques, 894 roumaines. Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 14 de traduction, français ( version 1.5.34 )** :
-  suite : 300 gloses françaises suivantes ( `outils/traduits_fr.json`,
+  suite : 300 gloses françaises suivantes ( `tools/translated_fr.json`,
   600 entrees cumulees ). 300 sens traduits ce lot ; restent 752
   gloses françaises, 3 222 espagnoles, 2 183 tcheques,
   894 roumaines. Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 15 de traduction, français ( version 1.5.35 )** :
-  suite : 300 gloses françaises suivantes ( `outils/traduits_fr.json`,
+  suite : 300 gloses françaises suivantes ( `tools/translated_fr.json`,
   900 entrees cumulees ). 300 sens traduits ce lot ; restent 452
   gloses françaises, 3 222 espagnoles, 2 183 tcheques,
   894 roumaines. Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 16 de traduction, français ( version 1.5.36 )** :
-  suite et fin : 452 gloses françaises restantes ( `outils/traduits_fr.json`,
+  suite et fin : 452 gloses françaises restantes ( `tools/translated_fr.json`,
   1 352 entrees cumulees ). 452 sens traduits ce lot ; français EPUISE ;
   restent 3 222 gloses espagnoles, 2 183 tcheques,
   894 roumaines. Etiquette et source
@@ -592,97 +592,97 @@ Détail du procédé :
   0 sans source.
 - **Lot 17 de traduction, espagnol ( version 1.5.37 )** :
   premiere tranche espagnole : 300 gloses espagnoles
-  ( `outils/traduits_es.json`, 300 entrees ). 300 sens traduits
+  ( `tools/translated_es.json`, 300 entrees ). 300 sens traduits
   ce lot ; restent 2 922 gloses espagnoles, 2 183 tcheques,
   894 roumaines. Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 18 de traduction, espagnol ( version 1.5.38 )** :
-  suite : 300 gloses espagnoles suivantes ( `outils/traduits_es.json`,
+  suite : 300 gloses espagnoles suivantes ( `tools/translated_es.json`,
   600 entrees cumulees ). 300 sens traduits ce lot ; restent 2 622
   gloses espagnoles, 2 183 tcheques, 894 roumaines. Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 19 de traduction, espagnol ( version 1.5.39 )** :
-  suite : 300 gloses espagnoles suivantes ( `outils/traduits_es.json`,
+  suite : 300 gloses espagnoles suivantes ( `tools/translated_es.json`,
   900 entrees cumulees ). 300 sens traduits ce lot ; restent 2 322
   gloses espagnoles, 2 183 tcheques, 894 roumaines. Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 20 de traduction, espagnol ( version 1.5.40 )** :
-  suite : 300 gloses espagnoles suivantes ( `outils/traduits_es.json`,
+  suite : 300 gloses espagnoles suivantes ( `tools/translated_es.json`,
   1 200 entrees cumulees ). 300 sens traduits ce lot ; restent 2 022
   gloses espagnoles, 2 183 tcheques, 894 roumaines. Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 21 de traduction, espagnol ( version 1.5.41 )** :
-  suite : 300 gloses espagnoles suivantes ( `outils/traduits_es.json`,
+  suite : 300 gloses espagnoles suivantes ( `tools/translated_es.json`,
   1 500 entrees cumulees ). 300 sens traduits ce lot ; restent 1 722
   gloses espagnoles, 2 183 tcheques, 894 roumaines. Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 22 de traduction, espagnol ( version 1.5.42 )** :
-  suite : 300 gloses espagnoles suivantes ( `outils/traduits_es.json`,
+  suite : 300 gloses espagnoles suivantes ( `tools/translated_es.json`,
   1 800 entrees cumulees ). 300 sens traduits ce lot ; restent 1 422
   gloses espagnoles, 2 183 tcheques, 894 roumaines. Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 23 de traduction, espagnol ( version 1.5.43 )** :
-  suite : 500 gloses espagnoles suivantes ( `outils/traduits_es.json`,
+  suite : 500 gloses espagnoles suivantes ( `tools/translated_es.json`,
   2 300 entrees cumulees ). 500 sens traduits ce lot ; restent 922
   gloses espagnoles, 2 183 tcheques, 894 roumaines. Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 24 de traduction, espagnol ( version 1.5.44 )** :
-  suite : 500 gloses espagnoles suivantes ( `outils/traduits_es.json`,
+  suite : 500 gloses espagnoles suivantes ( `tools/translated_es.json`,
   2 800 entrees cumulees ). 500 sens traduits ce lot ; restent 422
   gloses espagnoles, 2 183 tcheques, 894 roumaines. Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 25 de traduction, espagnol ( version 1.5.45 )** :
-  suite : 422 gloses espagnoles suivantes ( `outils/traduits_es.json`,
+  suite : 422 gloses espagnoles suivantes ( `tools/translated_es.json`,
   3 222 entrees cumulees ). 422 sens traduits ce lot ; espagnol EPUISE.
   Restent 2 183 gloses tcheques, 894 roumaines. Etiquette et source
   « angl. Wiktionary, trad. » ; total inchange : 176 941 sens,
   0 sans source.
 - **Lot 26 de traduction, tcheque ( version 1.5.46 )** :
-  suite : 500 gloses tcheques suivantes ( `outils/traduits_cs.json`,
+  suite : 500 gloses tcheques suivantes ( `tools/translated_cs.json`,
   500 entrees cumulees ). 500 sens traduits ce lot ; restent
   1 683 gloses tcheques, 894 roumaines. Espagnol EPUISE. Etiquette
   et source « angl. Wiktionary, trad. » ; total inchange :
   176 941 sens, 0 sans source.
 - **Lot 27 de traduction, tcheque ( version 1.5.47 )** :
-  suite : 500 gloses tcheques suivantes ( `outils/traduits_cs.json`,
+  suite : 500 gloses tcheques suivantes ( `tools/translated_cs.json`,
   1 000 entrees cumulees ). 500 sens traduits ce lot ; restent
   1 183 gloses tcheques, 894 roumaines. Etiquette
   et source « angl. Wiktionary, trad. » ; total inchange :
   176 941 sens, 0 sans source.
 - **Lot 28 de traduction, tcheque ( version 1.5.48 )** :
-  suite : 500 gloses tcheques suivantes ( `outils/traduits_cs.json`,
+  suite : 500 gloses tcheques suivantes ( `tools/translated_cs.json`,
   1 500 entrees cumulees ). 500 sens traduits ce lot ; restent
   683 gloses tcheques, 894 roumaines. Etiquette
   et source « angl. Wiktionary, trad. » ; total inchange :
   176 941 sens, 0 sans source.
 - **Lot 29 de traduction, tcheque ( version 1.5.49 )** :
-  suite : 500 gloses tcheques suivantes ( `outils/traduits_cs.json`,
+  suite : 500 gloses tcheques suivantes ( `tools/translated_cs.json`,
   2 000 entrees cumulees ). 500 sens traduits ce lot ; restent
   183 gloses tcheques, 894 roumaines. Etiquette
   et source « angl. Wiktionary, trad. » ; total inchange :
   176 941 sens, 0 sans source.
 - **Lot 30 de traduction, tcheque ( version 1.5.50 )** :
-  clôture : 183 gloses tcheques suivantes ( `outils/traduits_cs.json`,
+  clôture : 183 gloses tcheques suivantes ( `tools/translated_cs.json`,
   2 183 entrees cumulees ). 183 sens traduits ce lot ;
   TCHEQUE EPUISE. Restent 894 gloses roumaines ( derniere langue ).
   Etiquette et source « angl. Wiktionary, trad. » ; total inchange :
   176 941 sens, 0 sans source.
 - **Lot 31 de traduction, roumain ( version 1.5.51 )** :
   ouverture du roumain : 500 gloses roumaines suivantes
-  ( `outils/traduits_ro.json`, 500 entrees cumulees ). 500 sens traduits
+  ( `tools/translated_ro.json`, 500 entrees cumulees ). 500 sens traduits
   ce lot ; restent 394 gloses roumaines ( derniere langue ).
   Etiquette et source « angl. Wiktionary, trad. » ; total inchange :
   176 941 sens, 0 sans source.
 - **Lot 32 de traduction, roumain ( version 1.5.52 )** :
-  clôture : 394 gloses roumaines suivantes ( `outils/traduits_ro.json`,
+  clôture : 394 gloses roumaines suivantes ( `tools/translated_ro.json`,
   894 entrees cumulees ). 394 sens traduits ce lot ;
   ROUMAIN EPUISE. TOUTES LES LANGUES SONT EPUISEES.
   Etiquette et source « angl. Wiktionary, trad. » ; total inchange :
@@ -692,9 +692,9 @@ Détail du procédé :
   Slownik warszawski 1900, ligatures du glossaire angl. Wiktionary ) et
   593 gloses italiennes normalisees ( templates wiki casses
   « {Term|...}} » convertis en etiquettes textuelles ;
-  cf. outils/nettoie_ocr2.py ). Plus aucun residu detecte ;
+  cf. tools/clean_ocr2.py ). Plus aucun residu detecte ;
   total inchange : 176 941 sens, 0 sans source.
-- **Lot 60 de la precision des frontieres de la carte du monde ( base 1.5.65 )** : la couche frontieres du monde quitte la generalisation 1:110M du site pour Natural Earth 1:10M simplifiee a 0,008 degre : 3 992 anneaux fermes et 218 243 sommets ( vingt fois les 10 562 d avant ), segment median de 0,054 degre contre 0,71, ecarts de simplification sous 0,008 degre ( moins d un kilometre ), les trous gardent leur orientation pour le remplissage. La base embarquee ne voyage pas en binaire par la liaison : outils/frontieres_10m.py regenere la couche dans assets/lestang_outils.db depuis les fragments outils/monde-frontieres-10m.b64.part* ( python3 outils/frontieres_10m.py ), passe la meta et databaseVersion a 1.5.65 puis compacte la base ; executer le script une fois puis livrer la base regeneree.
+- **Lot 60 de la precision des frontieres de la carte du monde ( base 1.5.65 )** : la couche frontieres du monde quitte la generalisation 1:110M du site pour Natural Earth 1:10M simplifiee a 0,008 degre : 3 992 anneaux fermes et 218 243 sommets ( vingt fois les 10 562 d avant ), segment median de 0,054 degre contre 0,71, ecarts de simplification sous 0,008 degre ( moins d un kilometre ), les trous gardent leur orientation pour le remplissage. La base embarquee ne voyage pas en binaire par la liaison : tools/world_borders_10m.py regenere la couche dans assets/lestang_outils.db depuis les fragments tools/world-borders-10m.b64.part* ( python3 tools/world_borders_10m.py ), passe la meta et databaseVersion a 1.5.65 puis compacte la base ; executer le script une fois puis livrer la base regeneree.
 - **Lot 59 des libelles hors glossaire, du chinois traditionnel, de la meteo et du fond bleu ( code seul, base 1.5.64 inchangee )** : tout libelle embarque passe par le glossaire : groupes et boites des reglages des cartes, styles et centrages du monde, frontieres contestees et leurs vues, villes marquees, infobulles des barres des cartes, barre d etat, codes meteo et noms des sources, traduits en anglais et en chinois, le francais reste le repli. Le chinois se decline en simplifie ( zh-Hans ) et traditionnel ( zh-Hant ), la langue systeme suit l ecriture de la plateforme. La meteo lit en celsius ( le service NWS servait du fahrenheit, qui faussait l affichage ), montre la lune quand la ville est dans la nuit et choisit son unite : le reglage degres Celsius ou Fahrenheit persiste a cote de la recherche. Le fond de la fenetre porte un degrade bleu clair du site, bleu-50 a bleu-200 en theme clair, bleu nuit en theme sombre, dans la fenetre comme en plein ecran.
 - **Lot 58 du correctif de la barre d etat et de la traduction chinoise ( code seul, base 1.5.64 inchangee )** : le front-end Windows de Flutter n expose pas ProcessInfo de dart:developer : la memoire residente de la barre d etat est lue directement aupres du systeme, GetProcessMemoryInfo de psapi sur Windows via dart:ffi, /proc/self/statm sur Linux et Android, 0 sinon ( la barre affiche alors les workers seuls ). L interface est traduite en chinois : septieme langue du reglage Langue ( 中文 ), glossaire zh complet, repli francais pour les libelles embarques hors glossaire.
 - **Lot 57 du theme bleu, de la barre d horloge du monde et de la barre d etat ( code seul, base 1.5.64 inchangee )** : la famille de couleurs de l application passe du violet par defaut de Material 3 au bleu clair du site web ( PATCH213 de styles.css ) : le scheme deriver de la graine #3b82f6 habille chips, curseurs, commutateurs et boutons des deux themes, la barre de titre des deux fenetres porte le degrade du web ( #2563eb, #3b82f6 puis #60a5fa en diagonale, texte blanc ). Le rectangle derriere le globe du monde est grise : en Equal Earth le degrade ocean ne peint plus que l interieur de l ovale ( les quatre coins restaient ocean ), le gris suit le theme clair ou sombre. La barre du haut du monde suit l ordre du web : curseur des demi-heures, heure, fleche du jour precedent, date seule sans icone, fleche du jour suivant, retour au present, reglages ; le calendrier borne a l annee disparait, les fleches traversent le passage de l annee. Une barre d etat s ajoute au pied des deux fenetres : la memoire residente du processus ( currentRss ) et le nombre de workers ( l isolat principal plus les isolats de fond que l application lancera ) rafraichis toutes les deux secondes. Code Dart uniquement, base embarquee inchangee.
@@ -713,7 +713,7 @@ Détail du procédé :
 - **Lot 44 de presentation, correctifs de surlignage, drapeaux corrects et texte selectionnable ( code seul, base 1.5.64 inchangee )** : les variantes a barre oblique ( es malpariera/malpariese, hubiera/hubiese ) s affichaient colles sans le separateur, la barre revient ; l espace devant la terminaison surlignee d un compose est preserve ( ro ai lucra, sa lucrez, plus les composes des autres langues ) ; les modeles portugais et italiens a formes pleines sans radical encode ( zicar, et les auxiliaires ) retrouvent leurs terminaisons par plus long debut commun ; le participe et le gerondif roumains, les participes it/pt sans radical, sont surlignes par coupe sur l infinitif ; la premiere personne tcheque porte sa terminaison quand elle partage la tige ; les drapeaux sont corriges : tricolores verticaux ( france, italie, roumanie ), portugal vert sur deux cinquiemes et rouge sur trois, union jack dessine pour l anglais ; le texte des planches de conjugaison ( formes et definitions ) est selectionnable a la souris ou a l appui long, sur plusieurs lignes, pour copier, dans toutes les langues. Code Dart uniquement, donnees et base embarquee inchangees.
 - **Lot 43 de presentation, terminaisons surlignees et en-tete fixe ( version 1.5.64 )** : la terminaison de chaque personne est surlignee ( rouge fonce, gras ) dans toutes les langues et tous les temps, pas seulement en francais : es tous temps ( y compris compose sur haber et participio ), it et pt meme pour les modeles a forme pleine, de via les modeles et les auxiliaires haben/sein/werden, ro par plus long prefixe commun ( plus table par temps pour les composes ), pl et cs par suffixes calcules par branche ; les formes trop irregulieres ( fi/sunt, essere/sono... ) restent sans surlignage plutot que d afficher une terminaison fausse. L en-tete de l ecran de conjugaison ( nom de la langue, barre de recherche, suggestions ) devient fixe pour les neuf langues : seule la planche du verbe defile. Code Dart uniquement, donnees inchangees.
 - **Lot 42bis, retouche des definitions allemandes ( version 1.5.63 )** : revue manuelle des 786 sens Sanders du lot 42 contre l'OCR brut : 307 sens de bruit sont supprimes ( sens venus des articles voisins comme erzen/fischen/haaren/zahlen/wellen, derivatifs nominaux comme Gaffer ou Zund-P., fragments de grammaire et de conjugaison ), 7 sens sont reecrits d'apres l'article reel ( diskutieren, lüpfen, erzen, reimen, ringeln, kropfen, löcken ) et un sens de kropfen est ajoute ; resultat : 480 sens Sanders conserves, aucun verbe ne reste sans definition. Base embarquee meta version 1.5.63.
-- **Lot 42 de definitions allemandes ( version 1.5.62 )** : l'extraction du Sanders 1876 est rejouee en multi-sens ( outils/sanders_extract2.py, nouveau ) : 110 verbes passent d'un sens unique a leurs sens multiples ( ex. stammen : 4 sens ), 187 verbes gagnent leurs definitions Sanders, 786 sens ecrits ; les gloses des articles voisins et les references de citations sont filtrees, et un verbe dont l'extraction ne recoupe pas sa definition validee garde son ancien sens. Repare aussi brut.json : les cles RO_TPL_STR / RO_VERBS_STR / RO_VSRC_STR et les verbs / vsrc cs / en / es / pl perdus au lot 41 sont realignees sur la base embarquee. Base embarquee meta version 1.5.62.
+- **Lot 42 de definitions allemandes ( version 1.5.62 )** : l'extraction du Sanders 1876 est rejouee en multi-sens ( tools/sanders_extract2.py, nouveau ) : 110 verbes passent d'un sens unique a leurs sens multiples ( ex. stammen : 4 sens ), 187 verbes gagnent leurs definitions Sanders, 786 sens ecrits ; les gloses des articles voisins et les references de citations sont filtrees, et un verbe dont l'extraction ne recoupe pas sa definition validee garde son ancien sens. Repare aussi raw.json : les cles RO_TPL_STR / RO_VERBS_STR / RO_VSRC_STR et les verbs / vsrc cs / en / es / pl perdus au lot 41 sont realignees sur la base embarquee. Base embarquee meta version 1.5.62.
 - **Lot 41 de presentation, suggestions et typographie ( version 1.5.61 )** : la correspondance exacte passe en tete des suggestions ( Entrer apres avoir tape le mot choisit le mot tape, pas le suivant ) ; Tab remplit le champ avec la premiere suggestion puis les suivantes, Maj+Tab revient en arriere ; les noms des modes et des temps ainsi que les definitions commencent par une majuscule a l affichage ; les prefixes de numero restes de l import Sanders ( ex. « 3) seinen Stamm... » ) sont retires des 55 sens concernes. Base embarquee meta version 1.5.61.
 - **Lot 40 de presentation, source la plus ancienne gardee et reglage Wiktionary seul ( version 1.5.60 )** : les doublons de sens entre sources restent dans les donnees et se tranchent a l affichage : quand deux sources donnent la meme definition, la plus ancienne est gardee ( Littré 1872, Sanders 1876, Petrocchi 1887, Słownik warszawski 1900, Webster et Figueiredo 1913, Real Academia 1913, Académie 8e 1932, glossaires du projet, puis Wiktionary ) ; un nouveau reglage « Definitions du Wiktionary uniquement » masque les definitions des dictionnaires et affiche alors celle du Wiktionary en cas de doublon. Base embarquee meta version 1.5.60.
 - **Lot 39 de presentation, sources claires et doublons corriges ( version 1.5.59 )** : chaque sens porte desormais son etiquette de source ( fr. Wiktionnaire, Littré, Webster 1913, Petrocchi... ) affichee au-dessus de son groupe dans l encadre des definitions, comme pour le Wiktionary ; la ligne de source statique en dessous est retiree ; les marqueurs de domaine ( Fig., Terme de marine., v. tr. ) entrent dans le texte du sens au lieu de se confondre avec les sources ; les doublons d enregistrement sont fusionnes et les sens identiques dedupliques ( fr 3 267, es 198, pt 303 ) ; nettoyage des scories d import ( 434 sens sans definition, 360 textes avec liens wiki, sans definizione italien ) ; le sens rare de détonner est complete ( Variante de détoner ). Base embarquee meta version 1.5.59.
@@ -736,29 +736,29 @@ Détail du procédé :
   artefacts d'extraction, selon la règle « sans définition =>
   retiré ». Scripts : collecte ad hoc ( lots `action=query`,
   nettoyage du wikitext : liens, modèles, références ), puis
-  `outils/combler_defs.py` ( remplacement des définitions vides et
+  `tools/fill_defs.py` ( remplacement des définitions vides et
   retrait des mots non définis ) ; données :
-  `outils/wikt_defs.json` et `outils/retires_wikt.json`. Après
+  `tools/wikt_defs.json` et `tools/withdrawn_wikt.json`. Après
   comblement : 0 verbe sans définition dans les huit langues.
 - **Définitions natives pl/cs/ro ( Wiktionary monolingues, CC BY-SA 4.0 )** :
   les verbes polonais, tchèques et roumains reçoivent en priorité la
   définition rédigée dans leur langue par le Wiktionary correspondant,
-  extraite des dumps Wikimedia ( `outils/parse_wikt.py` ) vers
-  `outils/natifs_{pl,cs,ro}.json` ; les verbes restants gardent le
+  extraite des dumps Wikimedia ( `tools/parse_wikt.py` ) vers
+  `tools/native_{pl,cs,ro}.json` ; les verbes restants gardent le
   glossaire anglais ( étiquette « angl. Wiktionary » ), à remplacer par
   des traductions ( étiquette « angl. Wiktionary, trad. » ) via
-  `outils/completer_natifs.py` ( support natifs + traduits ).
+  `tools/complete_natives.py` ( support natifs + traduits ).
   Un dépassement par un dictionnaire du domaine public ( fin 19e,
   début 20e ) a abouti : en it/pt via Petrocchi et Figueiredo ( cf.
-  `outils/dictionnaires_pd.py` ), en polonais via le Słownik warszawski
+  `tools/dictionaries_pd.py` ), en polonais via le Słownik warszawski
   dont l'OCR archive.org est exploitable après examen ( version 1.5.7,
-  `outils/dictionnaires_pd_pl.py` ) ; dexonline ( dump officiel tronqué
+  `tools/dictionaries_pd_pl.py` ) ; dexonline ( dump officiel tronqué
   au moment de la collecte, scraping interdit ), Săineanu ( pas d'OCR
   libre ),
   Ottův slovník ( encyclopédie ) ; revu si une numérisation libre
   apparaît.
-- **Atelier SQL ( `outils/atelier.py` )** : stockage normalise optionnel
-  des donnees de conjugaison dans `outils/atelier.db` : table `sources`
+- **Atelier SQL ( `tools/workshop.py` )** : stockage normalise optionnel
+  des donnees de conjugaison dans `tools/workshop.db` : table `sources`
   ( index, nom, caracteristiques ), table `defs` ( langue, verbe, rang
   du sens, etiquette affichee, texte, cle etrangere `id_source`,
   `date_ajout` ), `verbes` ( langue, verbe, segment brut avec les
@@ -767,8 +767,8 @@ Détail du procédé :
   `verbes.particularite` ( en regulier/irregulier/double forme
   US/GB, de faible/forte, pl/cs terminaison de l infinitif,
   familles irregulieres et auxiliaires marquees ).
-  `atelier.py import` remplissage depuis `brut.json` ; `atelier.py export` regenere
-  `brut.json` apres edition ( l'export ne reecrit une definition que
+  `workshop.py import` remplissage depuis `raw.json` ; `workshop.py export` regenere
+  `raw.json` apres edition ( l'export ne reecrit une definition que
   si son texte a change, et l'aller-retour sans edition est verifie
-  octet pour octet ) ; `atelier.py verifier` compare sans ecrire.
+  octet pour octet ) ; `workshop.py verifier` compare sans ecrire.
   L'app continue de charger `conj_raw` dans la base embarquee :

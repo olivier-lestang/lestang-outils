@@ -35,8 +35,8 @@ Future<void> writeShortcuts(List<Shortcut> list) async {
 }
 
 class ShortcutsScreen extends StatefulWidget {
-  final Translator trad;
-  const ShortcutsScreen(this.trad, {super.key});
+  final Translator translator;
+  const ShortcutsScreen(this.translator, {super.key});
 
   @override
   State<ShortcutsScreen> createState() => _ShortcutsScreenState();
@@ -68,15 +68,15 @@ class _ShortcutsScreenState extends State<ShortcutsScreen> {
       context: context,
       builder: (context) => AlertDialog(
         title: Text(
-            index == null ? widget.trad('ajouter') : widget.trad('editer')),
+            index == null ? widget.translator('ajouter') : widget.translator('editer')),
         content: Column(mainAxisSize: MainAxisSize.min, children: [
           TextField(
             controller: name,
-            decoration: InputDecoration(labelText: widget.trad('nom')),
+            decoration: InputDecoration(labelText: widget.translator('nom')),
           ),
           TextField(
             controller: url,
-            decoration: InputDecoration(labelText: widget.trad('adresse')),
+            decoration: InputDecoration(labelText: widget.translator('adresse')),
           ),
         ]),
         actions: [
@@ -108,12 +108,12 @@ class _ShortcutsScreenState extends State<ShortcutsScreen> {
         child: Column(mainAxisSize: MainAxisSize.min, children: [
           ListTile(
             leading: const Icon(Icons.edit),
-            title: Text(widget.trad('editer')),
+            title: Text(widget.translator('editer')),
             onTap: () => Navigator.pop(context, 'editer'),
           ),
           ListTile(
             leading: const Icon(Icons.delete),
-            title: Text(widget.trad('supprimer')),
+            title: Text(widget.translator('supprimer')),
             onTap: () => Navigator.pop(context, 'supprimer'),
           ),
         ]),
@@ -157,7 +157,7 @@ class _ShortcutsScreenState extends State<ShortcutsScreen> {
             ),
           ),
         ActionChip(
-          label: Text(widget.trad('ajouter')),
+          label: Text(widget.translator('ajouter')),
           onPressed: () => _edit(),
         ),
       ],

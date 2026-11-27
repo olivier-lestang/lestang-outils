@@ -26,8 +26,8 @@ String _draw(String set, int n) =>
     List.generate(n, (_) => set[_rng.nextInt(set.length)]).join();
 
 class PasswordScreen extends StatefulWidget {
-  final Translator trad;
-  const PasswordScreen(this.trad, {super.key});
+  final Translator translator;
+  const PasswordScreen(this.translator, {super.key});
 
   @override
   State<PasswordScreen> createState() => _PasswordScreenState();
@@ -68,7 +68,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final t = widget.trad;
+    final t = widget.translator;
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       SelectableText(_output.isEmpty ? '—' : _output,
           style: const TextStyle(
