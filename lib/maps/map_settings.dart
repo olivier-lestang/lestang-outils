@@ -5,8 +5,12 @@
    meridian, Americas, Oceania ) and its marked cities; everything
    persists at once in the preferences.
    SPDX-License-Identifier: MIT. */
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'world_map.dart' show disputedGroups;
 
 /* a settings group: the title heads the dialog section, the layers
    and points are the database keys it commands */
@@ -55,8 +59,13 @@ const cardGroups = <String, Map<String, CardGroup>>{
   },
   'monde': {
     'nuit': CardGroup('Zone de nuit (ensoleillement)'),
-    'frontieres': CardGroup('Frontières et terres', layers: ['frontieres']),
+    'soleil': CardGroup('Position du soleil'),
+    'grille': CardGroup('Équateur, tropiques et cercles polaires'),
+    'fuseaux': CardGroup('Fuseaux horaires'),
+    'equal-earth': CardGroup('Projection Equal Earth'),
+    'frontieres': CardGroup('Frontières des pays', layers: ['frontieres']),
     'villes': CardGroup('Villes', points: ['villes']),
+    'horloges': CardGroup('Horloges des villes marquées'),
   },
 };
 
@@ -78,9 +87,9 @@ class WorldCenter {
 }
 
 const worldCenters = <WorldCenter>[
-  WorldCenter(0.0, 'Méridien de Greenwich'),
-  WorldCenter(-90.0, 'Amériques'),
-  WorldCenter(180.0, 'Océanie'),
+  WorldCenter(0.0, 'Méridien de Greenwich (0°)'),
+  WorldCenter(-90.0, 'Amériques (90° O)'),
+  WorldCenter(150.0, 'Océanie (150° E)'),
 ];
 
 /* does the key of a layer or of a point group belong to a lit group?
@@ -102,6 +111,11 @@ Future<Map<String, bool>> readVisibility(String map) async {
   final m = <String, bool>{};
   for (final g in (cardGroups[map] ?? const <String, CardGroup>{}).keys) {
     m[g] = p.getBool('visibilite-$map-$g') ?? true;
+  }
+  /* the clocks stay off until they are lit: they take room under the
+     time slider, the web opens its table on demand */
+  if (map == 'monde' && !p.containsKey('visibilite-monde-horloges')) {
+    m['horloges'] = false;
   }
   return m;
 }
@@ -136,6 +150,30 @@ Future<void> writeWorldCenter(double center) async {
   await p.setDouble('centrage-monde', center);
 }
 
+/* The Equal Earth projection follows the group switch of the dialog
+   ( visibilite-monde-equal-earth ), like the sun, the graticule and
+   the time zones: one single preference key per option. */
+
+/* the choices of the contested borders menu: one key per conflict,
+   an empty value stays neutral, everything persists as JSON */
+Future<Map<String, String>> readDisputed() async {
+  final p = await SharedPreferences.getInstance();
+  final s = p.getString('conflits-monde');
+  if (s == null || s.isEmpty) return <String, String>{};
+  try {
+    final decoded = jsonDecode(s);
+    if (decoded is Map<String, dynamic>) {
+      return decoded.map((k, v) => MapEntry(k, v.toString()));
+    }
+  } catch (_) {}
+  return <String, String>{};
+}
+
+Future<void> writeDisputed(Map<String, String> conflicts) async {
+  final p = await SharedPreferences.getInstance();
+  await p.setString('conflits-monde', jsonEncode(conflicts));
+}
+
 /* the marked cities of the world map: only the hidden ones persist,
    all the others stay displayed */
 Future<Set<String>> readHiddenCities() async {
@@ -158,14 +196,17 @@ Future<void> mapSettingsDialog(
     String map,
     Map<String, bool> groups,
     String worldStyle,
-    double worldCenter, {
+    double worldCenter,
+    Map<String, String> conflicts, {
     void Function(String group, bool value)? onChanged,
     void Function(String style)? onStyleChanged,
     void Function(double center)? onCenterChanged,
+    void Function(Map<String, String> conflicts)? onConflictsChanged,
     void Function()? onPickCities,
   }) async {
   var style = worldStyle;
   var center = worldCenter;
+  var disputed = conflicts;
   await showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
@@ -192,7 +233,31 @@ Future<void> mapSettingsDialog(
                     const Divider(),
                     const Padding(
                       padding: EdgeInsets.fromLTRB(20, 8, 20, 4),
-                      child: Text('Style de la carte'),
+                      child: Text('Frontières contestées'),
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.public),
+                      title: const Text('Frontières contestées'),
+                      subtitle: const Text(
+                          'Choisir la vue de chaque territoire'),
+                      trailing: disputed.values.any((v) => v.isNotEmpty)
+                          ? Badge(
+                              label:
+                                  Text('${disputed.values.where((v) => v.isNotEmpty).length}'),
+                            )
+                          : const Icon(Icons.chevron_right),
+                      onTap: () async {
+                        await disputedBordersDialog(context, disputed,
+                            (updated) {
+                          setSheet(() => disputed = updated);
+                          onConflictsChanged?.call(updated);
+                        });
+                      },
+                    ),
+                    const Divider(),
+                    const Padding(
+                      padding: EdgeInsets.fromLTRB(20, 8, 20, 4),
+                      child: Text('Apparence'),
                     ),
                     for (final s in styleLabels.keys)
                       RadioListTile<String>(
@@ -234,10 +299,104 @@ Future<void> mapSettingsDialog(
               )));
 }
 
+/* the choices of the eight conflicts, like the unfolding menu of the
+   web: a neutral radio ( dotted or ordinary border ) and one radio
+   per view; an empty value stays neutral and no side is taken */
+Future<void> disputedBordersDialog(
+    BuildContext context,
+    Map<String, String> conflicts,
+    void Function(Map<String, String> updated) onChange) async {
+  /* the neutral label and the value of each radio: the de facto
+     situations read as such, the others as neutral */
+  const neutralLabels = <String, String>{
+    'chypre': 'Divisée (statu quo)',
+    'golan': 'Occupé par Israël (statu quo)',
+  };
+  const views = <String, List<List<String>>>{
+    'crimee': [
+      ['ua', 'Vue ukrainienne'],
+      ['ru', 'Vue russe'],
+    ],
+    'kashmir': [
+      ['in', 'Vue indienne'],
+      ['pk', 'Vue pakistanaise'],
+    ],
+    'taiwan': [
+      ['cn', 'Vue chinoise'],
+    ],
+    'wsahara': [
+      ['ma', 'Vue marocaine'],
+    ],
+    'kosovo': [
+      ['rs', 'Vue serbe'],
+    ],
+    'chypre': [
+      ['unie', 'Île unie'],
+    ],
+    'golan': [
+      ['syrien', 'Rattaché à la Syrie'],
+    ],
+    'essequibo': [
+      ['ve', 'Vue vénézuélienne'],
+    ],
+  };
+  var current = conflicts;
+  await showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      builder: (context) => StatefulBuilder(
+          builder: (context, setSheet) => SafeArea(
+                child: Column(mainAxisSize: MainAxisSize.min, children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 16, 20, 4),
+                    child: Text('Frontières contestées',
+                        style: Theme.of(context).textTheme.titleMedium),
+                  ),
+                  Flexible(
+                      child: ListView(shrinkWrap: true, children: [
+                    for (final e in disputedGroups.entries) ...[
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
+                        child: Text(e.value[0],
+                            style:
+                                Theme.of(context).textTheme.titleSmall),
+                      ),
+                      RadioListTile<String>(
+                        dense: true,
+                        title: Text(neutralLabels[e.key] ?? 'Neutre'),
+                        value: '',
+                        groupValue: current[e.key] ?? '',
+                        onChanged: (value) {
+                          setSheet(() {});
+                          final updated = {...current};
+                          updated[e.key] = value ?? '';
+                          current = updated;
+                          onChange(updated);
+                        },
+                      ),
+                      for (final v in views[e.key] ?? const <List<String>>[])
+                        RadioListTile<String>(
+                          dense: true,
+                          title: Text(v[1]),
+                          value: v[0],
+                          groupValue: current[e.key] ?? '',
+                          onChanged: (value) {
+                            setSheet(() {});
+                            final updated = {...current};
+                            updated[e.key] = value ?? '';
+                            current = updated;
+                            onChange(updated);
+                          },
+                        ),
+                    ],
+                  ])),
+                ]),
+              )));
+}
+
 /* the box of the marked cities of the world: one checkbox per city of
    the database, show all and none at once; every change persists at
-   once */
-Future<void> worldCitiesDialog(BuildContext context, List<String> names,
+   once */Future<void> worldCitiesDialog(BuildContext context, List<String> names,
     Set<String> hidden, void Function(Set<String> updated) onChange) async {
   await showModalBottomSheet<void>(
       context: context,

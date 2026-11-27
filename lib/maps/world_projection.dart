@@ -114,7 +114,8 @@ SubsolarPoint subsolarPoint(DateTime utc) {
    elusive: the polygon draws it for a declination clamped to one degree,
    the deviation stays under two degrees of solar elevation a few hours
    per year. The painter only has to frame it and fill it. */
-List<Offset> nightPolygon(SubsolarPoint sun, {double meridian = 0}) {
+List<Offset> nightPolygon(SubsolarPoint sun,
+    {double meridian = 0, bool equalEarth = true}) {
   final realSin = math.sin(sun.lat * _rad);
   final decl =
       realSin.abs() < 0.01745 ? (realSin < 0 ? -1.0 : 1.0) : sun.lat;
@@ -134,6 +135,9 @@ List<Offset> nightPolygon(SubsolarPoint sun, {double meridian = 0}) {
     if (l == 180 && c < 0) {
       l = -180;
     }
+    /* the equirectangular fallback of the web ( wmER ): the same
+       normalised plane, straight meridians */
+    if (!equalEarth) return Offset(l / 180.0, lat / 90.0);
     return ee(lat, l);
   }
 

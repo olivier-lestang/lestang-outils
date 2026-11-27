@@ -5,6 +5,7 @@
    painter and the screen stay generic, the world map lives in
    world_map.dart.
    SPDX-License-Identifier: MIT. */
+import 'dart:async';
 import 'dart:math' as math;
 import 'dart:typed_data';
 
@@ -16,6 +17,8 @@ import 'departments.dart';
 import 'map_settings.dart';
 import 'map_styles.dart';
 import 'union_palette.dart';
+import 'world_clocks.dart';
+import 'world_data.dart';
 import 'world_map.dart';
 import 'world_projection.dart';
 
@@ -164,12 +167,29 @@ class MapPainter extends CustomPainter {
   final bool light;
   final WorldStyle? worldStyle; // style of the dialog, ocean by default
   final bool worldNight; // night zone lit or unlit
+  final bool worldSun; // the subsolar spot
+  final bool worldGrid; // equator, tropics and polar circles
+  final bool worldTz; // the time zone borders
+  final bool worldEqualEarth; // Equal Earth or flat equirectangular
+  final Map<String, String>
+      worldConflicts; // the choices of the disputed borders menu
   final double center; // center meridian, like the dialog of the web
 
   MapPainter(this.map, this.layers, this.points, this.settings,
       this.transformation, this.textColor, this.worldTime, this.light,
-      {this.worldStyle, this.worldNight = true, this.center = 0})
+      {this.worldStyle,
+      this.worldNight = true,
+      this.worldSun = false,
+      this.worldGrid = false,
+      this.worldTz = false,
+      this.worldEqualEarth = true,
+      this.worldConflicts = const <String, String>{},
+      this.center = 0})
       : super(repaint: transformation);
+
+  /* half width of the world plane: Equal Earth keeps its oval, the
+     flat equirectangular mode of the web spans twice as wide */
+  late final double _aspect = settings.bounds.width / 2;
 
   @override
   bool shouldRepaint(MapPainter old) =>
@@ -178,14 +198,31 @@ class MapPainter extends CustomPainter {
       old.light != light ||
       old.worldStyle != worldStyle ||
       old.worldNight != worldNight ||
+      old.worldSun != worldSun ||
+      old.worldGrid != worldGrid ||
+      old.worldTz != worldTz ||
+      old.worldEqualEarth != worldEqualEarth ||
       old.center != center ||
       old.layers.length != layers.length ||
-      old.points.length != points.length;
+      old.points.length != points.length ||
+      !_mapEquals(old.worldConflicts, worldConflicts);
 
-  /* raw longitude and latitude to the plane of the world ( Equal Earth ) */
+  static bool _mapEquals(Map<String, String> a, Map<String, String> b) {
+    if (a.length != b.length) return false;
+    for (final e in a.entries) {
+      if (b[e.key] != e.value) return false;
+    }
+    return true;
+  }
+
+  /* raw longitude and latitude to the plane of the world: Equal Earth
+     or the flat equirectangular fallback of the web ( wmER ) */
   Offset _worldPlane(double lon, double lat) {
-    final p = ee(lat, _recentered(lon));
-    return Offset(p.dx * eeAspect, p.dy);
+    if (worldEqualEarth) {
+      final p = ee(lat, _recentered(lon));
+      return Offset(p.dx * eeAspect, p.dy);
+    }
+    return Offset(_recentered(lon) / 180 * _aspect, lat / 90);
   }
 
   @override
@@ -207,7 +244,8 @@ class MapPainter extends CustomPainter {
     if (map == 'monde') {
       worldBackground(
           canvas,
-          Rect.fromPoints(toPlane(-eeAspect, 1), toPlane(eeAspect, -1)),
+          Rect.fromPoints(
+              toPlane(-_aspect, 1), toPlane(_aspect, -1)),
           style);
     }
 
@@ -254,6 +292,10 @@ class MapPainter extends CustomPainter {
     }
     /* strokes on top: the width and the dashes are counter-scaled by
        the zoom, they keep a constant on-screen size */
+    /* the contested borders chosen in the menu: the solid stroke skips
+       the boxes of the taken views, the erased borders come back as
+       dotted overlays ( WM_DISPUTED of the web ) */
+    final disputed = map == 'monde' ? disputedState(worldConflicts) : null;
     for (final e in settings.layers.entries) {
       final layer = layers[e.key];
       if (layer == null) continue;
@@ -261,12 +303,40 @@ class MapPainter extends CustomPainter {
       if (st.color.alpha == 0 && st.width == 0) continue;
       final p = Path();
       if (map == 'monde') {
-        /* each segment cut at the seam, the stroke no longer crosses
-           the map: wmStrokeClipped of the web */
         for (final f in layer.features) {
           for (final piece in ringClip(f.points, center)) {
-            strokeClipped(p, piece, center,
-                (lon, lat) => _worldScreen(lon, lat, toPlane));
+            /* the closing edges along a seam meridian are not stroked
+               ( wmStrokeClipped ), the segments inside a skip box of
+               the disputed menu are not stroked either */
+            final edgeW = center - 180.0, edgeE = center + 180.0;
+            var pen = false;
+            final n = piece.length ~/ 2;
+            for (var i = 0; i < n; i++) {
+              final x1 = piece[2 * i], y1 = piece[2 * i + 1];
+              final jn = (2 * i + 2) % piece.length;
+              final x2 = piece[jn], y2 = piece[jn + 1];
+              if ((x1 - x2).abs() < 1e-9 &&
+                  ((x1 - edgeW).abs() < 1e-9 ||
+                      (x1 - edgeE).abs() < 1e-9)) {
+                pen = false;
+                continue;
+              }
+              if (disputed != null &&
+                  e.key == 'frontieres' &&
+                  disputedSkip(disputed.skipBoxes, x1, y1, x2, y2)) {
+                pen = false;
+                continue;
+              }
+              final q1 = _worldScreen(x1, y1, toPlane);
+              final q2 = _worldScreen(x2, y2, toPlane);
+              if (pen) {
+                p.lineTo(q2.dx, q2.dy);
+              } else {
+                p.moveTo(q1.dx, q1.dy);
+                p.lineTo(q2.dx, q2.dy);
+                pen = true;
+              }
+            }
           }
         }
       } else {
@@ -297,10 +367,41 @@ class MapPainter extends CustomPainter {
         }
       }
     }
-    /* night zone of the world, in its own file */
-    if (map == 'monde' && worldNight) {
-      drawNightZone(canvas, toPlane, worldTime, style, center);
-    }
+    if (map == 'monde') ...[
+      /* the borders erased by a taken view come back as dotted
+         overlays, the colour of the ordinary border */
+      if (disputed != null && disputed.dotted.isNotEmpty) {
+        drawDisputedDotted(
+            canvas,
+            (lon, lat) => _worldScreen(lon, lat, toPlane),
+            style.border,
+            disputed.dotted,
+            center,
+            1.0 / zoom);
+      }
+      /* equator, tropics and polar circles */
+      if (worldGrid) {
+        drawGraticule(
+            canvas,
+            (lon, lat) => _worldScreen(lon, lat, toPlane),
+            style,
+            1.0 / zoom);
+      }
+      /* the Natural Earth time zone borders, dashed */
+      if (worldTz) {
+        drawTimeZones(
+            canvas,
+            (lon, lat) => _worldScreen(lon, lat, toPlane),
+            style,
+            center,
+            1.0 / zoom);
+      }
+      /* night zone of the world, in its own file */
+      if (worldNight) {
+        drawNightZone(canvas, toPlane, worldTime, style, center,
+            aspect: _aspect, equalEarth: worldEqualEarth);
+      }
+    ]
     /* points and labels: radii and texts counter-scaled, constant size
        on screen whatever the zoom; the labels never overlap, every
        placed one keeps its place */
@@ -352,12 +453,22 @@ class MapPainter extends CustomPainter {
         }
       }
     }
+    /* the subsolar spot, above the cities, under the outline */
+    if (map == 'monde' && worldSun) {
+      drawSunSpot(
+          canvas,
+          (lon, lat) => _worldScreen(lon, lat, toPlane),
+          worldTime,
+          center,
+          1.0 / zoom);
+    }
     /* the outline of the globe, above everything: it marks the edges of
        the world map and tells it from the screen background */
     if (map == 'monde') {
       worldOutline(
           canvas,
-          Rect.fromPoints(toPlane(-eeAspect, 1), toPlane(eeAspect, -1)),
+          Rect.fromPoints(
+              toPlane(-_aspect, 1), toPlane(_aspect, -1)),
           1.0 / zoom,
           style);
     }
@@ -506,6 +617,11 @@ class _MapScreenState extends State<MapScreen> {
   String _worldStyle = 'ocean'; // style of the world map
   double _worldCenter = 0; // center meridian of the world map
   Set<String> _hiddenCities = {}; // hidden marked cities of the world
+  Map<String, String> _conflicts = {}; // choices of the disputed menu
+  Timer? _ticker; // keeps the clock of the world on the current time
+  bool _pinnedTime = false; // the user chose an other instant
+
+  bool get _equalEarth => _groups['equal-earth'] ?? true;
 
   static const _layerNames = <String, List<String>>{
     'france': [
@@ -560,6 +676,12 @@ class _MapScreenState extends State<MapScreen> {
   void initState() {
     super.initState();
     _load();
+    /* the clocks of the world follow the current time, like the web;
+       they stop as soon as the user picks an other instant */
+    _ticker = Timer.periodic(const Duration(seconds: 30), (_) {
+      if (_pinnedTime || !mounted) return;
+      setState(() => _time = DateTime.now());
+    });
   }
 
   Future<void> _load() async {
@@ -575,10 +697,23 @@ class _MapScreenState extends State<MapScreen> {
     var style = _worldStyle;
     var center = _worldCenter;
     var hiddenCities = _hiddenCities;
+    var conflicts = _conflicts;
     if (widget.map == 'monde') {
       style = await readWorldStyle();
       center = await readWorldCenter();
       hiddenCities = await readHiddenCities();
+      conflicts = await readDisputed();
+      /* the marked cities of the world come from the web list
+         ( WM_CITYLIST, 500 cities ), not from the database: the layer
+         of the base held the European list by mistake */
+      pts['villes'] = (worldCities.toList()
+            ..sort((a, b) {
+              final byCountry = a.country.compareTo(b.country);
+              if (byCountry != 0) return byCountry;
+              return a.name.compareTo(b.name);
+            }))
+          .map((c) => db.NamedPoint(c.name, c.lon, c.lat, c.cc))
+          .toList();
     }
     if (mounted) {
       setState(() {
@@ -588,12 +723,14 @@ class _MapScreenState extends State<MapScreen> {
         _worldStyle = style;
         _worldCenter = center;
         _hiddenCities = hiddenCities;
+        _conflicts = conflicts;
       });
     }
   }
 
   @override
   void dispose() {
+    _ticker?.cancel();
     _transformation.dispose();
     super.dispose();
   }
@@ -614,7 +751,8 @@ class _MapScreenState extends State<MapScreen> {
     if (widget.map == 'monde') {
       final cities = _points?['villes'] ?? const <db.NamedPoint>[];
       text = worldTooltip(px, py, cities, 20 * 20 / (scale * scale),
-          _worldCenter);
+          _worldCenter,
+          aspect: settings.bounds.width / 2, equalEarth: _equalEarth);
     } else {
       /* closest city within 14 px */
       for (final e in settings.points.entries) {
@@ -680,7 +818,7 @@ class _MapScreenState extends State<MapScreen> {
         ? franceSettings(light)
         : widget.map == 'union'
             ? unionSettings(light)
-            : worldSettings(light, worldStyles[_worldStyle]);
+            : worldSettings(light, worldStyles[_worldStyle], _equalEarth);
     if (widget.map == 'france' &&
         _frame != null &&
         overseasFrames.containsKey(_frame)) {
@@ -724,7 +862,7 @@ class _MapScreenState extends State<MapScreen> {
      persists at once in the preferences */
   Future<void> _openSettings() async {
     await mapSettingsDialog(
-        context, widget.map, _groups, _worldStyle, _worldCenter,
+        context, widget.map, _groups, _worldStyle, _worldCenter, _conflicts,
         onChanged: (group, value) {
       writeVisibility(widget.map, group, value);
       setState(() => _groups[group] = value);
@@ -734,6 +872,9 @@ class _MapScreenState extends State<MapScreen> {
     }, onCenterChanged: (center) {
       writeWorldCenter(center);
       setState(() => _worldCenter = center);
+    }, onConflictsChanged: (conflicts) {
+      writeDisputed(conflicts);
+      setState(() => _conflicts = {...conflicts});
     }, onPickCities: () async {
       final cities = _points?['villes'] ?? const <db.NamedPoint>[];
       await worldCitiesDialog(context, cities.map((v) => v.name).toList(),
@@ -742,6 +883,44 @@ class _MapScreenState extends State<MapScreen> {
         setState(() => _hiddenCities = {...updated});
       });
     });
+  }
+
+  /* the clocks of the marked cities at the chosen instant, like the
+     web table: the visible cities sorted west to east then north to
+     south, the real IANA zone of each city, the longitude estimate as
+     a fallback marked with a tilde */
+  List<Widget> _cityClocks() {
+    final cities = (_visiblePoints()['villes'] ?? const <db.NamedPoint>[])
+        .toList()
+      ..sort((a, b) {
+        final ra = ((a.x - _worldCenter + 540) % 360) - 180;
+        final rb = ((b.x - _worldCenter + 540) % 360) - 180;
+        if ((ra - rb).abs() > 1e-9) return ra.compareTo(rb);
+        return b.y.compareTo(a.y);
+      });
+    final nameColor =
+        Theme.of(context).textTheme.bodySmall?.color ?? const Color(0xff495057);
+    return [
+      for (final v in cities)
+        () {
+          final c = cityClock(v.name, v.info, v.x, _time);
+          final hh = c.time.hour.toString().padLeft(2, '0');
+          final mm = c.time.minute.toString().padLeft(2, '0');
+          return Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(v.name,
+                  style: TextStyle(fontSize: 11, color: nameColor)),
+              Text('${c.estimated ? '~' : ''}$hh:$mm',
+                  style: const TextStyle(
+                      fontSize: 16, fontWeight: FontWeight.w700)),
+              Text(gmtLabel(c.offset),
+                  style: TextStyle(fontSize: 11, color: nameColor)),
+            ],
+          );
+        }()
+    ];
   }
 
   @override
@@ -790,8 +969,10 @@ class _MapScreenState extends State<MapScreen> {
                   '${_time.hour.toString().padLeft(2, '0')}:${_time.minute.toString().padLeft(2, '0')}',
               onChanged: (double v) {
                 final base = DateTime(_time.year, _time.month, _time.day);
-                setState(() =>
-                    _time = base.add(Duration(minutes: (v * 30).round())));
+                setState(() {
+                  _pinnedTime = true;
+                  _time = base.add(Duration(minutes: (v * 30).round()));
+                });
               },
             ),
           ),
@@ -810,17 +991,32 @@ class _MapScreenState extends State<MapScreen> {
                 lastDate: DateTime(_time.year, 12, 31),
               );
               if (picked == null) return;
-              setState(() => _time = DateTime(picked.year, picked.month,
-                  picked.day, _time.hour, _time.minute));
+              setState(() {
+                _pinnedTime = true;
+                _time = DateTime(picked.year, picked.month, picked.day,
+                    _time.hour, _time.minute);
+              });
             },
           ),
           IconButton(
             tooltip: 'Maintenant',
             icon: const Icon(Icons.restore),
-            onPressed: () => setState(() => _time = DateTime.now()),
+            onPressed: () => setState(() {
+              _pinnedTime = false;
+              _time = DateTime.now();
+            }),
           ),
           _settingsButton(),
         ]),
+        if ((_groups['horloges'] ?? false))
+          Padding(
+            padding: const EdgeInsets.fromLTRB(4, 0, 4, 6),
+            child: Wrap(
+              spacing: 10,
+              runSpacing: 4,
+              children: [for (final cell in _cityClocks()) cell],
+            ),
+          ),
       ],
       if (widget.map == 'union')
         Row(
@@ -828,8 +1024,8 @@ class _MapScreenState extends State<MapScreen> {
             children: [_settingsButton()]),
       Expanded(
         child: LayoutBuilder(builder: (context, constraints) {
-          final h =
-              constraints.maxWidth / (widget.map == 'monde' ? eeAspect : 1.6);
+          final h = constraints.maxWidth /
+              (widget.map == 'monde' ? (_equalEarth ? eeAspect : 2.0) : 1.6);
           return ClipRRect(
             borderRadius: BorderRadius.circular(12),
             child: InteractiveViewer(
@@ -853,6 +1049,11 @@ class _MapScreenState extends State<MapScreen> {
                       light,
                       worldStyle: worldStyles[_worldStyle],
                       worldNight: _groups['nuit'] ?? true,
+                      worldSun: _groups['soleil'] ?? true,
+                      worldGrid: _groups['grille'] ?? true,
+                      worldTz: _groups['fuseaux'] ?? true,
+                      worldEqualEarth: _equalEarth,
+                      worldConflicts: _conflicts,
                       center: _worldCenter),
                 ),
               ),
