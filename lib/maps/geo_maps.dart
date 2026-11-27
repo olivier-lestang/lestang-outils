@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart' show Vector4;
 
 import '../database.dart' as db;
+import '../l10n.dart' show trad;
 import 'departments.dart';
 import 'map_settings.dart';
 import 'map_styles.dart';
@@ -915,7 +916,7 @@ class _MapScreenState extends State<MapScreen> {
   }
 
   Widget _settingsButton() => IconButton(
-        tooltip: 'Réglages de la carte',
+        tooltip: trad('reglages-carte'),
         icon: const Icon(Icons.tune),
         onPressed: _openSettings,
       );
@@ -999,7 +1000,7 @@ class _MapScreenState extends State<MapScreen> {
           Expanded(
               child: Wrap(spacing: 6, runSpacing: 4, children: [
             ChoiceChip(
-              label: const Text('Métropole'),
+              label: Text(trad('metropole')),
               selected: _frame == null,
               onSelected: (_) => setState(() {
                 _frame = null;
@@ -1044,7 +1045,7 @@ class _MapScreenState extends State<MapScreen> {
              forward, the reset to now, the settings */
           Text(_time.toString().substring(11, 16)),
           IconButton(
-            tooltip: 'Jour précédent',
+            tooltip: trad('jour-avant'),
             icon: const Icon(Icons.chevron_left),
             onPressed: () => setState(() {
               _pinnedTime = true;
@@ -1054,7 +1055,7 @@ class _MapScreenState extends State<MapScreen> {
           ),
           Text('${_time.day}/${_time.month}'),
           IconButton(
-            tooltip: 'Jour suivant',
+            tooltip: trad('jour-apres'),
             icon: const Icon(Icons.chevron_right),
             onPressed: () => setState(() {
               _pinnedTime = true;
@@ -1063,7 +1064,7 @@ class _MapScreenState extends State<MapScreen> {
             }),
           ),
           IconButton(
-            tooltip: 'Maintenant',
+            tooltip: trad('maintenant'),
             icon: const Icon(Icons.restore),
             onPressed: () => setState(() {
               _pinnedTime = false;

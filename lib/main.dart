@@ -39,6 +39,19 @@ const appGradient = LinearGradient(
     colors: [Color(0xff2563eb), Color(0xff3b82f6), Color(0xff60a5fa)],
     stops: [0.0, 0.4, 1.0]);
 
+/* the light blue background of the body, like the site: the surface of
+   the two windows fades on the diagonal through the blue family of
+   PATCH213 ( blue-50 to blue-200 in the light theme, three navy blues
+   in the dark one ) */
+const _bgLight = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [Color(0xffeff6ff), Color(0xffdbeafe), Color(0xffbfdbfe)]);
+const _bgDark = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [Color(0xff101c33), Color(0xff16233f), Color(0xff1b2a4a)]);
+
 /* the app bar of the two windows wears the gradient of the web */
 PreferredSizeWidget gradientAppBar(String title) => AppBar(
       title: Text(title),
@@ -104,6 +117,9 @@ class _LestangOutilsAppState extends State<LestangOutilsApp> {
   @override
   Widget build(BuildContext context) {
     final trad = Translator(_language);
+    /* the map dialogs and the status bar read this global language to
+       translate their own labels */
+    appLanguage = _language;
     final light = _theme == AppThemeMode.light ||
         (_theme == AppThemeMode.system &&
             WidgetsBinding.instance.platformDispatcher.platformBrightness ==
@@ -128,7 +144,9 @@ class _LestangOutilsAppState extends State<LestangOutilsApp> {
       home: Scaffold(
         appBar: gradientAppBar(trad('titre')),
         bottomNavigationBar: const StatusBar(),
-        body: Row(children: [
+        body: DecoratedBox(
+            decoration: BoxDecoration(gradient: light ? _bgLight : _bgDark),
+            child: Row(children: [
           NavigationRail(
             selectedIndex: _page.clamp(0, _order.length - 1),
             onDestinationSelected: (i) => setState(() => _page = i),
@@ -154,7 +172,7 @@ class _LestangOutilsAppState extends State<LestangOutilsApp> {
               child: _currentPage(trad),
             ),
           ),
-        ]),
+        ])),
       ),
     );
   }
@@ -187,7 +205,7 @@ class _LestangOutilsAppState extends State<LestangOutilsApp> {
                     const TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
             const SizedBox(width: 10),
             IconButton(
-              tooltip: 'Plein écran',
+              tooltip: trad('plein-ecran'),
               icon: const Icon(Icons.fullscreen),
               onPressed: () => Navigator.push(
                   context,
@@ -195,9 +213,17 @@ class _LestangOutilsAppState extends State<LestangOutilsApp> {
                       builder: (context) => Scaffold(
                           appBar: gradientAppBar(trad(key)),
                           bottomNavigationBar: const StatusBar(),
-                          body: Padding(
-                              padding: const EdgeInsets.all(10),
-                              child: MapScreen(key, key: ValueKey(key)))))),
+                          body: DecoratedBox(
+                              decoration: BoxDecoration(
+                                  gradient:
+                                      Theme.of(context).brightness ==
+                                              Brightness.light
+                                          ? _bgLight
+                                          : _bgDark),
+                              child: Padding(
+                                  padding: const EdgeInsets.all(10),
+                                  child: MapScreen(key,
+                                      key: ValueKey(key))))))),
             ),
           ]),
           const SizedBox(height: 10),
@@ -357,9 +383,10 @@ class _StatusBarState extends State<StatusBar> {
   Widget build(BuildContext context) {
     final small =
         Theme.of(context).textTheme.bodySmall?.color ?? const Color(0xff495057);
+    /* the labels of the bar live in the glossary, like the screens */
     final text = _rss > 0
-        ? 'RAM : ${(_rss / 1048576).toStringAsFixed(0)} Mo · workers : $_workers'
-        : 'workers : $_workers';
+        ? '${trad('stat-ram')} : ${(_rss / 1048576).toStringAsFixed(0)} Mo · ${trad('stat-workers')} : $_workers'
+        : '${trad('stat-workers')} : $_workers';
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(

@@ -10,10 +10,12 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../l10n.dart' show trad;
 import 'world_map.dart' show disputedGroups;
 
-/* a settings group: the title heads the dialog section, the layers
-   and points are the database keys it commands */
+/* a settings group: the title heads the dialog section ( a key of the
+   glossary, the French text is the fallback ), the layers and points
+   are the database keys it commands */
 class CardGroup {
   final String title;
   final List<String> layers;
@@ -25,61 +27,62 @@ class CardGroup {
 /* the groups of each map, those of the web dialogs */
 const cardGroups = <String, Map<String, CardGroup>>{
   'france': {
-    'departements': CardGroup('Départements et régions',
+    'departements': CardGroup('grp-departements',
         layers: ['departements', 'contour']),
-    'autoroutes': CardGroup('Autoroutes', layers: ['autoroutes']),
-    'nationales': CardGroup('Nationales', layers: ['nationales']),
-    'departementales': CardGroup('Départementales',
+    'autoroutes': CardGroup('grp-autoroutes', layers: ['autoroutes']),
+    'nationales': CardGroup('grp-nationales', layers: ['nationales']),
+    'departementales': CardGroup('grp-departementales',
         layers: ['departementales']),
-    'lgv': CardGroup('Lignes à grande vitesse',
+    'lgv': CardGroup('grp-lgv',
         layers: ['lgv'], points: ['lgv-stations']),
-    'fleuves': CardGroup('Fleuves', layers: ['fleuves']),
-    'zee': CardGroup('Eaux territoriales', layers: ['zee']),
-    'villes': CardGroup('Villes',
+    'fleuves': CardGroup('grp-fleuves', layers: ['fleuves']),
+    'zee': CardGroup('grp-zee', layers: ['zee']),
+    'villes': CardGroup('grp-villes',
         points: ['grandes-villes', 'chefs-lieux', 'villes']),
-    'transports': CardGroup('Transports en Île-de-France',
+    'transports': CardGroup('grp-transports',
         layers: ['paris', 'villes-transports'],
         points: ['stations', 'paris-stations']),
   },
   'union': {
-    'membres': CardGroup('États membres', layers: ['membres']),
-    'autres': CardGroup('Autres pays',
+    'membres': CardGroup('grp-membres', layers: ['membres']),
+    'autres': CardGroup('grp-autres',
         layers: ['hors-ue', 'hors-ue-2', 'hors-ue-3', 'autres']),
-    'zee': CardGroup('Eaux territoriales', layers: ['zee']),
-    'fleuves': CardGroup('Fleuves', layers: ['fleuves', 'grands-fleuves']),
-    'eroutes': CardGroup('Routes européennes', layers: ['eroutes']),
-    'voisins': CardGroup('Routes des pays voisins',
+    'zee': CardGroup('grp-zee', layers: ['zee']),
+    'fleuves': CardGroup('grp-fleuves', layers: ['fleuves', 'grands-fleuves']),
+    'eroutes': CardGroup('grp-eroutes', layers: ['eroutes']),
+    'voisins': CardGroup('grp-voisins',
         layers: ['routes-voisins-brutes']),
-    'lgv': CardGroup('Lignes à grande vitesse',
+    'lgv': CardGroup('grp-lgv',
         layers: ['lgv'], points: ['lgv-stations']),
-    'capitales': CardGroup('Capitales', points: ['capitales']),
-    'villes': CardGroup('Villes', points: ['villes']),
-    'panonceaux': CardGroup('Panonceaux des routes',
+    'capitales': CardGroup('grp-capitales', points: ['capitales']),
+    'villes': CardGroup('grp-villes', points: ['villes']),
+    'panonceaux': CardGroup('grp-panonceaux',
         points: ['refs-aut', 'refs-rn', 'refs-rd', 'refs-er']),
   },
   'monde': {
-    'nuit': CardGroup('Zone de nuit (ensoleillement)'),
-    'soleil': CardGroup('Position du soleil'),
-    'grille': CardGroup('Équateur, tropiques et cercles polaires'),
-    'fuseaux': CardGroup('Fuseaux horaires'),
-    'equal-earth': CardGroup('Projection Equal Earth'),
-    'frontieres': CardGroup('Frontières des pays', layers: ['frontieres']),
-    'villes': CardGroup('Villes', points: ['villes']),
-    'horloges': CardGroup('Horloges des villes marquées'),
+    'nuit': CardGroup('grp-nuit'),
+    'soleil': CardGroup('grp-soleil'),
+    'grille': CardGroup('grp-grille'),
+    'fuseaux': CardGroup('grp-fuseaux'),
+    'equal-earth': CardGroup('grp-equal-earth'),
+    'frontieres': CardGroup('grp-frontieres', layers: ['frontieres']),
+    'villes': CardGroup('grp-villes', points: ['villes']),
+    'horloges': CardGroup('grp-horloges'),
   },
 };
 
-/* the styles of the world map, those of WM_STYLES of the web */
+/* the styles of the world map, those of WM_STYLES of the web; the
+   labels are keys of the glossary */
 const styleLabels = <String, String>{
-  'ocean': 'Océan',
-  'nuit': 'Nuit',
-  'encre': 'Encre',
-  'croquis': 'Croquis',
+  'ocean': 'style-ocean',
+  'nuit': 'style-nuit',
+  'encre': 'style-encre',
+  'croquis': 'style-croquis',
 };
 
 /* the centers of the world map, those of the web dialog; a small class
    rather than a double-keyed map: Dart refuses doubles as keys of a
-   const map */
+   const map; the titles are keys of the glossary */
 class WorldCenter {
   final double value;
   final String title;
@@ -87,9 +90,9 @@ class WorldCenter {
 }
 
 const worldCenters = <WorldCenter>[
-  WorldCenter(0.0, 'Méridien de Greenwich (0°)'),
-  WorldCenter(-90.0, 'Amériques (90° O)'),
-  WorldCenter(150.0, 'Océanie (150° E)'),
+  WorldCenter(0.0, 'centre-greenwich'),
+  WorldCenter(-90.0, 'centre-ameriques'),
+  WorldCenter(150.0, 'centre-oceanie'),
 ];
 
 /* does the key of a layer or of a point group belong to a lit group?
@@ -215,14 +218,14 @@ Future<void> mapSettingsDialog(
                 child: ListView(shrinkWrap: true, children: [
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20, 16, 20, 4),
-                    child: Text('Réglages de la carte',
+                    child: Text(trad('reglages-carte'),
                         style: Theme.of(context).textTheme.titleMedium),
                   ),
                   for (final e
                       in (cardGroups[map] ?? const <String, CardGroup>{})
                           .entries)
                     SwitchListTile(
-                      title: Text(e.value.title),
+                      title: Text(trad(e.value.title)),
                       value: groups[e.key] ?? true,
                       onChanged: (value) {
                         setSheet(() {});
@@ -231,15 +234,14 @@ Future<void> mapSettingsDialog(
                     ),
                   if (map == 'monde') ...[
                     const Divider(),
-                    const Padding(
-                      padding: EdgeInsets.fromLTRB(20, 8, 20, 4),
-                      child: Text('Frontières contestées'),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 8, 20, 4),
+                      child: Text(trad('dlg-contestees')),
                     ),
                     ListTile(
                       leading: const Icon(Icons.public),
-                      title: const Text('Frontières contestées'),
-                      subtitle: const Text(
-                          'Choisir la vue de chaque territoire'),
+                      title: Text(trad('dlg-contestees')),
+                      subtitle: Text(trad('dlg-choisir-vues')),
                       trailing: disputed.values.any((v) => v.isNotEmpty)
                           ? Badge(
                               label:
@@ -255,13 +257,13 @@ Future<void> mapSettingsDialog(
                       },
                     ),
                     const Divider(),
-                    const Padding(
-                      padding: EdgeInsets.fromLTRB(20, 8, 20, 4),
-                      child: Text('Apparence'),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 8, 20, 4),
+                      child: Text(trad('dlg-apparence')),
                     ),
                     for (final s in styleLabels.keys)
                       RadioListTile<String>(
-                        title: Text(styleLabels[s] ?? s),
+                        title: Text(trad(styleLabels[s] ?? s)),
                         value: s,
                         groupValue: style,
                         onChanged: (value) {
@@ -271,13 +273,13 @@ Future<void> mapSettingsDialog(
                         },
                       ),
                     const Divider(),
-                    const Padding(
-                      padding: EdgeInsets.fromLTRB(20, 8, 20, 4),
-                      child: Text('Centrage de la carte'),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 8, 20, 4),
+                      child: Text(trad('dlg-centrage')),
                     ),
                     for (final c in worldCenters)
                       RadioListTile<double>(
-                        title: Text(c.title),
+                        title: Text(trad(c.title)),
                         value: c.value,
                         groupValue: center,
                         onChanged: (value) {
@@ -288,8 +290,8 @@ Future<void> mapSettingsDialog(
                       ),
                     ListTile(
                       leading: const Icon(Icons.location_city),
-                      title: const Text('Villes marquées'),
-                      subtitle: const Text('Choisir les villes affichées'),
+                      title: Text(trad('dlg-villes-marquees')),
+                      subtitle: Text(trad('dlg-choisir-villes')),
                       trailing: const Icon(Icons.chevron_right),
                       onTap: onPickCities,
                     ),
@@ -307,37 +309,38 @@ Future<void> disputedBordersDialog(
     Map<String, String> conflicts,
     void Function(Map<String, String> updated) onChange) async {
   /* the neutral label and the value of each radio: the de facto
-     situations read as such, the others as neutral */
+     situations read as such, the others as neutral; the labels are
+     keys of the glossary */
   const neutralLabels = <String, String>{
-    'chypre': 'Divisée (statu quo)',
-    'golan': 'Occupé par Israël (statu quo)',
+    'chypre': 'neutre-chypre',
+    'golan': 'neutre-golan',
   };
   const views = <String, List<List<String>>>{
     'crimee': [
-      ['ua', 'Vue ukrainienne'],
-      ['ru', 'Vue russe'],
+      ['ua', 'vue-ukrainienne'],
+      ['ru', 'vue-russe'],
     ],
     'kashmir': [
-      ['in', 'Vue indienne'],
-      ['pk', 'Vue pakistanaise'],
+      ['in', 'vue-indienne'],
+      ['pk', 'vue-pakistanaise'],
     ],
     'taiwan': [
-      ['cn', 'Vue chinoise'],
+      ['cn', 'vue-chinoise'],
     ],
     'wsahara': [
-      ['ma', 'Vue marocaine'],
+      ['ma', 'vue-marocaine'],
     ],
     'kosovo': [
-      ['rs', 'Vue serbe'],
+      ['rs', 'vue-serbe'],
     ],
     'chypre': [
-      ['unie', 'Île unie'],
+      ['unie', 'ile-unie'],
     ],
     'golan': [
-      ['syrien', 'Rattaché à la Syrie'],
+      ['syrien', 'rattache-syrie'],
     ],
     'essequibo': [
-      ['ve', 'Vue vénézuélienne'],
+      ['ve', 'vue-venezuelienne'],
     ],
   };
   var current = conflicts;
@@ -349,7 +352,7 @@ Future<void> disputedBordersDialog(
                 child: Column(mainAxisSize: MainAxisSize.min, children: [
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20, 16, 20, 4),
-                    child: Text('Frontières contestées',
+                    child: Text(trad('dlg-contestees'),
                         style: Theme.of(context).textTheme.titleMedium),
                   ),
                   Flexible(
@@ -357,13 +360,13 @@ Future<void> disputedBordersDialog(
                     for (final e in disputedGroups.entries) ...[
                       Padding(
                         padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
-                        child: Text(e.value[0],
+                        child: Text(trad('conflit-${e.key}'),
                             style:
                                 Theme.of(context).textTheme.titleSmall),
                       ),
                       RadioListTile<String>(
                         dense: true,
-                        title: Text(neutralLabels[e.key] ?? 'Neutre'),
+                        title: Text(trad(neutralLabels[e.key] ?? 'neutre')),
                         value: '',
                         groupValue: current[e.key] ?? '',
                         onChanged: (value) {
@@ -377,7 +380,7 @@ Future<void> disputedBordersDialog(
                       for (final v in views[e.key] ?? const <List<String>>[])
                         RadioListTile<String>(
                           dense: true,
-                          title: Text(v[1]),
+                          title: Text(trad(v[1])),
                           value: v[0],
                           groupValue: current[e.key] ?? '',
                           onChanged: (value) {
@@ -406,13 +409,13 @@ Future<void> disputedBordersDialog(
                 child: Column(mainAxisSize: MainAxisSize.min, children: [
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20, 16, 20, 4),
-                    child: Text('Villes marquées',
+                    child: Text(trad('dlg-villes-marquees'),
                         style: Theme.of(context).textTheme.titleMedium),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Text(
-                        '${names.length - hidden.length} sur ${names.length}'),
+                        '${names.length - hidden.length} ${trad('dlg-sur')} ${names.length}'),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -422,13 +425,13 @@ Future<void> disputedBordersDialog(
                             setSheet(() {});
                             onChange(<String>{});
                           },
-                          child: const Text('Tout afficher')),
+                          child: Text(trad('dlg-tout-afficher'))),
                       TextButton(
                           onPressed: () {
                             setSheet(() {});
                             onChange(names.toSet());
                           },
-                          child: const Text('Aucune')),
+                          child: Text(trad('dlg-aucune'))),
                     ]),
                   ),
                   Flexible(

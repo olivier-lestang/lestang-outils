@@ -544,8 +544,12 @@ int _nwsCode(String description) {
 Future<WeatherReading> _loadNws(WeatherCity v) async {
   final p = await _json(Uri.parse(
       'https://api.weather.gov/points/${v.lat.toStringAsFixed(4)},${v.lon.toStringAsFixed(4)}'));
-  final url = _get(p, 'properties.forecastHourly') as String?;
+  var url = _get(p, 'properties.forecastHourly') as String?;
   if (url == null) throw const HttpException('nws');
+  /* the hourly forecast of NWS reads in Fahrenheit by default, which
+     used to skew the reading: the metric unit asks the API itself for
+     the Celsius values, every source stays unified in °C */
+  url += url.contains('?') ? '&units=si' : '?units=si';
   final f = await _json(Uri.parse(url));
   final periods = _get(f, 'properties.periods') as List;
   if (periods.isEmpty) throw const HttpException('nws');
@@ -715,10 +719,16 @@ class _WeatherScreenState extends State<WeatherScreen> {
   final Map<String, String> _errors = {};
   bool _busy = false;
   List<WeatherCity>? _suggestions;
+  String _unit = 'C'; /* the display reads in °C or in °F */
 
   @override
   void initState() {
     super.initState();
+    SharedPreferences.getInstance().then((p) {
+      if (mounted) {
+        setState(() => _unit = p.getString('meteo-unite') == 'F' ? 'F' : 'C');
+      }
+    });
     readCities().then((v) {
       if (mounted) {
         setState(() => _cities = v);
@@ -726,6 +736,16 @@ class _WeatherScreenState extends State<WeatherScreen> {
       }
     });
   }
+
+  /* the choice of the unit persists, the readings stay stored in °C
+     and convert at the display only */
+  Future<void> _setUnit(String u) async {
+    setState(() => _unit = u);
+    final p = await SharedPreferences.getInstance();
+    await p.setString('meteo-unite', u);
+  }
+
+  double _disp(double c) => _unit == 'F' ? c * 9 / 5 + 32 : c;
 
   WeatherCity get city => _cities == null
       ? defaultCities.first
@@ -805,6 +825,25 @@ class _WeatherScreenState extends State<WeatherScreen> {
     }
     final reading = _readings[city.key()];
     final info = reading == null ? null : wmoInfo(reading.code);
+    /* the sun icons of the codes read wrong at night: the sunrise and
+     the sunset of the city say if it is dark there, the clear and the
+     mainly clear skies show the moon then */
+    final srss = sunriseSunset(city.lat, city.lon, DateTime.now().toUtc());
+    final now = DateTime.now();
+    final night = srss[0] == null ||
+        srss[1] == null ||
+        now.isBefore(srss[0]!.toLocal()) ||
+        now.isAfter(srss[1]!.toLocal());
+    final icon = (night && reading != null && reading.code <= 1)
+        ? '🌙'
+        : (info?[1] ?? '🌡️');
+    /* the label of the code lives in the glossary, the French text of
+       the table stays the fallback */
+    final label = reading == null
+        ? ''
+        : (_wmo.containsKey(reading.code)
+            ? t('wmo-${reading.code}')
+            : info![0]);
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       SizedBox(
         height: 44,
@@ -856,6 +895,21 @@ class _WeatherScreenState extends State<WeatherScreen> {
       ],
       const SizedBox(height: 12),
       if (_busy) const CircularProgressIndicator(),
+      Row(children: [
+        Text(t('unite'), style: const TextStyle(fontSize: 13)),
+        const SizedBox(width: 8),
+        ChoiceChip(
+          label: const Text('°C'),
+          selected: _unit == 'C',
+          onSelected: (_) => _setUnit('C'),
+        ),
+        const SizedBox(width: 8),
+        ChoiceChip(
+          label: const Text('°F'),
+          selected: _unit == 'F',
+          onSelected: (_) => _setUnit('F'),
+        ),
+      ]),
       if (reading != null) ...[
         Container(
           padding: const EdgeInsets.all(14),
@@ -864,18 +918,19 @@ class _WeatherScreenState extends State<WeatherScreen> {
             borderRadius: BorderRadius.circular(12),
           ),
           child: Row(children: [
-            Text(info![1], style: const TextStyle(fontSize: 34)),
+            Text(icon, style: const TextStyle(fontSize: 34)),
             const SizedBox(width: 12),
             Expanded(
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('${reading.temp.toStringAsFixed(0)} °C',
+                    Text(
+                        '${_disp(reading.temp).toStringAsFixed(0)} °$_unit',
                         style: const TextStyle(fontSize: 26)),
                     Text(
-                        '${info[0]} · max ${reading.max.toStringAsFixed(0)} ° · min ${reading.min.toStringAsFixed(0)} °'),
+                        '$label · max ${_disp(reading.max).toStringAsFixed(0)} ° · min ${_disp(reading.min).toStringAsFixed(0)} °'),
                     Text(
-                        '${t('demain')} : max ${reading.max2.toStringAsFixed(0)} ° · min ${reading.min2.toStringAsFixed(0)} °'),
+                        '${t('demain')} : max ${_disp(reading.max2).toStringAsFixed(0)} ° · min ${_disp(reading.min2).toStringAsFixed(0)} °'),
                     const SizedBox(height: 4),
                     Text(_sunriseSunset()),
                   ]),
@@ -883,7 +938,8 @@ class _WeatherScreenState extends State<WeatherScreen> {
           ]),
         ),
         const SizedBox(height: 8),
-        Text('${t('source')} : ${_sources[nationalSource(city.country)]}',
+        Text(
+            '${t('source')} : ${t('meteo-src-${nationalSource(city.country)}')}',
             style: const TextStyle(fontSize: 12, color: Colors.grey)),
       ],
       if (_errors[city.key()] != null)
