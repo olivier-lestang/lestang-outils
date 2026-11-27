@@ -1,6 +1,10 @@
 /* Lestang Outils, cross-platform application: the card registry, light or
    dark theme, language of choice, card order of choice.
    Flutter + embedded SQLite. SPDX-License-Identifier: MIT. */
+import 'dart:async';
+import 'dart:developer' show ProcessInfo;
+
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -18,6 +22,30 @@ import 'screens/shortcuts.dart';
 import 'screens/weather.dart';
 
 void main() => runApp(const LestangOutilsApp());
+
+/* the background isolates the app spawned ( none today ): the status
+   bar counts the main isolate plus this counter, so a future worker
+   shows up in the foot of the window as soon as it runs */
+class AppWorkers {
+  static int spawned = 0;
+}
+
+/* the banner gradient of the web ( PATCH213 of styles.css ): the blue
+   family #2563eb, #3b82f6 then #60a5fa on the diagonal, the white text
+   stays readable on it like on the site */
+const appGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [Color(0xff2563eb), Color(0xff3b82f6), Color(0xff60a5fa)],
+    stops: [0.0, 0.4, 1.0]);
+
+/* the app bar of the two windows wears the gradient of the web */
+PreferredSizeWidget gradientAppBar(String title) => AppBar(
+      title: Text(title),
+      flexibleSpace: Container(
+          decoration: const BoxDecoration(gradient: appGradient)),
+      foregroundColor: Colors.white,
+    );
 
 class LestangOutilsApp extends StatefulWidget {
   const LestangOutilsApp({super.key});
@@ -82,11 +110,24 @@ class _LestangOutilsAppState extends State<LestangOutilsApp> {
                 Brightness.light);
     return MaterialApp(
       title: 'Lestang Outils',
+      /* the blue family of the web replaces the purple of the default
+         Material 3 seed: every chip, slider, switch and button of the
+         application derives from the light blue #3b82f6 ( PATCH213 ),
+         in the light theme like in the dark one */
       theme: light
-          ? ThemeData(brightness: Brightness.light, useMaterial3: true)
-          : ThemeData(brightness: Brightness.dark, useMaterial3: true),
+          ? ThemeData(
+              useMaterial3: true,
+              colorScheme: ColorScheme.fromSeed(
+                  seedColor: const Color(0xff3b82f6),
+                  brightness: Brightness.light))
+          : ThemeData(
+              useMaterial3: true,
+              colorScheme: ColorScheme.fromSeed(
+                  seedColor: const Color(0xff3b82f6),
+                  brightness: Brightness.dark)),
       home: Scaffold(
-        appBar: AppBar(title: Text(trad('titre'))),
+        appBar: gradientAppBar(trad('titre')),
+        bottomNavigationBar: const StatusBar(),
         body: Row(children: [
           NavigationRail(
             selectedIndex: _page.clamp(0, _order.length - 1),
@@ -152,7 +193,8 @@ class _LestangOutilsAppState extends State<LestangOutilsApp> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => Scaffold(
-                          appBar: AppBar(title: Text(trad(key))),
+                          appBar: gradientAppBar(trad(key)),
+                          bottomNavigationBar: const StatusBar(),
                           body: Padding(
                               padding: const EdgeInsets.all(10),
                               child: MapScreen(key, key: ValueKey(key)))))),
@@ -197,5 +239,73 @@ class _LestangOutilsAppState extends State<LestangOutilsApp> {
         return InfoScreen(trad);
     }
     return const SizedBox.shrink();
+  }
+}
+
+/* the status bar of the foot of the window: the resident memory of the
+   process ( currentRss, refreshed every two seconds ) and the number
+   of workers, the main isolate plus every background isolate the app
+   spawned; on the web target the VM does not expose the memory, the
+   bar shows the workers alone */
+class StatusBar extends StatefulWidget {
+  const StatusBar({super.key});
+
+  @override
+  State<StatusBar> createState() => _StatusBarState();
+}
+
+class _StatusBarState extends State<StatusBar> {
+  Timer? _timer;
+  int _rss = 0;
+  int _workers = 1;
+
+  @override
+  void initState() {
+    super.initState();
+    _refresh();
+    _timer = Timer.periodic(const Duration(seconds: 2), (_) => _refresh());
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+
+  void _refresh() {
+    var rss = 0;
+    var workers = 1 + AppWorkers.spawned;
+    if (!kIsWeb) {
+      try {
+        rss = ProcessInfo.currentRss;
+      } catch (_) {
+        /* the VM of this platform does not expose its memory */
+      }
+    }
+    if (!mounted) return;
+    if (rss == _rss && workers == _workers) return;
+    setState(() {
+      _rss = rss;
+      _workers = workers;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final small =
+        Theme.of(context).textTheme.bodySmall?.color ?? const Color(0xff495057);
+    final text = _rss > 0
+        ? 'RAM : ${(_rss / 1048576).toStringAsFixed(0)} Mo · workers : $_workers'
+        : 'workers : $_workers';
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+          border: Border(
+              top: BorderSide(color: Theme.of(context).dividerColor))),
+      padding: const EdgeInsets.fromLTRB(12, 2, 12, 4),
+      child: Text(text,
+          style: TextStyle(fontSize: 11, color: small),
+          textAlign: TextAlign.left),
+    );
   }
 }

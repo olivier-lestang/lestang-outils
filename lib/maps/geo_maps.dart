@@ -260,6 +260,44 @@ class MapPainter extends CustomPainter {
     return _worldPlane(_recentered(x), y);
   }
 
+  /* the shape of the world map in screen coordinates: the Equal Earth
+     oval sampled two degrees at a time along its edge ( the pole
+     lines, then the two curved flank meridians ), the whole rounded
+     rectangle in the flat mode, where nothing shows behind the map */
+  Path _worldShape(Offset Function(double, double) toPlane) {
+    final path = Path();
+    if (!worldEqualEarth) {
+      path.addRRect(RRect.fromRectAndRadius(
+          Rect.fromPoints(toPlane(-_aspect, 1), toPlane(_aspect, -1)),
+          const Radius.circular(12)));
+      return path;
+    }
+    var first = true;
+    void add(Offset p) {
+      if (first) {
+        path.moveTo(p.dx, p.dy);
+        first = false;
+      } else {
+        path.lineTo(p.dx, p.dy);
+      }
+    }
+
+    for (var c = center - 180.0; c <= center + 180.0 + 1e-9; c += 2.0) {
+      add(_worldScreen(c, 90, toPlane));
+    }
+    for (var la = 88.0; la >= -90.0; la -= 2.0) {
+      add(_worldScreen(center + 180.0, la, toPlane));
+    }
+    for (var c = center + 180.0; c >= center - 180.0 - 1e-9; c -= 2.0) {
+      add(_worldScreen(c, -90, toPlane));
+    }
+    for (var la = -88.0; la <= 90.0; la += 2.0) {
+      add(_worldScreen(center - 180.0, la, toPlane));
+    }
+    path.close();
+    return path;
+  }
+
   @override
   void paint(Canvas canvas, Size size) {
     final b = settings.bounds;
@@ -273,15 +311,25 @@ class MapPainter extends CustomPainter {
     final zoom = m.getMaxScaleOnAxis();
 
     final style = worldStyle ?? worldStyles['ocean']!;
-    /* the gradient background of the world, only inside the rectangle of
-       the map; the outline that tells the globe from the screen
-       background is drawn at the end of paint, above everything */
+    /* the rectangle behind the globe stays grey: in Equal Earth the
+       four corners of the rectangle lie outside the oval, the ocean
+       gradient only paints inside the shape of the map ( the outside
+       of the web, here a plain grey that tells the globe from the
+       page ); the outline is drawn at the end of paint, above
+       everything */
     if (map == 'monde') {
-      worldBackground(
-          canvas,
-          Rect.fromPoints(
-              toPlane(-_aspect, 1), toPlane(_aspect, -1)),
-          style);
+      final rect =
+          Rect.fromPoints(toPlane(-_aspect, 1), toPlane(_aspect, -1));
+      canvas.drawRRect(
+          RRect.fromRectAndRadius(rect, const Radius.circular(12)),
+          Paint()
+            ..color = light
+                ? const Color(0xffe4e7ec)
+                : const Color(0xff16181d));
+      canvas.save();
+      canvas.clipPath(_worldShape(toPlane));
+      worldBackground(canvas, rect, style);
+      canvas.restore();
     }
 
     /* filled outlines first */
@@ -991,27 +1039,28 @@ class _MapScreenState extends State<MapScreen> {
               },
             ),
           ),
-          Text('${_time.day}/${_time.month} '
-              '${_time.toString().substring(11, 16)}'),
+          /* the clock bar of the web: the half-hour slider, the time,
+             the day one step back, the date alone, the day one step
+             forward, the reset to now, the settings */
+          Text(_time.toString().substring(11, 16)),
           IconButton(
-            tooltip: 'Date',
-            icon: const Icon(Icons.calendar_month),
-            onPressed: () async {
-              /* the calendar stays bounded to the current year, like
-                 the half-hour slider it never leaves the clock */
-              final picked = await showDatePicker(
-                context: context,
-                initialDate: _time,
-                firstDate: DateTime(_time.year, 1, 1),
-                lastDate: DateTime(_time.year, 12, 31),
-              );
-              if (picked == null) return;
-              setState(() {
-                _pinnedTime = true;
-                _time = DateTime(picked.year, picked.month, picked.day,
-                    _time.hour, _time.minute);
-              });
-            },
+            tooltip: 'Jour précédent',
+            icon: const Icon(Icons.chevron_left),
+            onPressed: () => setState(() {
+              _pinnedTime = true;
+              _time = DateTime(_time.year, _time.month, _time.day - 1,
+                  _time.hour, _time.minute);
+            }),
+          ),
+          Text('${_time.day}/${_time.month}'),
+          IconButton(
+            tooltip: 'Jour suivant',
+            icon: const Icon(Icons.chevron_right),
+            onPressed: () => setState(() {
+              _pinnedTime = true;
+              _time = DateTime(_time.year, _time.month, _time.day + 1,
+                  _time.hour, _time.minute);
+            }),
           ),
           IconButton(
             tooltip: 'Maintenant',
