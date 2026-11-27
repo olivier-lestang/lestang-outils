@@ -3,6 +3,7 @@
    Portage de l interface des modules web de conjugaison.
    SPDX-License-Identifier : MIT. */
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../bdd.dart' as bdd;
 import '../l10n.dart';
@@ -183,10 +184,87 @@ class _CarteVerbeEtat extends State<_CarteVerbe> {
   String get langue => widget.langue;
   void Function(String)? get onChoisir => widget.onChoisir;
 
+  /* reglage : ne montrer que les definitions du Wiktionary */
+  bool _wiktSeules = false;
+
+  @override
+  void initState() {
+    super.initState();
+    SharedPreferences.getInstance().then((p) {
+      if (mounted) {
+        setState(() => _wiktSeules = p.getBool('defs-wikt-seules') ?? false);
+      }
+    });
+  }
+
+  /* L age d une source : la plus ancienne gagne les doublons. Les
+     dictionnaires du domaine public d abord par annee, puis les
+     glossaires du projet, enfin les Wiktionary. */
+  static const _ages = <String, int>{
+    'Littré (1872-1877)': 1,
+    'Sanders 1876': 2,
+    'Petrocchi 1887': 3,
+    'Słownik warszawski 1900': 4,
+    'Webster 1913': 5,
+    'Figueiredo 1913': 5,
+    'Real Academia 1913-1914': 5,
+    'Académie 8e (1932-1935)': 6,
+    'projet': 7,
+    'Glossaire du générateur du projet': 7,
+  };
+
+  static bool _estWikt(String etiquette) =>
+      etiquette.contains('Wiktionary') || etiquette.contains('Wiktionnaire');
+
+  static int _ageSource(String etiquette) =>
+      _ages[etiquette] ?? 8; // Wiktionary et inconnues : les plus recentes
+
+  /* La cle de doublon : meme texte au point final et aux apostrophes pres. */
+  static String _cleSens(String texte) {
+    var c = texte.toLowerCase().trim();
+    c = c.replaceAll('\u2019', "'").replaceAll('\u2018', "'");
+    c = c.replaceAll(RegExp(r'\s+'), ' ');
+    while (c.endsWith('.')) {
+      c = c.substring(0, c.length - 1);
+    }
+    return c.trim();
+  }
+
+  /* Les sens affiches : tout, ou le Wiktionary seul selon le reglage ;
+     en cas de doublon la source la plus ancienne est gardee, chaque
+     sens reste a la place de son groupe. */
+  List<Sens> _sensAffiches(List<Sens> defs) {
+    if (defs.isEmpty) return defs;
+    final base = _wiktSeules
+        ? defs.where((d) => _estWikt(d.etiquette)).toList()
+        : defs;
+    if (base.isEmpty) return base;
+    final cles = [for (final d in base) _cleSens(d.texte)];
+    final gardes = <bool>[];
+    for (var i = 0; i < base.length; i++) {
+      var garder = true;
+      for (var k = 0; k < base.length; k++) {
+        if (k != i && cles[k] == cles[i]) {
+          final ai = _ageSource(base[i].etiquette);
+          final ak = _ageSource(base[k].etiquette);
+          if (ak < ai || (ak == ai && k < i)) {
+            garder = false;
+            break;
+          }
+        }
+      }
+      gardes.add(garder);
+    }
+    return [
+      for (var i = 0; i < base.length; i++)
+        if (gardes[i]) base[i]
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
     final cap = j.chapeau(v, clit: clit);
-    final defs = j.definition(v);
+    final defs = _sensAffiches(j.definition(v));
     final body = <Widget>[
       Text(cap['titre'] ?? v,
           style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w600)),

@@ -44,6 +44,22 @@ class EcranReglages extends StatefulWidget {
 
 class _EcranReglagesState extends State<EcranReglages> {
   String? _message;
+  bool _wiktSeules = false;
+
+  @override
+  void initState() {
+    super.initState();
+    SharedPreferences.getInstance().then((p) {
+      if (mounted) {
+        setState(() => _wiktSeules = p.getBool('defs-wikt-seules') ?? false);
+      }
+    });
+  }
+
+  void _basculerWikt(bool v) {
+    setState(() => _wiktSeules = v);
+    SharedPreferences.getInstance().then((p) => p.setBool('defs-wikt-seules', v));
+  }
 
   /* export : toutes les preferences dans un fichier JSON */
   Future<void> _exporter() async {
@@ -135,6 +151,16 @@ class _EcranReglagesState extends State<EcranReglages> {
             selected: widget.theme == ModeTheme.sombre,
             onSelected: (_) => widget.surTheme(ModeTheme.sombre)),
       ]),
+      const SizedBox(height: 16),
+      Text(t('defs-wikt'),
+          style: const TextStyle(fontWeight: FontWeight.w600)),
+      SwitchListTile(
+        dense: true,
+        value: _wiktSeules,
+        onChanged: _basculerWikt,
+        title: Text(t('defs-wikt-titre')),
+        subtitle: Text(t('defs-wikt-aide'), style: const TextStyle(fontSize: 12)),
+      ),
       const SizedBox(height: 16),
       Text(t('ordre-cartes'),
           style: const TextStyle(fontWeight: FontWeight.w600)),

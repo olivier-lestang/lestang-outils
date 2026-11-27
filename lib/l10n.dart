@@ -75,6 +75,9 @@ final Map<String, Map<String, String>> _glossaires = {
     'sauvegarde-exporter': 'Exporter les préférences',
     'sauvegarde-importer': 'Importer les préférences',
     'ordre-cartes': 'Ordre des cartes',
+    'defs-wikt': 'Définitions du Wiktionary uniquement',
+    'defs-wikt-titre': 'Définitions du Wiktionary uniquement',
+    'defs-wikt-aide': 'Masque les définitions des dictionnaires en conjugaison ; en cas de doublon entre sources, la définition la plus ancienne est gardée.'
     'editer': 'Modifier',
   },
   'en': {
@@ -141,6 +144,9 @@ final Map<String, Map<String, String>> _glossaires = {
     'sauvegarde-exporter': 'Export preferences',
     'sauvegarde-importer': 'Import preferences',
     'ordre-cartes': 'Card order',
+    'defs-wikt': 'Wiktionary definitions only',
+    'defs-wikt-titre': 'Wiktionary definitions only',
+    'defs-wikt-aide': 'Hides dictionary definitions in conjugation; when two sources give the same definition, the oldest one is kept.'
     'editer': 'Edit',
   },
   'es': {
@@ -207,6 +213,9 @@ final Map<String, Map<String, String>> _glossaires = {
     'sauvegarde-exporter': 'Exportar preferencias',
     'sauvegarde-importer': 'Importar preferencias',
     'ordre-cartes': 'Orden de las tarjetas',
+    'defs-wikt': 'Solo definiciones del Wiktionary',
+    'defs-wikt-titre': 'Solo definiciones del Wiktionary',
+    'defs-wikt-aide': 'Oculta las definiciones de los diccionarios en conjugación; si dos fuentes dan la misma definición, se conserva la más antigua.'
     'editer': 'Editar',
   },
   'pt': {
@@ -273,6 +282,9 @@ final Map<String, Map<String, String>> _glossaires = {
     'sauvegarde-exporter': 'Exportar preferências',
     'sauvegarde-importer': 'Importar preferências',
     'ordre-cartes': 'Ordem dos cartões',
+    'defs-wikt': 'Só definições do Wiktionary',
+    'defs-wikt-titre': 'Só definições do Wiktionary',
+    'defs-wikt-aide': 'Oculta as definições dos dicionários na conjugação; se duas fontes dão a mesma definição, conserva-se a mais antiga.'
     'editer': 'Editar',
   },
   'it': {
@@ -339,6 +351,9 @@ final Map<String, Map<String, String>> _glossaires = {
     'sauvegarde-exporter': 'Esportare le preferenze',
     'sauvegarde-importer': 'Importare le preferenze',
     'ordre-cartes': 'Ordine delle schede',
+    'defs-wikt': 'Solo definizioni del Wiktionary',
+    'defs-wikt-titre': 'Solo definizioni del Wiktionary',
+    'defs-wikt-aide': 'Nasconde le definizioni dei dizionari nella coniugazione; se due fonti danno la stessa definizione, si conserva la più antica.'
     'editer': 'Modificare',
   },
   'de': {
@@ -405,6 +420,9 @@ final Map<String, Map<String, String>> _glossaires = {
     'sauvegarde-exporter': 'Einstellungen exportieren',
     'sauvegarde-importer': 'Einstellungen importieren',
     'ordre-cartes': 'Reihenfolge der Karten',
+    'defs-wikt': 'Nur Wiktionary-Definitionen',
+    'defs-wikt-titre': 'Nur Wiktionary-Definitionen',
+    'defs-wikt-aide': 'Blendet Wörterbuch-Definitionen in der Konjugation aus; geben zwei Quellen dieselbe Definition, wird die älteste behalten.'
     'editer': 'Ändern',
   },
 };
