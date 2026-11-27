@@ -3,6 +3,7 @@
    Portage de l interface des modules web de conjugaison.
    SPDX-License-Identifier : MIT. */
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../bdd.dart' as bdd;
@@ -98,7 +99,23 @@ class _EcranConjugaisonState extends State<EcranConjugaison> {
           Row(
             children: [
               Expanded(
-                child: TextField(
+                child: Focus(
+                  onKeyEvent: (noeud, e) {
+                    if (e is KeyDownEvent &&
+                        e.logicalKey == LogicalKeyboardKey.tab &&
+                        _sug.isNotEmpty) {
+                      final i = _sug.indexOf(_q.text.trim());
+                      var k = i < 0 ? 0 : (e.isShiftPressed ? i - 1 : i + 1);
+                      k = k < 0 ? _sug.length - 1 : k % _sug.length;
+                      final mot = _sug[k];
+                      _q.text = mot;
+                      _q.selection =
+                          TextSelection.collapsed(offset: mot.length);
+                      return KeyEventResult.handled;
+                    }
+                    return KeyEventResult.ignored;
+                  },
+                  child: TextField(
                   controller: _q,
                   decoration: InputDecoration(
                     hintText: t('chercher-verbe'),
@@ -113,6 +130,7 @@ class _EcranConjugaisonState extends State<EcranConjugaison> {
                     final s = j.jeu.suggestions(v.trim());
                     if (s.isNotEmpty) _prendre(s.first);
                   },
+                ),
                 ),
               ),
               if (widget.langue == 'fr')
@@ -159,6 +177,10 @@ class _EcranConjugaisonState extends State<EcranConjugaison> {
 }
 
 String _sansSe(String v) => v.startsWith('se ') ? v.substring(3) : v;
+
+/* La premiere lettre en majuscule, le reste inchanger */
+String _majuscule(String s) =>
+    s.isEmpty ? s : s[0].toUpperCase() + s.substring(1);
 
 /* ---------------- la carte d un verbe ---------------- */
 
@@ -363,7 +385,7 @@ class _CarteVerbeEtat extends State<_CarteVerbe> {
 
   /* un sens sans son etiquette, pour les groupes deja titres */
   Widget _sensTexte(Sens d) {
-    return Text(d.texte,
+    return Text(_majuscule(d.texte),
         style: const TextStyle(fontSize: 14, fontStyle: FontStyle.italic));
   }
 
@@ -375,7 +397,7 @@ class _CarteVerbeEtat extends State<_CarteVerbe> {
                 fontSize: 12,
                 color: Colors.grey,
                 fontWeight: petit ? FontWeight.w400 : FontWeight.w400)),
-      Text(d.texte,
+      Text(_majuscule(d.texte),
           style: TextStyle(
               fontSize: petit ? 12 : 14, fontStyle: FontStyle.italic)),
     ]);
@@ -415,7 +437,7 @@ class _CarteVerbeEtat extends State<_CarteVerbe> {
       decoration: BoxDecoration(
           color: accent.withOpacity(.12),
           borderRadius: BorderRadius.circular(6)),
-      child: Text(nom,
+      child: Text(_majuscule(nom),
           style: TextStyle(
               fontWeight: FontWeight.w700, fontSize: 13, color: accent)),
     );
@@ -435,7 +457,7 @@ class _CarteVerbeEtat extends State<_CarteVerbe> {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(tp.nom,
+          Text(_majuscule(tp.nom),
               style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13)),
           const SizedBox(height: 2),
           for (var i = 0; i < tp.val.length; i++)

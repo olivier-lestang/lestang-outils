@@ -71,8 +71,15 @@ class JeuConj {
     final n = conjNormaliser(q);
     final res = <String>[];
     if (n.isEmpty) return res;
+    /* la correspondance exacte passe en tete : Entree ou Tab choisissent
+       le mot tape, pas le suivant */
+    for (var i = 0; i < verbes.length; i++) {
+      if (plies[i] == n) res.add(verbes[i]);
+    }
     for (var i = 0; i < verbes.length && res.length < 40; i++) {
-      if (plies[i].startsWith(n)) res.add(verbes[i]);
+      if (plies[i].startsWith(n) && !res.contains(verbes[i])) {
+        res.add(verbes[i]);
+      }
     }
     if (res.length < 8) {
       for (var j = 0; j < verbes.length && res.length < 40; j++) {
