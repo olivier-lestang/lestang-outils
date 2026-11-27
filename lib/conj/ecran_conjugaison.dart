@@ -1,5 +1,5 @@
 /* L ecran de conjugaison : recherche, de, forme pronominale, planche de
-   temps teinte, definition avec sa ligne de source, grille anglaise.
+   temps teinte, definition avec la source au-dessus de chaque groupe, grille anglaise.
    Portage de l interface des modules web de conjugaison.
    SPDX-License-Identifier : MIT. */
 import 'package:flutter/material.dart';
@@ -23,29 +23,6 @@ const _teintes = <Color>[
   Color(0x267ad4ff), // 9 autre temps, cyan
 ];
 
-/* Les lignes de source des definitions, une par langue */
-const _sources = <String, String>{
-  'fr': "Littré (1872-1877) et Dictionnaire de l'Académie française, "
-      '8e édition (1932-1935), domaine public, complété du Wiktionary '
-      '(CC BY-SA 4.0)',
-  'en': "Webster's Revised Unabridged Dictionary, édition 1913 (GCIDE), "
-      'domaine public, complété du Wiktionary (CC BY-SA 4.0)',
-  'es': 'Diccionario de la lengua castellana, Real Academia Española, '
-      '14e édition, 1913, domaine public, complété du Wiktionary '
-      '(CC BY-SA 4.0)',
-  'it': 'Glossaire du projet et Wiktionary via kaikki.org (CC BY-SA 4.0)',
-  'pt': 'Glossaire du projet et Wiktionary via kaikki.org (CC BY-SA 4.0)',
-  'de': 'Glossaire du projet et Wiktionary via kaikki.org (CC BY-SA 4.0)',
-  'pl': 'Définitions du Wiktionary polonais (dumps pl.wiktionary) pour '
-      '4 378 verbes, glossaires anglais du Wiktionary via kaikki.org pour '
-      'les autres (CC BY-SA 4.0)',
-  'cs': 'Définitions du Wiktionary tchèque (dumps cs.wiktionary) pour '
-      '1 931 verbes, glossaires anglais du Wiktionary via tous les '
-      'wiktionary pour les autres (CC BY-SA 4.0)',
-  'ro': 'Définitions du Wiktionary roumain (dumps ro.wiktionary) pour '
-      '5 437 verbes, glossaires anglais du Wiktionary via tous les '
-      'wiktionary pour les autres (CC BY-SA 4.0)',
-};
 
 class EcranConjugaison extends StatefulWidget {
   final String langue; // fr, en, es, de, it, pt
@@ -171,8 +148,7 @@ class _EcranConjugaisonState extends State<EcranConjugaison> {
                 style:
                     const TextStyle(fontStyle: FontStyle.italic, fontSize: 13)),
           if (_verbe.isNotEmpty && j.connait(_sansSe(_verbe))) ...[
-            _CarteVerbe(j, _sansSe(_verbe), _clit, _sources[widget.langue]!, t,
-                widget.langue,
+            _CarteVerbe(j, _sansSe(_verbe), _clit, t, widget.langue,
                 onChoisir: _prendre),
           ],
         ],
@@ -189,11 +165,10 @@ class _CarteVerbe extends StatefulWidget {
   final PlanchesConjug j;
   final String v;
   final bool clit;
-  final String source;
   final Traducteur t;
   final String langue;
   final void Function(String)? onChoisir;
-  const _CarteVerbe(this.j, this.v, this.clit, this.source, this.t, this.langue,
+  const _CarteVerbe(this.j, this.v, this.clit, this.t, this.langue,
       {this.onChoisir});
 
   @override
@@ -204,7 +179,6 @@ class _CarteVerbeEtat extends State<_CarteVerbe> {
   PlanchesConjug get j => widget.j;
   String get v => widget.v;
   bool get clit => widget.clit;
-  String get source => widget.source;
   Traducteur get t => widget.t;
   String get langue => widget.langue;
   void Function(String)? get onChoisir => widget.onChoisir;
@@ -239,7 +213,7 @@ class _CarteVerbeEtat extends State<_CarteVerbe> {
       body.add(_planche());
       body.add(const SizedBox(height: 12));
     }
-    /* l encadre definition + source */
+    /* l encadre definition : la source figure au-dessus de chaque groupe */
     if (defs.isNotEmpty) {
       body.add(Container(
         padding: const EdgeInsets.fromLTRB(11, 7, 11, 9),
@@ -251,14 +225,6 @@ class _CarteVerbeEtat extends State<_CarteVerbe> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ..._groupesSens(defs),
-            const SizedBox(height: 2),
-            Text(source,
-                style: TextStyle(
-                    fontSize: 12,
-                    color: Theme.of(context)
-                        .colorScheme
-                        .onSurface
-                        .withOpacity(.55))),
           ],
         ),
       ));
