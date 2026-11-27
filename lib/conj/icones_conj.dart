@@ -21,9 +21,10 @@ const _drapeaux = <String, List<Color>>{
   'cs': [Color(0xffffffff), Color(0xffd7141a), Color(0xff11489e)],
 };
 
-/* Les tricolores a bandes verticales : france, italie, roumanie. */
+/* Les tricolores a bandes verticales : france ( charte 2020,
+   bleu France et rouge Marianne ), italie, roumanie. */
 const _verticaux = <String, List<Color>>{
-  'fr': [Color(0xff0055a4), Color(0xffffffff), Color(0xffef4135)],
+  'fr': [Color(0xff000091), Color(0xffffffff), Color(0xffe1000f)],
   'it': [Color(0xff008c45), Color(0xfff4f5f0), Color(0xffcd212a)],
   'ro': [Color(0xff002b7f), Color(0xfffcd116), Color(0xffce1126)],
 };
