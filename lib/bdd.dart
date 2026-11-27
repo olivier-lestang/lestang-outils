@@ -21,7 +21,7 @@ Future<String> cheminBdd() async {
 
 /// La version des donnees embarquees, a tenir a jour avec la valeur de
 /// meta ecrite par outils/construire_bdd.py.
-const versionBdd = '1.5.56';
+const versionBdd = '1.5.58';
 
 /// Ouvre la base : la premiere fois, l asset est copie sur le disque.
 /// La copie installee est reprise depuis l asset si sa version ( table
