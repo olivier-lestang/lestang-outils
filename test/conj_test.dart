@@ -77,14 +77,14 @@ void _verifier() {
   attendu(fleuv == '.', 'en aucun verbe de plus de 20 lettres ($fleuv)');
 
   // ES
-  attendu(cell('es', 'amar', 'Indicatif', 'présent', 0) == 'amo', 'es amo');
-  final pc = cell('es', 'amar', 'Indicatif', 'passé composé', 0);
+  attendu(cell('es', 'amar', 'Indicativo', 'presente', 0) == 'amo', 'es amo');
+  final pc = cell('es', 'amar', 'Indicativo', 'pretérito perfecto compuesto', 0);
   attendu(pc == 'he amado', 'es he amado (obtenu: $pc)');
-  final lvl = cell('es', 'alegrarse', 'Indicatif', 'présent', 0);
+  final lvl = cell('es', 'alegrarse', 'Indicativo', 'presente', 0);
   attendu(lvl == 'me alegro', 'es me levanto (obtenu: $lvl)');
 
   // IT
-  attendu(cell('it', 'capire', 'Indicativo', 'présent', 1) == 'capisci',
+  attendu(cell('it', 'capire', 'Indicativo', 'presente', 1) == 'capisci',
       'it capisci');
   final pnIt = cell('it', 'venire', 'Indicativo', 'passato prossimo', 0);
   attendu(pnIt == 'sono venuto', 'it sono venuto (obtenu: $pnIt)');
@@ -97,11 +97,11 @@ void _verifier() {
   attendu(jeux['pt']!.definition('falar').isNotEmpty, 'pt def falar');
 
   // DE
-  final pnDe = cell('de', 'verstehen', 'Indicatif (Indikativ)', 'parfait', 2);
+  final pnDe = cell('de', 'verstehen', 'Indikativ', 'Perfekt', 2);
   attendu(pnDe == 'hat verstanden', 'de hat verstanden (obtenu: $pnDe)');
-  final pnDe2 = cell('de', 'bringen', 'Indicatif (Indikativ)', 'parfait', 2);
+  final pnDe2 = cell('de', 'bringen', 'Indikativ', 'Perfekt', 2);
   attendu(pnDe2 == 'hat gebracht', 'de hat gebracht (obtenu: $pnDe2)');
-  attendu(cell('de', 'sein', 'Indicatif (Indikativ)', 'présent', 0) == 'bin',
+  attendu(cell('de', 'sein', 'Indikativ', 'Präsens', 0) == 'bin',
       'de ich bin');
   attendu(jeux['de']!.definition('verstehen').isNotEmpty, 'de def verstehen');
 
@@ -133,38 +133,38 @@ void _verifier() {
   attendu(jeux['pl']!.sourceVerbe('być') == 'w', 'pl être wiktionary');
 
   // polonais et tcheque : formes calculees par les moteurs
-  attendu(cell('pl', 'pracować', 'Indicatif', 'présent', 1) == 'pracujesz',
+  attendu(cell('pl', 'pracować', 'Tryb oznajmujący', 'czas teraźniejszy', 1) == 'pracujesz',
       'pl pracujesz');
-  attendu(cell('pl', 'pracować', 'Indicatif', 'futur', 0) == 'będę pracować',
+  attendu(cell('pl', 'pracować', 'Tryb oznajmujący', 'czas przyszły', 0) == 'będę pracować',
       'pl będę pracować');
-  attendu(cell('pl', 'pracować', 'Indicatif', 'passé', 4) == 'pracował' &&
-      cell('pl', 'pracować', 'Indicatif', 'passé', 11) == 'pracowali' &&
-      cell('pl', 'pracować', 'Indicatif', 'passé', 12) == 'pracowały',
+  attendu(cell('pl', 'pracować', 'Tryb oznajmujący', 'czas przeszły', 4) == 'pracował' &&
+      cell('pl', 'pracować', 'Tryb oznajmujący', 'czas przeszły', 11) == 'pracowali' &&
+      cell('pl', 'pracować', 'Tryb oznajmujący', 'czas przeszły', 12) == 'pracowały',
       'pl passé pracować');
-  attendu(cell('pl', 'pracować', 'Impératif', 'présent', 1) == 'pracujmy' &&
-      cell('pl', 'pracować', 'Impératif', 'présent', 2) == 'pracujcie',
+  attendu(cell('pl', 'pracować', 'Tryb rozkazujący', 'czas teraźniejszy', 1) == 'pracujmy' &&
+      cell('pl', 'pracować', 'Tryb rozkazujący', 'czas teraźniejszy', 2) == 'pracujcie',
       'pl impératif pracować');
-  attendu(cell('pl', 'być', 'Indicatif', 'présent', 5) == 'są', 'pl są');
-  attendu(cell('pl', 'iść', 'Indicatif', 'passé', 4) == 'szedł' &&
-      cell('pl', 'iść', 'Indicatif', 'passé', 5) == 'szła', 'pl passé iść');
-  attendu(cell('cs', 'dělat', 'Indicatif', 'présent', 1) == 'děláš',
+  attendu(cell('pl', 'być', 'Tryb oznajmujący', 'czas teraźniejszy', 5) == 'są', 'pl są');
+  attendu(cell('pl', 'iść', 'Tryb oznajmujący', 'czas przeszły', 4) == 'szedł' &&
+      cell('pl', 'iść', 'Tryb oznajmujący', 'czas przeszły', 5) == 'szła', 'pl passé iść');
+  attendu(cell('cs', 'dělat', 'Oznamovací způsob', 'přítomný', 1) == 'děláš',
       'cs děláš');
-  attendu(cell('cs', 'dělat', 'Indicatif', 'passé', 0) == 'dělal jsem',
+  attendu(cell('cs', 'dělat', 'Oznamovací způsob', 'minulý', 0) == 'dělal jsem',
       'cs passé dělat');
-  attendu(cell('cs', 'dělat', 'Conditionnel', 'présent', 0) == 'dělal bych',
+  attendu(cell('cs', 'dělat', 'Podmiňovací způsob', 'přítomný', 0) == 'dělal bych',
       'cs conditionnel dělat');
-  attendu(cell('cs', 'být', 'Indicatif', 'présent', 5) == 'jsou', 'cs jsou');
+  attendu(cell('cs', 'být', 'Oznamovací způsob', 'přítomný', 5) == 'jsou', 'cs jsou');
   // verbes exceptionnels (formes verbatim du Wiktionary)
-  attendu(cell('pl', 'zobaczyć', 'Indicatif', 'futur', 0) == 'zobaczę' &&
-      cell('pl', 'zobaczyć', 'Indicatif', 'passé', 5) == 'zobaczyła',
+  attendu(cell('pl', 'zobaczyć', 'Tryb oznajmujący', 'czas przyszły', 0) == 'zobaczę' &&
+      cell('pl', 'zobaczyć', 'Tryb oznajmujący', 'czas przeszły', 5) == 'zobaczyła',
       'pl zobaczyć');
-  attendu(cell('pl', 'zobaczyć', 'Conditionnel', 'présent', 0) == 'zobaczyłbym',
+  attendu(cell('pl', 'zobaczyć', 'Tryb przypuszczający', 'czas przeszły', 0) == 'zobaczyłbym',
       'pl conditionnel zobaczyć');
-  attendu(cell('pl', 'wziąć', 'Indicatif', 'passé', 4) == 'wziął' &&
-      cell('pl', 'wziąć', 'Conditionnel', 'présent', 7) == 'wzięlibyśmy',
+  attendu(cell('pl', 'wziąć', 'Tryb oznajmujący', 'czas przeszły', 4) == 'wziął' &&
+      cell('pl', 'wziąć', 'Tryb przypuszczający', 'czas przeszły', 7) == 'wzięlibyśmy',
       'pl wziąć');
-  attendu(cell('cs', 'muset', 'Indicatif', 'présent', 0) == 'musím' &&
-      cell('cs', 'muset', 'Indicatif', 'passé', 4) == 'musel',
+  attendu(cell('cs', 'muset', 'Oznamovací způsob', 'přítomný', 0) == 'musím' &&
+      cell('cs', 'muset', 'Oznamovací způsob', 'minulý', 4) == 'musel',
       'cs muset');
   attendu(jeux['pl']!.definition('pracować').isNotEmpty, 'pl def pracować');
   attendu(jeux['cs']!.definition('dělat').isNotEmpty, 'cs def dělat');

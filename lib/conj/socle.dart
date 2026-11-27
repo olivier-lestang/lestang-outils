@@ -23,15 +23,29 @@ String conjNormaliser(String s) {
 int conjTeinteTemps(String nom) {
   final n = conjNormaliser(nom);
   if (n.contains('anterieur') || n.contains('anterior')) {
-    return n.contains('futur') ? 7 : 6;
+    return n.contains('futur') || n.contains('futuro') ? 7 : 6;
   }
-  if (n.contains('compose') || n.contains('compuesto')) return 4;
-  if (n.contains('plus')) return 5;
-  if (n.contains('futur')) return 3;
-  if (n.contains('simple')) return 2;
-  if (n.contains('imparfait') || n.contains('imperfecto')) return 1;
-  if (n.contains('present')) return 0;
-  if (n.contains('passe') || n.contains('parfait')) return 8;
+  if (n.contains('compose') || n.contains('compuesto') ||
+      n.contains('composto') || n.contains('compus') ||
+      n.contains('prossimo')) return 4;
+  if (n.contains('plus') || n.contains('trapassato') ||
+      n.contains('mais-que') || n.contains('mult ca')) return 5;
+  if (n.contains('futur') || n.contains('futuro') || n.contains('viitor') ||
+      n.contains('przyszły') || n.contains('budoucí')) return 3;
+  if (n.contains('simple') || n.contains('simplu') || n.contains('remoto')) {
+    return 2;
+  }
+  if (n.contains('imparfait') || n.contains('imperfecto') ||
+      n.contains('imperfetto') || n.contains('imperfect')) return 1;
+  if (n.contains('present') || n.contains('présent') ||
+      n.contains('präsens') || n.contains('prezent') ||
+      n.contains('přítomný') || n.contains('teraźniejszy')) return 0;
+  if (n.contains('passe') || n.contains('passé') ||
+      n.contains('parfait') || n.contains('perfekt') ||
+      n.contains('perfecto') || n.contains('passato') ||
+      n.contains('pasado') || n.contains('präteritum') ||
+      n.contains('przeszły') || n.contains('minulý') ||
+      n.contains('perfect') || n.contains('trecut')) return 8;
   return 9;
 }
 

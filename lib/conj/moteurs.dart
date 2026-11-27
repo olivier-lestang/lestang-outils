@@ -605,45 +605,45 @@ class Es {
     final f = _formes(v), H = _auxHaber();
     final pp = f['pp4']![0];
     final modes = <Mode>[];
-    modes.add(Mode('Infinitif', [
-      Temps('présent', ['—'], [v]),
-      Temps('parfait', ['—'], [pp.isEmpty ? '' : '${H['pri']![2]} $pp']),
+    modes.add(Mode('Infinitivo', [
+      Temps('presente', ['—'], [v]),
+      Temps('compuesto', ['—'], [pp.isEmpty ? '' : '${H['pri']![2]} $pp']),
     ]));
-    modes.add(Mode('Indicatif', [
-      Temps('présent', _PERS_ES, _lignes(f['pri']!, clit), f['finPri']),
-      Temps('imparfait', _PERS_ES, _lignes(f['pii']!, clit)),
-      Temps('passé simple', _PERS_ES, _lignes(f['ifi']!, clit)),
-      Temps('futur simple', _PERS_ES, _lignes(f['fti']!, clit)),
-      Temps('passé composé', _PERS_ES, _composes(H['pri']!, pp, clit)),
-      Temps('plus-que-parfait', _PERS_ES, _composes(H['pii']!, pp, clit)),
-      Temps('passé antérieur', _PERS_ES, _composes(H['ifi']!, pp, clit)),
-      Temps('futur antérieur', _PERS_ES, _composes(H['fti']!, pp, clit)),
+    modes.add(Mode('Indicativo', [
+      Temps('presente', _PERS_ES, _lignes(f['pri']!, clit), f['finPri']),
+      Temps('pretérito imperfecto', _PERS_ES, _lignes(f['pii']!, clit)),
+      Temps('pretérito perfecto simple', _PERS_ES, _lignes(f['ifi']!, clit)),
+      Temps('futuro simple', _PERS_ES, _lignes(f['fti']!, clit)),
+      Temps('pretérito perfecto compuesto', _PERS_ES, _composes(H['pri']!, pp, clit)),
+      Temps('pretérito pluscuamperfecto', _PERS_ES, _composes(H['pii']!, pp, clit)),
+      Temps('pretérito anterior', _PERS_ES, _composes(H['ifi']!, pp, clit)),
+      Temps('futuro compuesto', _PERS_ES, _composes(H['fti']!, pp, clit)),
     ]));
-    modes.add(Mode('Conditionnel', [
-      Temps('présent', _PERS_ES, _lignes(f['cni']!, clit)),
-      Temps('passé', _PERS_ES, _composes(H['cni']!, pp, clit)),
+    modes.add(Mode('Condicional', [
+      Temps('simple', _PERS_ES, _lignes(f['cni']!, clit)),
+      Temps('compuesto', _PERS_ES, _composes(H['cni']!, pp, clit)),
     ]));
-    modes.add(Mode('Subjonctif', [
-      Temps('présent', _PERS_SUB_ES, _lignes(f['prs']!, clit)),
-      Temps('imparfait', _PERS_SUB_ES, _lignes(f['pis']!, clit)),
-      Temps('futur (archaïque)', _PERS_SUB_ES, _lignes(f['fts']!, clit)),
-      Temps('passé', _PERS_SUB_ES, _composes(H['prs']!, pp, clit)),
-      Temps('plus-que-parfait', _PERS_SUB_ES, _composes(H['pis']!, pp, clit)),
+    modes.add(Mode('Subjuntivo', [
+      Temps('presente', _PERS_SUB_ES, _lignes(f['prs']!, clit)),
+      Temps('pretérito imperfecto', _PERS_SUB_ES, _lignes(f['pis']!, clit)),
+      Temps('futuro (arcaico)', _PERS_SUB_ES, _lignes(f['fts']!, clit)),
+      Temps('pretérito perfecto', _PERS_SUB_ES, _composes(H['prs']!, pp, clit)),
+      Temps('pretérito pluscuamperfecto', _PERS_SUB_ES, _composes(H['pis']!, pp, clit)),
     ]));
-    modes.add(Mode('Impératif', [
-      Temps('présent', _IMP_PER_ES, _imperatif(f['imp']!, clit)),
+    modes.add(Mode('Imperativo', [
+      Temps('presente', _IMP_PER_ES, _imperatif(f['imp']!, clit)),
     ]));
-    modes.add(Mode('Participe', [
+    modes.add(Mode('Participio', [
       Temps(
-          'passé',
+          'pasado',
           const [
-            'masculin singulier',
-            'masculin pluriel',
-            'féminin singulier',
-            'féminin pluriel'
+            'masculino singular',
+            'masculino plural',
+            'femenino singular',
+            'femenino plural'
           ],
           (f['pp4']!)),
-      Temps('présent', ['gérondif'], f['ger']!, f['gerBrut']),
+      Temps('presente', ['gerundio'], f['ger']!, f['gerBrut']),
     ]));
     return modes;
   }
@@ -727,11 +727,11 @@ class It {
 
     final modes = <Mode>[];
     modes.add(Mode('Infinito', [
-      Temps('présent', ['—'], [v]),
-      Temps('passé', ['—'], ['${aux('P')[0]} $pp']),
+      Temps('presente', ['—'], [v]),
+      Temps('passato', ['—'], ['${aux('P')[0]} $pp']),
     ]));
     modes.add(Mode('Indicativo', [
-      simple('présent', r.c[0]),
+      simple('presente', r.c[0]),
       simple('imperfetto', r.c[1]),
       simple('passato remoto', r.c[2]),
       simple('futuro semplice', r.c[3]),
@@ -753,7 +753,7 @@ class It {
       Temps('presente', impPer, r.pleines(r.c[7])),
     ]));
     modes.add(Mode('Participio', [
-      Temps('passé', ['participio passato'], [pp]),
+      Temps('passato', ['participio passato'], [pp]),
     ]));
     return modes;
   }
@@ -813,11 +813,11 @@ class Pt {
 
     final modes = <Mode>[];
     modes.add(Mode('Infinitivo', [
-      Temps('présent', ['—'], [v]),
-      Temps('passé', ['—'], ['${aux('P')[0]} $pp']),
+      Temps('impessoal', ['—'], [v]),
+      Temps('composto', ['—'], ['${aux('P')[0]} $pp']),
     ]));
     modes.add(Mode('Indicativo', [
-      simple('présent', r.c[0]),
+      simple('presente', r.c[0]),
       simple('pretérito imperfeito', r.c[1]),
       simple('pretérito perfeito simples', r.c[2]),
       simple('futuro simples', r.c[3]),
@@ -836,10 +836,10 @@ class Pt {
       Temps('pretérito mais-que-perfeito composto', per2, compose(aux('S2'))),
     ]));
     modes.add(Mode('Imperativo', [
-      Temps('présent', impPer, r.pleines(r.c[7])),
+      Temps('presente', impPer, r.pleines(r.c[7])),
     ]));
     modes.add(Mode('Particípio', [
-      Temps('passé', ['particípio passado'], [pp]),
+      Temps('passado', ['particípio passado'], [pp]),
     ]));
     return modes;
   }
@@ -891,32 +891,32 @@ class De {
         a.map((h) => h.isEmpty ? '' : '$h $morceau').toList();
 
     final modes = <Mode>[];
-    modes.add(Mode('Infinitif', [
-      Temps('présent', ['—'], [v]),
+    modes.add(Mode('Infinitiv', [
+      Temps('Präsens', ['—'], [v]),
       Temps(
-          'parfait', ['—'], ['${fic.pp} ${fic.aux == 's' ? 'sein' : 'haben'}']),
+          'Perfekt', ['—'], ['${fic.pp} ${fic.aux == 's' ? 'sein' : 'haben'}']),
     ]));
-    modes.add(Mode('Indicatif (Indikativ)', [
-      Temps('présent', _PERS_DE, P),
-      Temps('prétérit', _PERS_DE, R),
-      Temps('parfait', _PERS_DE, compose(_aux(auxNom, 0), fic.pp)),
-      Temps('plus-que-parfait', _PERS_DE, compose(_aux(auxNom, 1), fic.pp)),
-      Temps('futur', _PERS_DE, compose(_aux('werden', 0), v)),
+    modes.add(Mode('Indikativ', [
+      Temps('Präsens', _PERS_DE, P),
+      Temps('Präteritum', _PERS_DE, R),
+      Temps('Perfekt', _PERS_DE, compose(_aux(auxNom, 0), fic.pp)),
+      Temps('Plusquamperfekt', _PERS_DE, compose(_aux(auxNom, 1), fic.pp)),
+      Temps('Futur I', _PERS_DE, compose(_aux('werden', 0), v)),
       Temps(
-          'futur antérieur',
+          'Futur II',
           _PERS_DE,
           compose(_aux('werden', 0),
               '${fic.pp} ${fic.aux == 's' ? 'sein' : 'haben'}')),
     ]));
     modes.add(Mode('Konjunktiv II', [
-      Temps('présent', _PERS_DE, W),
-      Temps('passé', _PERS_DE, compose(auxK2, fic.pp)),
+      Temps('Präsens', _PERS_DE, W),
+      Temps('Vergangenheit', _PERS_DE, compose(auxK2, fic.pp)),
     ]));
-    modes.add(Mode('Impératif', [
-      Temps('présent', _IMP_PER_DE, IMP),
+    modes.add(Mode('Imperativ', [
+      Temps('Präsens', _IMP_PER_DE, IMP),
     ]));
-    modes.add(Mode('Participe', [
-      Temps('parfait', ['Partizip II'], [fic.pp]),
+    modes.add(Mode('Partizip', [
+      Temps('Partizip II', ['Partizip II'], [fic.pp]),
     ]));
     return modes;
   }
@@ -1237,21 +1237,21 @@ class Pl {
     final mode = <Mode>[];
     final ind = <Temps>[];
     if (asp == 'i') {
-      ind.add(Temps('présent', _per, pres));
-      ind.add(Temps('futur', _per,
+      ind.add(Temps('czas teraźniejszy', _per, pres));
+      ind.add(Temps('czas przyszły', _per,
           ['będę', 'będziesz', 'będzie', 'będziemy', 'będziecie', 'będą']
               .map((b) => '$b ${t.nom}').toList()));
     } else {
-      ind.add(Temps('futur', _per, pres));
+      ind.add(Temps('czas przyszły', _per, pres));
     }
-    ind.add(Temps('passé', _perP, past));
-    mode.add(Mode('Indicatif', ind));
+    ind.add(Temps('czas przeszły', _perP, past));
+    mode.add(Mode('Tryb oznajmujący', ind));
     final cond = [
       for (var i = 0; i < 13; i++) '${past[_condIdx[i]]}${_condSuf[i]}'
     ];
-    mode.add(Mode('Conditionnel', [Temps('présent', _perP, cond)]));
+    mode.add(Mode('Tryb przypuszczający', [Temps('czas przeszły', _perP, cond)]));
     if (imp.any((x) => x.isNotEmpty)) {
-      mode.add(Mode('Impératif', [Temps('présent', _perImp, imp)]));
+      mode.add(Mode('Tryb rozkazujący', [Temps('czas teraźniejszy', _perImp, imp)]));
     }
     return mode;
   }
@@ -1266,63 +1266,63 @@ class Pl {
     final pres = _present(t);
     final ind = <Temps>[];
     if (asp == 'i') {
-      ind.add(Temps('présent', _per, pres));
-      ind.add(Temps('futur', _per,
+      ind.add(Temps('czas teraźniejszy', _per, pres));
+      ind.add(Temps('czas przyszły', _per,
           ['będę', 'będziesz', 'będzie', 'będziemy', 'będziecie', 'będą']
               .map((b) => '$b $v').toList()));
     } else {
-      ind.add(Temps('futur', _per, pres));
+      ind.add(Temps('czas przyszły', _per, pres));
     }
-    ind.add(Temps('passé', _perP, _passe(t)));
-    mode.add(Mode('Indicatif', ind));
-    mode.add(Mode('Conditionnel', [Temps('présent', _perP, _cond(t))]));
+    ind.add(Temps('czas przeszły', _perP, _passe(t)));
+    mode.add(Mode('Tryb oznajmujący', ind));
+    mode.add(Mode('Tryb przypuszczający', [Temps('czas przeszły', _perP, _cond(t))]));
     final imp2 = t.c[5];
-    mode.add(Mode('Impératif', [
-      Temps('présent', _perImp, [imp2, imp2 + 'my', imp2 + 'cie'])
+    mode.add(Mode('Tryb rozkazujący', [
+      Temps('czas teraźniejszy', _perImp, [imp2, imp2 + 'my', imp2 + 'cie'])
     ]));
     return mode;
   }
 
   static List<Mode> get _byc {
     return [
-      Mode('Indicatif', [
-        Temps('présent', _per,
+      Mode('Tryb oznajmujący', [
+        Temps('czas teraźniejszy', _per,
             const ['jestem', 'jesteś', 'jest', 'jesteśmy', 'jesteście', 'są']),
-        Temps('futur', _per,
+        Temps('czas przyszły', _per,
             const ['będę', 'będziesz', 'będzie', 'będziemy', 'będziecie', 'będą']),
-        Temps('passé', _perP, const [
+        Temps('czas przeszły', _perP, const [
           'byłem', 'byłam', 'byłeś', 'byłaś', 'był', 'była', 'było',
           'byliśmy', 'byłyśmy', 'byliście', 'byłyście', 'byli', 'były'
         ]),
       ]),
-      Mode('Conditionnel', [Temps('présent', _perP, const [
+      Mode('Tryb przypuszczający', [Temps('czas przeszły', _perP, const [
         'byłbym', 'byłabym', 'byłbyś', 'byłabyś', 'byłby', 'byłaby', 'byłoby',
         'bylibyśmy', 'byłybyśmy', 'bylibyście', 'byłybyście', 'byliby', 'byłyby'
       ])]),
-      Mode('Impératif', [Temps(
+      Mode('Tryb rozkazujący', [Temps(
           'présent', _perImp, const ['bądź', 'bądźmy', 'bądźcie'])]),
     ];
   }
 
   static List<Mode> get _isc {
     return [
-      Mode('Indicatif', [
-        Temps('présent', _per,
+      Mode('Tryb oznajmujący', [
+        Temps('czas teraźniejszy', _per,
             const ['idę', 'idziesz', 'idzie', 'idziemy', 'idziecie', 'idą']),
-        Temps('futur', _per, const [
+        Temps('czas przyszły', _per, const [
           'będę iść', 'będziesz iść', 'będzie iść',
           'będziemy iść', 'będziecie iść', 'będą iść'
         ]),
-        Temps('passé', _perP, const [
+        Temps('czas przeszły', _perP, const [
           'szedłem', 'szłam', 'szedłeś', 'szłaś', 'szedł', 'szła', 'szło',
           'szliśmy', 'szłyśmy', 'szliście', 'szłyście', 'szli', 'szły'
         ]),
       ]),
-      Mode('Conditionnel', [Temps('présent', _perP, const [
+      Mode('Tryb przypuszczający', [Temps('czas przeszły', _perP, const [
         'szedłbym', 'szłabym', 'szedłbyś', 'szłabyś', 'szedłby', 'szłaby', 'szłoby',
         'szlibyśmy', 'szłybyśmy', 'szlibyście', 'szłybyście', 'szliby', 'szłyby'
       ])]),
-      Mode('Impératif', [Temps(
+      Mode('Tryb rozkazujący', [Temps(
           'présent', _perImp, const ['idź', 'idźmy', 'idźcie'])]),
     ];
   }
@@ -1368,18 +1368,18 @@ class Cs {
     final mode = <Mode>[];
     final ind = <Temps>[];
     if (asp == 'i') {
-      ind.add(Temps('présent', _per, pres));
-      ind.add(Temps('futur', _per,
+      ind.add(Temps('přítomný', _per, pres));
+      ind.add(Temps('budoucí', _per,
           ['budu', 'budeš', 'bude', 'budeme', 'budete', 'budou']
               .map((b) => '$b ${t.nom}').toList()));
     } else {
-      ind.add(Temps('futur', _per, pres));
+      ind.add(Temps('budoucí', _per, pres));
     }
-    ind.add(Temps('passé', _perP, _passe(synth)));
-    mode.add(Mode('Indicatif', ind));
-    mode.add(Mode('Conditionnel', [Temps('présent', _perP, _cond(synth))]));
+    ind.add(Temps('minulý', _perP, _passe(synth)));
+    mode.add(Mode('Oznamovací způsob', ind));
+    mode.add(Mode('Podmiňovací způsob', [Temps('přítomný', _perP, _cond(synth))]));
     if (imp.any((x) => x.isNotEmpty)) {
-      mode.add(Mode('Impératif', [Temps('présent', _perImp, imp)]));
+      mode.add(Mode('Rozkazovací způsob', [Temps('přítomný', _perImp, imp)]));
     }
     return mode;
   }
@@ -1405,16 +1405,16 @@ class Cs {
     final pres = _present(t);
     final ind = <Temps>[];
     if (asp == 'i') {
-      ind.add(Temps('présent', _per, pres));
-      ind.add(Temps('futur', _per,
+      ind.add(Temps('přítomný', _per, pres));
+      ind.add(Temps('budoucí', _per,
           ['budu', 'budeš', 'bude', 'budeme', 'budete', 'budou']
               .map((b) => '$b $v').toList()));
     } else {
-      ind.add(Temps('futur', _per, pres));
+      ind.add(Temps('budoucí', _per, pres));
     }
-    ind.add(Temps('passé', _perP, _passe(t)));
-    mode.add(Mode('Indicatif', ind));
-    mode.add(Mode('Conditionnel', [Temps('présent', _perP, _cond(t))]));
+    ind.add(Temps('minulý', _perP, _passe(t)));
+    mode.add(Mode('Oznamovací způsob', ind));
+    mode.add(Mode('Podmiňovací způsob', [Temps('přítomný', _perP, _cond(t))]));
     final imp2 = t.c[6];
     String i1, i2;
     if (imp2.endsWith('i')) {
@@ -1424,30 +1424,30 @@ class Cs {
       i1 = imp2 + 'me';
       i2 = imp2 + 'te';
     }
-    mode.add(Mode('Impératif',
-        [Temps('présent', _perImp, [imp2, i1, i2])]));
+    mode.add(Mode('Rozkazovací způsob',
+        [Temps('přítomný', _perImp, [imp2, i1, i2])]));
     return mode;
   }
 
   static List<Mode> get _byt {
     return [
-      Mode('Indicatif', [
-        Temps('présent', _per,
+      Mode('Oznamovací způsob', [
+        Temps('přítomný', _per,
             const ['jsem', 'jsi', 'je', 'jsme', 'jste', 'jsou']),
-        Temps('futur', _per,
+        Temps('budoucí', _per,
             const ['budu', 'budeš', 'bude', 'budeme', 'budete', 'budou']),
-        Temps('passé', _perP, const [
+        Temps('minulý', _perP, const [
           'byl jsem', 'byla jsem', 'byl jsi', 'byla jsi',
           'byl', 'byla', 'bylo',
           'byli jsme', 'byly jsme', 'byli jste', 'byly jste', 'byli', 'byly'
         ]),
       ]),
-      Mode('Conditionnel', [Temps('présent', _perP, const [
+      Mode('Podmiňovací způsob', [Temps('přítomný', _perP, const [
         'byl bych', 'byla bych', 'byl bys', 'byla bys',
         'byl by', 'byla by', 'bylo by',
         'byli bychom', 'byly bychom', 'byli byste', 'byly byste', 'byli by', 'byly by'
       ])]),
-      Mode('Impératif', [Temps(
+      Mode('Rozkazovací způsob', [Temps(
           'présent', _perImp, const ['buď', 'buďme', 'buďte'])]),
     ];
   }

@@ -694,6 +694,7 @@ Détail du procédé :
   « {Term|...}} » convertis en etiquettes textuelles ;
   cf. outils/nettoie_ocr2.py ). Plus aucun residu detecte ;
   total inchange : 176 941 sens, 0 sans source.
+- **Lot 34 de localisation, noms des modes et des temps de conjugaison ( version 1.5.54 )** : les planches de conjugaison des langues etrangeres affichent desormais leurs propres noms de modes et de temps ( es : Indicativo, presente, preterito imperfecto, futuro simple ; it : Infinito, presente, passato prossimo ; pt : Infinitivo, presente, preterito perfeito composto ; de : Indikativ, Prasens, Prateritum, Perfekt, Futur II ; pl : Tryb oznajmujacy, czas terazniejszy, czas przeszly ; cs : Oznamovaci zpusob, pritomny, minuly, budouci ). Les pronoms etaient deja localises ; le roumain etait deja localise ; le francais reste en francais. La teinte des cartes ( lib/conj/socle.dart ) reconnait les nouveaux noms. Code Dart uniquement ( lib/conj/moteurs.dart, lib/conj/socle.dart, test/conj_test.dart ) ; donnees et base inchangees.
 - **Comblement des définitions manquantes ( Wiktionary, CC BY-SA 4.0 )** :
   avec les filtres abandonnés, 439 verbes restaient sans définition
   ( fr 4, en 7, es 19, pl 356, cs 53 ). Ils ont été traités depuis
