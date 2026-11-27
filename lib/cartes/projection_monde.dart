@@ -54,6 +54,9 @@ List<double> eeInv(double nx, double ny) {
   return [lon, lat];
 }
 
+/* ratio du plan Equal Earth : 2.0546 pour 1 */
+const double ratioEe = 2.0546;
+
 /* ---------------- point subsolaire ( declinaison NOAA + equation du temps ) ---------------- */
 
 class PointSolaire {
@@ -136,8 +139,30 @@ List<Offset> polygoneNuit(PointSolaire soleil, {double meridien = 0}) {
             _rad;
     nuit.add(versPlan(lon, latTerme));
   }
+  /* la fermeture suit les bords de la carte ( meridiens 180 et -180,
+     ligne du pole en nuit ), echantillonnes le long des arcs : la
+     projection Equal Earth courbe les meridiens, une corde droite
+     entre la courbe et le pole laissait des regions entieres du
+     mauvais cote de la limite jour / nuit */
+  final latBord =
+      math.atan(-cosLat * math.cos((180 - soleil.lon) * _rad) / sinLat) /
+          _rad;
+  final pas = poleNuit > 0 ? 5.0 : -5.0;
+  for (var la = latBord + pas;
+      pas > 0 ? la <= poleNuit : la >= poleNuit;
+      la += pas) {
+    nuit.add(versPlan(180, la));
+  }
   nuit.add(versPlan(180, poleNuit));
-  nuit.add(versPlan(-180, poleNuit));
+  for (var lo = 180.0; lo >= -180; lo -= 15) {
+    nuit.add(versPlan(lo, poleNuit));
+  }
+  for (var la = poleNuit - pas;
+      pas > 0 ? la >= latBord : la <= latBord;
+      la -= pas) {
+    nuit.add(versPlan(-180, la));
+  }
+  nuit.add(versPlan(-180, latBord));
   return nuit;
 }
 

@@ -1,8 +1,9 @@
-/* Les cartes geographiques : France, Union europeenne, Monde.
-   Les geometries viennent de la base SQLite, le rendu reprend les couleurs
-   du web ( js/france, js/union, js/monde ) en deux palettes clair / sombre.
-   L Union colore chaque Etat membre ; la carte du monde dessine la
-   projection Equal Earth du web et la zone de nuit calculee sur place.
+/* Les cartes geographiques : France ( avec DROM-COM ) et Union
+   europeenne. Les geometries viennent de la base SQLite, le rendu
+   reprend les couleurs du web ( js/france, js/union ) en deux palettes
+   clair / sombre. L Union colore chaque Etat membre ; le peintre et
+   l ecran restent generiques, la carte du monde vit dans
+   carte_monde.dart.
    SPDX-License-Identifier : MIT. */
 import 'dart:math' as math;
 import 'dart:typed_data';
@@ -11,40 +12,13 @@ import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart' show Vector4;
 
 import '../bdd.dart' as bdd;
+import 'carte_monde.dart';
 import 'departements.dart';
 import 'palette_union.dart';
 import 'projection_monde.dart';
+import 'styles_cartes.dart';
 
-/* ratio du plan Equal Earth : 2.0546 pour 1 */
-const double ratioEe = 2.0546;
-
-/* ---------------- styles par couche ---------------- */
-
-class StyleTrait {
-  final Color couleur;
-  final double largeur;
-  final Color? remplissage;
-  final List<double>? tirets;
-  final bool ferme; // couche de polygones : la fermeture se trace
-  const StyleTrait(this.couleur, this.largeur,
-      {this.remplissage, this.tirets, this.ferme = false});
-}
-
-class StyleFleche {
-  final Color couleur;
-  final double rayon;
-  final double? rayonMin; // visible au-dela de ce zoom (echelle)
-  const StyleFleche(this.couleur, this.rayon, {this.rayonMin});
-}
-
-class ReglagesCarte {
-  final Map<String, StyleTrait> couches;
-  final Map<String, StyleFleche> points;
-  final Map<String, int> labelsMinZoom; // etiquettes visibles au-dela du zoom
-  final Rect bornes; // cadrage initial, en unites du plan
-  const ReglagesCarte(
-      this.couches, this.points, this.labelsMinZoom, this.bornes);
-}
+/* ---------------- les styles ( styles_cartes.dart ) ---------------- */
 
 /* France metropole : x = lon * cos(46.245), y = lat */
 ReglagesCarte reglagesFrance(bool clair) => ReglagesCarte(
@@ -182,26 +156,6 @@ ReglagesCarte reglagesUnion(bool clair) => ReglagesCarte(
       Rect.fromLTRB((15.0 - 23.0) * 0.6918, 67.0, (15.0 + 23.0) * 0.6918, 35.0),
     );
 
-/* Monde : lon et lat bruts, projetes en Equal Earth au dessin */
-ReglagesCarte reglagesMonde(bool clair) => ReglagesCarte(
-      {
-        'frontieres': StyleTrait(
-            clair ? const Color(0xff495057) : const Color(0xffadb5bd), 0.4,
-            remplissage:
-                clair ? const Color(0x146b705c) : const Color(0x142f9e44),
-            ferme: true),
-      },
-      {
-        'villes': StyleFleche(
-            clair ? const Color(0xffc92a2a) : const Color(0xffff8787), 1.8,
-            rayonMin: -1),
-      },
-      {
-        'villes': -1,
-      },
-      const Rect.fromLTRB(-ratioEe, 1, ratioEe, -1),
-    );
-
 /* ---------------- le peintre ---------------- */
 
 class PeintreCarte extends CustomPainter {
@@ -297,23 +251,9 @@ class PeintreCarte extends CustomPainter {
         }
       }
     }
-    /* zone de nuit du monde */
+    /* zone de nuit du monde, dans son fichier a elle */
     if (carte == 'monde') {
-      final soleil = pointSolaire(heureMonde.toUtc());
-      final polygone = polygoneNuit(soleil);
-      final path = Path();
-      var premier = true;
-      for (final sommet in polygone) {
-        final pos = versPlan(sommet.dx * ratioEe, sommet.dy);
-        if (premier) {
-          path.moveTo(pos.dx, pos.dy);
-          premier = false;
-        } else {
-          path.lineTo(pos.dx, pos.dy);
-        }
-      }
-      path.close();
-      canvas.drawPath(path, Paint()..color = const Color(0x55000c33));
+      dessineZoneNuit(canvas, versPlan, heureMonde);
     }
     /* points et etiquettes : rayons et textes contre-cales, taille
        constante a l ecran quel que soit le zoom ; les etiquettes
@@ -523,7 +463,7 @@ class _EcranCarteState extends State<EcranCarte> {
       'eroutes',
       'lgv'
     ],
-    'monde': ['frontieres'],
+    'monde': couchesMonde,
   };
   static const _nomsPoints = <String, List<String>>{
     'france': [
@@ -543,7 +483,7 @@ class _EcranCarteState extends State<EcranCarte> {
       'refs-rd',
       'refs-er'
     ],
-    'monde': ['villes'],
+    'monde': pointsMonde,
   };
 
   @override
@@ -589,26 +529,8 @@ class _EcranCarteState extends State<EcranCarte> {
     final py = (dy - inverse.y) / echelle;
     String? texte;
     if (widget.carte == 'monde') {
-      final inv = eeInv(px / ratioEe, py);
       final villes = _points?['villes'] ?? const <bdd.PointNomme>[];
-      bdd.PointNomme? proche;
-      var meilleure = 1e9;
-      for (final v in villes) {
-        final p = ee(v.y, v.x);
-        final dd = (p.dx * ratioEe - px) * (p.dx * ratioEe - px) +
-            (p.dy - py) * (p.dy - py);
-        if (dd < meilleure) {
-          meilleure = dd;
-          proche = v;
-        }
-      }
-      if (proche != null &&
-          proche.nom.isNotEmpty &&
-          meilleure * echelle * echelle < 20 * 20) {
-        texte = proche.nom + (proche.info.isEmpty ? '' : ' · ${proche.info}');
-      } else {
-        texte = '${inv[1].toStringAsFixed(1)}°, ${inv[0].toStringAsFixed(1)}°';
-      }
+      texte = infobulleMonde(px, py, villes, 20 * 20 / (echelle * echelle));
     } else {
       /* ville la plus proche a moins de 14 px */
       for (final e in reglages.points.entries) {
