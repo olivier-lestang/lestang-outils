@@ -365,9 +365,12 @@ void _dashed(Canvas canvas, Path path, Paint paint, List<double> motif,
 /* the equator, the tropics and the polar circles: the parallels are
    straight lines in both projections, dashed like on the web ( the
    equator plain, the tropics long dashes, the polar circles short
-   dashes ) */
+   dashes ). The parallel is sampled over the whole window of the
+   center, from one edge meridian to the other: both raw edge
+   longitudes are the same meridian once wrapped, a single chord
+   between them would have been zero long and nothing showed */
 void drawGraticule(Canvas canvas, Offset Function(double, double) project,
-    WorldStyle style, double inverseScale) {
+    WorldStyle style, double inverseScale, double center) {
   const lines = <List<Object>>[
     [0.0, <double>[]],
     [23.4368, [5.0, 5.0]],
@@ -383,9 +386,17 @@ void drawGraticule(Canvas canvas, Offset Function(double, double) project,
   for (final l in lines) {
     final lat = l[0] as double;
     final motif = l[1] as List<double>;
-    final path = Path()
-      ..moveTo(project(-180, lat).dx, project(-180, lat).dy)
-      ..lineTo(project(180, lat).dx, project(180, lat).dy);
+    final path = Path();
+    var first = true;
+    for (var c = center - 180.0; c <= center + 180.0 + 1e-9; c += 2.0) {
+      final q = project(c, lat);
+      if (first) {
+        path.moveTo(q.dx, q.dy);
+        first = false;
+      } else {
+        path.lineTo(q.dx, q.dy);
+      }
+    }
     if (motif.isEmpty) {
       canvas.drawPath(path, paint);
     } else {
@@ -432,7 +443,15 @@ void drawTimeZones(Canvas canvas, Offset Function(double, double) project,
 void drawSunSpot(Canvas canvas, Offset Function(double, double) project,
     DateTime time, double center, double inverseScale) {
   final sun = subsolarPoint(time.toUtc());
-  final lon = ((sun.lon - center + 540) % 360) - 180;
+  /* the longitude is brought into the window of the center, the
+     projector expects a window longitude */
+  var lon = sun.lon;
+  while (lon > center + 180) {
+    lon -= 360;
+  }
+  while (lon < center - 180) {
+    lon += 360;
+  }
   final pos = project(lon, sun.lat);
   canvas.drawCircle(
       pos,
@@ -547,7 +566,15 @@ void drawDisputedDotted(Canvas canvas, Offset Function(double, double) project,
   for (final overlay in overlays) {
     final pts = <Offset>[];
     for (final p in overlay) {
-      final lon = ((p[0] - center + 540) % 360) - 180;
+      /* each longitude is brought into the window of the center, the
+         projector expects a window longitude */
+      var lon = p[0];
+      while (lon > center + 180) {
+        lon -= 360;
+      }
+      while (lon < center - 180) {
+        lon += 360;
+      }
       pts.add(project(lon, p[1]));
     }
     var total = 0.0;

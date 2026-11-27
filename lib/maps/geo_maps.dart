@@ -173,6 +173,7 @@ class MapPainter extends CustomPainter {
   final bool worldEqualEarth; // Equal Earth or flat equirectangular
   final Map<String, String>
       worldConflicts; // the choices of the disputed borders menu
+  final bool worldBorders; // solid border stroke lit or unlit
   final double center; // center meridian, like the dialog of the web
 
   MapPainter(this.map, this.layers, this.points, this.settings,
@@ -184,6 +185,7 @@ class MapPainter extends CustomPainter {
       this.worldTz = false,
       this.worldEqualEarth = true,
       this.worldConflicts = const <String, String>{},
+      this.worldBorders = true,
       this.center = 0})
       : super(repaint: transformation);
 
@@ -202,6 +204,7 @@ class MapPainter extends CustomPainter {
       old.worldGrid != worldGrid ||
       old.worldTz != worldTz ||
       old.worldEqualEarth != worldEqualEarth ||
+      old.worldBorders != worldBorders ||
       old.center != center ||
       old.layers.length != layers.length ||
       old.points.length != points.length ||
@@ -215,14 +218,46 @@ class MapPainter extends CustomPainter {
     return true;
   }
 
-  /* raw longitude and latitude to the plane of the world: Equal Earth
-     or the flat equirectangular fallback of the web ( wmER ) */
-  Offset _worldPlane(double lon, double lat) {
+  /* the recentered longitude: the center picks the middle meridian,
+     the centered longitude equals the real longitude minus this
+     meridian */
+  double _recentered(double lon) => ((lon - center + 540) % 360) - 180;
+
+  /* the plane of the world from an ALREADY recentered longitude. The
+     pieces of ringClip, the graticule and the time zones arrive in the
+     window of the center ( center - 180 .. center + 180 ): subtracting
+     the center gives the recentered longitude directly. Wrapping that
+     longitude again folded the two edge meridians onto the same one:
+     every piece touching an edge bent across the map, whole bands
+     inverted their colours and the equator collapsed to a point */
+  Offset _worldPlane(double r, double lat) {
     if (worldEqualEarth) {
-      final p = ee(lat, _recentered(lon));
+      final p = ee(lat, r);
       return Offset(p.dx * eeAspect, p.dy);
     }
-    return Offset(_recentered(lon) / 180 * _aspect, lat / 90);
+    return Offset(r / 180 * _aspect, lat / 90);
+  }
+
+  /* screen position of a point given in the window of the center */
+  Offset _worldScreen(
+      double lon, double lat, Offset Function(double, double) toPlane) {
+    final p = _worldPlane(lon - center, lat);
+    return toPlane(p.dx, p.dy);
+  }
+
+  /* screen position of a point of the database: raw longitude, wrapped
+     once into the window of the center, then projected */
+  Offset _toScreen(
+      double x, double y, Offset Function(double, double) toPlane) {
+    if (map != 'monde') return toPlane(x, y);
+    final p = _worldPlane(_recentered(x), y);
+    return toPlane(p.dx, p.dy);
+  }
+
+  /* position in the plane ( database units, without screen scale ) */
+  Offset _toPlane(double x, double y) {
+    if (map != 'monde') return Offset(x, y);
+    return _worldPlane(_recentered(x), y);
   }
 
   @override
@@ -301,6 +336,12 @@ class MapPainter extends CustomPainter {
       if (layer == null) continue;
       final st = e.value;
       if (st.color.alpha == 0 && st.width == 0) continue;
+      /* the land stays when the borders are switched off: only the
+         stroke of the country borders follows the switch, the fill of
+         the continents comes from the same layer of the database */
+      if (map == 'monde' && e.key == 'frontieres' && !worldBorders) {
+        continue;
+      }
       final p = Path();
       if (map == 'monde') {
         for (final f in layer.features) {
@@ -385,7 +426,8 @@ class MapPainter extends CustomPainter {
             canvas,
             (lon, lat) => _worldScreen(lon, lat, toPlane),
             style,
-            1.0 / zoom);
+            1.0 / zoom,
+            center);
       }
       /* the Natural Earth time zone borders, dashed */
       if (worldTz) {
@@ -472,33 +514,6 @@ class MapPainter extends CustomPainter {
           1.0 / zoom,
           style);
     }
-  }
-
-  /* the recentered longitude: the center picks the middle meridian, the
-     centered longitude equals the real longitude minus this meridian;
-     the night polygon follows the same convention */
-  double _recentered(double lon) => ((lon - center + 540) % 360) - 180;
-
-  /* screen position of a point of the world, from its raw longitude */
-  Offset _worldScreen(
-      double lon, double lat, Offset Function(double, double) toPlane) {
-    final p = _worldPlane(lon, lat);
-    return toPlane(p.dx, p.dy);
-  }
-
-  /* screen position of a point of the database: projected world, the
-     others flat */
-  Offset _toScreen(
-      double x, double y, Offset Function(double, double) toPlane) {
-    if (map != 'monde') return toPlane(x, y);
-    final p = _worldPlane(x, y);
-    return toPlane(p.dx, p.dy);
-  }
-
-  /* position in the plane ( database units, without screen scale ) */
-  Offset _toPlane(double x, double y) {
-    if (map != 'monde') return Offset(x, y);
-    return _worldPlane(x, y);
   }
 
   void _addFeatureToPath(
@@ -1040,7 +1055,12 @@ class _MapScreenState extends State<MapScreen> {
                   size: Size(constraints.maxWidth, h),
                   painter: MapPainter(
                       widget.map,
-                      _visibleLayers(),
+                      /* the world keeps its continents when the borders
+                         are switched off: the layer always reaches the
+                         painter, the stroke alone follows the switch */
+                      widget.map == 'monde'
+                          ? (_layers ?? const <String, db.GeoLayer>{})
+                          : _visibleLayers(),
                       _visiblePoints(),
                       settings,
                       _transformation,
@@ -1054,6 +1074,7 @@ class _MapScreenState extends State<MapScreen> {
                       worldTz: _groups['fuseaux'] ?? true,
                       worldEqualEarth: _equalEarth,
                       worldConflicts: _conflicts,
+                      worldBorders: _groups['frontieres'] ?? true,
                       center: _worldCenter),
                 ),
               ),

@@ -781,14 +781,18 @@ const String worldTzBordersStr = r'''
 /* the parsed time zone borders, each a flat [ lon, lat, ... ] list */
 final List<List<double>> worldTzBorders = [
   for (final ring in worldTzBordersStr.split('|'))
-    [
-      for (final pair in ring.split(' '))
-        if (pair.isNotEmpty)
-          () {
-            final c = pair.split(',');
-            return double.parse(c[0]);
-          }()
-    ],
+    /* both coordinates of every point: the longitude alone would
+       have collapsed every border onto a single diagonal */
+    () {
+      final out = <double>[];
+      for (final pair in ring.split(' ')) {
+        if (pair.isEmpty) continue;
+        final c = pair.split(',');
+        out.add(double.parse(c[0]));
+        out.add(double.parse(c[1]));
+      }
+      return out;
+    }(),
 ];
 
 /* the disputed border overlays of the web: each a polyline of
