@@ -67,12 +67,20 @@ const libellesStyles = <String, String>{
   'croquis': 'Croquis',
 };
 
-/* les centrages de la carte du monde, ceux de la modale du web */
-const centragesMonde = <double, String>{
-  0.0: 'Méridien de Greenwich',
-  -90.0: 'Amériques',
-  180.0: 'Océanie',
-};
+/* les centrages de la carte du monde, ceux de la modale du web ;
+   une petite classe plutt qu une map a cles double : Dart refuse les
+   doubles comme cles d une map const */
+class CentrageMonde {
+  final double valeur;
+  final String libelle;
+  const CentrageMonde(this.valeur, this.libelle);
+}
+
+const centragesMonde = <CentrageMonde>[
+  CentrageMonde(0.0, 'Méridien de Greenwich'),
+  CentrageMonde(-90.0, 'Amériques'),
+  CentrageMonde(180.0, 'Océanie'),
+];
 
 /* la cle d une couche ou d un groupe de points appartient-elle a un
    groupe allume ? une cle hors de tout groupe reste visible */
@@ -119,7 +127,7 @@ Future<double> lireCentrageMonde() async {
   final p = await SharedPreferences.getInstance();
   if (!p.containsKey('centrage-monde')) return 0.0;
   final v = p.getDouble('centrage-monde') ?? 0.0;
-  return centragesMonde.containsKey(v) ? v : 0.0;
+  return centragesMonde.any((c) => c.valeur == v) ? v : 0.0;
 }
 
 Future<void> ecrireCentrageMonde(double centrage) async {
@@ -200,10 +208,10 @@ Future<void> modaleReglagesCarte(
                       padding: EdgeInsets.fromLTRB(20, 8, 20, 4),
                       child: Text('Centrage de la carte'),
                     ),
-                    for (final c in centragesMonde.keys)
+                    for (final c in centragesMonde)
                       RadioListTile<double>(
-                        title: Text(centragesMonde[c] ?? ''),
-                        value: c,
+                        title: Text(c.libelle),
+                        value: c.valeur,
                         groupValue: centrage,
                         onChanged: (valeur) {
                           if (valeur == null) return;
