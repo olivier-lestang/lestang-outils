@@ -105,7 +105,7 @@ class _EcranConjugaisonState extends State<EcranConjugaison> {
                         e.logicalKey == LogicalKeyboardKey.tab &&
                         _sug.isNotEmpty) {
                       final i = _sug.indexOf(_q.text.trim());
-                      var k = i < 0 ? 0 : (e.isShiftPressed ? i - 1 : i + 1);
+                      var k = i < 0 ? 0 : (HardwareKeyboard.instance.isShiftPressed ? i - 1 : i + 1);
                       k = k < 0 ? _sug.length - 1 : k % _sug.length;
                       final mot = _sug[k];
                       _q.text = mot;
