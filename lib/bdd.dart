@@ -104,8 +104,12 @@ Future<CoucheGeo> couche(String carte, String nomCouche) async {
   for (final r in rs) {
     final g = r['geom'] as Uint8List;
     final n = r['n'] as int;
-    final f = Float32List.view(
-        Uint8List.sublistView(g, 4, 4 + n * 8).buffer, 0, n * 2);
+    /* le blob est l en-tete ( n ) puis n paires de float32 ; une copie
+       aligee evite de lire depuis l octet 0 du tampon entier, ce qui
+       decalait toutes les coordonnees et laissait les cartes vides */
+    final morceau = Uint8List.sublistView(g, 4, 4 + n * 8);
+    final copie = Uint8List.fromList(morceau);
+    final f = Float32List.view(copie.buffer, 0, n * 2);
     out.add(Troncon(r['etiquette'] as String, f));
   }
   return CoucheGeo(out);
