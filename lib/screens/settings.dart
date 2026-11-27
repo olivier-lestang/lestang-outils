@@ -130,6 +130,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               'pt': 'Português',
               'it': 'Italiano',
               'de': 'Deutsch',
+              'zh': '中文',
             }[l]!),
             selected: l == widget.language,
             onSelected: (_) => widget.onLanguage(l),

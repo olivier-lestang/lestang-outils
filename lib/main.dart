@@ -2,9 +2,9 @@
    dark theme, language of choice, card order of choice.
    Flutter + embedded SQLite. SPDX-License-Identifier: MIT. */
 import 'dart:async';
-import 'dart:developer' show ProcessInfo;
+import 'dart:ffi' as ffi;
+import 'dart:io' show File, Platform;
 
-import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -254,6 +254,75 @@ class StatusBar extends StatefulWidget {
   State<StatusBar> createState() => _StatusBarState();
 }
 
+/* PROCESS_MEMORY_COUNTERS of the Win32 API: cb, page faults, then sizes. */
+final class _ProcessMemoryCounters extends ffi.Struct {
+  @ffi.Uint32()
+  external int cb;
+  @ffi.Uint32()
+  external int pageFaultCount;
+  @ffi.IntPtr()
+  external int peakWorkingSetSize;
+  @ffi.IntPtr()
+  external int workingSetSize;
+  @ffi.IntPtr()
+  external int quotaPeakPagedPoolUsage;
+  @ffi.IntPtr()
+  external int quotaPagedPoolUsage;
+  @ffi.IntPtr()
+  external int quotaPeakNonPagedPoolUsage;
+  @ffi.IntPtr()
+  external int quotaNonPagedPoolUsage;
+  @ffi.IntPtr()
+  external int pagefileUsage;
+  @ffi.IntPtr()
+  external int peakPagefileUsage;
+}
+
+/* Working set of this process on Windows: the Windows front end of Flutter
+   does not expose dart:developer's ProcessInfo, so psapi is called. */
+int _windowsRss() {
+  final p = ffi.DynamicLibrary.open('msvcrt.dll')
+      .lookupFunction<
+          ffi.Pointer<ffi.Void> Function(ffi.IntPtr),
+          ffi.Pointer<ffi.Void> Function(int)>('malloc')(
+          ffi.sizeOf<_ProcessMemoryCounters>())
+      .cast<_ProcessMemoryCounters>();
+  final free = ffi.DynamicLibrary.open('msvcrt.dll').lookupFunction<
+      ffi.Void Function(ffi.Pointer<ffi.Void>),
+      void Function(ffi.Pointer<ffi.Void>)>('free');
+  final getCurrentProcess = ffi.DynamicLibrary.open('Kernel32.dll')
+      .lookupFunction<ffi.Pointer<ffi.Void> Function(),
+          ffi.Pointer<ffi.Void> Function()>('GetCurrentProcess');
+  var getInfo = ffi.DynamicLibrary.open('Psapi.dll').lookupFunction<
+      ffi.Int32 Function(ffi.Pointer<ffi.Void>,
+          ffi.Pointer<_ProcessMemoryCounters>, ffi.Uint32),
+      int Function(ffi.Pointer<ffi.Void>, ffi.Pointer<_ProcessMemoryCounters>,
+          int)>('GetProcessMemoryInfo');
+  p.ref.cb = ffi.sizeOf<_ProcessMemoryCounters>();
+  var rss = 0;
+  if (getInfo(getCurrentProcess(), p, p.ref.cb) != 0) {
+    rss = p.ref.workingSetSize;
+  }
+  free(p.cast());
+  return rss;
+}
+
+/* Resident memory of this process, in bytes, 0 when unknown. */
+int _processRss() {
+  try {
+    if (Platform.isWindows) {
+      return _windowsRss();
+    }
+    if (Platform.isLinux || Platform.isAndroid) {
+      final statm = File('/proc/self/statm').readAsStringSync().split(' ');
+      if (statm.length > 1) return int.parse(statm[1]) * 4096;
+    }
+  } catch (_) {
+    /* this platform does not expose its memory */
+  }
+  return 0;
+}
+
 class _StatusBarState extends State<StatusBar> {
   Timer? _timer;
   int _rss = 0;
@@ -275,13 +344,7 @@ class _StatusBarState extends State<StatusBar> {
   void _refresh() {
     var rss = 0;
     var workers = 1 + AppWorkers.spawned;
-    if (!kIsWeb) {
-      try {
-        rss = ProcessInfo.currentRss;
-      } catch (_) {
-        /* the VM of this platform does not expose its memory */
-      }
-    }
+    rss = _processRss();
     if (!mounted) return;
     if (rss == _rss && workers == _workers) return;
     setState(() {
