@@ -19,11 +19,31 @@ Future<String> cheminBdd() async {
   return p.join(dir.path, 'lestang_outils.db');
 }
 
+/// La version des donnees embarquees, a tenir a jour avec la valeur de
+/// meta ecrite par outils/construire_bdd.py.
+const versionBdd = '1.5.55';
+
 /// Ouvre la base : la premiere fois, l asset est copie sur le disque.
+/// La copie installee est reprise depuis l asset si sa version ( table
+/// meta ) differe : sans cela, la base du premier lancement resterait
+/// a jamais, meme apres mise a jour de l application.
 Future<Database> bdd() async {
   if (_bdd != null) return _bdd!;
   final chemin = await cheminBdd();
   final f = File(chemin);
+  if (f.existsSync()) {
+    var aJour = false;
+    try {
+      final probe = sqlite3.open(chemin, mode: OpenMode.readOnly);
+      final rs =
+          probe.select('SELECT valeur FROM meta WHERE cle=?', ['version']);
+      aJour = rs.isNotEmpty && (rs.first['valeur'] as String) == versionBdd;
+      probe.dispose();
+    } catch (_) {
+      aJour = false;
+    }
+    if (!aJour) f.deleteSync();
+  }
   if (!f.existsSync()) {
     final octets = await rootBundle.load('assets/lestang_outils.db');
     await f.parent.create(recursive: true);

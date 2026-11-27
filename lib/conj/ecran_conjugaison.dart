@@ -111,6 +111,11 @@ class _EcranConjugaisonState extends State<EcranConjugaison> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          /* le nom de la langue conjuguee, toujours visible dans l'ecran */
+          Text(t('conj-${widget.langue}'),
+              style:
+                  const TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
+          const SizedBox(height: 8),
           /* barre : champ, de, pronominal (fr) */
           Row(
             children: [

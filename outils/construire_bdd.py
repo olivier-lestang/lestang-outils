@@ -364,7 +364,9 @@ CREATE INDEX points_cch ON points(carte, couche);
         if len(f) >= 4:
             pt('monde', 'villes', f[0], float(f[1]) / COS, float(f[2]), 'pop=' + f[3])
 
-    db.execute('INSERT INTO meta VALUES(?,?)', ('version', '1'))
+    # meme valeur que versionBdd dans lib/bdd.dart : la copie installee
+    # par l application est reprise depuis l asset si elle differe.
+    db.execute('INSERT INTO meta VALUES(?,?)', ('version', '1.5.55'))
     db.commit()
     db.close()
 
