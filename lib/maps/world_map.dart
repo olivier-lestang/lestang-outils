@@ -12,6 +12,7 @@
    the map and no inverted colour triangle appears any more, whatever
    the chosen center.
    SPDX-License-Identifier: MIT. */
+import 'dart:typed_data';
 import 'dart:ui' show Canvas;
 
 import 'package:flutter/material.dart';

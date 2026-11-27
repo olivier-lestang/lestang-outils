@@ -154,8 +154,8 @@ class _SearchScreenState extends State<SearchScreen> {
   Future<void> _launch(SearchEngine m, String q) async {
     if (q.trim().isEmpty) return;
     var pattern = m.pattern
-        .replaceAll('{wl}', widget.trad.langue)
-        .replaceAll('{wt}', widget.trad.langue)
+        .replaceAll('{wl}', widget.trad.language)
+        .replaceAll('{wt}', widget.trad.language)
         .replaceAll('{q}', Uri.encodeComponent(q.trim()));
     if (m.id == 'google') {
       /* the engines in {q} already encode; the path ones are
