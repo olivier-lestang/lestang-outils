@@ -523,8 +523,7 @@ Harare;Zimbabwe;ZW;-17.82;31.04''';
 
 /* the parsed list of the world cities, built once at first use */
 final List<WorldCity> worldCities = [
-  for (final line in worldCityListStr.trim().split('
-'))
+  for (final line in worldCityListStr.trim().split('\n'))
     if (line.trim().isNotEmpty)
       () {
         final f = line.split(';');

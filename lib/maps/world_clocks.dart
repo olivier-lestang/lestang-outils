@@ -46,7 +46,11 @@ int? zoneOffsetMinutes(String zone, DateTime instant) {
       _tzReady = true;
     }
     final loc = tz.getLocation(zone);
-    return loc.offset(instant.toUtc().millisecondsSinceEpoch) ~/ 60000;
+    /* the offset comes from a TZDateTime of the zone: the API of
+       the package exposes no offset method on the location itself */
+    final dt = tz.TZDateTime.fromMillisecondsSinceEpoch(
+        loc, instant.toUtc().millisecondsSinceEpoch);
+    return dt.timeZoneOffset.inMinutes;
   } catch (_) {
     return null;
   }

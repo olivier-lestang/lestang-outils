@@ -367,7 +367,7 @@ class MapPainter extends CustomPainter {
         }
       }
     }
-    if (map == 'monde') ...[
+    if (map == 'monde') {
       /* the borders erased by a taken view come back as dotted
          overlays, the colour of the ordinary border */
       if (disputed != null && disputed.dotted.isNotEmpty) {
@@ -401,7 +401,7 @@ class MapPainter extends CustomPainter {
         drawNightZone(canvas, toPlane, worldTime, style, center,
             aspect: _aspect, equalEarth: worldEqualEarth);
       }
-    ]
+    }
     /* points and labels: radii and texts counter-scaled, constant size
        on screen whatever the zoom; the labels never overlap, every
        placed one keeps its place */

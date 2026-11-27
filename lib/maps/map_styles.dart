@@ -24,7 +24,7 @@ class PointStyle {
 class MapSettings {
   final Map<String, StrokeStyle> layers;
   final Map<String, PointStyle> points;
-  final Map<String, int> labelsMinZoom; // labels visible beyond this zoom
+  final Map<String, double> labelsMinZoom; // labels visible beyond this zoom
   final Rect bounds; // initial frame, in plane units
   const MapSettings(
       this.layers, this.points, this.labelsMinZoom, this.bounds);
