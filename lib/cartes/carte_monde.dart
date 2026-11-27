@@ -40,7 +40,7 @@ const stylesMonde = <String, StyleMonde>{
       terre: Color(0xffe9e4d3),
       frontiere: Color(0x8c5a6e87),
       voileNuit: Color(0x73030816),
-      contour: Color(0xff5a6e87)),
+      contour: Color(0xffe9e4d3)),
   'nuit': StyleMonde(
       fondHaut: Color(0xff090d1c),
       fondBas: Color(0xff141d38),
@@ -54,7 +54,7 @@ const stylesMonde = <String, StyleMonde>{
       terre: Color(0xff31405f),
       frontiere: Color(0x8c96b4e6),
       voileNuit: Color(0x38302858),
-      contour: Color(0xff96b4e6)),
+      contour: Color(0xff31405f)),
   'croquis': StyleMonde(
       fondHaut: Color(0xf2eee9da),
       fondBas: Color(0xf2e2dccb),
@@ -102,24 +102,24 @@ void fondMonde(Canvas canvas, Rect rect, StyleMonde style) {
 void contourMonde(
     Canvas canvas, Rect rect, double contreEchelle, StyleMonde style) {
   final rrect = RRect.fromRectAndRadius(
-      rect.deflate(0.75 * contreEchelle),
+      rect.deflate(1.25 * contreEchelle),
       Radius.circular(12 * contreEchelle));
   canvas.drawRRect(
       rrect,
       Paint()
         ..style = PaintingStyle.stroke
         ..color = style.contour
-        ..strokeWidth = 1.5 * contreEchelle
+        ..strokeWidth = 2.5 * contreEchelle
         ..isAntiAlias = true);
 }
 
 /* la zone de nuit : la courbe terminatrice puis la fermeture par le
    pole en nuit, remplie du voile de nuit du style choisi ; c est la
    nuit qui est teintee, le jour reste clair */
-void dessineZoneNuit(Canvas canvas,
-    Offset Function(double, double) versPlan, DateTime heure, StyleMonde style) {
+void dessineZoneNuit(Canvas canvas, Offset Function(double, double) versPlan,
+    DateTime heure, StyleMonde style, double centrage) {
   final soleil = pointSolaire(heure.toUtc());
-  final polygone = polygoneNuit(soleil);
+  final polygone = polygoneNuit(soleil, meridien: centrage);
   final path = Path();
   var premier = true;
   for (final sommet in polygone) {
@@ -139,13 +139,14 @@ void dessineZoneNuit(Canvas canvas,
    longitude et la latitude inversees de la projection ; px et py sont
    les coordonnees du plan touche, limite le rayon de la ville en unites
    du plan */
-String infobulleMonde(
-    double px, double py, List<bdd.PointNomme> villes, double limite) {
+String infobulleMonde(double px, double py, List<bdd.PointNomme> villes,
+    double limite, double centrage) {
   final inv = eeInv(px / ratioEe, py);
   bdd.PointNomme? proche;
   var meilleure = 1e9;
+  double recentree(double lon) => ((lon - centrage + 540) % 360) - 180;
   for (final v in villes) {
-    final p = ee(v.y, v.x);
+    final p = ee(v.y, recentree(v.x));
     final dd = (p.dx * ratioEe - px) * (p.dx * ratioEe - px) +
         (p.dy - py) * (p.dy - py);
     if (dd < meilleure) {
@@ -156,5 +157,6 @@ String infobulleMonde(
   if (proche != null && proche.nom.isNotEmpty && meilleure < limite) {
     return proche.nom + (proche.info.isEmpty ? '' : ' · ${proche.info}');
   }
-  return '${inv[1].toStringAsFixed(1)}°, ${inv[0].toStringAsFixed(1)}°';
+  final lon = ((inv[0] + centrage + 540) % 360) - 180;
+  return '${inv[1].toStringAsFixed(1)}°, ${lon.toStringAsFixed(1)}°';
 }

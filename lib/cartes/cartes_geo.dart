@@ -170,10 +170,11 @@ class PeintreCarte extends CustomPainter {
   final bool clair;
   final StyleMonde? styleMonde; // style de la modale, ocean par defaut
   final bool nuitMonde; // la zone de nuit allumee ou eteinte
+  final double centrage; // meridien de centrage, comme la modale du web
 
   PeintreCarte(this.carte, this.couches, this.points, this.reglages,
       this.transformation, this.fondTexte, this.heureMonde, this.clair,
-      {this.styleMonde, this.nuitMonde = true})
+      {this.styleMonde, this.nuitMonde = true, this.centrage = 0})
       : super(repaint: transformation);
 
   @override
@@ -183,6 +184,7 @@ class PeintreCarte extends CustomPainter {
       old.clair != clair ||
       old.styleMonde != styleMonde ||
       old.nuitMonde != nuitMonde ||
+      old.centrage != centrage ||
       old.couches.length != couches.length ||
       old.points.length != points.length;
 
@@ -274,7 +276,7 @@ class PeintreCarte extends CustomPainter {
     }
     /* zone de nuit du monde, dans son fichier a elle */
     if (carte == 'monde' && nuitMonde) {
-      dessineZoneNuit(canvas, versPlan, heureMonde, style);
+      dessineZoneNuit(canvas, versPlan, heureMonde, style, centrage);
     }
     /* points et etiquettes : rayons et textes contre-cales, taille
        constante a l ecran quel que soit le zoom ; les etiquettes
@@ -338,18 +340,23 @@ class PeintreCarte extends CustomPainter {
     }
   }
 
+  /* la longitude recentree : le centrage choisit le meridien du milieu,
+     la longitude centree vaut la longitude reelle moins ce meridien ;
+     le polygone de nuit suit la meme convention */
+  double _recentree(double lon) => ((lon - centrage + 540) % 360) - 180;
+
   /* position ecran d un point de la base : monde projete, autres a plat */
   Offset _versEcran(
       double x, double y, Offset Function(double, double) versPlan) {
     if (carte != 'monde') return versPlan(x, y);
-    final p = ee(y, x);
+    final p = ee(y, _recentree(x));
     return versPlan(p.dx * ratioEe, p.dy);
   }
 
   /* position dans le plan ( unites de la base, sans echelle ecran ) */
   Offset _versPlan(double x, double y) {
     if (carte != 'monde') return Offset(x, y);
-    final p = ee(y, x);
+    final p = ee(y, _recentree(x));
     return Offset(p.dx * ratioEe, p.dy);
   }
 
@@ -468,6 +475,8 @@ class _EcranCarteState extends State<EcranCarte> {
   String? _cadrage; // cadrage outre-mer choisi
   Map<String, bool> _groupes = {}; // couches visibles, modale de reglages
   String _styleMonde = 'ocean'; // style de la carte du monde
+  double _centrageMonde = 0; // meridien de centrage de la carte du monde
+  Set<String> _villesCachees = {}; // villes marquees cachees du monde
 
   static const _nomsCouches = <String, List<String>>{
     'france': [
@@ -534,14 +543,22 @@ class _EcranCarteState extends State<EcranCarte> {
       pts[c] = await bdd.points(widget.carte, c);
     }
     final groupes = await lireVisibilites(widget.carte);
-    final style =
-        widget.carte == 'monde' ? await lireStyleMonde() : _styleMonde;
+    var style = _styleMonde;
+    var centrage = _centrageMonde;
+    var villesCachees = _villesCachees;
+    if (widget.carte == 'monde') {
+      style = await lireStyleMonde();
+      centrage = await lireCentrageMonde();
+      villesCachees = await lireVillesCachees();
+    }
     if (mounted) {
       setState(() {
         _couches = couches;
         _points = pts;
         _groupes = groupes;
         _styleMonde = style;
+        _centrageMonde = centrage;
+        _villesCachees = villesCachees;
       });
     }
   }
@@ -567,7 +584,8 @@ class _EcranCarteState extends State<EcranCarte> {
     String? texte;
     if (widget.carte == 'monde') {
       final villes = _points?['villes'] ?? const <bdd.PointNomme>[];
-      texte = infobulleMonde(px, py, villes, 20 * 20 / (echelle * echelle));
+      texte = infobulleMonde(px, py, villes, 20 * 20 / (echelle * echelle),
+          _centrageMonde);
     } else {
       /* ville la plus proche a moins de 14 px */
       for (final e in reglages.points.entries) {
@@ -658,6 +676,11 @@ class _EcranCarteState extends State<EcranCarte> {
     _points?.forEach((cle, liste) {
       if (visible(widget.carte, cle, _groupes)) m[cle] = liste;
     });
+    if (widget.carte == 'monde' && m.containsKey('villes')) {
+      m['villes'] = m['villes']!
+          .where((v) => !_villesCachees.contains(v.nom))
+          .toList();
+    }
     return m;
   }
 
@@ -671,13 +694,24 @@ class _EcranCarteState extends State<EcranCarte> {
      allume ou eteint un groupe, le monde choisit son style ; chaque
      changement persiste aussitot dans les preferences */
   Future<void> _modaleReglages() async {
-    await modaleReglagesCarte(context, widget.carte, _groupes, _styleMonde,
+    await modaleReglagesCarte(
+        context, widget.carte, _groupes, _styleMonde, _centrageMonde,
         change: (groupe, valeur) {
       ecrireVisibilite(widget.carte, groupe, valeur);
       setState(() => _groupes[groupe] = valeur);
     }, changeStyle: (style) {
       ecrireStyleMonde(style);
       setState(() => _styleMonde = style);
+    }, changeCentrage: (centrage) {
+      ecrireCentrageMonde(centrage);
+      setState(() => _centrageMonde = centrage);
+    }, choisirVilles: () async {
+      final villes = _points?['villes'] ?? const <bdd.PointNomme>[];
+      await modaleVillesMonde(context, villes.map((v) => v.nom).toList(),
+          _villesCachees, (nouvelles) {
+        ecrireVillesCachees(nouvelles);
+        setState(() => _villesCachees = {...nouvelles});
+      });
     });
   }
 
@@ -732,7 +766,25 @@ class _EcranCarteState extends State<EcranCarte> {
               },
             ),
           ),
-          Text(_heure.toString().substring(11, 16)),
+          Text('${_heure.day}/${_heure.month} '
+              '${_heure.toString().substring(11, 16)}'),
+          IconButton(
+            tooltip: 'Date',
+            icon: const Icon(Icons.calendar_month),
+            onPressed: () async {
+              /* le calendrier reste borne a l annee en cours, comme le
+                 curseur des demi-heures il ne quitte pas l horloge */
+              final choisie = await showDatePicker(
+                context: context,
+                initialDate: _heure,
+                firstDate: DateTime(_heure.year, 1, 1),
+                lastDate: DateTime(_heure.year, 12, 31),
+              );
+              if (choisie == null) return;
+              setState(() => _heure = DateTime(choisie.year, choisie.month,
+                  choisie.day, _heure.hour, _heure.minute));
+            },
+          ),
           IconButton(
             tooltip: 'Maintenant',
             icon: const Icon(Icons.restore),
@@ -771,7 +823,8 @@ class _EcranCarteState extends State<EcranCarte> {
                       _heure,
                       clair,
                       styleMonde: stylesMonde[_styleMonde],
-                      nuitMonde: _groupes['nuit'] ?? true),
+                      nuitMonde: _groupes['nuit'] ?? true,
+                      centrage: _centrageMonde),
                 ),
               ),
             ),
