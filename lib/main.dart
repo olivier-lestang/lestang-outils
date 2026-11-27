@@ -149,7 +149,7 @@ class _AppLestangOutilsState extends State<AppLestangOutils> {
                           appBar: AppBar(title: Text(trad(cle))),
                           body: Padding(
                               padding: const EdgeInsets.all(10),
-                              child: EcranCarte(cle, key: ValueKey(cle))))),
+                              child: EcranCarte(cle, key: ValueKey(cle)))))),
             ),
           ]),
           const SizedBox(height: 10),
