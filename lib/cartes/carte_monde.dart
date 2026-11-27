@@ -1,8 +1,9 @@
-/* La carte du monde : reglages, zone de nuit et infobulle, dans un
+/* La carte du monde : reglages, fond, zone de nuit et infobulle, dans un
    fichier a part, distinct de la carte de l Union europeenne et des
-   DROM-COM. Le rendu reprend les couleurs du web ( js/monde ) en deux
-   palettes clair / sombre ; la zone de nuit est calculee sur place
-   ( projection Equal Earth du web ).
+   DROM-COM. Les couleurs reprennent le style « ocean » du dernier HTML
+   du web ( WM_STYLES.ocean de js/monde/carte-monde.js ) : fond degrade
+   bleu profond, terres parchemin, voile de nuit bleu nuit. Le style
+   ocean ne depend pas du theme clair ou sombre, comme sur le web.
    SPDX-License-Identifier : MIT. */
 import 'dart:ui' show Canvas;
 
@@ -16,19 +17,23 @@ import 'styles_cartes.dart';
 const couchesMonde = <String>['frontieres'];
 const pointsMonde = <String>['villes'];
 
+/* le style « ocean » du web, les memes valeurs dans les deux themes :
+   fond degrade du bleu profond au bleu azur, terres couleur parchemin,
+   frontieres gris bleute, voile de nuit bleu nuit ( WM_STYLES.ocean ) */
+const _fondHaut = Color(0xff0b2f63); // bg[0]
+const _fondBas = Color(0xff155399); // bg[1]
+const _terre = Color(0xffe9e4d3); // land
+const _frontiere = Color(0x8c5a6e87); // border rgba(90,110,135,0.55)
+const _voileNuit = Color(0x73030816); // night rgba(3,8,22,0.45)
+
 /* Monde : lon et lat bruts, projetes en Equal Earth au dessin */
 ReglagesCarte reglagesMonde(bool clair) => ReglagesCarte(
       {
-        'frontieres': StyleTrait(
-            clair ? const Color(0xff495057) : const Color(0xffadb5bd), 0.4,
-            remplissage:
-                clair ? const Color(0x146b705c) : const Color(0x142f9e44),
-            ferme: true),
+        'frontieres': StyleTrait(_frontiere, 0.4,
+            remplissage: _terre, ferme: true),
       },
       {
-        'villes': StyleFleche(
-            clair ? const Color(0xffc92a2a) : const Color(0xffff8787), 1.8,
-            rayonMin: -1),
+        'villes': StyleFleche(const Color(0xffe03131), 1.8, rayonMin: -1),
       },
       {
         'villes': -1,
@@ -36,9 +41,21 @@ ReglagesCarte reglagesMonde(bool clair) => ReglagesCarte(
       const Rect.fromLTRB(-ratioEe, 1, ratioEe, -1),
     );
 
+/* le fond degrade du monde, comme le fond du canvas du web ( linear
+   gradient vertical de bg[0] a bg[1] ) */
+void fondMonde(Canvas canvas, Size taille) {
+  final rect = Offset.zero & taille;
+  final degrade = const LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [_fondHaut, _fondBas])
+      .createShader(rect);
+  canvas.drawRect(rect, Paint()..shader = degrade);
+}
+
 /* la zone de nuit : la courbe terminatrice puis la fermeture par le
-   pole en nuit, remplie d un voile fonce ; c est la nuit qui est
-   teintee, le jour reste clair */
+   pole en nuit, remplie du voile bleu nuit du web ; c est la nuit qui
+   est teintee, le jour reste clair */
 void dessineZoneNuit(
     Canvas canvas, Offset Function(double, double) versPlan, DateTime heure) {
   final soleil = pointSolaire(heure.toUtc());
@@ -55,7 +72,7 @@ void dessineZoneNuit(
     }
   }
   path.close();
-  canvas.drawPath(path, Paint()..color = const Color(0x55000c33));
+  canvas.drawPath(path, Paint()..color = _voileNuit);
 }
 
 /* l infobulle du monde : la ville la plus proche du doigt, sinon la
@@ -76,9 +93,7 @@ String infobulleMonde(
       proche = v;
     }
   }
-  if (proche != null &&
-      proche.nom.isNotEmpty &&
-      meilleure < limite) {
+  if (proche != null && proche.nom.isNotEmpty && meilleure < limite) {
     return proche.nom + (proche.info.isEmpty ? '' : ' · ${proche.info}');
   }
   return '${inv[1].toStringAsFixed(1)}°, ${inv[0].toStringAsFixed(1)}°';

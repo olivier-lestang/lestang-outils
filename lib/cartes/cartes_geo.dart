@@ -194,6 +194,11 @@ class PeintreCarte extends CustomPainter {
     final m = transformation.value;
     final zoom = m.getMaxScaleOnAxis();
 
+    /* le fond degrade du monde, comme le fond du canvas du web */
+    if (carte == 'monde') {
+      fondMonde(canvas, taille);
+    }
+
     /* contours remplis d abord */
     for (final e in reglages.couches.entries) {
       final couche = couches[e.key];
