@@ -25,7 +25,9 @@ class StyleTrait {
   final double largeur;
   final Color? remplissage;
   final List<double>? tirets;
-  const StyleTrait(this.couleur, this.largeur, {this.remplissage, this.tirets});
+  final bool ferme; // couche de polygones : la fermeture se trace
+  const StyleTrait(this.couleur, this.largeur,
+      {this.remplissage, this.tirets, this.ferme = false});
 }
 
 class StyleFleche {
@@ -50,9 +52,11 @@ ReglagesCarte reglagesFrance(bool clair) => ReglagesCarte(
         'departements': StyleTrait(
             clair ? const Color(0x33000000) : const Color(0x33ffffff), 0.6,
             remplissage:
-                clair ? const Color(0x14669933) : const Color(0x14669933)),
+                clair ? const Color(0x14669933) : const Color(0x14669933),
+            ferme: true),
         'contour': StyleTrait(
-            clair ? const Color(0xff495057) : const Color(0xffced4da), 1.2),
+            clair ? const Color(0xff495057) : const Color(0xffced4da), 1.2,
+            ferme: true),
         'autoroutes': StyleTrait(
             clair ? const Color(0xffc92a2a) : const Color(0xffff8787), 1.0),
         'nationales': StyleTrait(
@@ -121,23 +125,28 @@ const cadragesOutreMer = <String, Rect>{
 ReglagesCarte reglagesUnion(bool clair) => ReglagesCarte(
       {
         'membres': StyleTrait(
-            clair ? const Color(0xff495057) : const Color(0xffadb5bd), 0.5),
+            clair ? const Color(0xff495057) : const Color(0xffadb5bd), 0.5,
+            ferme: true),
         'autres': StyleTrait(
             clair ? const Color(0xff495057) : const Color(0xffadb5bd), 0.5,
             remplissage:
-                clair ? const Color(0x336b705c) : const Color(0x3394a396)),
+                clair ? const Color(0x336b705c) : const Color(0x3394a396),
+            ferme: true),
         'hors-ue': StyleTrait(
             clair ? const Color(0xff868e96) : const Color(0xff6c757d), 0.4,
             remplissage:
-                clair ? const Color(0x14adb5bd) : const Color(0x14349db4)),
+                clair ? const Color(0x14adb5bd) : const Color(0x14349db4),
+            ferme: true),
         'hors-ue-2': StyleTrait(
             clair ? const Color(0xff868e96) : const Color(0xff6c757d), 0.4,
             remplissage:
-                clair ? const Color(0x14adb5bd) : const Color(0x14349db4)),
+                clair ? const Color(0x14adb5bd) : const Color(0x14349db4),
+            ferme: true),
         'hors-ue-3': StyleTrait(
             clair ? const Color(0xff868e96) : const Color(0xff6c757d), 0.4,
             remplissage:
-                clair ? const Color(0x14adb5bd) : const Color(0x14349db4)),
+                clair ? const Color(0x14adb5bd) : const Color(0x14349db4),
+            ferme: true),
         'zee': StyleTrait(const Color(0x00000000), 0,
             remplissage:
                 clair ? const Color(0x221c7ed6) : const Color(0x22191970)),
@@ -179,7 +188,8 @@ ReglagesCarte reglagesMonde(bool clair) => ReglagesCarte(
         'frontieres': StyleTrait(
             clair ? const Color(0xff495057) : const Color(0xffadb5bd), 0.4,
             remplissage:
-                clair ? const Color(0x146b705c) : const Color(0x142f9e44)),
+                clair ? const Color(0x146b705c) : const Color(0x142f9e44),
+            ferme: true),
       },
       {
         'villes': StyleFleche(
@@ -239,7 +249,7 @@ class PeintreCarte extends CustomPainter {
         /* une teinte pastel par Etat membre, comme le web */
         for (final tr in couche.troncons) {
           final p = Path();
-          _ajouterTronconEcran(p, tr, versPlan);
+          _ajouterTronconEcran(p, tr, versPlan, fermer: true);
           canvas.drawPath(
               p, Paint()..color = paletteUe[tr.etiquette] ?? teinteUeDefaut);
         }
@@ -248,12 +258,13 @@ class PeintreCarte extends CustomPainter {
       if (st.remplissage == null) continue;
       final p = Path();
       for (final tr in couche.troncons) {
-        _ajouterTronconEcran(p, tr, versPlan);
+        _ajouterTronconEcran(p, tr, versPlan, fermer: true);
       }
       final peinture = Paint()..color = st.remplissage!;
       canvas.drawPath(p, peinture);
     }
-    /* traits par-dessus */
+    /* traits par-dessus : l epaisseur et les tirets sont contre-cales
+       par le zoom, ils gardent une taille constante a l ecran */
     for (final e in reglages.couches.entries) {
       final couche = couches[e.key];
       if (couche == null) continue;
@@ -261,12 +272,12 @@ class PeintreCarte extends CustomPainter {
       if (st.couleur.alpha == 0 && st.largeur == 0) continue;
       final p = Path();
       for (final tr in couche.troncons) {
-        _ajouterTronconEcran(p, tr, versPlan);
+        _ajouterTronconEcran(p, tr, versPlan, fermer: st.ferme);
       }
       final peinture = Paint()
         ..style = PaintingStyle.stroke
         ..color = st.couleur
-        ..strokeWidth = (st.largeur * math.sqrt(zoom)).clamp(0.35, 8.0)
+        ..strokeWidth = st.largeur / zoom
         ..isAntiAlias = true;
       if (st.tirets == null) {
         canvas.drawPath(p, peinture);
@@ -277,10 +288,10 @@ class PeintreCarte extends CustomPainter {
           final motif = st.tirets!;
           var k = 0;
           while (avance < longue) {
-            final bout = motif[k % motif.length] * math.sqrt(zoom);
+            final bout = motif[k % motif.length] / zoom;
             final fin = math.min(avance + bout, longue);
             canvas.drawPath(morceau.extractPath(avance, fin), peinture);
-            avance = fin + motif[(k + 1) % motif.length] * math.sqrt(zoom);
+            avance = fin + motif[(k + 1) % motif.length] / zoom;
             k += 2;
           }
         }
@@ -304,7 +315,9 @@ class PeintreCarte extends CustomPainter {
       path.close();
       canvas.drawPath(path, Paint()..color = const Color(0x55000c33));
     }
-    /* points et etiquettes */
+    /* points et etiquettes : rayons et textes contre-cales, taille
+       constante a l ecran quel que soit le zoom */
+    final echelle = 1.0 / zoom;
     for (final e in reglages.points.entries) {
       final liste = points[e.key];
       if (liste == null) continue;
@@ -320,13 +333,13 @@ class PeintreCarte extends CustomPainter {
             pos.dy > taille.height + 60) {
           continue;
         }
-        canvas.drawCircle(pos, st.rayon * math.sqrt(zoom), peinture);
+        canvas.drawCircle(pos, st.rayon * echelle, peinture);
       }
       final labelZoom = reglages.labelsMinZoom[e.key];
       if (labelZoom != null && zoom >= labelZoom) {
         for (final pt in liste) {
           _etiquette(canvas, pt.nom, _versEcran(pt.x, pt.y, versPlan),
-              decal: st.rayon * math.sqrt(zoom) + 2);
+              decal: (st.rayon + 2) * echelle, echelle: echelle);
         }
       }
     }
@@ -343,7 +356,9 @@ class PeintreCarte extends CustomPainter {
         if (liste == null) continue;
         for (final pt in liste) {
           _etiquetteFond(canvas, pt.nom, _versEcran(pt.x, pt.y, versPlan),
-              fond: e.value[0], texte: e.value[1]);
+              fond: e.value[0],
+              texte: e.value[1],
+              echelle: echelle);
         }
       }
     }
@@ -358,7 +373,8 @@ class PeintreCarte extends CustomPainter {
   }
 
   void _ajouterTronconEcran(
-      Path p, bdd.Troncon tr, Offset Function(double, double) v) {
+      Path p, bdd.Troncon tr, Offset Function(double, double) v,
+      {bool fermer = false}) {
     final pts = tr.points;
     if (pts.isEmpty) return;
     var premier = true;
@@ -371,15 +387,19 @@ class PeintreCarte extends CustomPainter {
         p.lineTo(pos.dx, pos.dy);
       }
     }
-    p.close();
+    /* la fermeture ne se trace que pour les couches de polygones :
+       sur une polyligne ouverte ( fleuve, route ), close() dessinait
+       une corde droite qui apparaissait en barre au zoom */
+    if (fermer) p.close();
   }
 
-  void _etiquette(Canvas canvas, String texte, Offset pos, {double decal = 3}) {
+  void _etiquette(Canvas canvas, String texte, Offset pos,
+      {double decal = 3, double echelle = 1}) {
     final tp = TextPainter(
       text: TextSpan(
           text: texte,
           style: TextStyle(
-              fontSize: 10,
+              fontSize: 10 * echelle,
               color: fondTexte,
               backgroundColor:
                   clair ? const Color(0x66000000) : const Color(0x66ffffff))),
@@ -389,19 +409,23 @@ class PeintreCarte extends CustomPainter {
   }
 
   void _etiquetteFond(Canvas canvas, String libelle, Offset pos,
-      {required Color fond, Color texte = const Color(0xffffffff)}) {
+      {required Color fond,
+      Color texte = const Color(0xffffffff),
+      double echelle = 1}) {
     final tp = TextPainter(
       text: TextSpan(
           text: libelle,
           style: TextStyle(
-              fontSize: 9,
+              fontSize: 9 * echelle,
               fontWeight: FontWeight.w700,
               color: texte,
-              letterSpacing: 0.5)),
+              letterSpacing: 0.5 * echelle)),
       textDirection: TextDirection.ltr,
     )..layout();
     final rect = Rect.fromCenter(
-        center: pos, width: tp.width + 8, height: tp.height + 4);
+        center: pos,
+        width: tp.width + 8 * echelle,
+        height: tp.height + 4 * echelle);
     final radius = Radius.circular(rect.height / 2);
     canvas.drawRRect(
         RRect.fromRectAndRadius(rect, radius), Paint()..color = fond);
@@ -410,8 +434,9 @@ class PeintreCarte extends CustomPainter {
         Paint()
           ..style = PaintingStyle.stroke
           ..color = Colors.white
-          ..strokeWidth = 1);
-    tp.paint(canvas, rect.topLeft + const Offset(4, 2));
+          ..strokeWidth = echelle);
+    tp.paint(canvas,
+        rect.topLeft + Offset(4 * echelle, 2 * echelle));
   }
 }
 
