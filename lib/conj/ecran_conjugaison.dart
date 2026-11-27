@@ -250,12 +250,7 @@ class _CarteVerbeEtat extends State<_CarteVerbe> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            if (defs.length < 2)
-              _sens(defs.first, petit: false)
-            else ...[
-              for (var i = 0; i < defs.length; i++)
-                _numere(i + 1, _sens(defs[i], petit: false)),
-            ],
+            ..._groupesSens(defs),
             const SizedBox(height: 2),
             Text(source,
                 style: TextStyle(
@@ -290,6 +285,44 @@ class _CarteVerbeEtat extends State<_CarteVerbe> {
         ]),
       );
 
+  /* Les sens groupes par etiquette consecutive : l etiquette ( souvent
+     la source, ex. angl. Wiktionary ) n apparait qu une fois par groupe,
+     au lieu de se repeter a chaque ligne. La numerotation continue. */
+  List<Widget> _groupesSens(List<Sens> defs) {
+    if (defs.length < 2) return [_sens(defs.first, petit: false)];
+    final out = <Widget>[];
+    var numero = 0;
+    var debut = 0;
+    void groupe(int fin) {
+      final et = defs[debut].etiquette;
+      if (et.isNotEmpty) {
+        out.add(Padding(
+          padding: const EdgeInsets.only(top: 4, bottom: 1),
+          child: Text(et,
+              style: const TextStyle(fontSize: 12, color: Colors.grey)),
+        ));
+      }
+      for (var k = debut; k < fin; k++) {
+        numero++;
+        out.add(_numere(numero, _sensTexte(defs[k])));
+      }
+    }
+
+    for (var i = 1; i <= defs.length; i++) {
+      if (i == defs.length || defs[i].etiquette != defs[debut].etiquette) {
+        groupe(i);
+        debut = i;
+      }
+    }
+    return out;
+  }
+
+  /* un sens sans son etiquette, pour les groupes deja titres */
+  Widget _sensTexte(Sens d) {
+    return Text(d.texte,
+        style: const TextStyle(fontSize: 14, fontStyle: FontStyle.italic));
+  }
+
   Widget _sens(Sens d, {bool petit = true}) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       if (d.etiquette.isNotEmpty)
@@ -304,55 +337,90 @@ class _CarteVerbeEtat extends State<_CarteVerbe> {
     ]);
   }
 
-  /* la planche des temps, cartes flottantes colorees */
+  /* la planche des temps : un gabarit commun a toutes les langues.
+     Chaque mode est un bloc avec son titre ; ses temps sont des cartes
+     colorees posees cote a cote ( elles passent a la ligne quand la
+     largeur manque ), une personne par ligne dans chaque carte. */
   Widget _planche() {
     final modes = j.rend(v, clit: clit);
-    return Wrap(
-      spacing: 10,
-      runSpacing: 10,
-      crossAxisAlignment: WrapCrossAlignment.start,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        for (final m in modes)
-          for (final tp in m.temps) _carteTemps(m.nom, tp),
+        for (final m in modes) ...[
+          _enteteMode(m.nom),
+          const SizedBox(height: 4),
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            crossAxisAlignment: WrapCrossAlignment.start,
+            children: [
+              for (final tp in m.temps) _carteTemps(tp),
+            ],
+          ),
+          const SizedBox(height: 12),
+        ],
       ],
     );
   }
 
-  Widget _carteTemps(String mode, Temps tp) {
-    final teinte = _teintes[conjTeinteTemps(tp.nom)];
+  /* le titre d un mode, souligne de la couleur d accent */
+  Widget _enteteMode(String nom) {
+    final accent = Theme.of(context).colorScheme.primary;
     return Container(
-      padding: const EdgeInsets.fromLTRB(10, 6, 10, 8),
+      padding: const EdgeInsets.fromLTRB(8, 2, 8, 3),
+      decoration: BoxDecoration(
+          color: accent.withOpacity(.12),
+          borderRadius: BorderRadius.circular(6)),
+      child: Text(nom,
+          style: TextStyle(
+              fontWeight: FontWeight.w700, fontSize: 13, color: accent)),
+    );
+  }
+
+  /* une carte de temps : largeur naturelle, pour poser plusieurs temps
+     horizontalement ; la terminaison reste surlignee en bordeaux gras */
+  Widget _carteTemps(Temps tp) {
+    final teinte = _teintes[conjTeinteTemps(tp.nom)];
+    final discret = Theme.of(context).hintColor;
+    final absent = Theme.of(context).disabledColor;
+    return Container(
+      padding: const EdgeInsets.fromLTRB(8, 5, 8, 7),
       decoration:
-          BoxDecoration(color: teinte, borderRadius: BorderRadius.circular(10)),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text('$mode : ${tp.nom}',
-            style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14)),
-        const SizedBox(height: 3),
-        for (var i = 0; i < tp.val.length; i++)
-          if (tp.val[i].isNotEmpty || tp.pers[i].isNotEmpty)
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 1),
-              child: Row(children: [
-                SizedBox(
-                  width: 110,
-                  child: Text(tp.pers[i],
-                      style: TextStyle(
-                          fontSize: 13, color: Theme.of(context).hintColor)),
+          BoxDecoration(color: teinte, borderRadius: BorderRadius.circular(8)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(tp.nom,
+              style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13)),
+          const SizedBox(height: 2),
+          for (var i = 0; i < tp.val.length; i++)
+            if (tp.val[i].isNotEmpty || tp.pers[i].isNotEmpty)
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 0.5),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: 88,
+                      child: Text(tp.pers[i],
+                          style: TextStyle(fontSize: 12, color: discret)),
+                    ),
+                    Flexible(
+                        child: tp.val[i].isEmpty
+                            ? Text('—',
+                                style: TextStyle(fontSize: 12, color: absent))
+                            : _forme(
+                                tp.val[i],
+                                tp.fin == null
+                                    ? ''
+                                    : (i < tp.fin!.length ? tp.fin![i] : ''))),
+                  ],
                 ),
-                Expanded(
-                    child: tp.val[i].isEmpty
-                        ? Text('—',
-                            style: TextStyle(
-                                fontSize: 13,
-                                color: Theme.of(context).disabledColor))
-                        : _forme(
-                            tp.val[i],
-                            tp.fin == null
-                                ? ''
-                                : (i < tp.fin!.length ? tp.fin![i] : ''))),
-              ]),
-            ),
-      ]),
+              ),
+        ],
+      ),
     );
   }
 

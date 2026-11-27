@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'cartes/cartes_geo.dart';
 import 'conj/ecran_conjugaison.dart';
+import 'conj/icones_conj.dart';
 import 'ecrans/infos.dart';
 import 'ecrans/meteo.dart';
 import 'ecrans/motdepasse.dart';
@@ -96,7 +97,11 @@ class _AppLestangOutilsState extends State<AppLestangOutils> {
             destinations: [
               for (final c in _ordre)
                 NavigationRailDestination(
-                  icon: Icon(_icones[c] ?? Icons.extension),
+                  /* conjugaison : une icone coloree par langue, avec le
+                     drapeau et les deux lettres ; autres cartes : icone */
+                  icon: c.startsWith('conj-')
+                      ? iconeConjug(c.substring(5))
+                      : Icon(_icones[c] ?? Icons.extension),
                   label: Text(trad(c)),
                 ),
             ],
