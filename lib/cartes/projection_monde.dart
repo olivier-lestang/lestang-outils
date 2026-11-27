@@ -117,6 +117,14 @@ List<Offset> polygoneNuit(PointSolaire soleil, {double meridien = 0}) {
     } else if (l < -180) {
       l += 360;
     }
+    /* l antiméridien : la longitude -180 reste au bord ouest de la
+       carte ; sans cette garde le premier sommet de la terminatrice
+       sautait au bord est, le trace traversait la carte d un bout a
+       l autre et la zone teintee se retrouvait inversee, le jour
+       la ou la nuit devait etre et vice versa */
+    if (l == 180 && lon < 0) {
+      l = -180;
+    }
     return ee(lat, l);
   }
 
@@ -133,20 +141,44 @@ List<Offset> polygoneNuit(PointSolaire soleil, {double meridien = 0}) {
     return nuit;
   }
   final poleNuit = sinLat < 0 ? 90.0 : -90.0;
-  for (var lon = -180.0; lon <= 180; lon += 2) {
-    final latTerme =
-        math.atan(-cosLat * math.cos((lon - soleil.lon) * _rad) / sinLat) /
-            _rad;
-    nuit.add(versPlan(lon, latTerme));
+  /* la courbe terminatrice : autour des equinoxes elle devient quasi
+     verticale, la latitude saute de plusieurs dizaines de degres sur
+     deux degres de longitude ; chaque segment raide est donc subdivise
+     par dichotomie, sinon des lambeaux entiers du mauvais cote de la
+     limite etaient teintes pres de l equateur */
+  double latTerminatrice(double lon) =>
+      math.atan(-cosLat * math.cos((lon - soleil.lon) * _rad) / sinLat) /
+      _rad;
+
+  void subdivise(double lo1, double la1, double lo2, double la2, int prof) {
+    if (prof <= 0 || (la2 - la1).abs() <= 20.0) return;
+    final lm = (lo1 + lo2) / 2;
+    final lam = latTerminatrice(lm);
+    subdivise(lo1, la1, lm, lam, prof - 1);
+    nuit.add(versPlan(lm, lam));
+    subdivise(lm, lam, lo2, la2, prof - 1);
+  }
+
+  var lonPrec = -180.0;
+  var laPrec = latTerminatrice(-180.0);
+  nuit.add(versPlan(-180.0, laPrec));
+  while (lonPrec < 180) {
+    var lon2 = lonPrec + 2;
+    if (lon2 > 180) {
+      lon2 = 180.0;
+    }
+    final la2 = latTerminatrice(lon2);
+    subdivise(lonPrec, laPrec, lon2, la2, 7);
+    nuit.add(versPlan(lon2, la2));
+    laPrec = la2;
+    lonPrec = lon2;
   }
   /* la fermeture suit les bords de la carte ( meridiens 180 et -180,
      ligne du pole en nuit ), echantillonnes le long des arcs : la
      projection Equal Earth courbe les meridiens, une corde droite
      entre la courbe et le pole laissait des regions entieres du
      mauvais cote de la limite jour / nuit */
-  final latBord =
-      math.atan(-cosLat * math.cos((180 - soleil.lon) * _rad) / sinLat) /
-          _rad;
+  final latBord = laPrec;
   final pas = poleNuit > 0 ? 5.0 : -5.0;
   for (var la = latBord + pas;
       pas > 0 ? la <= poleNuit : la >= poleNuit;

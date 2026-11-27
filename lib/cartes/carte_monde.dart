@@ -42,15 +42,32 @@ ReglagesCarte reglagesMonde(bool clair) => ReglagesCarte(
     );
 
 /* le fond degrade du monde, comme le fond du canvas du web ( linear
-   gradient vertical de bg[0] a bg[1] ) */
-void fondMonde(Canvas canvas, Size taille) {
-  final rect = Offset.zero & taille;
+   gradient vertical de bg[0] a bg[1] ), peint seulement dans le
+   rectangle de la carte : le tour est trace par contourMonde, ainsi
+   le globe se distingue du fond d ecran autour de lui */
+void fondMonde(Canvas canvas, Rect rect) {
   final degrade = const LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [_fondHaut, _fondBas])
       .createShader(rect);
   canvas.drawRect(rect, Paint()..shader = degrade);
+}
+
+/* le tour de la carte du monde : un trait gris bleute au bord du
+   globe, arrondi comme les coins de la carte ; contreEchelle garde
+   une epaisseur constante a l ecran quel que soit le zoom */
+void contourMonde(Canvas canvas, Rect rect, double contreEchelle) {
+  final rrect = RRect.fromRectAndRadius(
+      rect.deflate(0.75 * contreEchelle),
+      Radius.circular(12 * contreEchelle));
+  canvas.drawRRect(
+      rrect,
+      Paint()
+        ..style = PaintingStyle.stroke
+        ..color = const Color(0xff5a6e87)
+        ..strokeWidth = 1.5 * contreEchelle
+        ..isAntiAlias = true);
 }
 
 /* la zone de nuit : la courbe terminatrice puis la fermeture par le

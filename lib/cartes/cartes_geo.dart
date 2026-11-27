@@ -194,9 +194,13 @@ class PeintreCarte extends CustomPainter {
     final m = transformation.value;
     final zoom = m.getMaxScaleOnAxis();
 
-    /* le fond degrade du monde, comme le fond du canvas du web */
+    /* le fond degrade du monde, seulement dans le rectangle de la
+       carte ; le contour qui distingue le globe du fond d ecran est
+       trace a la fin du paint, par-dessus tout */
     if (carte == 'monde') {
-      fondMonde(canvas, taille);
+      fondMonde(
+          canvas,
+          Rect.fromPoints(versPlan(-ratioEe, 1), versPlan(ratioEe, -1)));
     }
 
     /* contours remplis d abord */
@@ -310,6 +314,14 @@ class PeintreCarte extends CustomPainter {
               echelle: contreEchelle);
         }
       }
+    }
+    /* le tour du globe, par-dessus tout : il marque les bords de la
+       carte du monde et la distingue du fond d ecran */
+    if (carte == 'monde') {
+      contourMonde(
+          canvas,
+          Rect.fromPoints(versPlan(-ratioEe, 1), versPlan(ratioEe, -1)),
+          1.0 / zoom);
     }
   }
 
