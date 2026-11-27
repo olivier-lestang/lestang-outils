@@ -698,18 +698,33 @@ class PleinesIberie {
 
 /// Les terminaisons d un champ iberique : la piece est la terminaison ;
 /// la forme entiere marquee « ! » est coupee apres le radical quand il
-/// s y retrouve, sinon pas de surlignage ( forme trop irreguliere ).
+/// s y retrouve, sinon les formes « ! » sans radical sont coupees par
+/// leur plus long debut commun ( sinon pas de surlignage ).
 List<String> finsIberie(String rad, List<String> pieces) {
-  return pieces.map((x) {
-    if (x.isEmpty) return '';
-    if (x.startsWith('!')) {
+  final parPiece = <String>[];
+  final pleinesIdx = <int>[];
+  for (var i = 0; i < pieces.length; i++) {
+    final x = pieces[i];
+    if (x.isEmpty) {
+      parPiece.add('');
+    } else if (x.startsWith('!')) {
       final f = x.substring(1);
-      return rad.isNotEmpty && f.startsWith(rad) && f.length > rad.length
+      final fin = rad.isNotEmpty && f.startsWith(rad) && f.length > rad.length
           ? f.substring(rad.length)
           : '';
+      if (fin.isEmpty) pleinesIdx.add(i);
+      parPiece.add(fin);
+    } else {
+      parPiece.add(x);
     }
-    return x;
-  }).toList();
+  }
+  if (pleinesIdx.isEmpty) return parPiece;
+  final pleines = [for (final i in pleinesIdx) pieces[i].substring(1)];
+  final lcp = conjFinsPpc(pleines);
+  for (var k = 0; k < pleinesIdx.length && k < lcp.length; k++) {
+    if (lcp[k].isNotEmpty) parPiece[pleinesIdx[k]] = lcp[k];
+  }
+  return parPiece;
 }
 
 /* ---------------------------------------------------------------ITALIE */
@@ -801,7 +816,7 @@ class It {
       Temps('passato', ['participio passato'], [pp],
           [r.rad.isNotEmpty && pp.startsWith(r.rad) && pp.length > r.rad.length
               ? pp.substring(r.rad.length)
-              : '']),
+              : conjFinDerivee(pp, v)]),
     ]));
     return modes;
   }
@@ -890,7 +905,7 @@ class Pt {
       Temps('passado', ['particípio passado'], [pp],
           [r.rad.isNotEmpty && pp.startsWith(r.rad) && pp.length > r.rad.length
               ? pp.substring(r.rad.length)
-              : '']),
+              : conjFinDerivee(pp, v)]),
     ]));
     return modes;
   }
@@ -1201,10 +1216,10 @@ class Ro {
       Temps('prezent', _PERS_IMP_RO, IMP, conjFinsPpc(IMP, max: 3)),
     ]));
     modes.add(Mode('Participiu', [
-      Temps('trecut', ['—'], [pp]),
+      Temps('trecut', ['—'], [pp], [conjFinDerivee(pp, v)]),
     ]));
     modes.add(Mode('Gerunziu', [
-      Temps('prezent', ['—'], [ger]),
+      Temps('prezent', ['—'], [ger], [conjFinDerivee(ger, v)]),
     ]));
     return modes;
   }
@@ -1459,9 +1474,9 @@ class Cs {
     return [s1, s3 + 'š', s3, s3 + 'me', s3 + 'te', p3];
   }
 
-  /// Terminaisons du present tcheque ( les personnes construites portent
-  /// leur suffixe, les formes verbatim n en portent pas ).
-  static const _finPres = ['', 'š', '', 'me', 'te', ''];
+  /// Terminaisons du present tcheque : par plus long debut commun des six
+  /// formes, la premiere personne porte donc aussi sa terminaison quand
+  /// elle partage la tige ( les formes trop irregulieres restent noires ).
   /// Terminaisons de l auxiliaire « budu » du futur.
   static const _finBudu = ['u', 'š', 'e', 'me', 'te', 'ou'];
   /// Terminaisons du passe et du conditionnel : la forme longue ne finit
@@ -1532,12 +1547,12 @@ class Cs {
     final pres = _present(t);
     final ind = <Temps>[];
     if (asp == 'i') {
-      ind.add(Temps('přítomný', _per, pres, _finPres));
+      ind.add(Temps('přítomný', _per, pres, conjFinsPpc(pres)));
       ind.add(Temps('budoucí', _per,
           ['budu', 'budeš', 'bude', 'budeme', 'budete', 'budou']
               .map((b) => '$b $v').toList(), _finBudu));
     } else {
-      ind.add(Temps('budoucí', _per, pres, _finPres));
+      ind.add(Temps('budoucí', _per, pres, conjFinsPpc(pres)));
     }
     ind.add(Temps('minulý', _perP, _passe(t), _finPasse));
     mode.add(Mode('Oznamovací způsob', ind));

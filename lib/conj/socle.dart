@@ -80,7 +80,8 @@ Piece conjOlBout(String tok, String fin) {
 }
 
 /// Un token entier : variantes unies par barre oblique traitees par paire,
-/// le clitique de l imperatif apres le tiret reste noir.
+/// le clitique de l imperatif apres le tiret reste noir. La barre oblique
+/// des variantes reste affichee entre elles.
 List<Piece> conjOlToken(String tok, String fin) {
   if (tok.contains('/') &&
       fin.contains('/') &&
@@ -90,7 +91,7 @@ List<Piece> conjOlToken(String tok, String fin) {
     for (var m = 0; m < tv.length; m++) {
       final p2 = conjOlBout(tv[m], fv[m]);
       if (p2.fin == null) return [Piece(tok, null)];
-      out.add(p2);
+      out.add(m == 0 ? p2 : Piece('/' + p2.noir, p2.fin));
     }
     return out;
   }
@@ -111,6 +112,8 @@ List<Piece> conjOlToken(String tok, String fin) {
 
 /// Les pieces surlignees d une forme : la terminal cherchee de droite a
 /// gauche dans les tokens, celle de l auxiliaire gagne les composes.
+/// L espace entre les mots reste affiche, meme quand la terminaison
+/// tombe sur le dernier mot ( ai mangled, eu lucrat ).
 List<Piece> conjTerme(String v, String fin) {
   if (fin.isEmpty) return [Piece(v, null)];
   final toks = v.split(' ');
@@ -121,7 +124,12 @@ List<Piece> conjTerme(String v, String fin) {
       final out = <Piece>[];
       for (var m = 0; m < toks.length; m++) {
         if (m == j) {
-          out.addAll(essai);
+          for (var q = 0; q < essai.length; q++) {
+            final p = essai[q];
+            out.add(q == 0 && j > 0
+                ? Piece(' ' + p.noir, p.fin)
+                : p);
+          }
         } else {
           out.add(Piece(m > 0 ? ' ' + toks[m] : toks[m], null));
         }
@@ -191,5 +199,19 @@ List<String> conjFinsPpc(List<String> formes, {int max = 4}) {
               ? f.substring(p.length)
               : '')
       .toList();
+}
+
+/// La terminaison d une forme derivee ( participe, gerondif ) quand le
+/// radical encode ne l explique pas : la coupe se fait au plus long debut
+/// commun avec l infinitif, le reste court est la terminaison.
+String conjFinDerivee(String forme, String verbe, {int max = 3}) {
+  if (forme.isEmpty || forme == verbe) return '';
+  var p = verbe;
+  while (p.isNotEmpty && !forme.startsWith(p)) {
+    p = p.substring(0, p.length - 1);
+  }
+  if (p.isEmpty) return '';
+  final fin = forme.substring(p.length);
+  return fin.isNotEmpty && fin.length <= max ? fin : '';
 }
 

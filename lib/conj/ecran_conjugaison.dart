@@ -340,9 +340,14 @@ class _CarteVerbeEtat extends State<_CarteVerbe> {
           style: const TextStyle(
               fontStyle: FontStyle.italic, fontSize: 13, color: Colors.grey)));
     }
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: body,
+    /* le texte de la carte est selectionnable : la souris ou l appui long
+       selectionnent les formes et les definitions, sur plusieurs lignes,
+       pour les copier ( toutes les langues ) */
+    return SelectionArea(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: body,
+      ),
     );
   }
 
