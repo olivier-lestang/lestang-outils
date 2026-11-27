@@ -317,7 +317,7 @@ class PeintreCarte extends CustomPainter {
     }
     /* points et etiquettes : rayons et textes contre-cales, taille
        constante a l ecran quel que soit le zoom */
-    final echelle = 1.0 / zoom;
+    final contreEchelle = 1.0 / zoom;
     for (final e in reglages.points.entries) {
       final liste = points[e.key];
       if (liste == null) continue;
@@ -333,13 +333,13 @@ class PeintreCarte extends CustomPainter {
             pos.dy > taille.height + 60) {
           continue;
         }
-        canvas.drawCircle(pos, st.rayon * echelle, peinture);
+        canvas.drawCircle(pos, st.rayon * contreEchelle, peinture);
       }
       final labelZoom = reglages.labelsMinZoom[e.key];
       if (labelZoom != null && zoom >= labelZoom) {
         for (final pt in liste) {
           _etiquette(canvas, pt.nom, _versEcran(pt.x, pt.y, versPlan),
-              decal: (st.rayon + 2) * echelle, echelle: echelle);
+              decal: (st.rayon + 2) * contreEchelle, echelle: contreEchelle);
         }
       }
     }
@@ -358,7 +358,7 @@ class PeintreCarte extends CustomPainter {
           _etiquetteFond(canvas, pt.nom, _versEcran(pt.x, pt.y, versPlan),
               fond: e.value[0],
               texte: e.value[1],
-              echelle: echelle);
+              echelle: contreEchelle);
         }
       }
     }
