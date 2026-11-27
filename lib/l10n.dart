@@ -1,15 +1,15 @@
-/* Glossaire de l interface : six langues, la sienne suit le systeme.
-   SPDX-License-Identifier : MIT. */
+/* Interface glossary: six languages, the system one is followed.
+   SPDX-License-Identifier: MIT. */
 import 'dart:ui' as ui;
 
-const languesUi = ['fr', 'en', 'es', 'pt', 'it', 'de'];
+const uiLanguages = ['fr', 'en', 'es', 'pt', 'it', 'de'];
 
-String langueSysteme() {
+String systemLanguage() {
   final l = ui.PlatformDispatcher.instance.locale.languageCode;
-  return languesUi.contains(l) ? l : 'fr';
+  return uiLanguages.contains(l) ? l : 'fr';
 }
 
-/* Chaque cle absent d un glossaire retombe sur le francais. */
+/* Any key missing from a glossary falls back to French. */
 final Map<String, Map<String, String>> _glossaires = {
   'fr': {
     'titre': 'Lestang Outils',
@@ -427,12 +427,12 @@ final Map<String, Map<String, String>> _glossaires = {
   },
 };
 
-class Traducteur {
-  final String langue;
-  Traducteur(this.langue);
-  String t(String cle) =>
-      _glossaires[langue]?[cle] ?? _glossaires['fr']![cle] ?? cle;
+class Translator {
+  final String language;
+  Translator(this.language);
+  String t(String key) =>
+      _glossaires[language]?[key] ?? _glossaires['fr']![key] ?? key;
 
-  /* le traducteur s emploie comme une fonction : trad ( 'cle' ) */
-  String call(String cle) => t(cle);
+  /* the translator is used like a function : trad ( 'key' ) */
+  String call(String key) => t(key);
 }

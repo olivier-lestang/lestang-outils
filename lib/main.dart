@@ -1,38 +1,38 @@
-/* Lestang Outils, application multiplateformes : le registre des cartes,
-   thème clair ou sombre, langue au choix, ordre des cartes au choix.
-   Flutter + SQLite embarquee. SPDX-License-Identifier : MIT. */
+/* Lestang Outils, cross-platform application: the card registry, light or
+   dark theme, language of choice, card order of choice.
+   Flutter + embedded SQLite. SPDX-License-Identifier: MIT. */
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'cartes/cartes_geo.dart';
-import 'conj/ecran_conjugaison.dart';
-import 'conj/icones_conj.dart';
-import 'ecrans/infos.dart';
-import 'ecrans/meteo.dart';
-import 'ecrans/motdepasse.dart';
-import 'ecrans/pdf.dart';
-import 'ecrans/raccourcis.dart';
-import 'ecrans/recherche.dart';
-import 'ecrans/reglages.dart';
+import 'card_registry.dart';
+import 'conj/conjugation_icons.dart';
+import 'conj/conjugation_screen.dart';
 import 'l10n.dart';
-import 'registre.dart';
+import 'maps/geo_maps.dart';
+import 'screens/info.dart';
+import 'screens/password.dart';
+import 'screens/pdf.dart';
+import 'screens/search.dart';
+import 'screens/settings.dart';
+import 'screens/shortcuts.dart';
+import 'screens/weather.dart';
 
-void main() => runApp(const AppLestangOutils());
+void main() => runApp(const LestangOutilsApp());
 
-class AppLestangOutils extends StatefulWidget {
-  const AppLestangOutils({super.key});
+class LestangOutilsApp extends StatefulWidget {
+  const LestangOutilsApp({super.key});
 
   @override
-  State<AppLestangOutils> createState() => _AppLestangOutilsState();
+  State<LestangOutilsApp> createState() => _LestangOutilsAppState();
 }
 
-class _AppLestangOutilsState extends State<AppLestangOutils> {
-  String _langue = 'fr';
-  ModeTheme _theme = ModeTheme.systeme;
+class _LestangOutilsAppState extends State<LestangOutilsApp> {
+  String _language = 'fr';
+  AppThemeMode _theme = AppThemeMode.system;
   int _page = 0;
-  List<String> _ordre = clesCartes;
+  List<String> _order = cardKeys;
 
-  static const _icones = <String, IconData>{
+  static const _icons = <String, IconData>{
     'conj-fr': Icons.tab,
     'conj-en': Icons.translate,
     'conj-es': Icons.translate,
@@ -57,51 +57,51 @@ class _AppLestangOutilsState extends State<AppLestangOutils> {
   @override
   void initState() {
     super.initState();
-    _restaurer();
+    _restore();
   }
 
-  Future<void> _restaurer() async {
-    final l = await lireLangue();
-    final t = await lireTheme();
-    final ordre = await lireOrdre();
+  Future<void> _restore() async {
+    final l = await readLanguage();
+    final t = await readTheme();
+    final order = await readOrder();
     if (mounted) {
       setState(() {
-        _langue = l;
+        _language = l;
         _theme = t;
-        _ordre = ordre;
+        _order = order;
       });
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final trad = Traducteur(_langue);
-    final clair = _theme == ModeTheme.clair ||
-        (_theme == ModeTheme.systeme &&
+    final trad = Translator(_language);
+    final light = _theme == AppThemeMode.light ||
+        (_theme == AppThemeMode.system &&
             WidgetsBinding.instance.platformDispatcher.platformBrightness ==
                 Brightness.light);
     return MaterialApp(
       title: 'Lestang Outils',
-      theme: clair
+      theme: light
           ? ThemeData(brightness: Brightness.light, useMaterial3: true)
           : ThemeData(brightness: Brightness.dark, useMaterial3: true),
       home: Scaffold(
         appBar: AppBar(title: Text(trad('titre'))),
         body: Row(children: [
           NavigationRail(
-            selectedIndex: _page.clamp(0, _ordre.length - 1),
+            selectedIndex: _page.clamp(0, _order.length - 1),
             onDestinationSelected: (i) => setState(() => _page = i),
             labelType: NavigationRailLabelType.selected,
             minWidth: 56,
             groupAlignment: -1,
             destinations: [
-              for (final c in _ordre)
+              for (final c in _order)
                 NavigationRailDestination(
-                  /* conjugaison : une icone coloree par langue, avec le
-                     drapeau et les deux lettres ; autres cartes : icone */
+                  /* conjugation : a coloured icon per language, with the
+                     flag and the two letters ; other cards : icon */
                   icon: c.startsWith('conj-')
-                      ? iconeConjug(c.substring(5))
-                      : Icon(_icones[c] ?? Icons.extension),
+                      ? conjugIcon(c.substring(5))
+                      : Icon(_icons[c] ?? Icons.extension),
                   label: Text(trad(c)),
                 ),
             ],
@@ -110,7 +110,7 @@ class _AppLestangOutilsState extends State<AppLestangOutils> {
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(14),
-              child: _pageCourante(trad),
+              child: _currentPage(trad),
             ),
           ),
         ]),
@@ -118,10 +118,10 @@ class _AppLestangOutilsState extends State<AppLestangOutils> {
     );
   }
 
-  Widget _pageCourante(Traducteur trad) {
-    if (_page >= _ordre.length) _page = 0;
-    final cle = _ordre[_page];
-    switch (cle) {
+  Widget _currentPage(Translator trad) {
+    if (_page >= _order.length) _page = 0;
+    final key = _order[_page];
+    switch (key) {
       case 'conj-fr':
       case 'conj-en':
       case 'conj-es':
@@ -131,16 +131,17 @@ class _AppLestangOutilsState extends State<AppLestangOutils> {
       case 'conj-pl':
       case 'conj-cs':
       case 'conj-ro':
-        final langue = cle.substring(5);
-        /* une cle par langue : sans elle, Flutter reutilise l'etat de
-           l'ecran d'une autre langue ( jeu de conjugaison deja charge ) */
-        return EcranConjugaison(langue, trad, key: ValueKey('conj-$langue'));
+        final language = key.substring(5);
+        /* one key per language : without it, Flutter reuses the state of
+           the screen of another language ( conjugation set already loaded ) */
+        return ConjugationScreen(language, trad,
+            key: ValueKey('conj-$language'));
       case 'france':
       case 'union':
       case 'monde':
         return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Row(children: [
-            Text(trad(cle),
+            Text(trad(key),
                 style:
                     const TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
             const SizedBox(width: 10),
@@ -151,49 +152,49 @@ class _AppLestangOutilsState extends State<AppLestangOutils> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => Scaffold(
-                          appBar: AppBar(title: Text(trad(cle))),
+                          appBar: AppBar(title: Text(trad(key))),
                           body: Padding(
                               padding: const EdgeInsets.all(10),
-                              child: EcranCarte(cle, key: ValueKey(cle)))))),
+                              child: MapScreen(key, key: ValueKey(key)))))),
             ),
           ]),
           const SizedBox(height: 10),
-          Expanded(child: EcranCarte(cle, key: ValueKey(cle))),
+          Expanded(child: MapScreen(key, key: ValueKey(key))),
         ]);
       case 'météo':
-        return EcranMeteo(trad);
+        return WeatherScreen(trad);
       case 'pdf':
-        return EcranPdf(trad);
+        return PdfScreen(trad);
       case 'recherche':
-        return EcranRecherche(trad);
+        return SearchScreen(trad);
       case 'raccourcis':
-        return EcranRaccourcis(trad);
+        return ShortcutsScreen(trad);
       case 'motdepasse':
-        return EcranMotDePasse(trad);
+        return PasswordScreen(trad);
       case 'réglages':
-        return EcranReglages(_langue, _theme, _ordre, (l) async {
+        return SettingsScreen(_language, _theme, _order, (l) async {
           final p = await SharedPreferences.getInstance();
           await p.setString('langue', l);
-          setState(() => _langue = l);
+          setState(() => _language = l);
         }, (t) async {
           final p = await SharedPreferences.getInstance();
           await p.setString(
               'theme',
-              t == ModeTheme.clair
+              t == AppThemeMode.light
                   ? 'clair'
-                  : t == ModeTheme.sombre
+                  : t == AppThemeMode.dark
                       ? 'sombre'
                       : 'systeme');
           setState(() => _theme = t);
-        }, (ordre) async {
-          await ecrireOrdre(ordre);
+        }, (order) async {
+          await writeOrder(order);
           setState(() {
-            _ordre = ordre;
+            _order = order;
             _page = 0;
           });
         });
       case 'infos':
-        return EcranInfos(trad);
+        return InfoScreen(trad);
     }
     return const SizedBox.shrink();
   }
