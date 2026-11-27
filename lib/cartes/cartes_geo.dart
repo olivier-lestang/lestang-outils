@@ -316,8 +316,10 @@ class PeintreCarte extends CustomPainter {
       canvas.drawPath(path, Paint()..color = const Color(0x55000c33));
     }
     /* points et etiquettes : rayons et textes contre-cales, taille
-       constante a l ecran quel que soit le zoom */
+       constante a l ecran quel que soit le zoom ; les etiquettes
+       ne se superposent pas, chaque pose garde sa place */
     final contreEchelle = 1.0 / zoom;
+    final places = <Rect>[];
     for (final e in reglages.points.entries) {
       final liste = points[e.key];
       if (liste == null) continue;
@@ -339,7 +341,9 @@ class PeintreCarte extends CustomPainter {
       if (labelZoom != null && zoom >= labelZoom) {
         for (final pt in liste) {
           _etiquette(canvas, pt.nom, _versEcran(pt.x, pt.y, versPlan),
-              decal: (st.rayon + 2) * contreEchelle, echelle: contreEchelle);
+              decal: (st.rayon + 2) * contreEchelle,
+              echelle: contreEchelle,
+              places: places);
         }
       }
     }
@@ -372,14 +376,36 @@ class PeintreCarte extends CustomPainter {
     return versPlan(p.dx * ratioEe, p.dy);
   }
 
+  /* position dans le plan ( unites de la base, sans echelle ecran ) */
+  Offset _versPlan(double x, double y) {
+    if (carte != 'monde') return Offset(x, y);
+    final p = ee(y, x);
+    return Offset(p.dx * ratioEe, p.dy);
+  }
+
   void _ajouterTronconEcran(
       Path p, bdd.Troncon tr, Offset Function(double, double) v,
-      {bool fermer = false}) {
+      {bool fermer = false, double seuil = 1.5}) {
     final pts = tr.points;
     if (pts.isEmpty) return;
+    Offset? dernierPlan;
     var premier = true;
     for (var i = 0; i + 1 < pts.length; i += 2) {
+      /* le bond se mesure dans le plan, pas en pixels : au zoom fort
+         chaque segment legitime devient long a l ecran */
+      final plan = _versPlan(pts[i], pts[i + 1]);
       final pos = _versEcran(pts[i], pts[i + 1], v);
+      /* un bond brusque entre deux points voisins trahit le passage de
+         l antiméridien ( carte du monde ) : le segment dessinait une
+         ligne droite a travers toute la projection, en barre
+         horizontale ; on commence un nouveau sous-trace a la place */
+      if (dernierPlan != null &&
+          (plan.dx - dernierPlan.dx) * (plan.dx - dernierPlan.dx) +
+                  (plan.dy - dernierPlan.dy) * (plan.dy - dernierPlan.dy) >
+              seuil * seuil) {
+        premier = true;
+      }
+      dernierPlan = plan;
       if (premier) {
         p.moveTo(pos.dx, pos.dy);
         premier = false;
@@ -393,8 +419,8 @@ class PeintreCarte extends CustomPainter {
     if (fermer) p.close();
   }
 
-  void _etiquette(Canvas canvas, String texte, Offset pos,
-      {double decal = 3, double echelle = 1}) {
+  bool _etiquette(Canvas canvas, String texte, Offset pos,
+      {double decal = 3, double echelle = 1, List<Rect>? places}) {
     final tp = TextPainter(
       text: TextSpan(
           text: texte,
@@ -405,7 +431,21 @@ class PeintreCarte extends CustomPainter {
                   clair ? const Color(0x66000000) : const Color(0x66ffffff))),
       textDirection: TextDirection.ltr,
     )..layout();
+    /* une etiquette posee n ecrase pas celles deja tracees : au zoom
+       les villes denses se superposaient et devenaient illisibles */
+    final rect = Rect.fromLTRB(
+        pos.dx + decal,
+        pos.dy - tp.height / 2,
+        pos.dx + decal + tp.width,
+        pos.dy + tp.height / 2);
+    if (places != null) {
+      for (final r in places) {
+        if (r.overlaps(rect.inflate(echelle))) return false;
+      }
+      places.add(rect);
+    }
     tp.paint(canvas, pos + Offset(decal, -tp.height / 2));
+    return true;
   }
 
   void _etiquetteFond(Canvas canvas, String libelle, Offset pos,
