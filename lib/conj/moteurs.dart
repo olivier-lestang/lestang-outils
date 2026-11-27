@@ -384,6 +384,8 @@ class Fr {
         clit
             ? '${pronominaliser('être')} ${_part(0, f['pp']!, true)}'
             : '${A['inf']![0]} ${_part(0, f['pp']!, usesEtre)}'
+      ], [
+        f['finPp']!.isNotEmpty ? f['finPp']![0] : ''
       ])
     ]));
     modes.add(Mode('Indicatif', [
@@ -634,7 +636,8 @@ class Es {
     final modes = <Mode>[];
     modes.add(Mode('Infinitivo', [
       Temps('presente', ['—'], [v]),
-      Temps('compuesto', ['—'], [pp.isEmpty ? '' : '${H['pri']![2]} $pp']),
+      Temps('compuesto', ['—'], [pp.isEmpty ? '' : '${H['pri']![2]} $pp'],
+          [pp.isEmpty ? '' : f['finPp4']![0]]),
     ]));
     modes.add(Mode('Indicativo', [
       Temps('presente', _PERS_ES, _lignes(f['pri']!, clit), f['finPri']),
@@ -786,9 +789,12 @@ class It {
         Temps(nom, per2, r.pleines(pieces), finsIberie(r.rad, pieces));
 
     final modes = <Mode>[];
+    final finPp = r.rad.isNotEmpty && pp.startsWith(r.rad) && pp.length > r.rad.length
+        ? pp.substring(r.rad.length)
+        : conjFinDerivee(pp, v);
     modes.add(Mode('Infinito', [
       Temps('presente', ['—'], [v]),
-      Temps('passato', ['—'], ['${aux('P')[0]} $pp']),
+      Temps('passato', ['—'], ['${aux('P')[0]} $pp'], [finPp]),
     ]));
     modes.add(Mode('Indicativo', [
       simple('presente', r.c[0]),
@@ -813,10 +819,7 @@ class It {
       Temps('presente', impPer, r.pleines(r.c[7]), finsIberie(r.rad, r.c[7])),
     ]));
     modes.add(Mode('Participio', [
-      Temps('passato', ['participio passato'], [pp],
-          [r.rad.isNotEmpty && pp.startsWith(r.rad) && pp.length > r.rad.length
-              ? pp.substring(r.rad.length)
-              : conjFinDerivee(pp, v)]),
+      Temps('passato', ['participio passato'], [pp], [finPp]),
     ]));
     return modes;
   }
@@ -875,9 +878,12 @@ class Pt {
         Temps(nom, per2, r.pleines(pieces), finsIberie(r.rad, pieces));
 
     final modes = <Mode>[];
+    final finPp = r.rad.isNotEmpty && pp.startsWith(r.rad) && pp.length > r.rad.length
+        ? pp.substring(r.rad.length)
+        : conjFinDerivee(pp, v);
     modes.add(Mode('Infinitivo', [
       Temps('impessoal', ['—'], [v]),
-      Temps('composto', ['—'], ['${aux('P')[0]} $pp']),
+      Temps('composto', ['—'], ['${aux('P')[0]} $pp'], [finPp]),
     ]));
     modes.add(Mode('Indicativo', [
       simple('presente', r.c[0]),
@@ -902,10 +908,7 @@ class Pt {
       Temps('presente', impPer, r.pleines(r.c[7]), finsIberie(r.rad, r.c[7])),
     ]));
     modes.add(Mode('Particípio', [
-      Temps('passado', ['particípio passado'], [pp],
-          [r.rad.isNotEmpty && pp.startsWith(r.rad) && pp.length > r.rad.length
-              ? pp.substring(r.rad.length)
-              : conjFinDerivee(pp, v)]),
+      Temps('passado', ['particípio passado'], [pp], [finPp]),
     ]));
     return modes;
   }
@@ -968,7 +971,10 @@ class De {
     modes.add(Mode('Infinitiv', [
       Temps('Präsens', ['—'], [v]),
       Temps(
-          'Perfekt', ['—'], ['${fic.pp} ${fic.aux == 's' ? 'sein' : 'haben'}']),
+          'Perfekt', ['—'], ['${fic.pp} ${fic.aux == 's' ? 'sein' : 'haben'}'],
+          /* la terminaison du participe : le t final, l auxiliaire
+             haben/sein ne finit jamais par t et ne la lui vole pas */
+          [fic.pp.endsWith('t') ? 't' : '']),
     ]));
     modes.add(Mode('Indikativ', [
       Temps('Präsens', _PERS_DE, P, c[0]),
@@ -1196,7 +1202,7 @@ class Ro {
     final modes = <Mode>[];
     modes.add(Mode('Infinitiv', [
       Temps('prezent', ['—'], ['a $v']),
-      Temps('perfect', ['—'], ['a fi $pp']),
+      Temps('perfect', ['—'], ['a fi $pp'], [conjFinDerivee(pp, v)]),
     ]));
     modes.add(Mode('Indicativ', [
       Temps('prezent', _PERS_RO, P, conjFinsPpc(P)),

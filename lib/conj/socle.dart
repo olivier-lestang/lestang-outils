@@ -1,6 +1,45 @@
 /* Le socle des cartes de conjugaison : temps, teintes, surlignage des
    terminaisons, definitions a sens multiples. Portage fidele de
    web/js/conjugaison/socle.js. SPDX-License-Identifier : MIT. */
+import 'package:flutter/material.dart';
+
+/* Le gabarit commun des planches, une seule constante pour les neuf
+   langues : la terminaison est bordeaux en theme clair et rose soutenu
+   en theme sombre ( le bordeaux serait illisible sur fond fonce ),
+   les parentheses passent en gris discret. */
+const conjFinClair = Color(0xff7d1f2e);
+const conjFinSombre = Color(0xfff2848f);
+
+Color conjCouleurTerminaison(BuildContext context) =>
+    Theme.of(context).brightness == Brightness.light
+        ? conjFinClair
+        : conjFinSombre;
+
+TextStyle conjStyleTerminaison(BuildContext context) => TextStyle(
+    color: conjCouleurTerminaison(context), fontWeight: FontWeight.w700);
+
+TextStyle conjStyleParenthese(BuildContext context) =>
+    TextStyle(color: Theme.of(context).hintColor);
+
+/* Les morceaux d un texte : les segments entre parentheses ( et les
+   parentheses elles-memes ) passent en gris, le reste garde le style
+   de base. */
+List<TextSpan> conjSpansGris(String texte, TextStyle? gris) {
+  final out = <TextSpan>[];
+  var reste = texte;
+  final re = RegExp(r'\([^)]*\)');
+  while (reste.isNotEmpty) {
+    final m = re.firstMatch(reste);
+    if (m == null) {
+      out.add(TextSpan(text: reste));
+      break;
+    }
+    if (m.start > 0) out.add(TextSpan(text: reste.substring(0, m.start)));
+    out.add(TextSpan(text: m[0], style: gris));
+    reste = reste.substring(m.end);
+  }
+  return out;
+}
 
 /// Casse et accents plies pour la recherche.
 String conjNormaliser(String s) {

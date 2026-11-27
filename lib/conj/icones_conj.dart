@@ -6,6 +6,14 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
+/* Un drapeau 24x16 : des bandes pleines posees cote a cote ( DecoratedBox,
+   des tailles fixes, pas de Expanded ni ColoredBox qui ne rendent pas
+   dans le slot d icone de la NavigationRail ). */
+Widget _bande(Color c, double w, double h) => DecoratedBox(
+    decoration: BoxDecoration(color: c), child: SizedBox(width: w, height: h));
+
+/* Les drapeaux a bandes horizontales : espagne, allemagne, pologne,
+   tchequie. */
 const _drapeaux = <String, List<Color>>{
   'es': [Color(0xffaa151b), Color(0xfff1bf00), Color(0xffaa151b)],
   'de': [Color(0xff000000), Color(0xffdd0000), Color(0xffffce00)],
@@ -36,13 +44,30 @@ const _codes = <String, String>{
   'ro': 'RO',
 };
 
-/* Le drapeau lui-meme : des bandes pleines, verticales ou horizontales,
-   dans un petit rectangle arrondi. */
+/* Le drapeau lui-meme, dans un petit rectangle arrondi. */
 Widget _etendard(String langue) {
   final arrondi = BorderRadius.circular(3);
   if (langue == 'en') {
     return ClipRRect(borderRadius: arrondi, child: _unionJack());
   }
+  Widget pleines(List<Color> couleurs, bool horizontal) {
+    final n = couleurs.length;
+    return ClipRRect(
+      borderRadius: arrondi,
+      child: SizedBox(
+        width: 24,
+        height: 16,
+        child: horizontal
+            ? Column(children: [
+                for (final c in couleurs) _bande(c, 24, 16 / n),
+              ])
+            : Row(children: [
+                for (final c in couleurs) _bande(c, 24 / n, 16),
+              ]),
+      ),
+    );
+  }
+
   if (langue == 'pt') {
     return ClipRRect(
       borderRadius: arrondi,
@@ -50,36 +75,16 @@ Widget _etendard(String langue) {
         width: 24,
         height: 16,
         child: Row(children: [
-          const Expanded(flex: 2, child: ColoredBox(color: _ptVert)),
-          const Expanded(flex: 3, child: ColoredBox(color: _ptRouge)),
+          _bande(_ptVert, 24 * 2 / 5, 16),
+          _bande(_ptRouge, 24 * 3 / 5, 16),
         ]),
       ),
     );
   }
   final verticaux = _verticaux[langue];
-  if (verticaux != null) {
-    return ClipRRect(
-      borderRadius: arrondi,
-      child: SizedBox(
-        width: 24,
-        height: 16,
-        child: Row(children: [
-          for (final c in verticaux) Expanded(child: ColoredBox(color: c)),
-        ]),
-      ),
-    );
-  }
+  if (verticaux != null) return pleines(verticaux, false);
   final bandes = _drapeaux[langue] ?? const [Color(0xff7d1f2e)];
-  return ClipRRect(
-    borderRadius: arrondi,
-    child: SizedBox(
-      width: 24,
-      height: 16,
-      child: Column(children: [
-        for (final c in bandes) Expanded(child: ColoredBox(color: c)),
-      ]),
-    ),
-  );
+  return pleines(bandes, true);
 }
 
 /* L union jack simplifie : fond bleu, sautoirs blanc puis rouge, croix
@@ -131,15 +136,15 @@ Widget _unionJack() {
   );
 }
 
-/* L icone d une langue de conjugaison : drapeau 22x15 en bandes arrondies
-   plus les deux lettres sur une pastille semi-transparente. */
+/* L icone d une langue de conjugaison : le drapeau plus les deux lettres
+   de la langue sur une pastille semi-transparente. */
 Widget iconeConjug(String langue) {
   final code = _codes[langue] ?? langue.toUpperCase();
   return SizedBox(
     width: 26,
     height: 24,
     child: Stack(alignment: Alignment.center, children: [
-      /* le drapeau, legerement agrandi pour rester lisible */
+      /* le drapeau, legerement rehausse pour rester lisible */
       Transform.translate(
         offset: const Offset(0, -1),
         child: _etendard(langue),

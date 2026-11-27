@@ -320,19 +320,22 @@ class _CarteVerbeEtat extends State<_CarteVerbe> {
       body.add(_planche());
       body.add(const SizedBox(height: 12));
     }
-    /* l encadre definition : la source figure au-dessus de chaque groupe */
+    /* l encadre definition : la source figure au-dessus de chaque groupe ;
+       les definitions forment leur propre zone de selection */
     if (defs.isNotEmpty) {
-      body.add(Container(
-        padding: const EdgeInsets.fromLTRB(11, 7, 11, 9),
-        decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.onSurface.withOpacity(.08),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ..._groupesSens(defs),
-          ],
+      body.add(SelectionArea(
+        child: Container(
+          padding: const EdgeInsets.fromLTRB(11, 7, 11, 9),
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.onSurface.withOpacity(.08),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ..._groupesSens(defs),
+            ],
+          ),
         ),
       ));
     } else {
@@ -340,14 +343,9 @@ class _CarteVerbeEtat extends State<_CarteVerbe> {
           style: const TextStyle(
               fontStyle: FontStyle.italic, fontSize: 13, color: Colors.grey)));
     }
-    /* le texte de la carte est selectionnable : la souris ou l appui long
-       selectionnent les formes et les definitions, sur plusieurs lignes,
-       pour les copier ( toutes les langues ) */
-    return SelectionArea(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: body,
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: body,
     );
   }
 
@@ -432,7 +430,10 @@ class _CarteVerbeEtat extends State<_CarteVerbe> {
             runSpacing: 8,
             crossAxisAlignment: WrapCrossAlignment.start,
             children: [
-              for (final tp in m.temps) _carteTemps(tp),
+              /* chaque temps est sa propre zone de selection : on copie
+                 les formes d un temps, jamais a travers plusieurs temps */
+              for (final tp in m.temps)
+                SelectionArea(child: _carteTemps(tp)),
             ],
           ),
           const SizedBox(height: 12),
@@ -502,19 +503,20 @@ class _CarteVerbeEtat extends State<_CarteVerbe> {
     );
   }
 
-  /* une forme pleine ; la terminaison portee par fin passe en rouge bordeaux gras */
+  /* une forme pleine ; la terminaison portee par fin passe en gras dans
+     la couleur du gabarit ( bordeaux en clair, rose en sombre ), les
+     segments entre parentheses passent en gris */
   Widget _forme(String val, String fin) {
     final pieces = conjTerme(val, fin);
+    final styleFin = conjStyleTerminaison(context);
+    final styleGris = conjStyleParenthese(context);
     return Text.rich(
       TextSpan(
         children: [
           for (final p in pieces) ...[
-            if (p.noir.isNotEmpty) TextSpan(text: p.noir),
+            ...conjSpansGris(p.noir, styleGris),
             if (p.fin != null)
-              TextSpan(
-                  text: p.fin,
-                  style: const TextStyle(
-                      color: Color(0xff7d1f2e), fontWeight: FontWeight.w700)),
+              TextSpan(text: p.fin, style: styleFin),
           ],
         ],
       ),
@@ -550,9 +552,15 @@ class _CarteVerbeEtat extends State<_CarteVerbe> {
                             color: l['verbe'] == v
                                 ? Theme.of(context).colorScheme.primary
                                 : null)),
-                    Text('${l['preterit']!} / ${l['pp']!}',
+                    /* les marqueurs (US) et (GB) passent en gris */
+                    Text.rich(
+                        TextSpan(children: [
+                          ...conjSpansGris('${l['preterit']!} / ${l['pp']!}',
+                              conjStyleParenthese(context)),
+                        ]),
                         style: TextStyle(
-                            fontSize: 12, color: Theme.of(context).hintColor)),
+                            fontSize: 12,
+                            color: Theme.of(context).hintColor)),
                   ]),
             ),
           ),
