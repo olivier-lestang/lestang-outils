@@ -16,6 +16,7 @@ import 'carte_monde.dart';
 import 'departements.dart';
 import 'palette_union.dart';
 import 'projection_monde.dart';
+import 'reglages_cartes.dart';
 import 'styles_cartes.dart';
 
 /* ---------------- les styles ( styles_cartes.dart ) ---------------- */
@@ -167,14 +168,23 @@ class PeintreCarte extends CustomPainter {
   final Color fondTexte;
   final DateTime heureMonde; // heure de la zone de nuit
   final bool clair;
+  final StyleMonde? styleMonde; // style de la modale, ocean par defaut
+  final bool nuitMonde; // la zone de nuit allumee ou eteinte
 
   PeintreCarte(this.carte, this.couches, this.points, this.reglages,
-      this.transformation, this.fondTexte, this.heureMonde, this.clair)
+      this.transformation, this.fondTexte, this.heureMonde, this.clair,
+      {this.styleMonde, this.nuitMonde = true})
       : super(repaint: transformation);
 
   @override
   bool shouldRepaint(PeintreCarte old) =>
-      old.carte != carte || old.heureMonde != heureMonde || old.clair != clair;
+      old.carte != carte ||
+      old.heureMonde != heureMonde ||
+      old.clair != clair ||
+      old.styleMonde != styleMonde ||
+      old.nuitMonde != nuitMonde ||
+      old.couches.length != couches.length ||
+      old.points.length != points.length;
 
   /* longitude et latitude brutes vers le plan du monde ( Equal Earth ) */
   Offset projetee(double lon, double lat) {
@@ -194,13 +204,15 @@ class PeintreCarte extends CustomPainter {
     final m = transformation.value;
     final zoom = m.getMaxScaleOnAxis();
 
+    final style = styleMonde ?? stylesMonde['ocean']!;
     /* le fond degrade du monde, seulement dans le rectangle de la
        carte ; le contour qui distingue le globe du fond d ecran est
        trace a la fin du paint, par-dessus tout */
     if (carte == 'monde') {
       fondMonde(
           canvas,
-          Rect.fromPoints(versPlan(-ratioEe, 1), versPlan(ratioEe, -1)));
+          Rect.fromPoints(versPlan(-ratioEe, 1), versPlan(ratioEe, -1)),
+          style);
     }
 
     /* contours remplis d abord */
@@ -261,8 +273,8 @@ class PeintreCarte extends CustomPainter {
       }
     }
     /* zone de nuit du monde, dans son fichier a elle */
-    if (carte == 'monde') {
-      dessineZoneNuit(canvas, versPlan, heureMonde);
+    if (carte == 'monde' && nuitMonde) {
+      dessineZoneNuit(canvas, versPlan, heureMonde, style);
     }
     /* points et etiquettes : rayons et textes contre-cales, taille
        constante a l ecran quel que soit le zoom ; les etiquettes
@@ -321,7 +333,8 @@ class PeintreCarte extends CustomPainter {
       contourMonde(
           canvas,
           Rect.fromPoints(versPlan(-ratioEe, 1), versPlan(ratioEe, -1)),
-          1.0 / zoom);
+          1.0 / zoom,
+          style);
     }
   }
 
@@ -453,6 +466,8 @@ class _EcranCarteState extends State<EcranCarte> {
   Map<String, List<bdd.PointNomme>>? _points;
   DateTime _heure = DateTime.now();
   String? _cadrage; // cadrage outre-mer choisi
+  Map<String, bool> _groupes = {}; // couches visibles, modale de reglages
+  String _styleMonde = 'ocean'; // style de la carte du monde
 
   static const _nomsCouches = <String, List<String>>{
     'france': [
@@ -518,10 +533,15 @@ class _EcranCarteState extends State<EcranCarte> {
     for (final c in _nomsPoints[widget.carte] ?? const <String>[]) {
       pts[c] = await bdd.points(widget.carte, c);
     }
+    final groupes = await lireVisibilites(widget.carte);
+    final style =
+        widget.carte == 'monde' ? await lireStyleMonde() : _styleMonde;
     if (mounted) {
       setState(() {
         _couches = couches;
         _points = pts;
+        _groupes = groupes;
+        _styleMonde = style;
       });
     }
   }
@@ -613,7 +633,7 @@ class _EcranCarteState extends State<EcranCarte> {
         ? reglagesFrance(clair)
         : widget.carte == 'union'
             ? reglagesUnion(clair)
-            : reglagesMonde(clair);
+            : reglagesMonde(clair, stylesMonde[_styleMonde]);
     if (widget.carte == 'france' &&
         _cadrage != null &&
         cadragesOutreMer.containsKey(_cadrage)) {
@@ -621,6 +641,44 @@ class _EcranCarteState extends State<EcranCarte> {
       return ReglagesCarte(r.couches, r.points, r.labelsMinZoom, c);
     }
     return r;
+  }
+
+  /* les couches et les points visibles seulement : la modale de
+     reglages masque un groupe entier, la carte se redessine */
+  Map<String, bdd.CoucheGeo> _couchesVisibles() {
+    final m = <String, bdd.CoucheGeo>{};
+    _couches?.forEach((cle, couche) {
+      if (visible(widget.carte, cle, _groupes)) m[cle] = couche;
+    });
+    return m;
+  }
+
+  Map<String, List<bdd.PointNomme>> _pointsVisibles() {
+    final m = <String, List<bdd.PointNomme>>{};
+    _points?.forEach((cle, liste) {
+      if (visible(widget.carte, cle, _groupes)) m[cle] = liste;
+    });
+    return m;
+  }
+
+  Widget _boutonReglages() => IconButton(
+        tooltip: 'Réglages de la carte',
+        icon: const Icon(Icons.tune),
+        onPressed: _modaleReglages,
+      );
+
+  /* la modale des reglages de la carte, comme sur le web : chaque case
+     allume ou eteint un groupe, le monde choisit son style ; chaque
+     changement persiste aussitot dans les preferences */
+  Future<void> _modaleReglages() async {
+    await modaleReglagesCarte(context, widget.carte, _groupes, _styleMonde,
+        change: (groupe, valeur) {
+      ecrireVisibilite(widget.carte, groupe, valeur);
+      setState(() => _groupes[groupe] = valeur);
+    }, changeStyle: (style) {
+      ecrireStyleMonde(style);
+      setState(() => _styleMonde = style);
+    });
   }
 
   @override
@@ -632,24 +690,28 @@ class _EcranCarteState extends State<EcranCarte> {
     final reglages = _reglages(clair);
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       if (widget.carte == 'france')
-        Wrap(spacing: 6, runSpacing: 4, children: [
-          ChoiceChip(
-            label: const Text('Métropole'),
-            selected: _cadrage == null,
-            onSelected: (_) => setState(() {
-              _cadrage = null;
-              _transformation.value = Matrix4.identity();
-            }),
-          ),
-          for (final nom in cadragesOutreMer.keys)
+        Row(children: [
+          Expanded(
+              child: Wrap(spacing: 6, runSpacing: 4, children: [
             ChoiceChip(
-              label: Text(nom),
-              selected: _cadrage == nom,
+              label: const Text('Métropole'),
+              selected: _cadrage == null,
               onSelected: (_) => setState(() {
-                _cadrage = nom;
+                _cadrage = null;
                 _transformation.value = Matrix4.identity();
               }),
             ),
+            for (final nom in cadragesOutreMer.keys)
+              ChoiceChip(
+                label: Text(nom),
+                selected: _cadrage == nom,
+                onSelected: (_) => setState(() {
+                  _cadrage = nom;
+                  _transformation.value = Matrix4.identity();
+                }),
+              ),
+          ])),
+          _boutonReglages(),
         ]),
       if (widget.carte == 'france') const SizedBox(height: 8),
       if (widget.carte == 'monde') ...[
@@ -676,8 +738,13 @@ class _EcranCarteState extends State<EcranCarte> {
             icon: const Icon(Icons.restore),
             onPressed: () => setState(() => _heure = DateTime.now()),
           ),
+          _boutonReglages(),
         ]),
       ],
+      if (widget.carte == 'union')
+        Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [_boutonReglages()]),
       Expanded(
         child: LayoutBuilder(builder: (context, contraintes) {
           final h =
@@ -696,13 +763,15 @@ class _EcranCarteState extends State<EcranCarte> {
                   size: Size(contraintes.maxWidth, h),
                   painter: PeintreCarte(
                       widget.carte,
-                      _couches!,
-                      _points!,
+                      _couchesVisibles(),
+                      _pointsVisibles(),
                       reglages,
                       _transformation,
                       clair ? const Color(0xff212529) : const Color(0xfff1f3f5),
                       _heure,
-                      clair),
+                      clair,
+                      styleMonde: stylesMonde[_styleMonde],
+                      nuitMonde: _groupes['nuit'] ?? true),
                 ),
               ),
             ),

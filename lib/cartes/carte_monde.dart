@@ -1,9 +1,9 @@
 /* La carte du monde : reglages, fond, zone de nuit et infobulle, dans un
    fichier a part, distinct de la carte de l Union europeenne et des
-   DROM-COM. Les couleurs reprennent le style « ocean » du dernier HTML
-   du web ( WM_STYLES.ocean de js/monde/carte-monde.js ) : fond degrade
-   bleu profond, terres parchemin, voile de nuit bleu nuit. Le style
-   ocean ne depend pas du theme clair ou sombre, comme sur le web.
+   DROM-COM. Les couleurs reprennent les quatre styles du dernier HTML
+   du web ( WM_STYLES de js/monde/carte-monde.js ) : ocean, nuit, encre
+   et croquis, choisis dans la modale de reglages de la carte ; le
+   style ne depend pas du theme clair ou sombre, comme sur le web.
    SPDX-License-Identifier : MIT. */
 import 'dart:ui' show Canvas;
 
@@ -17,47 +17,90 @@ import 'styles_cartes.dart';
 const couchesMonde = <String>['frontieres'];
 const pointsMonde = <String>['villes'];
 
-/* le style « ocean » du web, les memes valeurs dans les deux themes :
-   fond degrade du bleu profond au bleu azur, terres couleur parchemin,
-   frontieres gris bleute, voile de nuit bleu nuit ( WM_STYLES.ocean ) */
-const _fondHaut = Color(0xff0b2f63); // bg[0]
-const _fondBas = Color(0xff155399); // bg[1]
-const _terre = Color(0xffe9e4d3); // land
-const _frontiere = Color(0x8c5a6e87); // border rgba(90,110,135,0.55)
-const _voileNuit = Color(0x73030816); // night rgba(3,8,22,0.45)
+/* un style de carte du monde : fond degrade, terre, frontieres, voile
+   de nuit et contour, les valeurs de WM_STYLES du web */
+class StyleMonde {
+  final Color fondHaut, fondBas, terre, frontiere, voileNuit, contour;
+  const StyleMonde({
+    required this.fondHaut,
+    required this.fondBas,
+    required this.terre,
+    required this.frontiere,
+    required this.voileNuit,
+    required this.contour,
+  });
+}
 
-/* Monde : lon et lat bruts, projetes en Equal Earth au dessin */
-ReglagesCarte reglagesMonde(bool clair) => ReglagesCarte(
-      {
-        'frontieres': StyleTrait(_frontiere, 0.4,
-            remplissage: _terre, ferme: true),
-      },
-      {
-        'villes': StyleFleche(const Color(0xffe03131), 1.8, rayonMin: -1),
-      },
-      {
-        'villes': -1,
-      },
-      const Rect.fromLTRB(-ratioEe, 1, ratioEe, -1),
-    );
+/* les quatre styles du web, memes valeurs dans les deux themes :
+   ocean ( defaut ), nuit, encre, croquis ( WM_STYLES ) */
+const stylesMonde = <String, StyleMonde>{
+  'ocean': StyleMonde(
+      fondHaut: Color(0xff0b2f63),
+      fondBas: Color(0xff155399),
+      terre: Color(0xffe9e4d3),
+      frontiere: Color(0x8c5a6e87),
+      voileNuit: Color(0x73030816),
+      contour: Color(0xff5a6e87)),
+  'nuit': StyleMonde(
+      fondHaut: Color(0xff090d1c),
+      fondBas: Color(0xff141d38),
+      terre: Color(0xff2c3452),
+      frontiere: Color(0x809aa6c8),
+      voileNuit: Color(0x8000000c),
+      contour: Color(0xff9aa6c8)),
+  'encre': StyleMonde(
+      fondHaut: Color(0xfff3edde),
+      fondBas: Color(0xffe6dcc3),
+      terre: Color(0xff31405f),
+      frontiere: Color(0x8c96b4e6),
+      voileNuit: Color(0x38302858),
+      contour: Color(0xff96b4e6)),
+  'croquis': StyleMonde(
+      fondHaut: Color(0xf2eee9da),
+      fondBas: Color(0xf2e2dccb),
+      terre: Color(0xfffaf6ec),
+      frontiere: Color(0x801c2232),
+      voileNuit: Color(0x290a0c16),
+      contour: Color(0xff1c2232)),
+};
+
+/* Monde : lon et lat bruts, projetes en Equal Earth au dessin ; le
+   style vient de la modale de reglages, ocean par defaut */
+ReglagesCarte reglagesMonde(bool clair, [StyleMonde? style]) {
+  final st = style ?? stylesMonde['ocean']!;
+  return ReglagesCarte(
+    {
+      'frontieres': StyleTrait(st.frontiere, 0.4,
+          remplissage: st.terre, ferme: true),
+    },
+    {
+      'villes': StyleFleche(const Color(0xffe03131), 1.8, rayonMin: -1),
+    },
+    {
+      'villes': -1,
+    },
+    const Rect.fromLTRB(-ratioEe, 1, ratioEe, -1),
+  );
+}
 
 /* le fond degrade du monde, comme le fond du canvas du web ( linear
-   gradient vertical de bg[0] a bg[1] ), peint seulement dans le
-   rectangle de la carte : le tour est trace par contourMonde, ainsi
-   le globe se distingue du fond d ecran autour de lui */
-void fondMonde(Canvas canvas, Rect rect) {
-  final degrade = const LinearGradient(
+   gradient vertical de bg[0] a bg[1] du style choisi ), peint seulement
+   dans le rectangle de la carte : le tour est trace par contourMonde,
+   ainsi le globe se distingue du fond d ecran autour de lui */
+void fondMonde(Canvas canvas, Rect rect, StyleMonde style) {
+  final degrade = LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [_fondHaut, _fondBas])
+          colors: [style.fondHaut, style.fondBas])
       .createShader(rect);
   canvas.drawRect(rect, Paint()..shader = degrade);
 }
 
-/* le tour de la carte du monde : un trait gris bleute au bord du
-   globe, arrondi comme les coins de la carte ; contreEchelle garde
-   une epaisseur constante a l ecran quel que soit le zoom */
-void contourMonde(Canvas canvas, Rect rect, double contreEchelle) {
+/* le tour de la carte du monde : un trait au bord du globe, arrondi
+   comme les coins de la carte ; contreEchelle garde une epaisseur
+   constante a l ecran quel que soit le zoom */
+void contourMonde(
+    Canvas canvas, Rect rect, double contreEchelle, StyleMonde style) {
   final rrect = RRect.fromRectAndRadius(
       rect.deflate(0.75 * contreEchelle),
       Radius.circular(12 * contreEchelle));
@@ -65,16 +108,16 @@ void contourMonde(Canvas canvas, Rect rect, double contreEchelle) {
       rrect,
       Paint()
         ..style = PaintingStyle.stroke
-        ..color = const Color(0xff5a6e87)
+        ..color = style.contour
         ..strokeWidth = 1.5 * contreEchelle
         ..isAntiAlias = true);
 }
 
 /* la zone de nuit : la courbe terminatrice puis la fermeture par le
-   pole en nuit, remplie du voile bleu nuit du web ; c est la nuit qui
-   est teintee, le jour reste clair */
-void dessineZoneNuit(
-    Canvas canvas, Offset Function(double, double) versPlan, DateTime heure) {
+   pole en nuit, remplie du voile de nuit du style choisi ; c est la
+   nuit qui est teintee, le jour reste clair */
+void dessineZoneNuit(Canvas canvas,
+    Offset Function(double, double) versPlan, DateTime heure, StyleMonde style) {
   final soleil = pointSolaire(heure.toUtc());
   final polygone = polygoneNuit(soleil);
   final path = Path();
@@ -89,7 +132,7 @@ void dessineZoneNuit(
     }
   }
   path.close();
-  canvas.drawPath(path, Paint()..color = _voileNuit);
+  canvas.drawPath(path, Paint()..color = style.voileNuit);
 }
 
 /* l infobulle du monde : la ville la plus proche du doigt, sinon la
