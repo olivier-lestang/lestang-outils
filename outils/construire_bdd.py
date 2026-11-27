@@ -366,7 +366,7 @@ CREATE INDEX points_cch ON points(carte, couche);
 
     # meme valeur que versionBdd dans lib/bdd.dart : la copie installee
     # par l application est reprise depuis l asset si elle differe.
-    db.execute('INSERT INTO meta VALUES(?,?)', ('version', '1.5.63'))
+    db.execute('INSERT INTO meta VALUES(?,?)', ('version', '1.5.64'))
     db.commit()
     db.close()
 

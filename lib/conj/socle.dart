@@ -170,3 +170,26 @@ List<String> pleinesAnglaises(String rad, List<String> a, int n) {
   }
   return out;
 }
+
+/// Les terminaisons d une liste de formes, par plus long prefix commun :
+/// chaque forme est coupee apres le debut commun a toutes les formes non
+/// vides ; la coupe ne garde que les courts restes ( max ), une forme qui
+/// est elle-meme le prefixe commun ou qui s en ecarte n est pas surlignee.
+List<String> conjFinsPpc(List<String> formes, {int max = 4}) {
+  final pleines = formes.where((x) => x.isNotEmpty).toList();
+  if (pleines.isEmpty) return const [];
+  var p = pleines.first;
+  for (final f in pleines) {
+    while (p.isNotEmpty && !f.startsWith(p)) {
+      p = p.substring(0, p.length - 1);
+    }
+  }
+  if (p.isEmpty) return List.filled(formes.length, '');
+  return formes
+      .map((f) =>
+          f.startsWith(p) && f.length > p.length && f.length - p.length <= max
+              ? f.substring(p.length)
+              : '')
+      .toList();
+}
+

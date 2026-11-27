@@ -85,7 +85,10 @@ class _EcranConjugaisonState extends State<EcranConjugaison> {
       return const Center(child: CircularProgressIndicator());
     }
     final j = jeu!;
-    return SingleChildScrollView(
+    /* l'en-tete ( nom de langue, barre de recherche, suggestions ) reste
+       fixe en haut de l'ecran pour toutes les langues ; seule la planche
+       du verbe defile. */
+    return Padding(
       padding: const EdgeInsets.all(12),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -166,10 +169,14 @@ class _EcranConjugaisonState extends State<EcranConjugaison> {
             Text(t('aucun-verbe'),
                 style:
                     const TextStyle(fontStyle: FontStyle.italic, fontSize: 13)),
-          if (_verbe.isNotEmpty && j.connait(_sansSe(_verbe))) ...[
-            _CarteVerbe(j, _sansSe(_verbe), _clit, t, widget.langue,
-                onChoisir: _prendre),
-          ],
+          if (_verbe.isNotEmpty && j.connait(_sansSe(_verbe)))
+            Expanded(
+              child: SingleChildScrollView(
+                child: _CarteVerbe(j, _sansSe(_verbe), _clit, t,
+                    widget.langue,
+                    onChoisir: _prendre),
+              ),
+            ),
         ],
       ),
     );
