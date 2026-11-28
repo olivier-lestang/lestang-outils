@@ -15,7 +15,7 @@ import 'package:flutter/material.dart';
    every change */
 class FloatingBoxTheme {
   final EdgeInsets margins;
-  final double maxWidth, radius, elevation;
+  final double maxWidth, radius, elevation, grow;
   final Duration duration;
   final Curve curve, reverseCurve;
   final Offset rise;
@@ -24,10 +24,11 @@ class FloatingBoxTheme {
     this.maxWidth = 520,
     this.radius = 16,
     this.elevation = 6,
-    this.duration = const Duration(milliseconds: 280),
+    this.duration = const Duration(milliseconds: 300),
     this.curve = Curves.easeOutCubic,
     this.reverseCurve = Curves.easeInCubic,
-    this.rise = const Offset(0, 0.06),
+    this.rise = const Offset(0, 0.05),
+    this.grow = 0.97,
   });
 }
 
@@ -48,8 +49,10 @@ Future<T?> showFloatingBox<T>(
     transitionDuration: box.duration,
     pageBuilder: (context, animation, secondaryAnimation) => builder(context),
     transitionBuilder: (context, animation, secondaryAnimation, child) {
-      /* the fade and the small rise share one curve, the box seems to
-         float up into its place instead of sliding on a rail */
+      /* the fade, the small rise and the gentle scale share one curve,
+         the box seems to float up into its place instead of sliding
+         on a rail; the scale keeps the transform on the compositor,
+         the raster cache of the content never rebuilds per tick */
       final curved = CurvedAnimation(
           parent: animation,
           curve: box.curve,
@@ -59,6 +62,8 @@ Future<T?> showFloatingBox<T>(
         child: SlideTransition(
           position: Tween<Offset>(begin: box.rise, end: Offset.zero)
               .animate(curved),
+          child: ScaleTransition(
+            scale: Tween<double>(begin: box.grow, end: 1.0).animate(curved),
           /* the box floats at the center of the window height, the
              edges of the screen cut nothing */
           child: Center(
@@ -77,6 +82,7 @@ Future<T?> showFloatingBox<T>(
                 ),
               ),
             ),
+          ),
           ),
         ),
       );

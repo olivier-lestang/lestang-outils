@@ -154,13 +154,43 @@ MapSettings unionSettings(bool light) => MapSettings(
       Rect.fromLTRB((15.0 - 23.0) * 0.6918, 67.0, (15.0 + 23.0) * 0.6918, 35.0),
     );
 
+/* the rulers of the world live outside the rectangle of the globe:
+   the latitude strip along its left edge, the longitude strip along
+   its top edge; their sizes read in screen pixels, the zoom of the
+   InteractiveViewer never changes them */
+const double _rulerW = 30, _rulerH = 16;
+
+/* the fit of a map in its box: the scale of the plane and the offsets
+   of its origin; without rulers the map fills the box, with rulers it
+   shrinks into the bottom right corner, the strips along the top and
+   the left stay free; the painter and the pointer share this fit, the
+   one without the other used to place the equator under the finger */
+class MapFit {
+  final double scale, dx, dy;
+  const MapFit(this.scale, this.dx, this.dy);
+}
+
+MapFit mapFit(Rect b, Size size,
+    {required bool rulers, required double inverseScale}) {
+  final left = rulers ? _rulerW * inverseScale : 0.0;
+  final top = rulers ? _rulerH * inverseScale : 0.0;
+  final scale = math.min((size.width - left) / b.width,
+      (size.height - top) / -b.height);
+  final dx = left +
+      ((size.width - left) - b.width * scale) / 2 -
+      b.left * scale;
+  final dy = top +
+      ((size.height - top) + b.height * scale) / 2 +
+      b.top * scale;
+  return MapFit(scale, dx, dy);
+}
+
 /* one clipped piece of stroke with its bounds: at a high zoom only
    the pieces the screen touches come back into the drawn path */
 class _StrokePiece {
   final Rect bounds;
   final Path path;
-  const _StrokePiece(this.bounds, this.path);
-}
+  const _StrokePiece(this.bounds, this.path);}
 
 /* the projected geometry of a map, built once then reused at every
    frame: the fills, the strokes and the member tints as ready Paths */
@@ -201,6 +231,7 @@ class MapPainter extends CustomPainter {
   final Map<String, String>
       worldConflicts; // the choices of the disputed borders menu
   final bool worldBorders; // solid border stroke lit or unlit
+  final bool worldRulers; // the latitude and longitude strips
   final double center; // center meridian, like the dialog of the web
 
   MapPainter(this.map, this.layers, this.points, this.settings,
@@ -213,6 +244,7 @@ class MapPainter extends CustomPainter {
       this.worldEqualEarth = true,
       this.worldConflicts = const <String, String>{},
       this.worldBorders = true,
+      this.worldRulers = true,
       this.center = 0})
       : super(repaint: transformation);
 
@@ -232,6 +264,7 @@ class MapPainter extends CustomPainter {
       old.worldTz != worldTz ||
       old.worldEqualEarth != worldEqualEarth ||
       old.worldBorders != worldBorders ||
+      old.worldRulers != worldRulers ||
       old.center != center ||
       old.layers.length != layers.length ||
       old.points.length != points.length ||
@@ -259,6 +292,7 @@ class MapPainter extends CustomPainter {
       map,
       center.toStringAsFixed(6),
       worldEqualEarth.toString(),
+      worldRulers.toString(),
       size.width.toStringAsFixed(2),
       size.height.toStringAsFixed(2),
       b.left.toStringAsFixed(4),
@@ -487,14 +521,19 @@ class MapPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final b = settings.bounds;
-    final scale = math.min(size.width / b.width, size.height / -b.height);
-    final dx = (size.width - b.width * scale) / 2 - b.left * scale;
-    final dy = (size.height + b.height * scale) / 2 + b.top * scale;
+    final m = transformation.value;
+    final zoom = m.getMaxScaleOnAxis();
+    final inverseScale = 1.0 / zoom;
+    /* the map fits inside the strips of the rulers when they show: the
+       ruler on the screen keeps its size whatever the zoom */
+    final fit = mapFit(b, size,
+        rulers: map == 'monde' && worldRulers, inverseScale: inverseScale);
+    final scale = fit.scale;
+    final dx = fit.dx;
+    final dy = fit.dy;
     /* the plane y rises, the screen y falls */
     Offset toPlane(double x, double y) =>
         Offset(dx + x * scale, dy - y * scale);
-    final m = transformation.value;
-    final zoom = m.getMaxScaleOnAxis();
     /* the part of the canvas the zoom shows, in the coordinates of the
        map: the off-screen strokes stay out of the drawn path at a
        high zoom, the chip machines raster only what the eye sees */
@@ -624,7 +663,6 @@ class MapPainter extends CustomPainter {
     /* points and labels: radii and texts counter-scaled, constant size
        on screen whatever the zoom; the labels never overlap, every
        placed one keeps its place */
-    final inverseScale = 1.0 / zoom;
     final placed = <Rect>[];
     for (final e in settings.points.entries) {
       final list = points[e.key];
@@ -696,17 +734,17 @@ class MapPainter extends CustomPainter {
     }
   }
 
-  /* the rulers of the world map: the longitude reads along the top
-     edge, the latitude along the left edge; every tick sits where
-     the projection puts its meridian at the equator and its parallel
-     at the center meridian, the numbers keep their size whatever the
-     zoom, like the labels of the cities */
+  /* the rulers of the world map: the longitude reads along the strip
+     above the rectangle of the globe, the latitude along the strip at
+     its left; every tick sits where the projection puts its meridian
+     at the equator and its parallel at the center meridian, the
+     numbers keep their size whatever the zoom */
   void _drawRulers(Canvas canvas,
       Offset Function(double, double) toPlane, double inverseScale) {
     final rect =
         Rect.fromPoints(toPlane(-_aspect, 1), toPlane(_aspect, -1));
-    final rh = 16 * inverseScale; // height of the longitude strip
-    final rw = 30 * inverseScale; // width of the latitude strip
+    final rh = _rulerH * inverseScale; // height of the longitude strip
+    final rw = _rulerW * inverseScale; // width of the latitude strip
     final bg = Paint()
       ..color =
           light ? const Color(0x14000000) : const Color(0x1fffffff);
@@ -715,16 +753,19 @@ class MapPainter extends CustomPainter {
           light ? const Color(0x66000000) : const Color(0x77ffffff)
       ..strokeWidth = inverseScale
       ..style = PaintingStyle.stroke;
-    /* the latitude strip starts under the longitude strip, the two
-       never paint over each other */
+    /* the strips live outside the rectangle of the globe: above its
+       top edge and at the left of its left edge, they never paint
+       over the map */
     canvas.drawRect(
-        Rect.fromLTWH(rect.left, rect.top, rect.width, rh), bg);
-    canvas.drawRect(Rect.fromLTWH(rect.left, rect.top + rh, rw,
-        rect.height - rh), bg);
-    canvas.drawLine(Offset(rect.left, rect.top + rh),
-        Offset(rect.right, rect.top + rh), stroke);
-    canvas.drawLine(Offset(rect.left + rw, rect.top + rh),
-        Offset(rect.left + rw, rect.bottom), stroke);
+        Rect.fromLTWH(rect.left - rw, rect.top - rh,
+            rect.width + rw, rh),
+        bg);
+    canvas.drawRect(
+        Rect.fromLTWH(rect.left - rw, rect.top, rw, rect.height), bg);
+    canvas.drawLine(Offset(rect.left - rw, rect.top),
+        Offset(rect.right, rect.top), stroke);
+    canvas.drawLine(Offset(rect.left, rect.top - rh),
+        Offset(rect.left, rect.bottom), stroke);
     /* the numbers of the rulers live in small texts, the color of the
        labels of the painter */
     void num(String s, Offset at, bool center) {
@@ -744,14 +785,12 @@ class MapPainter extends CustomPainter {
     for (var lon = -180.0; lon < 180.0; lon += 15) {
       final px = _worldPlane(lon, 0).dx;
       final x = toPlane(px, 0).dx;
-      canvas.drawLine(Offset(x, rect.top),
-          Offset(x, rect.top + rh * 0.55), stroke);
+      canvas.drawLine(Offset(x, rect.top - rh * 0.55),
+          Offset(x, rect.top), stroke);
       if (lon % 30 != 0) continue;
-      /* the numbers of the far west hide under the latitude strip */
-      if (x < rect.left + rw + 14 * inverseScale) continue;
       final real = ((lon + center + 540) % 360) - 180;
       num(real == 0 ? '0' : '${real.abs().round()}°${real > 0 ? 'E' : 'O'}',
-          Offset(x, rect.top + 5.5 * inverseScale), true);
+          Offset(x, rect.top - rh + 2.5 * inverseScale), true);
     }
     /* the latitude: a tick every 10 degrees, a number every 30, at
        the screen y of the parallel on the center meridian */
@@ -762,7 +801,9 @@ class MapPainter extends CustomPainter {
           Offset(rect.left + rw * 0.55, y), stroke);
       if (lat % 30 != 0) continue;
       num(lat == 0 ? '0' : '${lat.abs().round()}°${lat > 0 ? 'N' : 'S'}',
-          Offset(rect.left + rw * 0.62, y - 5 * inverseScale), false);
+          Offset(rect.left - rw + 2 * inverseScale,
+              y - 5 * inverseScale),
+          false);
     }
   }
 
@@ -1190,11 +1231,16 @@ class _MapScreenState extends State<MapScreen> with WidgetsBindingObserver {
     if (scene == null) return null;
     final settings = _settings(light);
     final b = settings.bounds;
-    final scale = math.min(size.width / b.width, size.height / -b.height);
-    final dx = (size.width - b.width * scale) / 2 - b.left * scale;
-    final dy = (size.height + b.height * scale) / 2 + b.top * scale;
-    final px = (scene.dx - dx) / scale;
-    final py = (dy - scene.dy) / scale;
+    /* the same fit as the painter: the rulers of the world push the
+       map into the bottom right corner, the pointer and the paint
+       read the plane from the very same rectangle */
+    final inverseScale = 1.0 / _transformation.value.getMaxScaleOnAxis();
+    final fit = mapFit(b, size,
+        rulers: widget.map == 'monde' && (_groups['regles'] ?? true),
+        inverseScale: inverseScale);
+    final scale = fit.scale;
+    final px = (scene.dx - fit.dx) / scale;
+    final py = (fit.dy - scene.dy) / scale;
     String? text;
     final shown = _visiblePoints();
     if (widget.map == 'monde') {
@@ -1358,9 +1404,8 @@ class _MapScreenState extends State<MapScreen> with WidgetsBindingObserver {
       writeDisputed(conflicts);
       setState(() => _conflicts = {...conflicts});
     }, onPickCities: () async {
-      final cities = _points?['villes'] ?? const <db.NamedPoint>[];
-      await worldCitiesDialog(context, cities.map((v) => v.name).toList(),
-          _hiddenCities, (updated) {
+      await worldCitiesDialog(context, worldCities, _hiddenCities,
+          (updated) {
         writeHiddenCities(updated);
         setState(() => _hiddenCities = {...updated});
       });
@@ -1552,6 +1597,7 @@ class _MapScreenState extends State<MapScreen> with WidgetsBindingObserver {
                       worldEqualEarth: _equalEarth,
                       worldConflicts: _conflicts,
                       worldBorders: _groups['frontieres'] ?? true,
+                      worldRulers: _groups['regles'] ?? true,
                       center: _worldCenter),
                   ),
                 ),

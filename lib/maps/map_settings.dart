@@ -12,7 +12,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../l10n.dart' show translate;
 import '../floating_box.dart';
+import '../countries.dart' show countryName;
 import 'world_map.dart' show disputedGroups;
+import 'world_data.dart' show WorldCity;
 
 /* a settings group: the title heads the dialog section ( a key of the
    glossary, the French text is the fallback ), the layers and points
@@ -69,6 +71,7 @@ const cardGroups = <String, Map<String, CardGroup>>{
     'frontieres': CardGroup('grp-frontieres', layers: ['frontieres']),
     'villes': CardGroup('grp-villes', points: ['villes']),
     'horloges': CardGroup('grp-horloges'),
+    'regles': CardGroup('grp-regles'),
   },
 };
 
@@ -396,10 +399,32 @@ Future<void> disputedBordersDialog(
               )));
 }
 
-/* the box of the marked cities of the world: one checkbox per city of
-   the database, show all and none at once; every change persists at
-   once */Future<void> worldCitiesDialog(BuildContext context, List<String> names,
-    Set<String> hidden, void Function(Set<String> updated) onChange) async {
+/* The box of the marked cities of the world: a field filters the
+   names, the cities stand grouped by country, the countries and the
+   cities sort in the language of the interface, the country names
+   translate by their code; show all and none at once, every change
+   persists at once. */
+Future<void> worldCitiesDialog(BuildContext context,
+    List<WorldCity> cities, Set<String> hidden,
+    void Function(Set<String> updated) onChange) async {
+  /* the box owns its copy of the hidden set: the checkboxes used to
+     read the set of the opening, every tick after the first rebuilt
+     on a stale copy and the changes fought each other */
+  var hiddenNow = <String>{...hidden};
+  final q = TextEditingController();
+  /* the cities grouped by country, every list sorted by name, the
+     countries sorted by their translated name */
+  final byCountry = <String, List<WorldCity>>{};
+  for (final c in cities) {
+    byCountry.putIfAbsent(c.cc, () => []).add(c);
+  }
+  String cname(String cc) =>
+      countryName(cc, byCountry[cc]!.first.country);
+  final countries = byCountry.keys.toList()
+    ..sort((a, b) => cname(a).compareTo(cname(b)));
+  for (final cc in countries) {
+    byCountry[cc]!.sort((a, b) => a.name.compareTo(b.name));
+  }
   await showFloatingBox<void>(
       context: context,
       builder: (context) => StatefulBuilder(
@@ -413,44 +438,107 @@ Future<void> disputedBordersDialog(
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Text(
-                        '${names.length - hidden.length} ${translate('dlg-sur')} ${names.length}'),
+                        '${cities.length - hiddenNow.length} ${translate('dlg-sur')} ${cities.length}'),
+                  ),
+                  /* the filter reads the names of the cities and the
+                     names of their countries */
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 12),
+                    child: TextField(
+                      controller: q,
+                      decoration: InputDecoration(
+                          labelText: translate('dlg-filtrer'),
+                          isDense: true,
+                          prefixIcon: const Icon(Icons.search)),
+                      onChanged: (_) => setSheet(() {}),
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8),
                     child: Row(children: [
                       TextButton(
                           onPressed: () {
-                            setSheet(() {});
+                            hiddenNow = <String>{};
                             onChange(<String>{});
+                            setSheet(() {});
                           },
                           child: Text(translate('dlg-tout-afficher'))),
                       TextButton(
                           onPressed: () {
+                            hiddenNow = cities
+                                .map((v) => v.name)
+                                .toSet();
+                            onChange({...hiddenNow});
                             setSheet(() {});
-                            onChange(names.toSet());
                           },
                           child: Text(translate('dlg-aucune'))),
                     ]),
                   ),
+                  /* the rows of the list: a country header then its
+                     cities, only the filtered ones; the builder keeps
+                     the box smooth, five hundred tiles never build at
+                     once */
                   Flexible(
-                      child: ListView(shrinkWrap: true, children: [
-                    for (final n in names)
-                      CheckboxListTile(
-                        dense: true,
-                        value: !hidden.contains(n),
-                        title: Text(n),
-                        onChanged: (checked) {
-                          setSheet(() {});
-                          final s = {...hidden};
-                          if (checked ?? true) {
-                            s.remove(n);
-                          } else {
-                            s.add(n);
-                          }
-                          onChange(s);
-                        },
-                      ),
-                  ])),
+                      child: _cityRows(context, cities, countries,
+                          byCountry, cname, q.text, hiddenNow, (checked, n) {
+                        if (checked ?? true) {
+                          hiddenNow.remove(n);
+                        } else {
+                          hiddenNow.add(n);
+                        }
+                        onChange({...hiddenNow});
+                        setSheet(() {});
+                      })),
                 ]),
               )));
+}
+
+/* the virtualized rows of the cities: the header of every country
+   then its cities, only the ones the filter keeps */
+Widget _cityRows(
+    BuildContext context,
+    List<WorldCity> cities,
+    List<String> countries,
+    Map<String, List<WorldCity>> byCountry,
+    String Function(String) cname,
+    String query,
+    Set<String> hiddenNow,
+    void Function(bool? checked, String name) onToggle) {
+  final needle = query.trim().toLowerCase();
+  bool kept(WorldCity c, String country) =>
+      needle.isEmpty ||
+      c.name.toLowerCase().contains(needle) ||
+      country.toLowerCase().contains(needle);
+  final rows = <Object>[];
+  for (final cc in countries) {
+    final country = cname(cc);
+    final kept2 = byCountry[cc]!
+        .where((v) => kept(v, country))
+        .toList(growable: false);
+    if (kept2.isEmpty) continue;
+    rows.add(country);
+    rows.addAll(kept2);
+  }
+  return ListView.builder(
+      itemCount: rows.length,
+      itemBuilder: (context, i) {
+        final row = rows[i];
+        if (row is String) {
+          return Padding(
+            padding: const EdgeInsets.fromLTRB(20, 10, 20, 2),
+            child: Text(row,
+                style: Theme.of(context)
+                    .textTheme
+                    .titleSmall
+                    ?.copyWith(fontWeight: FontWeight.w700)),
+          );
+        }
+        final c = row as WorldCity;
+        return CheckboxListTile(
+          dense: true,
+          value: !hiddenNow.contains(c.name),
+          title: Text(c.name),
+          onChanged: (checked) => onToggle(checked, c.name),
+        );
+      });
 }
