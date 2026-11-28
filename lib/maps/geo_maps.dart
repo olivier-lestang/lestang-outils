@@ -1013,102 +1013,128 @@ class _MapScreenState extends State<MapScreen> with WidgetsBindingObserver {
   }
 
   /* tooltip: the closest city, otherwise the polygon under the finger;
-     the bubble floats above the tap like the tooltip of the web site */
+     the bubble floats above the pointer and follows the mouse like the
+     tooltip of the web site, a tap pins it for three seconds */
   OverlayEntry? _bubble;
-
-  void _showBubble(Offset global, String? text, bool light) {
-    _hideBubble();
-    if (text == null) return;
-    final overlay = Overlay.of(context);
-    final box = overlay.context.findRenderObject() as RenderBox;
-    final pos = box.globalToLocal(global);
-    /* the colours of the painter: a dark bubble on the light theme, a
-       light bubble on the dark theme, rounded corners and a discreet
-       shadow like the tooltip of the web */
-    final entry = OverlayEntry(
-        builder: (ctx) => Positioned(
-              left: pos.dx,
-              top: pos.dy,
-              child: FractionalTranslation(
-                translation: const Offset(-0.5, -1.2),
-                child: Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                  decoration: BoxDecoration(
-                    color: light
-                        ? const Color(0xff212529)
-                        : const Color(0xfff1f3f5),
-                    borderRadius: BorderRadius.circular(6),
-                    boxShadow: const [
-                      BoxShadow(
-                          color: Color(0x33000000),
-                          blurRadius: 6,
-                          offset: Offset(0, 2)),
-                    ],
-                  ),
-                  child: Text(text,
-                      style: TextStyle(
-                          fontSize: 13,
-                          color: light
-                              ? const Color(0xfff1f3f5)
-                              : const Color(0xff212529))),
-                ),
-              ),
-            ));
-    _bubble = entry;
-    overlay.insert(entry);
-    /* the timer holds its own entry: a later bubble or the dispose can
-       remove it first, then this one leaves it alone, an entry
-       removed twice crashed the overlay */
-    Timer(const Duration(seconds: 3), () {
-      if (!identical(_bubble, entry)) return;
-      entry.remove();
-      _bubble = null;
-    });
-  }
+  Timer? _bubbleTimer;
+  String? _bubbleText;
+  Offset? _bubbleAt;
+  bool _bubbleLight = true;
 
   void _hideBubble() {
-    _bubble?.remove();
+    _bubbleTimer?.cancel();
+    _bubbleTimer = null;
+    /* the field empties before the removal: the dispose, a later timer
+       or the exit of the mouse can all pass here, an entry removed
+       twice crashed the overlay */
+    final b = _bubble;
     _bubble = null;
+    _bubbleText = null;
+    b?.remove();
   }
 
-  Future<void> _handleTap(
-      Offset global, Size size, bool light) async {
+  /* the text and the place live in the fields: the entry rebuilds at
+     every move of the mouse, the bubble slides instead of blinking */
+  void _showBubble(Offset global, String? text, bool light,
+      {Duration? ttl}) {
+    if (!mounted) return;
+    _bubbleTimer?.cancel();
+    _bubbleTimer = null;
+    if (text == null) {
+      _hideBubble();
+      return;
+    }
+    final overlay = Overlay.of(context);
+    final box = overlay.context.findRenderObject() as RenderBox;
+    _bubbleAt = box.globalToLocal(global);
+    _bubbleText = text;
+    _bubbleLight = light;
+    if (_bubble == null) {
+      /* the colours of the painter: a dark bubble on the light theme,
+         a light bubble on the dark theme, rounded corners and a
+         discreet shadow like the tooltip of the web; the Material
+         wraps the text, without it the overlay falls back on its
+         default style and underlines every bubble twice in yellow */
+      _bubble = OverlayEntry(
+          builder: (ctx) => Positioned(
+                left: _bubbleAt!.dx,
+                top: _bubbleAt!.dy,
+                child: FractionalTranslation(
+                  translation: const Offset(-0.5, -1.2),
+                  child: Material(
+                    type: MaterialType.transparency,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 6),
+                      decoration: BoxDecoration(
+                        color: _bubbleLight
+                            ? const Color(0xff212529)
+                            : const Color(0xfff1f3f5),
+                        borderRadius: BorderRadius.circular(6),
+                        boxShadow: const [
+                          BoxShadow(
+                              color: Color(0x33000000),
+                              blurRadius: 6,
+                              offset: Offset(0, 2)),
+                        ],
+                      ),
+                      child: Text(_bubbleText!,
+                          style: TextStyle(
+                              fontSize: 13,
+                              color: _bubbleLight
+                                  ? const Color(0xfff1f3f5)
+                                  : const Color(0xff212529))),
+                    ),
+                  ),
+                ),
+              ));
+      overlay.insert(_bubble!);
+    } else {
+      _bubble!.markNeedsBuild();
+    }
+    if (ttl != null) {
+      _bubbleTimer = Timer(ttl, _hideBubble);
+    }
+  }
+
+  Offset? _sceneAt(Offset global) {
+    final box =
+        _tapKey.currentContext?.findRenderObject() as RenderBox?;
+    if (box == null || !box.size.isFinite) return null;
+    return box.globalToLocal(global);
+  }
+
+  /* the text of the bubble at a position of the map: the closest city
+     or the polygon under the pointer, nothing over the empty parts */
+  String? _infoAt(Offset? scene, Size size, bool light) {
+    if (scene == null) return null;
     final settings = _settings(light);
     final b = settings.bounds;
     final scale = math.min(size.width / b.width, size.height / -b.height);
     final dx = (size.width - b.width * scale) / 2 - b.left * scale;
     final dy = (size.height + b.height * scale) / 2 + b.top * scale;
-    /* the position in the painted map comes from the box of the
-       GestureDetector itself: the global position of the pointer folds
-       back through the render box, whatever the hit test of the
-       InteractiveViewer handed to the tap, a click lands on the very
-       point of the map it touched */
-    final box =
-        _tapKey.currentContext?.findRenderObject() as RenderBox?;
-    if (box == null || !box.size.isFinite) return;
-    final scene = box.globalToLocal(global);
     final px = (scene.dx - dx) / scale;
     final py = (dy - scene.dy) / scale;
     String? text;
+    final shown = _visiblePoints();
     if (widget.map == 'monde') {
-      final cities = _points?['villes'] ?? const <db.NamedPoint>[];
+      final cities = shown['villes'] ?? const <db.NamedPoint>[];
       text = worldTooltip(px, py, cities, 20 * 20 / (scale * scale),
           _worldCenter,
           equalEarth: _equalEarth);
     } else {
-      /* closest city within 14 px */
-      for (final e in settings.points.entries) {
-        final list = _points?[e.key];
-        if (list == null) continue;
-        for (final v in list) {
+      /* the closest city within 14 px: several markers can sit inside
+         the radius, the nearest one wins, the first of the list used
+         to answer before the true city; a hidden group stays silent */
+      var best = 14.0 * 14.0;
+      for (final e in shown.entries) {
+        for (final v in e.value) {
           final dd = (v.x - px) * (v.x - px) + (v.y - py) * (v.y - py);
-          if (dd * scale * scale < 14 * 14) {
+          if (dd * scale * scale < best) {
+            best = dd * scale * scale;
             text = v.name + (v.info.isEmpty ? '' : ' · ${v.info}');
-            break;
           }
         }
-        if (text != null) break;
       }
       if (text == null) {
         /* polygon of the department or of the country under the finger */
@@ -1131,8 +1157,24 @@ class _MapScreenState extends State<MapScreen> with WidgetsBindingObserver {
         }
       }
     }
+    return text;
+  }
+
+  /* a tap pins the bubble for three seconds */
+  void _handleTap(Offset global, Size size, bool light) {
     if (!mounted) return;
-    _showBubble(global, text, light);
+    _showBubble(global, _infoAt(_sceneAt(global), size, light), light,
+        ttl: const Duration(seconds: 3));
+  }
+
+  /* the bubble follows the mouse like the tooltip of the web: the text
+     recomputes under the pointer, nothing shows over the parts without
+     information, leaving the map closes the bubble; a bubble pinned by
+     a tap stays put until its timer ends */
+  void _handleHover(PointerHoverEvent e, Size size, bool light) {
+    if (_bubbleTimer != null) return;
+    _showBubble(e.position, _infoAt(_sceneAt(e.position), size, light),
+        light);
   }
 
   /* point in a polygon: classic ray casting */
@@ -1377,12 +1419,18 @@ class _MapScreenState extends State<MapScreen> with WidgetsBindingObserver {
               transformationController: _transformation,
               minScale: 0.8,
               maxScale: 200,
-              child: GestureDetector(
-                key: _tapKey,
-                behavior: HitTestBehavior.opaque,
-                onTapUp: (d) => _handleTap(d.globalPosition,
-                    Size(constraints.maxWidth, h), light),
-                child: CustomPaint(
+              child: MouseRegion(
+                /* the bubble follows the mouse and closes when the
+                   pointer leaves the map, like the tooltip of the web */
+                onHover: (e) => _handleHover(
+                    e, Size(constraints.maxWidth, h), light),
+                onExit: (_) => _hideBubble(),
+                child: GestureDetector(
+                  key: _tapKey,
+                  behavior: HitTestBehavior.opaque,
+                  onTapUp: (d) => _handleTap(d.globalPosition,
+                      Size(constraints.maxWidth, h), light),
+                  child: CustomPaint(
                   size: Size(constraints.maxWidth, h),
                   painter: MapPainter(
                       widget.map,
@@ -1407,6 +1455,7 @@ class _MapScreenState extends State<MapScreen> with WidgetsBindingObserver {
                       worldConflicts: _conflicts,
                       worldBorders: _groups['frontieres'] ?? true,
                       center: _worldCenter),
+                  ),
                 ),
               ),
             ),
