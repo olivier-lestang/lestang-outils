@@ -155,12 +155,25 @@ MapSettings unionSettings(bool light) => MapSettings(
       Rect.fromLTRB((15.0 - 23.0) * 0.6918, 67.0, (15.0 + 23.0) * 0.6918, 35.0),
     );
 
+/* one clipped piece of stroke with its bounds: at a high zoom only
+   the pieces the screen touches come back into the drawn path */
+class _StrokePiece {
+  final Rect bounds;
+  final Path path;
+  const _StrokePiece(this.bounds, this.path);
+}
+
 /* the projected geometry of a map, built once then reused at every
    frame: the fills, the strokes and the member tints as ready Paths */
 class _MapGeometry {
   final Map<String, Path> fills = <String, Path>{};
   final Map<String, Path> strokes = <String, Path>{};
   final Map<String, List<Path>> tints = <String, List<Path>>{};
+  /* the strokes cut in pieces with their bounds, for the culling of
+     the off-screen rings at a high zoom */
+  final Map<String, List<_StrokePiece>> strokePieces =
+      <String, List<_StrokePiece>>{};
+  final Map<String, Rect> strokeBounds = <String, Rect>{};
 }
 
 /* one single geometry stays cached: the Paths of a layer at the 1:10M
@@ -303,10 +316,12 @@ class MapPainter extends CustomPainter {
         }
         geo.fills[e.key] = p;
       }
-      /* the stroke of the layer, its width follows the zoom at the
-         draw only */
+      /* the stroke of the layer: every clipped piece with its bounds,
+         plus the merged path of the whole layer; the width follows the
+         zoom at the draw only */
       if (st.color.alpha == 0 && st.width == 0) continue;
-      final p = Path();
+      final merged = Path();
+      final pieces = <_StrokePiece>[];
       if (map == 'monde') {
         for (final f in layer.features) {
           for (final piece in ringClip(f.points, center)) {
@@ -315,6 +330,7 @@ class MapPainter extends CustomPainter {
                the disputed menu are not stroked either */
             final edgeW = center - 180.0, edgeE = center + 180.0;
             var pen = false;
+            final p = Path();
             final n = piece.length ~/ 2;
             for (var i = 0; i < n; i++) {
               final x1 = piece[2 * i], y1 = piece[2 * i + 1];
@@ -342,18 +358,51 @@ class MapPainter extends CustomPainter {
                 pen = true;
               }
             }
+            if (p.getBounds().isEmpty) continue;
+            pieces.add(_StrokePiece(p.getBounds(), p));
+            merged.addPath(p, Offset.zero);
           }
         }
       } else {
         for (final f in layer.features) {
+          final p = Path();
           _addFeatureToPath(p, f, toPlane, close: st.closes);
+          if (p.getBounds().isEmpty) continue;
+          pieces.add(_StrokePiece(p.getBounds(), p));
+          merged.addPath(p, Offset.zero);
         }
       }
-      geo.strokes[e.key] = p;
+      geo.strokes[e.key] = merged;
+      geo.strokeBounds[e.key] = merged.getBounds();
+      geo.strokePieces[e.key] = pieces;
     }
     _geometryCache = geo;
     _geometryCacheKey = key;
     return geo;
+  }
+
+  /* the stroke of a layer, reduced to the pieces the screen touches:
+     at a high zoom the off-screen rings no longer reach the raster,
+     when everything shows the merged path draws as it is, without a
+     copy */
+  Path? _visibleStroke(String key, Rect visible) {
+    final geo = _geometryCache!;
+    final full = geo.strokes[key];
+    final bounds = geo.strokeBounds[key];
+    final pieces = geo.strokePieces[key];
+    if (full == null || bounds == null || pieces == null) return null;
+    final screen = visible.inflate(8);
+    if (screen.left <= bounds.left &&
+        screen.top <= bounds.top &&
+        screen.right >= bounds.right &&
+        screen.bottom >= bounds.bottom) {
+      return full;
+    }
+    final p = Path();
+    for (final piece in pieces) {
+      if (piece.bounds.overlaps(screen)) p.addPath(piece.path, Offset.zero);
+    }
+    return p;
   }
 
   /* the recentered longitude: the center picks the middle meridian,
@@ -447,6 +496,10 @@ class MapPainter extends CustomPainter {
         Offset(dx + x * scale, dy - y * scale);
     final m = transformation.value;
     final zoom = m.getMaxScaleOnAxis();
+    /* the part of the canvas the zoom shows, in the coordinates of the
+       map: the off-screen strokes stay out of the drawn path at a
+       high zoom, the chip machines raster only what the eye sees */
+    final visible = MatrixUtils.transformRect(m, Offset.zero & size);
 
     final style = worldStyle ?? worldStyles['ocean']!;
     /* the rectangle behind the globe stays grey: in Equal Earth the
@@ -508,7 +561,7 @@ class MapPainter extends CustomPainter {
       if (map == 'monde' && e.key == 'frontieres' && !worldBorders) {
         continue;
       }
-      final p = geo.strokes[e.key];
+      final p = _visibleStroke(e.key, visible);
       if (p == null) continue;
       final paint = Paint()
         ..style = PaintingStyle.stroke
@@ -677,18 +730,56 @@ class MapPainter extends CustomPainter {
     if (close) p.close();
   }
 
-  bool _label(Canvas canvas, String text, Offset pos,
-      {double offset = 3, double scale = 1, List<Rect>? placed}) {
+  /* the shaped labels, cached: shaping a text is one of the heaviest
+     works of the painter, every city name used to re-shape at each
+     frame; the font sizes round to half a pixel so a zoom sweeps a
+     few buckets, and the cache empties itself when it grows too big */
+  static final Map<String, TextPainter> _shaped = {};
+
+  static void _rememberShaped(String key, TextPainter tp) {
+    if (_shaped.length > 2000) _shaped.clear();
+    _shaped[key] = tp;
+  }
+
+  TextPainter _shapedLabel(String text, double size) {
+    final key = 'l|$text|${(size * 2).round()}|${textColor.value}';
+    final cached = _shaped[key];
+    if (cached != null) return cached;
     final tp = TextPainter(
       text: TextSpan(
           text: text,
           style: TextStyle(
-              fontSize: 10 * scale,
+              fontSize: size,
               color: textColor,
               backgroundColor:
                   light ? const Color(0x66000000) : const Color(0x66ffffff))),
       textDirection: TextDirection.ltr,
     )..layout();
+    _rememberShaped(key, tp);
+    return tp;
+  }
+
+  TextPainter _shapedBadge(String caption, double size, Color color) {
+    final key = 'b|$caption|${(size * 2).round()}|${color.value}';
+    final cached = _shaped[key];
+    if (cached != null) return cached;
+    final tp = TextPainter(
+      text: TextSpan(
+          text: caption,
+          style: TextStyle(
+              fontSize: size,
+              fontWeight: FontWeight.w700,
+              color: color,
+              letterSpacing: 0.5 * (size / 9))),
+      textDirection: TextDirection.ltr,
+    )..layout();
+    _rememberShaped(key, tp);
+    return tp;
+  }
+
+  bool _label(Canvas canvas, String text, Offset pos,
+      {double offset = 3, double scale = 1, List<Rect>? placed}) {
+    final tp = _shapedLabel(text, 10 * scale);
     /* a placed label never covers the already drawn ones: when zoomed
        the dense cities overlapped and became unreadable */
     final rect = Rect.fromLTRB(
@@ -710,16 +801,7 @@ class MapPainter extends CustomPainter {
       {required Color background,
       Color text = const Color(0xffffffff),
       double scale = 1}) {
-    final tp = TextPainter(
-      text: TextSpan(
-          text: caption,
-          style: TextStyle(
-              fontSize: 9 * scale,
-              fontWeight: FontWeight.w700,
-              color: text,
-              letterSpacing: 0.5 * scale)),
-      textDirection: TextDirection.ltr,
-    )..layout();
+    final tp = _shapedBadge(caption, 9 * scale, text);
     final rect = Rect.fromCenter(
         center: pos,
         width: tp.width + 8 * scale,
@@ -816,23 +898,40 @@ class _MapScreenState extends State<MapScreen> {
   void initState() {
     super.initState();
     _load();
-    /* the clocks of the world follow the current time, like the web;
-       they stop as soon as the user picks an other instant */
-    _ticker = Timer.periodic(const Duration(seconds: 30), (_) {
-      if (_pinnedTime || !mounted) return;
-      setState(() => _time = DateTime.now());
-    });
+    /* the clock of the world ticks at the minute, only when something
+       on the screen reads the current time: the night zone, the sun
+       or the clocks of the marked cities; on the other maps and with
+       everything switched off the machine sleeps, nothing wakes it
+       twice a minute for a redraw nobody sees */
+    if (widget.map == 'monde') {
+      _ticker = Timer.periodic(const Duration(minutes: 1), (_) {
+        if (_pinnedTime || !mounted) return;
+        final needed = (_groups['nuit'] ?? true) ||
+            (_groups['soleil'] ?? true) ||
+            (_groups['horloges'] ?? false);
+        if (!needed) return;
+        setState(() => _time = DateTime.now());
+      });
+    }
   }
 
   Future<void> _load() async {
-    final layers = <String, db.GeoLayer>{};
-    for (final c in _layerNames[widget.map] ?? const <String>[]) {
-      layers[c] = await db.layer(widget.map, c);
-    }
-    final pts = <String, List<db.NamedPoint>>{};
-    for (final c in _pointNames[widget.map] ?? const <String>[]) {
-      pts[c] = await db.points(widget.map, c);
-    }
+    /* every layer and every point group loads at once: the decodings
+       run side by side in their isolates instead of waiting for one
+       another, the map opens several times faster and the CPU goes
+       back to idle sooner */
+    final layerNames = _layerNames[widget.map] ?? const <String>[];
+    final pointNames = _pointNames[widget.map] ?? const <String>[];
+    final loadedLayers = await Future.wait(
+        [for (final c in layerNames) db.layer(widget.map, c)]);
+    final loadedPoints = await Future.wait(
+        [for (final c in pointNames) db.points(widget.map, c)]);
+    final layers = <String, db.GeoLayer>{
+      for (var i = 0; i < layerNames.length; i++) layerNames[i]: loadedLayers[i]
+    };
+    final pts = <String, List<db.NamedPoint>>{
+      for (var i = 0; i < pointNames.length; i++) pointNames[i]: loadedPoints[i]
+    };
     final groups = await readVisibility(widget.map);
     var style = _worldStyle;
     var center = _worldCenter;
