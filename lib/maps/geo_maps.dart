@@ -841,6 +841,7 @@ class _MapScreenState extends State<MapScreen> with WidgetsBindingObserver {
   Map<String, String> _conflicts = {}; // choices of the disputed menu
   Timer? _ticker; // keeps the clock of the world on the current time
   bool _pinnedTime = false; // the user chose an other instant
+  final _tapKey = GlobalKey(); // the box of the map for the taps
 
   bool get _equalEarth => _groups['equal-earth'] ?? true;
 
@@ -1005,7 +1006,7 @@ class _MapScreenState extends State<MapScreen> with WidgetsBindingObserver {
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
-    _bubble?.remove();
+    _hideBubble();
     _ticker?.cancel();
     _transformation.dispose();
     super.dispose();
@@ -1016,8 +1017,7 @@ class _MapScreenState extends State<MapScreen> with WidgetsBindingObserver {
   OverlayEntry? _bubble;
 
   void _showBubble(Offset global, String? text, bool light) {
-    _bubble?.remove();
-    _bubble = null;
+    _hideBubble();
     if (text == null) return;
     final overlay = Overlay.of(context);
     final box = overlay.context.findRenderObject() as RenderBox;
@@ -1025,7 +1025,7 @@ class _MapScreenState extends State<MapScreen> with WidgetsBindingObserver {
     /* the colours of the painter: a dark bubble on the light theme, a
        light bubble on the dark theme, rounded corners and a discreet
        shadow like the tooltip of the web */
-    _bubble = OverlayEntry(
+    final entry = OverlayEntry(
         builder: (ctx) => Positioned(
               left: pos.dx,
               top: pos.dy,
@@ -1055,27 +1055,41 @@ class _MapScreenState extends State<MapScreen> with WidgetsBindingObserver {
                 ),
               ),
             ));
-    overlay.insert(_bubble!);
+    _bubble = entry;
+    overlay.insert(entry);
+    /* the timer holds its own entry: a later bubble or the dispose can
+       remove it first, then this one leaves it alone, an entry
+       removed twice crashed the overlay */
     Timer(const Duration(seconds: 3), () {
-      _bubble?.remove();
+      if (!identical(_bubble, entry)) return;
+      entry.remove();
       _bubble = null;
     });
   }
 
+  void _hideBubble() {
+    _bubble?.remove();
+    _bubble = null;
+  }
+
   Future<void> _handleTap(
-      Offset local, Offset global, Size size, bool light) async {
+      Offset global, Size size, bool light) async {
     final settings = _settings(light);
     final b = settings.bounds;
     final scale = math.min(size.width / b.width, size.height / -b.height);
     final dx = (size.width - b.width * scale) / 2 - b.left * scale;
     final dy = (size.height + b.height * scale) / 2 + b.top * scale;
-    /* the GestureDetector lives inside the InteractiveViewer: the hit
-       test of the Transform already folds the zoom and the pan back,
-       the local position arrives in the coordinates of the painted
-       map, without a second inversion that used to throw the finger
-       anywhere on the globe */
-    final px = (local.dx - dx) / scale;
-    final py = (dy - local.dy) / scale;
+    /* the position in the painted map comes from the box of the
+       GestureDetector itself: the global position of the pointer folds
+       back through the render box, whatever the hit test of the
+       InteractiveViewer handed to the tap, a click lands on the very
+       point of the map it touched */
+    final box =
+        _tapKey.currentContext?.findRenderObject() as RenderBox?;
+    if (box == null || !box.size.isFinite) return;
+    final scene = box.globalToLocal(global);
+    final px = (scene.dx - dx) / scale;
+    final py = (dy - scene.dy) / scale;
     String? text;
     if (widget.map == 'monde') {
       final cities = _points?['villes'] ?? const <db.NamedPoint>[];
@@ -1364,8 +1378,9 @@ class _MapScreenState extends State<MapScreen> with WidgetsBindingObserver {
               minScale: 0.8,
               maxScale: 200,
               child: GestureDetector(
+                key: _tapKey,
                 behavior: HitTestBehavior.opaque,
-                onTapUp: (d) => _handleTap(d.localPosition, d.globalPosition,
+                onTapUp: (d) => _handleTap(d.globalPosition,
                     Size(constraints.maxWidth, h), light),
                 child: CustomPaint(
                   size: Size(constraints.maxWidth, h),
