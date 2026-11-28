@@ -1171,10 +1171,12 @@ class _MapScreenState extends State<MapScreen> with WidgetsBindingObserver {
      recomputes under the pointer, nothing shows over the parts without
      information, leaving the map closes the bubble; a bubble pinned by
      a tap stays put until its timer ends */
-  void _handleHover(PointerHoverEvent e, Size size, bool light) {
+  /* the type of the hover event lives in package:flutter/gestures,
+     not exported by material.dart on every platform: the position
+     arrives plain, without naming the event */
+  void _handleHover(Offset global, Size size, bool light) {
     if (_bubbleTimer != null) return;
-    _showBubble(e.position, _infoAt(_sceneAt(e.position), size, light),
-        light);
+    _showBubble(global, _infoAt(_sceneAt(global), size, light), light);
   }
 
   /* point in a polygon: classic ray casting */
@@ -1423,7 +1425,7 @@ class _MapScreenState extends State<MapScreen> with WidgetsBindingObserver {
                 /* the bubble follows the mouse and closes when the
                    pointer leaves the map, like the tooltip of the web */
                 onHover: (e) => _handleHover(
-                    e, Size(constraints.maxWidth, h), light),
+                    e.position, Size(constraints.maxWidth, h), light),
                 onExit: (_) => _hideBubble(),
                 child: GestureDetector(
                   key: _tapKey,
