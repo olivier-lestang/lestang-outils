@@ -6,7 +6,7 @@
    orientation so the filled land still shows them.
    The compressed layer travels as base64 fragments
    ( world-borders-10m.b64.part* ) joined here.
-   Usage: python3 outils/world_borders_10m.py [path of the base]
+   Usage: python3 tools/world_borders_10m.py [path of the base]
    SPDX-License-Identifier: MIT."""
 import base64
 import glob
