@@ -10,7 +10,6 @@ import 'dart:math' as math;
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-import 'package:vector_math/vector_math_64.dart' show Vector4;
 
 import '../database.dart' as db;
 import '../l10n.dart' show translate;
@@ -1006,29 +1005,83 @@ class _MapScreenState extends State<MapScreen> with WidgetsBindingObserver {
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
+    _bubble?.remove();
     _ticker?.cancel();
     _transformation.dispose();
     super.dispose();
   }
 
-  /* tooltip: the closest city, otherwise the polygon under the finger */
-  Future<void> _handleTap(Offset local, Size size, bool light) async {
+  /* tooltip: the closest city, otherwise the polygon under the finger;
+     the bubble floats above the tap like the tooltip of the web site */
+  OverlayEntry? _bubble;
+
+  void _showBubble(Offset global, String? text, bool light) {
+    _bubble?.remove();
+    _bubble = null;
+    if (text == null) return;
+    final overlay = Overlay.of(context);
+    final box = overlay.context.findRenderObject() as RenderBox;
+    final pos = box.globalToLocal(global);
+    /* the colours of the painter: a dark bubble on the light theme, a
+       light bubble on the dark theme, rounded corners and a discreet
+       shadow like the tooltip of the web */
+    _bubble = OverlayEntry(
+        builder: (ctx) => Positioned(
+              left: pos.dx,
+              top: pos.dy,
+              child: FractionalTranslation(
+                translation: const Offset(-0.5, -1.2),
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                  decoration: BoxDecoration(
+                    color: light
+                        ? const Color(0xff212529)
+                        : const Color(0xfff1f3f5),
+                    borderRadius: BorderRadius.circular(6),
+                    boxShadow: const [
+                      BoxShadow(
+                          color: Color(0x33000000),
+                          blurRadius: 6,
+                          offset: Offset(0, 2)),
+                    ],
+                  ),
+                  child: Text(text,
+                      style: TextStyle(
+                          fontSize: 13,
+                          color: light
+                              ? const Color(0xfff1f3f5)
+                              : const Color(0xff212529))),
+                ),
+              ),
+            ));
+    overlay.insert(_bubble!);
+    Timer(const Duration(seconds: 3), () {
+      _bubble?.remove();
+      _bubble = null;
+    });
+  }
+
+  Future<void> _handleTap(
+      Offset local, Offset global, Size size, bool light) async {
     final settings = _settings(light);
     final b = settings.bounds;
     final scale = math.min(size.width / b.width, size.height / -b.height);
     final dx = (size.width - b.width * scale) / 2 - b.left * scale;
     final dy = (size.height + b.height * scale) / 2 + b.top * scale;
-    final inverse = (_transformation.value.clone()..invert())
-        .transform(Vector4(local.dx, local.dy, 0, 1));
-    /* coordinates of the touched plane */
-    final px = (inverse.x - dx) / scale;
-    final py = (dy - inverse.y) / scale;
+    /* the GestureDetector lives inside the InteractiveViewer: the hit
+       test of the Transform already folds the zoom and the pan back,
+       the local position arrives in the coordinates of the painted
+       map, without a second inversion that used to throw the finger
+       anywhere on the globe */
+    final px = (local.dx - dx) / scale;
+    final py = (dy - local.dy) / scale;
     String? text;
     if (widget.map == 'monde') {
       final cities = _points?['villes'] ?? const <db.NamedPoint>[];
       text = worldTooltip(px, py, cities, 20 * 20 / (scale * scale),
           _worldCenter,
-          aspect: settings.bounds.width / 2, equalEarth: _equalEarth);
+          equalEarth: _equalEarth);
     } else {
       /* closest city within 14 px */
       for (final e in settings.points.entries) {
@@ -1065,12 +1118,7 @@ class _MapScreenState extends State<MapScreen> with WidgetsBindingObserver {
       }
     }
     if (!mounted) return;
-    if (text == null) return;
-    ScaffoldMessenger.of(context)
-      ..hideCurrentSnackBar()
-      ..showSnackBar(SnackBar(
-          duration: const Duration(seconds: 3),
-          content: Text(text, style: const TextStyle(fontSize: 13))));
+    _showBubble(global, text, light);
   }
 
   /* point in a polygon: classic ray casting */
@@ -1317,8 +1365,8 @@ class _MapScreenState extends State<MapScreen> with WidgetsBindingObserver {
               maxScale: 200,
               child: GestureDetector(
                 behavior: HitTestBehavior.opaque,
-                onTapUp: (d) => _handleTap(
-                    d.localPosition, Size(constraints.maxWidth, h), light),
+                onTapUp: (d) => _handleTap(d.localPosition, d.globalPosition,
+                    Size(constraints.maxWidth, h), light),
                 child: CustomPaint(
                   size: Size(constraints.maxWidth, h),
                   painter: MapPainter(

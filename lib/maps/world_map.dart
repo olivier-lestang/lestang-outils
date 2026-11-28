@@ -162,19 +162,23 @@ void drawNightZone(Canvas canvas, Offset Function(double, double) toPlane,
    plane units */
 String worldTooltip(double px, double py, List<db.NamedPoint> cities,
     double limit, double center,
-    {double aspect = eeAspect, bool equalEarth = true}) {
+    {bool equalEarth = true}) {
   final inv = equalEarth
       ? eeInv(px / eeAspect, py)
-      : <double>[px / aspect * 180.0, py * 90.0];
+      : <double>[px * 90.0, py * 90.0];
   db.NamedPoint? closest;
   var best = 1e9;
   double recentered(double lon) => ((lon - center + 540) % 360) - 180;
   for (final v in cities) {
+    /* the plane of a candidate: Equal Earth stretches its normalised
+       position to the aspect of the oval, the flat world halves the
+       degrees ( lon / 90 ); the doubled x of the flat mode used to
+       read a city two longitudes away from the finger */
     final p = equalEarth
         ? ee(v.y, recentered(v.x))
         : Offset(recentered(v.x) / 90.0, v.y / 90.0);
-    final dd = (p.dx * aspect - px) * (p.dx * aspect - px) +
-        (p.dy - py) * (p.dy - py);
+    final cx = equalEarth ? p.dx * eeAspect : p.dx;
+    final dd = (cx - px) * (cx - px) + (p.dy - py) * (p.dy - py);
     if (dd < best) {
       best = dd;
       closest = v;

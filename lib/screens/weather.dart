@@ -717,6 +717,9 @@ class _WeatherScreenState extends State<WeatherScreen> {
   int _current = 0;
   final Map<String, WeatherReading> _readings = {};
   final Map<String, String> _errors = {};
+  /* utc offset of every city, in seconds: the sunrise and the sunset
+     read on the clock of the city, not on the clock of the user */
+  final Map<String, int> _offsets = {};
   bool _busy = false;
   List<WeatherCity>? _suggestions;
   String _unit = 'C'; /* the display reads in °C or in °F */
@@ -754,6 +757,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
   Future<void> _loadCurrent() async {
     if (_cities == null) return;
     final v = city;
+    _loadOffset(v);
     if (_readings.containsKey(v.key())) return;
     setState(() => _busy = true);
     try {
@@ -809,11 +813,40 @@ class _WeatherScreenState extends State<WeatherScreen> {
     });
   }
 
+  /* the utc offset of the city, from Open-Meteo with timezone=auto:
+     the national sources keep their own clock, this small request
+     knows every zone of the world and caches itself per city */
+  Future<void> _loadOffset(WeatherCity v) async {
+    if (_offsets.containsKey(v.key())) return;
+    try {
+      final d = await _json(Uri.parse('https://api.open-meteo.com/v1/' +
+          'forecast?latitude=' +
+          v.lat.toString() +
+          '&longitude=' +
+          v.lon.toString() +
+          '&current=temperature_2m&timezone=auto'));
+      final o = _get(d, 'utc_offset_seconds');
+      if (o is num && mounted) {
+        setState(() => _offsets[v.key()] = (o as num).toInt());
+      }
+    } catch (_) {
+      /* without the offset the times read on the clock of the user,
+         like before */
+    }
+  }
+
+  /* the wall clock of the city: a utc instant shifted by its offset */
+  DateTime _cityNow(WeatherCity v) =>
+      DateTime.now().toUtc().add(Duration(seconds: _offsets[v.key()] ?? 0));
+
   String _sunriseSunset() {
-    final now = DateTime.now();
-    final sr = sunriseSunset(city.lat, city.lon, now.toUtc());
-    String time(DateTime? d) =>
-        d == null ? '—' : d.toLocal().toString().substring(11, 16);
+    final off = Duration(seconds: _offsets[city.key()] ?? 0);
+    /* the day of the city, not the day of the user: at the antipodes
+       the sun rises on the other date */
+    final sr = sunriseSunset(city.lat, city.lon, _cityNow(city));
+    String time(DateTime? d) => d == null
+        ? '—'
+        : d.toUtc().add(off).toString().substring(11, 16);
     return '↑ ${time(sr[0])}   ↓ ${time(sr[1])}';
   }
 
@@ -827,13 +860,14 @@ class _WeatherScreenState extends State<WeatherScreen> {
     final info = reading == null ? null : wmoInfo(reading.code);
     /* the sun icons of the codes read wrong at night: the sunrise and
      the sunset of the city say if it is dark there, the clear and the
-     mainly clear skies show the moon then */
-    final srss = sunriseSunset(city.lat, city.lon, DateTime.now().toUtc());
-    final now = DateTime.now();
+     mainly clear skies show the moon then; the comparison runs on the
+     clock of the city, both sides shifted by the same offset */
+    final srss = sunriseSunset(city.lat, city.lon, _cityNow(city));
+    final now = _cityNow(city);
     final night = srss[0] == null ||
         srss[1] == null ||
-        now.isBefore(srss[0]!.toLocal()) ||
-        now.isAfter(srss[1]!.toLocal());
+        now.isBefore(srss[0]!.toUtc()) ||
+        now.isAfter(srss[1]!.toUtc());
     final icon = (night && reading != null && reading.code <= 1)
         ? '🌙'
         : (info?[1] ?? '🌡️');
