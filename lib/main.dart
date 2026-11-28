@@ -20,15 +20,13 @@ import 'screens/search.dart';
 import 'screens/settings.dart';
 import 'screens/shortcuts.dart';
 import 'screens/weather.dart';
+import 'workers.dart';
 
 void main() => runApp(const LestangOutilsApp());
 
-/* the background isolates the app spawned ( none today ): the status
-   bar counts the main isolate plus this counter, so a future worker
-   shows up in the foot of the window as soon as it runs */
-class AppWorkers {
-  static int spawned = 0;
-}
+/* the background isolates the app spawned live in workers.dart: the
+   decoding of the heavy layers of the base, the status bar counts the
+   main isolate plus that counter */
 
 /* the banner gradient of the web ( PATCH213 of styles.css ): the blue
    family #2563eb, #3b82f6 then #60a5fa on the diagonal, the white text

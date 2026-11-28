@@ -2,6 +2,7 @@
    assets, the first opening copies it to the application folder.
    SPDX-License-Identifier: MIT. */
 import 'dart:io';
+import 'dart:isolate';
 import 'dart:typed_data';
 
 import 'package:flutter/services.dart' show rootBundle;
@@ -10,6 +11,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:sqlite3/sqlite3.dart';
 
 import 'conj/engines.dart';
+import 'workers.dart';
 
 Database? _db;
 final Map<String, ConjugTables> _conjCache = {};
@@ -96,24 +98,43 @@ class NamedPoint {
   NamedPoint(this.name, this.x, this.y, this.info);
 }
 
+/* a raw geometry row, ready to cross the boundary of the isolate */
+class _RawGeo {
+  final String label;
+  final int n;
+  final Uint8List geom;
+  const _RawGeo(this.label, this.n, this.geom);
+}
+
+/* decodes one blob: the header ( n ) then n pairs of float32; an
+   aligned copy avoids reading from byte 0 of the whole buffer, which
+   used to shift every coordinate and leave the maps empty */
+GeoFeature _decodeGeo(_RawGeo r) {
+  final chunk = Uint8List.sublistView(r.geom, 4, 4 + r.n * 8);
+  final copy = Uint8List.fromList(chunk);
+  return GeoFeature(r.label, Float32List.view(copy.buffer, 0, r.n * 2));
+}
+
 Future<GeoLayer> layer(String map, String layerName) async {
   final db = await openDatabase();
   final rs = db.select(
       'SELECT etiquette, n, geom FROM geo WHERE carte=? AND couche=?',
       [map, layerName]);
-  final out = <GeoFeature>[];
-  for (final r in rs) {
-    final g = r['geom'] as Uint8List;
-    final n = r['n'] as int;
-    /* the blob is the header ( n ) then n pairs of float32; an aligned
-       copy avoids reading from byte 0 of the whole buffer, which used to
-       shift every coordinate and leave the maps empty */
-    final chunk = Uint8List.sublistView(g, 4, 4 + n * 8);
-    final copy = Uint8List.fromList(chunk);
-    final f = Float32List.view(copy.buffer, 0, n * 2);
-    out.add(GeoFeature(r['etiquette'] as String, f));
+  if (rs.isEmpty) return GeoLayer(const []);
+  final raw = [
+    for (final r in rs)
+      _RawGeo(r['etiquette'] as String, r['n'] as int, r['geom'] as Uint8List)
+  ];
+  /* a heavy layer ( the world borders of the 1:10M precision ) decodes
+     in a background isolate: the UI thread never freezes, the status
+     bar counts the worker while it runs */
+  AppWorkers.spawned++;
+  try {
+    final features = await Isolate.run(() => raw.map(_decodeGeo).toList());
+    return GeoLayer(features);
+  } finally {
+    AppWorkers.spawned--;
   }
-  return GeoLayer(out);
 }
 
 Future<List<NamedPoint>> points(String map, String layerName) async {

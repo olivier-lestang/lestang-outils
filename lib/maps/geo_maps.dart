@@ -155,6 +155,20 @@ MapSettings unionSettings(bool light) => MapSettings(
       Rect.fromLTRB((15.0 - 23.0) * 0.6918, 67.0, (15.0 + 23.0) * 0.6918, 35.0),
     );
 
+/* the projected geometry of a map, built once then reused at every
+   frame: the fills, the strokes and the member tints as ready Paths */
+class _MapGeometry {
+  final Map<String, Path> fills = <String, Path>{};
+  final Map<String, Path> strokes = <String, Path>{};
+  final Map<String, List<Path>> tints = <String, List<Path>>{};
+}
+
+/* one single geometry stays cached: the Paths of a layer at the 1:10M
+   precision own tens of megabytes, the previous map releases its own
+   when the key changes */
+_MapGeometry? _geometryCache;
+String? _geometryCacheKey;
+
 /* ---------------- the painter ---------------- */
 
 class MapPainter extends CustomPainter {
@@ -217,6 +231,129 @@ class MapPainter extends CustomPainter {
       if (b[e.key] != e.value) return false;
     }
     return true;
+  }
+
+  /* the projected geometry, cached across the painter instances and
+     across the frames: panning and zooming used to clip and reproject
+     every vertex of every layer at each frame, which froze the
+     navigation; only the inputs the geometry truly depends on rebuild
+     it, the zoom and the time stay out */
+  _MapGeometry _geometry(Size size, Offset Function(double, double) toPlane) {
+    final b = settings.bounds;
+    final keys = layers.keys.toList()..sort();
+    final conflicts = worldConflicts.entries.toList()
+      ..sort((a, c) => a.key.compareTo(c.key));
+    final key = [
+      map,
+      center.toStringAsFixed(6),
+      worldEqualEarth.toString(),
+      size.width.toStringAsFixed(2),
+      size.height.toStringAsFixed(2),
+      b.left.toStringAsFixed(4),
+      b.top.toStringAsFixed(4),
+      b.right.toStringAsFixed(4),
+      b.bottom.toStringAsFixed(4),
+      keys.join(','),
+      for (final c in conflicts) '${c.key}=${c.value}',
+    ].join('|');
+    final cached = _geometryCache;
+    if (cached != null && _geometryCacheKey == key) return cached;
+
+    final geo = _MapGeometry();
+    final disputed = map == 'monde' ? disputedState(worldConflicts) : null;
+    for (final e in settings.layers.entries) {
+      final layer = layers[e.key];
+      if (layer == null) continue;
+      final st = e.value;
+      /* the fill of the layer, closed subpaths of the clipped rings */
+      if (map != 'monde' && e.key == 'membres') {
+        /* one pastel tint per member state, like the web */
+        geo.tints[e.key] = [
+          for (final f in layer.features)
+            () {
+              final p = Path();
+              _addFeatureToPath(p, f, toPlane, close: true);
+              return p;
+            }()
+        ];
+      } else if (st.fill != null) {
+        final p = Path();
+        if (map == 'monde') {
+          /* recentering: the ring cut at the seam meridian then comes
+             back through the other edge, no more inverted colour
+             bands; this is the wmRingClip of the web, ported in
+             world_map.dart */
+          for (final f in layer.features) {
+            for (final piece in ringClip(f.points, center)) {
+              for (var i = 0; i + 1 < piece.length; i += 2) {
+                final q = _worldScreen(piece[i], piece[i + 1], toPlane);
+                if (i == 0) {
+                  p.moveTo(q.dx, q.dy);
+                } else {
+                  p.lineTo(q.dx, q.dy);
+                }
+              }
+              p.close();
+            }
+          }
+        } else {
+          for (final f in layer.features) {
+            _addFeatureToPath(p, f, toPlane, close: true);
+          }
+        }
+        geo.fills[e.key] = p;
+      }
+      /* the stroke of the layer, its width follows the zoom at the
+         draw only */
+      if (st.color.alpha == 0 && st.width == 0) continue;
+      final p = Path();
+      if (map == 'monde') {
+        for (final f in layer.features) {
+          for (final piece in ringClip(f.points, center)) {
+            /* the closing edges along a seam meridian are not stroked
+               ( wmStrokeClipped ), the segments inside a skip box of
+               the disputed menu are not stroked either */
+            final edgeW = center - 180.0, edgeE = center + 180.0;
+            var pen = false;
+            final n = piece.length ~/ 2;
+            for (var i = 0; i < n; i++) {
+              final x1 = piece[2 * i], y1 = piece[2 * i + 1];
+              final jn = (2 * i + 2) % piece.length;
+              final x2 = piece[jn], y2 = piece[jn + 1];
+              if ((x1 - x2).abs() < 1e-9 &&
+                  ((x1 - edgeW).abs() < 1e-9 ||
+                      (x1 - edgeE).abs() < 1e-9)) {
+                pen = false;
+                continue;
+              }
+              if (disputed != null &&
+                  e.key == 'frontieres' &&
+                  disputedSkip(disputed.skipBoxes, x1, y1, x2, y2)) {
+                pen = false;
+                continue;
+              }
+              final q1 = _worldScreen(x1, y1, toPlane);
+              final q2 = _worldScreen(x2, y2, toPlane);
+              if (pen) {
+                p.lineTo(q2.dx, q2.dy);
+              } else {
+                p.moveTo(q1.dx, q1.dy);
+                p.lineTo(q2.dx, q2.dy);
+                pen = true;
+              }
+            }
+          }
+        }
+      } else {
+        for (final f in layer.features) {
+          _addFeatureToPath(p, f, toPlane, close: st.closes);
+        }
+      }
+      geo.strokes[e.key] = p;
+    }
+    _geometryCache = geo;
+    _geometryCacheKey = key;
+    return geo;
   }
 
   /* the recentered longitude: the center picks the middle meridian,
@@ -333,45 +470,25 @@ class MapPainter extends CustomPainter {
       canvas.restore();
     }
 
+    /* the geometry comes from the cache, the paint alone stays here */
+    final geo = _geometry(size, toPlane);
     /* filled outlines first */
     for (final e in settings.layers.entries) {
       final layer = layers[e.key];
       if (layer == null) continue;
       final st = e.value;
-      if (e.key == 'membres') {
+      if (map != 'monde' && e.key == 'membres') {
         /* one pastel tint per member state, like the web */
-        for (final f in layer.features) {
-          final p = Path();
-          _addFeatureToPath(p, f, toPlane, close: true);
-          canvas.drawPath(
-              p, Paint()..color = euPalette[f.label] ?? defaultEuTint);
+        final tinted = geo.tints[e.key] ?? const <Path>[];
+        for (var i = 0; i < layer.features.length && i < tinted.length; i++) {
+          canvas.drawPath(tinted[i],
+              Paint()..color = euPalette[layer.features[i].label] ?? defaultEuTint);
         }
         continue;
       }
       if (st.fill == null) continue;
-      final p = Path();
-      if (map == 'monde') {
-        /* recentering: the ring cut at the seam meridian then comes back
-           through the other edge, no more inverted colour bands; this
-           is the wmRingClip of the web, ported in world_map.dart */
-        for (final f in layer.features) {
-          for (final piece in ringClip(f.points, center)) {
-            for (var i = 0; i + 1 < piece.length; i += 2) {
-              final q = _worldScreen(piece[i], piece[i + 1], toPlane);
-              if (i == 0) {
-                p.moveTo(q.dx, q.dy);
-              } else {
-                p.lineTo(q.dx, q.dy);
-              }
-            }
-            p.close();
-          }
-        }
-      } else {
-        for (final f in layer.features) {
-          _addFeatureToPath(p, f, toPlane, close: true);
-        }
-      }
+      final p = geo.fills[e.key];
+      if (p == null) continue;
       canvas.drawPath(p, Paint()..color = st.fill!);
     }
     /* strokes on top: the width and the dashes are counter-scaled by
@@ -391,49 +508,8 @@ class MapPainter extends CustomPainter {
       if (map == 'monde' && e.key == 'frontieres' && !worldBorders) {
         continue;
       }
-      final p = Path();
-      if (map == 'monde') {
-        for (final f in layer.features) {
-          for (final piece in ringClip(f.points, center)) {
-            /* the closing edges along a seam meridian are not stroked
-               ( wmStrokeClipped ), the segments inside a skip box of
-               the disputed menu are not stroked either */
-            final edgeW = center - 180.0, edgeE = center + 180.0;
-            var pen = false;
-            final n = piece.length ~/ 2;
-            for (var i = 0; i < n; i++) {
-              final x1 = piece[2 * i], y1 = piece[2 * i + 1];
-              final jn = (2 * i + 2) % piece.length;
-              final x2 = piece[jn], y2 = piece[jn + 1];
-              if ((x1 - x2).abs() < 1e-9 &&
-                  ((x1 - edgeW).abs() < 1e-9 ||
-                      (x1 - edgeE).abs() < 1e-9)) {
-                pen = false;
-                continue;
-              }
-              if (disputed != null &&
-                  e.key == 'frontieres' &&
-                  disputedSkip(disputed.skipBoxes, x1, y1, x2, y2)) {
-                pen = false;
-                continue;
-              }
-              final q1 = _worldScreen(x1, y1, toPlane);
-              final q2 = _worldScreen(x2, y2, toPlane);
-              if (pen) {
-                p.lineTo(q2.dx, q2.dy);
-              } else {
-                p.moveTo(q1.dx, q1.dy);
-                p.lineTo(q2.dx, q2.dy);
-                pen = true;
-              }
-            }
-          }
-        }
-      } else {
-        for (final f in layer.features) {
-          _addFeatureToPath(p, f, toPlane, close: st.closes);
-        }
-      }
+      final p = geo.strokes[e.key];
+      if (p == null) continue;
       final paint = Paint()
         ..style = PaintingStyle.stroke
         ..color = st.color
