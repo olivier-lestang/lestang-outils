@@ -690,6 +690,79 @@ class MapPainter extends CustomPainter {
               toPlane(-_aspect, 1), toPlane(_aspect, -1)),
           1.0 / zoom,
           style);
+      /* the rulers of the globe: the longitude along the top edge, the
+         latitude along the left edge */
+      _drawRulers(canvas, toPlane, inverseScale);
+    }
+  }
+
+  /* the rulers of the world map: the longitude reads along the top
+     edge, the latitude along the left edge; every tick sits where
+     the projection puts its meridian at the equator and its parallel
+     at the center meridian, the numbers keep their size whatever the
+     zoom, like the labels of the cities */
+  void _drawRulers(Canvas canvas,
+      Offset Function(double, double) toPlane, double inverseScale) {
+    final rect =
+        Rect.fromPoints(toPlane(-_aspect, 1), toPlane(_aspect, -1));
+    final rh = 16 * inverseScale; // height of the longitude strip
+    final rw = 30 * inverseScale; // width of the latitude strip
+    final bg = Paint()
+      ..color =
+          light ? const Color(0x14000000) : const Color(0x1fffffff);
+    final stroke = Paint()
+      ..color =
+          light ? const Color(0x66000000) : const Color(0x77ffffff)
+      ..strokeWidth = inverseScale
+      ..style = PaintingStyle.stroke;
+    /* the latitude strip starts under the longitude strip, the two
+       never paint over each other */
+    canvas.drawRect(
+        Rect.fromLTWH(rect.left, rect.top, rect.width, rh), bg);
+    canvas.drawRect(Rect.fromLTWH(rect.left, rect.top + rh, rw,
+        rect.height - rh), bg);
+    canvas.drawLine(Offset(rect.left, rect.top + rh),
+        Offset(rect.right, rect.top + rh), stroke);
+    canvas.drawLine(Offset(rect.left + rw, rect.top + rh),
+        Offset(rect.left + rw, rect.bottom), stroke);
+    /* the numbers of the rulers live in small texts, the color of the
+       labels of the painter */
+    void num(String s, Offset at, bool center) {
+      final tp = TextPainter(
+          text: TextSpan(
+              text: s,
+              style: TextStyle(
+                  fontSize: 8.5 * inverseScale, color: textColor)),
+          textDirection: TextDirection.ltr)
+        ..layout();
+      tp.paint(canvas,
+          center ? at.translate(-tp.width / 2, 0) : at);
+    }
+
+    /* the longitude: a tick every 15 degrees, a number every 30, at
+       the screen x of the meridian on the equator */
+    for (var lon = -180.0; lon < 180.0; lon += 15) {
+      final px = _worldPlane(lon, 0).dx;
+      final x = toPlane(px, 0).dx;
+      canvas.drawLine(Offset(x, rect.top),
+          Offset(x, rect.top + rh * 0.55), stroke);
+      if (lon % 30 != 0) continue;
+      /* the numbers of the far west hide under the latitude strip */
+      if (x < rect.left + rw + 14 * inverseScale) continue;
+      final real = ((lon + center + 540) % 360) - 180;
+      num(real == 0 ? '0' : '${real.abs().round()}°${real > 0 ? 'E' : 'O'}',
+          Offset(x, rect.top + 5.5 * inverseScale), true);
+    }
+    /* the latitude: a tick every 10 degrees, a number every 30, at
+       the screen y of the parallel on the center meridian */
+    for (var lat = -80.0; lat <= 80.0; lat += 10) {
+      final py = worldEqualEarth ? ee(lat, 0).dy : lat / 90;
+      final y = toPlane(0, py).dy;
+      canvas.drawLine(Offset(rect.left, y),
+          Offset(rect.left + rw * 0.55, y), stroke);
+      if (lat % 30 != 0) continue;
+      num(lat == 0 ? '0' : '${lat.abs().round()}°${lat > 0 ? 'N' : 'S'}',
+          Offset(rect.left + rw * 0.62, y - 5 * inverseScale), false);
     }
   }
 
@@ -1097,11 +1170,18 @@ class _MapScreenState extends State<MapScreen> with WidgetsBindingObserver {
     }
   }
 
-  Offset? _sceneAt(Offset global) {
+  /* the real box of the map: the InteractiveViewer forces the tight
+     constraints of the area on its child, the painted map stands
+     centered inside a taller box, the empty parts around it answer
+     the pointer too; every conversion of the pointer reads this real
+     box and its size, never the theoretical height of the map, the
+     equator used to sit under the finger and the coordinates read
+     the latitude of another ocean */
+  RenderBox? _tapBox() {
     final box =
         _tapKey.currentContext?.findRenderObject() as RenderBox?;
     if (box == null || !box.size.isFinite) return null;
-    return box.globalToLocal(global);
+    return box;
   }
 
   /* the text of the bubble at a position of the map: the closest city
@@ -1118,6 +1198,19 @@ class _MapScreenState extends State<MapScreen> with WidgetsBindingObserver {
     String? text;
     final shown = _visiblePoints();
     if (widget.map == 'monde') {
+      /* the bubble lives on the globe itself: the inversion of the
+         Equal Earth oval used to read nonsense in its corners and a
+         NaN under the map, the empty parts of the window and the
+         grey margins stay silent now */
+      if (_equalEarth) {
+        final nx = px / eeAspect;
+        if (nx.abs() > 1 || py.abs() > 1) return null;
+        final inv = eeInv(nx, py);
+        final edge = ee(inv[1], 180.0).dx;
+        if (nx.abs() > edge) return null;
+      } else if (px.abs() > 2 || py.abs() > 1) {
+        return null;
+      }
       final cities = shown['villes'] ?? const <db.NamedPoint>[];
       text = worldTooltip(px, py, cities, 20 * 20 / (scale * scale),
           _worldCenter,
@@ -1161,9 +1254,11 @@ class _MapScreenState extends State<MapScreen> with WidgetsBindingObserver {
   }
 
   /* a tap pins the bubble for three seconds */
-  void _handleTap(Offset global, Size size, bool light) {
-    if (!mounted) return;
-    _showBubble(global, _infoAt(_sceneAt(global), size, light), light,
+  void _handleTap(Offset global, bool light) {
+    final box = _tapBox();
+    if (!mounted || box == null) return;
+    _showBubble(global, _infoAt(box.globalToLocal(global), box.size, light),
+        light,
         ttl: const Duration(seconds: 3));
   }
 
@@ -1174,9 +1269,12 @@ class _MapScreenState extends State<MapScreen> with WidgetsBindingObserver {
   /* the type of the hover event lives in package:flutter/gestures,
      not exported by material.dart on every platform: the position
      arrives plain, without naming the event */
-  void _handleHover(Offset global, Size size, bool light) {
+  void _handleHover(Offset global, bool light) {
     if (_bubbleTimer != null) return;
-    _showBubble(global, _infoAt(_sceneAt(global), size, light), light);
+    final box = _tapBox();
+    if (box == null) return;
+    _showBubble(global, _infoAt(box.globalToLocal(global), box.size, light),
+        light);
   }
 
   /* point in a polygon: classic ray casting */
@@ -1424,14 +1522,12 @@ class _MapScreenState extends State<MapScreen> with WidgetsBindingObserver {
               child: MouseRegion(
                 /* the bubble follows the mouse and closes when the
                    pointer leaves the map, like the tooltip of the web */
-                onHover: (e) => _handleHover(
-                    e.position, Size(constraints.maxWidth, h), light),
+                onHover: (e) => _handleHover(e.position, light),
                 onExit: (_) => _hideBubble(),
                 child: GestureDetector(
                   key: _tapKey,
                   behavior: HitTestBehavior.opaque,
-                  onTapUp: (d) => _handleTap(d.globalPosition,
-                      Size(constraints.maxWidth, h), light),
+                  onTapUp: (d) => _handleTap(d.globalPosition, light),
                   child: CustomPaint(
                   size: Size(constraints.maxWidth, h),
                   painter: MapPainter(

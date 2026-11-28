@@ -1,51 +1,78 @@
 /* The floating box of the app: every sheet of the settings, the
    shortcuts and the map menus opens in the same detached box, rounded
-   and shaded, away from the bottom edge of the screen instead of
-   glued to it and cut by it; the arrival fades with a short slide on
-   an easeOutCubic curve, softer than the plain linear rise of the
-   modal bottom sheet.
+   and shaded, away from the edges of the screen instead of glued to
+   the bottom edge and cut by it; the box floats at the center of the
+   window height, the arrival fades with a short slide on an
+   easeOutCubic curve, softer than the plain linear rise of the modal
+   bottom sheet. Every number of the template sits in the settings
+   below, one place to adapt the whole application.
    SPDX-License-Identifier: MIT. */
 import 'package:flutter/material.dart';
 
+/* the template of the floating boxes: the margins, the maximal size,
+   the radius, the shading and the speed of the animation live here,
+   the rest of the application calls showFloatingBox and inherits
+   every change */
+class FloatingBoxTheme {
+  final EdgeInsets margins;
+  final double maxWidth, radius, elevation;
+  final Duration duration;
+  final Curve curve, reverseCurve;
+  final Offset rise;
+  const FloatingBoxTheme({
+    this.margins = const EdgeInsets.fromLTRB(24, 24, 24, 24),
+    this.maxWidth = 520,
+    this.radius = 16,
+    this.elevation = 6,
+    this.duration = const Duration(milliseconds: 280),
+    this.curve = Curves.easeOutCubic,
+    this.reverseCurve = Curves.easeInCubic,
+    this.rise = const Offset(0, 0.06),
+  });
+}
+
+const floatingBoxTheme = FloatingBoxTheme();
+
 Future<T?> showFloatingBox<T>(
-    {required BuildContext context, required WidgetBuilder builder}) {
+    {required BuildContext context, required WidgetBuilder builder,
+    FloatingBoxTheme box = floatingBoxTheme}) {
   final theme = Theme.of(context);
-  final maxHeight = MediaQuery.of(context).size.height - 48;
+  final maxHeight = MediaQuery.of(context).size.height -
+      box.margins.top -
+      box.margins.bottom;
   return showGeneralDialog<T>(
     context: context,
     barrierDismissible: true,
     barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
     barrierColor: Colors.black45,
-    transitionDuration: const Duration(milliseconds: 280),
+    transitionDuration: box.duration,
     pageBuilder: (context, animation, secondaryAnimation) => builder(context),
     transitionBuilder: (context, animation, secondaryAnimation, child) {
       /* the fade and the small rise share one curve, the box seems to
          float up into its place instead of sliding on a rail */
       final curved = CurvedAnimation(
           parent: animation,
-          curve: Curves.easeOutCubic,
-          reverseCurve: Curves.easeInCubic);
+          curve: box.curve,
+          reverseCurve: box.reverseCurve);
       return FadeTransition(
         opacity: curved,
         child: SlideTransition(
-          position: Tween<Offset>(
-                  begin: const Offset(0, 0.08), end: Offset.zero)
+          position: Tween<Offset>(begin: box.rise, end: Offset.zero)
               .animate(curved),
-          child: Align(
-            alignment: Alignment.bottomCenter,
+          /* the box floats at the center of the window height, the
+             edges of the screen cut nothing */
+          child: Center(
             child: Padding(
-              /* the box keeps its distance from every edge, the
-                 bottom of the screen no longer cuts through it */
-              padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+              padding: box.margins,
               child: Material(
                 color: theme.colorScheme.surface,
                 surfaceTintColor: theme.colorScheme.surfaceTint,
-                elevation: 6,
-                borderRadius: BorderRadius.circular(16),
+                elevation: box.elevation,
+                borderRadius: BorderRadius.circular(box.radius),
                 clipBehavior: Clip.antiAlias,
                 child: ConstrainedBox(
                   constraints: BoxConstraints(
-                      maxWidth: 520, maxHeight: maxHeight),
+                      maxWidth: box.maxWidth, maxHeight: maxHeight),
                   child: child,
                 ),
               ),
