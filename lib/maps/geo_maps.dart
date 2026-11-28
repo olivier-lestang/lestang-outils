@@ -1,4 +1,3 @@
-/* The geographical maps: France ( with overseas territories ) and the
    European Union. The geometries come from the SQLite database, the
    rendering follows the colours of the web ( js/france, js/union ) in
    two light / dark palettes. The Union colours each member state; the
@@ -829,7 +828,7 @@ class MapScreen extends StatefulWidget {
   State<MapScreen> createState() => _MapScreenState();
 }
 
-class _MapScreenState extends State<MapScreen> {
+class _MapScreenState extends State<MapScreen> with WidgetsBindingObserver {
   final _transformation = TransformationController();
   Map<String, db.GeoLayer>? _layers;
   Map<String, List<db.NamedPoint>>? _points;
@@ -897,21 +896,56 @@ class _MapScreenState extends State<MapScreen> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _load();
-    /* the clock of the world ticks at the minute, only when something
-       on the screen reads the current time: the night zone, the sun
-       or the clocks of the marked cities; on the other maps and with
-       everything switched off the machine sleeps, nothing wakes it
-       twice a minute for a redraw nobody sees */
-    if (widget.map == 'monde') {
-      _ticker = Timer.periodic(const Duration(minutes: 1), (_) {
-        if (_pinnedTime || !mounted) return;
-        final needed = (_groups['nuit'] ?? true) ||
-            (_groups['soleil'] ?? true) ||
-            (_groups['horloges'] ?? false);
-        if (!needed) return;
+    /* the clock of the world wakes exactly on the minute change of
+       the user: the one-shot timer measures what separates now from
+       the next boundary of the wall clock instead of counting a
+       plain minute from the opening of the screen, the night zone
+       switches when the clock of the user switches */
+    _armMinute();
+  }
+
+  /* the minute of the world, only when something on the screen reads
+     the current time: the night zone, the sun or the clocks of the
+     marked cities; on the other maps and with everything switched off
+     the machine sleeps, nothing wakes it for a redraw nobody sees */
+  void _armMinute() {
+    _ticker?.cancel();
+    _ticker = null;
+    if (widget.map != 'monde' || _pinnedTime) return;
+    final needed = (_groups['nuit'] ?? true) ||
+        (_groups['soleil'] ?? true) ||
+        (_groups['horloges'] ?? false);
+    if (!needed) return;
+    final left =
+        60000 - (DateTime.now().millisecondsSinceEpoch % 60000);
+    _ticker = Timer(Duration(milliseconds: left), _onMinute);
+  }
+
+  void _onMinute() {
+    if (!mounted) return;
+    setState(() => _time = DateTime.now());
+    _armMinute();
+  }
+
+  /* minimized pauses the map, a window unfocused but still on the
+     screen keeps living: the observer reports the same states on
+     Windows, macOS, Linux and Android, hidden or paused means
+     minimized, inactive only means the window lost the focus */
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (widget.map != 'monde') return;
+    final asleep = state == AppLifecycleState.hidden ||
+        state == AppLifecycleState.paused;
+    if (asleep) {
+      _ticker?.cancel();
+      _ticker = null;
+    } else {
+      if (!_pinnedTime) {
         setState(() => _time = DateTime.now());
-      });
+      }
+      _armMinute();
     }
   }
 
@@ -963,12 +997,14 @@ class _MapScreenState extends State<MapScreen> {
         _worldCenter = center;
         _hiddenCities = hiddenCities;
         _conflicts = conflicts;
+        _armMinute();
       });
     }
   }
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _ticker?.cancel();
     _transformation.dispose();
     super.dispose();
@@ -1105,6 +1141,8 @@ class _MapScreenState extends State<MapScreen> {
         onChanged: (group, value) {
       writeVisibility(widget.map, group, value);
       setState(() => _groups[group] = value);
+      /* a switched-on night, sun or clocks brings the minute back */
+      _armMinute();
     }, onStyleChanged: (style) {
       writeWorldStyle(style);
       setState(() => _worldStyle = style);
@@ -1212,6 +1250,7 @@ class _MapScreenState extends State<MapScreen> {
                   _pinnedTime = true;
                   _time = base.add(Duration(minutes: (v * 30).round()));
                 });
+                _armMinute();
               },
             ),
           ),
@@ -1226,6 +1265,7 @@ class _MapScreenState extends State<MapScreen> {
               _pinnedTime = true;
               _time = DateTime(_time.year, _time.month, _time.day - 1,
                   _time.hour, _time.minute);
+              _armMinute();
             }),
           ),
           Text('${_time.day}/${_time.month}'),
@@ -1236,6 +1276,7 @@ class _MapScreenState extends State<MapScreen> {
               _pinnedTime = true;
               _time = DateTime(_time.year, _time.month, _time.day + 1,
                   _time.hour, _time.minute);
+              _armMinute();
             }),
           ),
           IconButton(
@@ -1244,6 +1285,7 @@ class _MapScreenState extends State<MapScreen> {
             onPressed: () => setState(() {
               _pinnedTime = false;
               _time = DateTime.now();
+              _armMinute();
             }),
           ),
           _settingsButton(),

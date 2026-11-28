@@ -347,7 +347,7 @@ int _processRss() {
   return 0;
 }
 
-class _StatusBarState extends State<StatusBar> {
+class _StatusBarState extends State<StatusBar> with WidgetsBindingObserver {
   Timer? _timer;
   int _rss = 0;
   int _workers = 1;
@@ -355,12 +355,38 @@ class _StatusBarState extends State<StatusBar> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _refresh();
-    _timer = Timer.periodic(const Duration(seconds: 2), (_) => _refresh());
+    _arm();
+  }
+
+  /* the bar reads the memory every 5 seconds: the measurement stays
+     light and a window unfocused but visible keeps its count, the
+     observer reports the same states on Windows, macOS, Linux and
+     Android */
+  void _arm() {
+    _timer?.cancel();
+    _timer = Timer.periodic(const Duration(seconds: 5), (_) => _refresh());
+  }
+
+  /* minimized stops everything, the return refreshes at once: the
+     numbers jump back to life instead of waiting the next tick */
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    final asleep = state == AppLifecycleState.hidden ||
+        state == AppLifecycleState.paused;
+    if (asleep) {
+      _timer?.cancel();
+      _timer = null;
+    } else {
+      _refresh();
+      _arm();
+    }
   }
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _timer?.cancel();
     super.dispose();
   }

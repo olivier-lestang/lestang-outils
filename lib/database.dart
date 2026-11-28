@@ -68,10 +68,22 @@ Future<ConjugTables> conjugationTables(String language) async {
         [language, what]);
     return rs.isEmpty ? '' : rs.first['valeur'] as String;
   }
-  final set = ConjugTables.from(
-      language, raw('tpl'), raw('verbs'), raw('defs'), raw('vsrc'));
-  _conjCache[language] = set;
-  return set;
+  final tpl = raw('tpl');
+  final verbs = raw('verbs');
+  final defs = raw('defs');
+  final vsrc = raw('vsrc');
+  /* the four raw strings parse in a background isolate: the tables of
+     a language build in one pass and the interface never freezes,
+     the status bar counts the worker while it runs */
+  AppWorkers.spawned++;
+  try {
+    final set = await Isolate.run(
+        () => ConjugTables.from(language, tpl, verbs, defs, vsrc));
+    _conjCache[language] = set;
+    return set;
+  } finally {
+    AppWorkers.spawned--;
+  }
 }
 
 /* ---------------- geography ---------------- */
