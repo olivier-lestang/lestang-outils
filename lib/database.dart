@@ -77,13 +77,23 @@ Future<ConjugTables> conjugationTables(String language) async {
      the status bar counts the worker while it runs */
   AppWorkers.spawned++;
   try {
-    final set = await Isolate.run(
-        () => ConjugTables.from(language, tpl, verbs, defs, vsrc));
+    final set = await _parseConjugation(language, tpl, verbs, defs, vsrc);
     _conjCache[language] = set;
     return set;
   } finally {
     AppWorkers.spawned--;
   }
+}
+
+/* the parsing runs in its own function: a closure sent to an isolate
+   carries its whole context, the one of conjugationTables holds the
+   sqlite database and its native finalizer, which never crosses the
+   boundary of an isolate; this scope only knows the five strings, so
+   the message stays clean and the isolate accepts it */
+Future<ConjugTables> _parseConjugation(String language, String tpl,
+    String verbs, String defs, String vsrc) {
+  return Isolate.run(
+      () => ConjugTables.from(language, tpl, verbs, defs, vsrc));
 }
 
 /* ---------------- geography ---------------- */
