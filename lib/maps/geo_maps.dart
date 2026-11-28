@@ -1,3 +1,4 @@
+/* The geographical maps: France ( with overseas territories ) and the
    European Union. The geometries come from the SQLite database, the
    rendering follows the colours of the web ( js/france, js/union ) in
    two light / dark palettes. The Union colours each member state; the
