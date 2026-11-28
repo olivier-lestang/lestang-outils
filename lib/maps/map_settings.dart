@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../l10n.dart' show translate;
+import '../floating_box.dart';
 import 'world_map.dart' show disputedGroups;
 
 /* a settings group: the title heads the dialog section ( a key of the
@@ -210,9 +211,8 @@ Future<void> mapSettingsDialog(
   var style = worldStyle;
   var center = worldCenter;
   var disputed = conflicts;
-  await showModalBottomSheet<void>(
+  await showFloatingBox<void>(
       context: context,
-      isScrollControlled: true,
       builder: (context) => StatefulBuilder(
           builder: (context, setSheet) => SafeArea(
                 child: ListView(shrinkWrap: true, children: [
@@ -344,9 +344,8 @@ Future<void> disputedBordersDialog(
     ],
   };
   var current = conflicts;
-  await showModalBottomSheet<void>(
+  await showFloatingBox<void>(
       context: context,
-      isScrollControlled: true,
       builder: (context) => StatefulBuilder(
           builder: (context, setSheet) => SafeArea(
                 child: Column(mainAxisSize: MainAxisSize.min, children: [
@@ -401,9 +400,8 @@ Future<void> disputedBordersDialog(
    the database, show all and none at once; every change persists at
    once */Future<void> worldCitiesDialog(BuildContext context, List<String> names,
     Set<String> hidden, void Function(Set<String> updated) onChange) async {
-  await showModalBottomSheet<void>(
+  await showFloatingBox<void>(
       context: context,
-      isScrollControlled: true,
       builder: (context) => StatefulBuilder(
           builder: (context, setSheet) => SafeArea(
                 child: Column(mainAxisSize: MainAxisSize.min, children: [

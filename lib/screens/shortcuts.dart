@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../l10n.dart';
+import '../floating_box.dart';
 
 class Shortcut {
   String name;
@@ -102,7 +103,7 @@ class _ShortcutsScreenState extends State<ShortcutsScreen> {
 
   /* context menu: edit or delete the shortcut */
   Future<void> _menu(int i) async {
-    final choice = await showModalBottomSheet<String>(
+    final choice = await showFloatingBox<String>(
       context: context,
       builder: (context) => SafeArea(
         child: Column(mainAxisSize: MainAxisSize.min, children: [
