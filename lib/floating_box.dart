@@ -7,7 +7,8 @@
    SPDX-License-Identifier: MIT. */
 import 'package:flutter/material.dart';
 
-Future<T?> showFloatingBox<T>(BuildContext context, WidgetBuilder builder) {
+Future<T?> showFloatingBox<T>(
+    {required BuildContext context, required WidgetBuilder builder}) {
   final theme = Theme.of(context);
   final maxHeight = MediaQuery.of(context).size.height - 48;
   return showGeneralDialog<T>(
